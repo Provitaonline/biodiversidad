@@ -5,3 +5,7 @@ The purpose of this application is provide access to Venezuela's available biodi
 ## Development environment
 
 The site is based on the [Gridsome](https://gridsome.org/) [Vue.js](https://vuejs.org/) framework.
+
+## Status
+
+Currently in early development, not ready for public access.
