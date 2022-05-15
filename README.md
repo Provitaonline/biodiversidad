@@ -1,6 +1,6 @@
 # Provita's biodiversity portal
 
-The purpose of this application is provide access to Venezuela's available biodiversity information (e.g., [GBIF](https://www.gbif.org/) data ).
+The purpose of this application is provide access to Venezuela's available biodiversity information (e.g., [GBIF](https://www.gbif.org/) data).
 
 ## Development environment
 
