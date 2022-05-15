@@ -1,6 +1,6 @@
-# Global Biodiversity Information Facility (GBIF) Prototype
+# Provita's biodiversity portal
 
-The purpose of this application is to demonstrate access to [GBIF](https://www.gbif.org/) data using [their published API](https://www.gbif.org/developer/summary).
+The purpose of this application is provide access to Venezuela's available biodiversity information (e.g., [GBIF](https://www.gbif.org/) data ).
 
 ## Development environment
 
