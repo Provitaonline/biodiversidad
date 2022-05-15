@@ -1,0 +1,49 @@
+//@import url('https://fonts.googleapis.com/css?family=DM+Sans:400,400i,500,500i,700,700i&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
+
+//$family-sans-serif: "DM Sans", "Helvetica", "Arial", sans-serif;
+//$family-serif: "Lora", serif;
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Set your colors
+$site-color: #928440;
+$site-icon-color: #FDBE57;
+$primary: #556B2F;
+$primary-invert: findColorInvert($primary);
+$twitter: #4099FF;
+$twitter-invert: findColorInvert($twitter);
+
+$code: inherit;
+
+// Customizations
+
+$navbar-height: 4rem;
+$navbar-breakpoint: 800px;
+
+$navbar-background-color: $site-color;
+$navbar-item-color: $white;
+$navbar-item-hover-background-color: $navbar-background-color;
+$navbar-item-hover-color: #DCDCDC;
+
+$footer-background-color: $navbar-background-color;
+$footer-padding: .75rem 1.5rem .75rem;
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: (
+    "white": ($white, $black),
+    "black": ($black, $white),
+    "light": ($light, $light-invert),
+    "dark": ($dark, $dark-invert),
+    "primary": ($primary, $primary-invert),
+    "info": ($info, $info-invert),
+    "success": ($success, $success-invert),
+    "warning": ($warning, $warning-invert),
+    "danger": ($danger, $danger-invert),
+    "twitter": ($twitter, $twitter-invert)
+);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
