@@ -12,6 +12,14 @@
         <b-navbar-item tag="g-link" to="/about">
           Acerca De
         </b-navbar-item>
+        <b-navbar-dropdown v-if="!is404Page" arrowless right>
+          <template slot="label">
+            {{ $t('flag') }}
+          </template>
+          <b-navbar-item v-for="locale in availableLocales" :key="locale" tag="div" @click.capture="changeLocale(locale)">
+            <g-link :to="localeLink(locale)">{{ $t('flag', locale) }}&nbsp;&nbsp;&nbsp;{{ $t('language', locale) }}</g-link>
+          </b-navbar-item>
+        </b-navbar-dropdown>
       </template>
     </b-navbar>
     <section class="hero">
@@ -79,3 +87,27 @@
   }
 
 </style>
+
+<script>
+
+  export default {
+    data() {
+      return {
+        availableLocales: this.$i18n.availableLocales,
+        is404Page: this.$route.name === '*'
+      }
+    },
+    methods: {
+      localeLink: function (locale) {
+        return this.$tp(this.$route.path, locale, true)
+      },
+      changeLocale: function (locale) {
+        if (this.$i18n.locale.toString() != locale) {
+          // We will do this later to notify components like the map to switch languages
+          //this.$eventBus.$emit('localechanged', locale)
+        }
+      }
+    }
+  }
+
+</script>

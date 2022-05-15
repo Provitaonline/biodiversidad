@@ -27,8 +27,11 @@ library.add(
   faSpinner
 )
 
-export default function (Vue, { router, head, isClient }) {
-  // Set default layout as a global component
+export default function (Vue, { router, head, isClient, appOptions }) {
+
+  appOptions.i18n.setLocaleMessage('es-ve', require('./messages/messages.json').es)
+  appOptions.i18n.setLocaleMessage('en-us', require('./messages/messages.json').en)
+
   Vue.use(Buefy, {defaultIconComponent: 'font-awesome', defaultIconPack: 'fas'})
 
   Vue.component('Layout', DefaultLayout)
