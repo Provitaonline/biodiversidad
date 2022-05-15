@@ -2,9 +2,9 @@
   <div>
     <b-navbar :fixed-top="true">
       <template slot="brand">
-        <b-navbar-item style="background-color: #c8c19f;" class="has-text-centered">
-          <g-link to="/">
-            <b>PROTOTIPO<br>GBIF</b>
+        <b-navbar-item class="logo" style="background-color: white;">
+          <g-link style="margin: auto; max-height: 64px;" to="/">
+            <g-image style="max-height: 64px;" src="~/assets/svgs/logo.svg" alt="Logo" />
           </g-link>
         </b-navbar-item>
       </template>
@@ -46,6 +46,23 @@
 <style lang="scss" scoped>
 
   @import "~/assets/style/_variables";
+
+  .logo {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 4rem;
+    width: 265px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    .logo {
+      width: 265px;
+    }
+  }
+
+  .logo:hover {
+    background-color: #F5F5F5 !important;
+  }
 
   .hero {
     background-color: rgba(85,107,47, 0.1)
