@@ -9,8 +9,16 @@
         </b-navbar-item>
       </template>
       <template slot="end">
-        <b-navbar-item tag="g-link" to="/about">
-          Acerca De
+        <b-navbar-dropdown>
+          <template slot="label">
+            {{ $t('label.gbif') }}
+          </template>
+          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/about')">
+            {{ $t('label.about') }}
+          </b-navbar-item>
+        </b-navbar-dropdown>
+        <b-navbar-item tag="g-link" :to="$tp('/about')">
+          {{ $t('label.about') }}
         </b-navbar-item>
         <b-navbar-dropdown v-if="!is404Page" arrowless right>
           <template slot="label">
@@ -84,6 +92,10 @@
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .navbar-link:not(.is-arrowless)::after {
+    border-color: white;
   }
 
 </style>

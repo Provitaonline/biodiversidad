@@ -5,7 +5,8 @@
     "message": {
     },
     "label": {
-
+      "about": "About",
+      "gbif": "GBIF Data"
     }
   },
   "es": {
@@ -15,7 +16,8 @@
 
     },
     "label": {
-
+      "about": "Acerca De",
+      "gbif": "Datos GBIF"
     }
   }
 }
