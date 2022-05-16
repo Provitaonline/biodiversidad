@@ -11,8 +11,11 @@
 
 <script>
 export default {
-  metaInfo: {
-    title: 'About us'
-  }
+  metaInfo() {
+    return {
+      title: this.$t('label.about'),
+      titleTemplate: '%s - ' + this.$t('label.site')
+    }
+  },
 }
 </script>

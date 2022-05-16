@@ -5,6 +5,8 @@
     "message": {
     },
     "label": {
+      "site": "Provita Biodiversity",
+      "main": "Main",
       "about": "About",
       "gbif": "GBIF Data"
     }
@@ -16,6 +18,8 @@
 
     },
     "label": {
+      "site": "Provita Biodiversidad",
+      "main": "Página Principal",
       "about": "Acerca De",
       "gbif": "Datos GBIF"
     }

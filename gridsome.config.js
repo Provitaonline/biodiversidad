@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'GBIF Prototype',
+  siteName: 'Provita Biodiversidad',
   plugins: [
     {
       use: "gridsome-plugin-i18n",

@@ -112,8 +112,11 @@ import {getGbifOccurrences, getSpeciesSuggestions, getGbifDatasets, getGbifDatas
 import InteractiveMap from '~/components/InteractiveMap.vue'
 
 export default {
-  metaInfo: {
-    title: 'Prototipo GBIF'
+  metaInfo() {
+    return {
+      title: this.$t('label.main'),
+      titleTemplate: '%s - ' + this.$t('label.site')
+    }
   },
   data() {
     return {
