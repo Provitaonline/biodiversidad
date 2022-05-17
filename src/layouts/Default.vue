@@ -14,7 +14,13 @@
             {{ $t('label.gbif') }}
           </template>
           <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/about')">
-            {{ $t('label.about') }}
+            {{ $t('label.occurrences') }}
+          </b-navbar-item>
+          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/about')">
+            {{ $t('label.datasets') }}
+          </b-navbar-item>
+          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/about')">
+            {{ $t('label.occurencesmap') }}
           </b-navbar-item>
         </b-navbar-dropdown>
         <b-navbar-item tag="g-link" :to="$tp('/about')">
@@ -94,7 +100,7 @@
     padding-right: 20px;
   }
 
-  .navbar-link:not(.is-arrowless)::after {
+  ::v-deep .navbar-link:not(.is-arrowless)::after {
     border-color: white;
   }
 

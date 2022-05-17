@@ -8,7 +8,10 @@
       "site": "Provita Biodiversity",
       "main": "Main",
       "about": "About",
-      "gbif": "GBIF Data"
+      "gbif": "GBIF Data",
+      "occurrences": "Occurrences",
+      "datasets": "Datasets",
+      "occurencesmap": "Occurrences map"
     }
   },
   "es": {
@@ -21,7 +24,10 @@
       "site": "Provita Biodiversidad",
       "main": "Página Principal",
       "about": "Acerca De",
-      "gbif": "Datos GBIF"
+      "gbif": "Datos GBIF",
+      "occurrences": "Registros de presencia",
+      "datasets": "Juegos de datos",
+      "occurencesmap": "Mapa de registros"
     }
   }
 }

@@ -54,7 +54,7 @@
           <b-table-column field="publishingCountry" label="País que publica" v-slot="props">
             {{ props.row.publishingCountry }}
           </b-table-column>
-          <b-table-column field="datasetName" label="Conjunto de datos" v-slot="props">
+          <b-table-column field="datasetName" label="Juego de datos" v-slot="props">
             <a :href="'https://gbif.org/es/dataset/' + props.row.datasetKey">{{props.row.datasetName}}</a>
           </b-table-column>
         </b-table>
