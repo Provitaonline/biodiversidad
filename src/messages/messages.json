@@ -11,7 +11,7 @@
       "gbif": "GBIF Data",
       "occurrences": "Occurrences",
       "datasets": "Datasets",
-      "occurencesmap": "Occurrences map"
+      "occurrencesmap": "Occurrences map"
     }
   },
   "es": {
@@ -27,7 +27,7 @@
       "gbif": "Datos GBIF",
       "occurrences": "Registros de presencia",
       "datasets": "Juegos de datos",
-      "occurencesmap": "Mapa de registros"
+      "occurrencesmap": "Mapa de registros de presencia"
     }
   }
 }
