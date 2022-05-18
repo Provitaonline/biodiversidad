@@ -2,10 +2,12 @@
   <Layout>
     <template slot="banner">
       <h1 class="title is-uppercase has-text-centered">
-        ACERCA DE
+        {{ $t('label.about') }}
       </h1>
     </template>
-    <p>Prototipo de acceso de datos relacionados con Venezuela alojados en la <a href="https://www.gbif.org/es/">Infraestructura Mundial de Información en Biodiversidad (GBIF)</a>.</p>
+    <section class="section has-text-centered">
+      <p>Prototipo del portal Provita de biodiversidad en Venezuela. Incluye acceso a datos alojados en la <a href="https://www.gbif.org/es/">Infraestructura Mundial de Información en Biodiversidad (GBIF)</a>.</p>
+    </section>
   </Layout>
 </template>
 
