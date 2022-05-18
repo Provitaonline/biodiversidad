@@ -1,0 +1,23 @@
+{
+  "id": "home",
+  "cards": [
+    {
+      "title": {
+        "en": "Title one",
+        "es": "Título uno"
+      }
+    },
+    {
+      "title": {
+        "en": "Title two",
+        "es": "Título dos"
+      }
+    },
+    {
+      "title": {
+        "en": "Title three",
+        "es": "Título tres"
+      }
+    }
+  ]
+}

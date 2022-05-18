@@ -8,6 +8,13 @@ module.exports = {
   siteName: 'Provita Biodiversidad',
   plugins: [
     {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/home/content.json',
+        typeName: 'HomeContent'
+      }
+    },
+    {
       use: "gridsome-plugin-i18n",
       options: {
         locales: [ // locales list

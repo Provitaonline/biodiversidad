@@ -24,5 +24,8 @@ export async function getGbifDatasets(offset) {
 
 export async function getGbifDatasetDetail(key) {
   let dataset =  await axios.get('https://api.gbif.org/v1/dataset/' + key)
+  //console.log(dataset.data)
+  //if (dataset.data.geographicCoverages.length > 0)
+  //  console.log(dataset.data.geographicCoverages[0].description)
   return dataset
 }
