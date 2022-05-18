@@ -11,7 +11,7 @@
         "es": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
       },
       "link": "/occurrences",
-      "image": "./images/640x480.png"
+      "image": "./images/img-1.png"
     },
     {
       "title": {
@@ -23,7 +23,7 @@
         "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       },
       "link": "/datasets",
-      "image": "./images/640x480.png"
+      "image": "./images/img-2.png"
     },
     {
       "title": {
@@ -35,7 +35,7 @@
         "es": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
       },
       "link": "/occurrences-map",
-      "image": "./images/640x480.png"
+      "image": "./images/img-3.png"
     }
   ]
 }
