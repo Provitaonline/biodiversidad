@@ -52,7 +52,7 @@
       <footer class="footer">
         <div class="has-text-centered">
           <div class="footer-text" style="color: white;">
-          Este sitio es solamente un prototipo. v0.0.4.
+          Este sitio es un prototipo. v0.0.5.
           </div>
         </div>
       </footer>
