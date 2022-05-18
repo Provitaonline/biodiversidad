@@ -3,21 +3,39 @@
   "cards": [
     {
       "title": {
-        "en": "Title one",
-        "es": "Título uno"
-      }
+        "en": "Occurrences",
+        "es": "Registros de Presencia"
+      },
+      "summary": {
+        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "es": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      },
+      "link": "/occurrences",
+      "image": "./images/640x480.png"
     },
     {
       "title": {
-        "en": "Title two",
-        "es": "Título dos"
-      }
+        "en": "Datasets",
+        "es": "Juegos de datos"
+      },
+      "summary": {
+        "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      "link": "/datasets",
+      "image": "./images/640x480.png"
     },
     {
       "title": {
-        "en": "Title three",
-        "es": "Título tres"
-      }
+        "en": "Occurences map",
+        "es": "Mapa de presencias"
+      },
+      "summary": {
+        "en": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "es": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+      },
+      "link": "/occurrences-map",
+      "image": "./images/640x480.png"
     }
   ]
 }
