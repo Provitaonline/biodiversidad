@@ -115,6 +115,13 @@
         is404Page: this.$route.name === '*'
       }
     },
+    mounted() {
+      // WORKAROUND: For some reason, Gridsome is generating a double burger menu, here we remove one of them
+      let burgerElements = document.getElementsByClassName('navbar-burger')
+      if (burgerElements.length > 1) {
+        burgerElements[1].remove()
+      }
+    },
     methods: {
       localeLink: function (locale) {
         return this.$tp(this.$route.path, locale, true)
