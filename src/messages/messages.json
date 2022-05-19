@@ -11,7 +11,9 @@
       "gbif": "GBIF Data",
       "occurrences": "Occurrences",
       "datasets": "Datasets",
-      "occurrencesmap": "Occurrences map"
+      "occurrencesmap": "Occurrences map",
+      "explore": "Explore",
+      "mainbanner": "Provita portal of<br>biodiversity in Venezuela"
     }
   },
   "es": {
@@ -27,7 +29,9 @@
       "gbif": "Datos GBIF",
       "occurrences": "Registros de presencia",
       "datasets": "Juegos de datos",
-      "occurrencesmap": "Mapa de registros de presencia"
+      "occurrencesmap": "Mapa de registros de presencia",
+      "explore": "Explorar",
+      "mainbanner": "Portal Provita de<br>la Biodiversidad en Venezuela"
     }
   }
 }

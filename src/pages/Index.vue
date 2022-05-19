@@ -1,9 +1,7 @@
 <template>
   <Layout>
     <template slot="banner">
-      <h1 class="title is-uppercase has-text-centered">
-        PORTAL PROVITA DE <br> LA BIODIVERSIDAD EN VENEZUELA
-      </h1>
+      <h1 class="title is-uppercase has-text-centered" v-html="$t('label.mainbanner')"></h1>
     </template>
     <section class="section has-text-centered">
       <br>
@@ -28,7 +26,7 @@
                   </div>
                 </div>
                 <div class="menu-card-button" >
-                  <button class="button is-primary">Explorar</button>
+                  <button class="button is-primary">{{$t('label.explore')}}</button>
                 </div>
               </div>
             </g-link>
