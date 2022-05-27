@@ -84,18 +84,6 @@ export default {
       this.gbifDatasetsData.forEach(async (ds, idx) => {
         let dataset = await getGbifDatasetDetail(ds.key)
         let gDS = this.gbifDatasetsData[idx]
-        //if (dataset.data.taxonomicCoverages.length) {
-          /*dataset.data.taxonomicCoverages.forEach(tc => {
-            tc.coverages.forEach(t => {
-              if (t.scientificName) {
-                if (!this.taxons[t.scientificName]) {
-                  this.taxons[t.scientificName] = [ds.key]
-                } else {
-                  this.taxons[t.scientificName].push(ds.key)
-                }
-              }
-            })
-          }) */
           if (ds.type === 'CHECKLIST') {
             getGbifDatasetSpecies(ds.key).then((s) => {
               s.data.results.forEach(r => {
