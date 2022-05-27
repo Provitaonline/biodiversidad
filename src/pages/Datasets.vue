@@ -6,6 +6,16 @@
       </h1>
     </template>
     <br>
+    <br>
+    <b-field>
+      <b-autocomplete style="width: 30%;"
+        :data="taxonomicGroup"
+        v-model="taxonomicGroupFilter"
+        icon="filter"
+        placeholder="Nombre científico"
+      >
+      </b-autocomplete>
+    </b-field>
     <b-table style="cursor: pointer;"
       :data='filteredGbifDatasetsData'
       :loading='loading'
@@ -56,6 +66,7 @@ export default {
         family: {},
         genus: {}
       },
+      taxonomicGroupFilter: '',
       taxonomicGroupsReady: false,
       perPage: 20,
       tags: [],
@@ -88,10 +99,11 @@ export default {
             s.data.results.forEach(r => {
               Object.keys(this.taxonomicGroups).forEach(rank => {
                 if (r[rank]) {
-                  if (!this.taxonomicGroups[rank][r[rank]]) {
-                    this.taxonomicGroups[rank][r[rank]] = {}
+                  let cleanName = r[rank].replace(/<[^>]*>?/gm, '') // Strip tags that exist in some entries
+                  if (!this.taxonomicGroups[rank][cleanName]) {
+                    this.$set(this.taxonomicGroups[rank], cleanName, {})
                   }
-                  this.taxonomicGroups[rank][r[rank]][ds.key] = true
+                  this.$set(this.taxonomicGroups[rank][cleanName], ds.key, true)
                 }
               })
               if (count-- === 0) {this.taxonomicGroupsReady = true; console.log(this.taxonomicGroups)}
@@ -99,8 +111,8 @@ export default {
           })
         }
         let dataset = await getGbifDatasetDetail(ds.key)
+        //console.log(dataset)
         let gDS = this.gbifDatasetsData[idx]
-        //}
         gDS.outOfRange = this.isGeoOutOfRange(dataset.data.geographicCoverages)
         this.$set(this.gbifDatasetsData, idx, gDS)
       })
@@ -115,6 +127,9 @@ export default {
   computed: {
     filteredGbifDatasetsData() {
       return this.gbifDatasetsData.filter(d => !d.outOfRange)
+    },
+    taxonomicGroup() {
+      return Object.keys(this.taxonomicGroups.genus).sort()
     }
   }
 }
