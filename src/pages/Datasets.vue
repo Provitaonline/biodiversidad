@@ -34,7 +34,7 @@
 </style>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions, getAllGbifDatasets, getGbifDatasetDetail} from '~/utils/data'
+import {getGbifOccurrences, getSpeciesSuggestions, getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies} from '~/utils/data'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
 
@@ -51,7 +51,10 @@ export default {
       totalGbifDatasets: 0,
       loading: false,
       gbifDatasetsPage: 1,
-      taxons: {},
+      ranks: ['order', 'family', 'genus'],
+      order: {},
+      family: {},
+      genus: {},
       perPage: 20,
       tags: [],
       datasetTypes: {
@@ -80,8 +83,8 @@ export default {
       this.gbifDatasetsData.forEach(async (ds, idx) => {
         let dataset = await getGbifDatasetDetail(ds.key)
         let gDS = this.gbifDatasetsData[idx]
-        if (dataset.data.taxonomicCoverages.length) {
-          dataset.data.taxonomicCoverages.forEach(tc => {
+        //if (dataset.data.taxonomicCoverages.length) {
+          /*dataset.data.taxonomicCoverages.forEach(tc => {
             tc.coverages.forEach(t => {
               if (t.scientificName) {
                 if (!this.taxons[t.scientificName]) {
@@ -91,12 +94,42 @@ export default {
                 }
               }
             })
-          })
-        }
+          }) */
+          if (ds.type === 'CHECKLIST') {
+            getGbifDatasetSpecies(ds.key).then((s) => {
+              s.data.results.forEach(r => {
+
+                this.ranks.forEach(rank => {
+                  if (r[rank]) {
+                    if (!this[rank][r[rank]]) {
+                      this[rank][r[rank]] = {}
+                    }
+                    this[rank][r[rank]][ds.key] = true
+                  }
+                })
+
+                /*if (r.family) {
+                  if (!this.family[r.family]) {
+                    this.family[r.family] = [ds.key]
+                  } else {
+                    this.family[r.family].push(ds.key)
+                  }
+                }
+                if (r.genus) {
+                  if (!this.genus[r.genus]) {
+                    this.genus[r.genus] = [ds.key]
+                  } else {
+                    this.genus[r.genus].push(ds.key)
+                  }
+                } */
+              })
+            })
+          }
+        //}
         gDS.outOfRange = this.isGeoOutOfRange(dataset.data.geographicCoverages)
         this.$set(this.gbifDatasetsData, idx, gDS)
         count--
-        console.log(this.taxons)
+        if (count === 0) console.log(Object.keys(this.order).length)
       })
     },
     isGeoOutOfRange(geo) {

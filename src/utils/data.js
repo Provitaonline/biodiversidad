@@ -37,3 +37,11 @@ export async function getGbifDatasetDetail(key) {
   //  console.log(dataset.data.geographicCoverages[0].description)
   return dataset
 }
+
+export async function getGbifDatasetSpecies(key) {
+  let species =  await axios.get('https://api.gbif.org/v1/species/search/?datasetKey=' + key + '&rank=GENUS&limit=1000')
+  //console.log(dataset.data)
+  //if (dataset.data.geographicCoverages.length > 0)
+  //  console.log(dataset.data.geographicCoverages[0].description)
+  return species
+}
