@@ -51,10 +51,11 @@ export default {
       totalGbifDatasets: 0,
       loading: false,
       gbifDatasetsPage: 1,
-      ranks: ['order', 'family', 'genus'],
-      order: {},
-      family: {},
-      genus: {},
+      taxonomicGroups: {
+        order: {},
+        family: {},
+        genus: {}
+      },
       perPage: 20,
       tags: [],
       datasetTypes: {
@@ -99,29 +100,14 @@ export default {
             getGbifDatasetSpecies(ds.key).then((s) => {
               s.data.results.forEach(r => {
 
-                this.ranks.forEach(rank => {
+                Object.keys(this.taxonomicGroups).forEach(rank => {
                   if (r[rank]) {
-                    if (!this[rank][r[rank]]) {
-                      this[rank][r[rank]] = {}
+                    if (!this.taxonomicGroups[rank][r[rank]]) {
+                      this.taxonomicGroups[rank][r[rank]] = {}
                     }
-                    this[rank][r[rank]][ds.key] = true
+                    this.taxonomicGroups[rank][r[rank]][ds.key] = true
                   }
                 })
-
-                /*if (r.family) {
-                  if (!this.family[r.family]) {
-                    this.family[r.family] = [ds.key]
-                  } else {
-                    this.family[r.family].push(ds.key)
-                  }
-                }
-                if (r.genus) {
-                  if (!this.genus[r.genus]) {
-                    this.genus[r.genus] = [ds.key]
-                  } else {
-                    this.genus[r.genus].push(ds.key)
-                  }
-                } */
               })
             })
           }
@@ -129,7 +115,7 @@ export default {
         gDS.outOfRange = this.isGeoOutOfRange(dataset.data.geographicCoverages)
         this.$set(this.gbifDatasetsData, idx, gDS)
         count--
-        if (count === 0) console.log(Object.keys(this.order).length)
+        if (count === 0) console.log(this.taxonomicGroups)
       })
     },
     isGeoOutOfRange(geo) {
