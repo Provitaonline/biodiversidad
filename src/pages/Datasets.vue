@@ -56,6 +56,7 @@ export default {
         family: {},
         genus: {}
       },
+      taxonomicGroupsReady: false,
       perPage: 20,
       tags: [],
       datasetTypes: {
@@ -87,7 +88,6 @@ export default {
           if (ds.type === 'CHECKLIST') {
             getGbifDatasetSpecies(ds.key).then((s) => {
               s.data.results.forEach(r => {
-
                 Object.keys(this.taxonomicGroups).forEach(rank => {
                   if (r[rank]) {
                     if (!this.taxonomicGroups[rank][r[rank]]) {
@@ -96,14 +96,13 @@ export default {
                     this.taxonomicGroups[rank][r[rank]][ds.key] = true
                   }
                 })
+                if (count-- === 0) {this.taxonomicGroupsReady = true; console.log(this.taxonomicGroups)}
               })
             })
           }
         //}
         gDS.outOfRange = this.isGeoOutOfRange(dataset.data.geographicCoverages)
         this.$set(this.gbifDatasetsData, idx, gDS)
-        count--
-        if (count === 0) console.log(this.taxonomicGroups)
       })
     },
     isGeoOutOfRange(geo) {
