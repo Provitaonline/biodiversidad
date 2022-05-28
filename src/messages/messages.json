@@ -13,7 +13,10 @@
       "datasets": "Datasets",
       "occurrencesmap": "Occurrences map",
       "explore": "Explore",
-      "mainbanner": "Provita portal of<br>biodiversity in Venezuela"
+      "mainbanner": "Provita portal of<br>biodiversity in Venezuela",
+      "order": "Order",
+      "family": "Family",
+      "genus": "Genus"
     }
   },
   "es": {
@@ -31,7 +34,10 @@
       "datasets": "Juegos de datos",
       "occurrencesmap": "Mapa de registros de presencia",
       "explore": "Explorar",
-      "mainbanner": "Portal Provita de<br>la Biodiversidad en Venezuela"
+      "mainbanner": "Portal Provita de<br>la Biodiversidad en Venezuela",
+      "order": "Orden",
+      "family": "Familia",
+      "genus": "Género"
     }
   }
 }

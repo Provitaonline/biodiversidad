@@ -6,15 +6,28 @@
       </h1>
     </template>
     <br>
-    <br>
     <b-field>
-      <b-autocomplete style="width: 30%;"
-        :data="taxonomicGroup"
-        v-model="taxonomicGroupFilter"
-        icon="filter"
-        placeholder="Nombre científico"
-      >
-      </b-autocomplete>
+      <b-select v-model="selectedTaxonomicGroup">
+        <option
+            v-for="option in Object.keys(taxonomicGroups)"
+            :value="option"
+            :key="option">
+            {{ $t('label.' + option) }}
+        </option>
+      </b-select>
+      <b-field>
+        <b-autocomplete
+          :data="taxonomicGroup"
+          v-model="taxonomicGroupFilter"
+          icon="filter"
+          placeholder="Nombre científico"
+          :disabled="!taxonomicGroupsReady"
+          :open-on-focus="true"
+        >
+        </b-autocomplete>
+      </b-field>
+      <b-button type="is-primary" @click="">Aplicar</b-button>
+      <b-button icon-right="trash" @click="taxonomicGroupFilter = ''; applyFilters = false"/>
     </b-field>
     <b-table style="cursor: pointer;"
       :data='filteredGbifDatasetsData'
@@ -67,7 +80,9 @@ export default {
         genus: {}
       },
       taxonomicGroupFilter: '',
+      applyFilters: false,
       taxonomicGroupsReady: false,
+      selectedTaxonomicGroup: 'order',
       perPage: 20,
       tags: [],
       datasetTypes: {
@@ -129,7 +144,7 @@ export default {
       return this.gbifDatasetsData.filter(d => !d.outOfRange)
     },
     taxonomicGroup() {
-      return Object.keys(this.taxonomicGroups.genus).sort()
+      return Object.keys(this.taxonomicGroups[this.selectedTaxonomicGroup]).sort()
     }
   }
 }
