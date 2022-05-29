@@ -52,7 +52,7 @@
       <footer class="footer">
         <div class="has-text-centered">
           <div class="footer-text" style="color: white;">
-          Este sitio es un prototipo. v0.0.5.
+          Copyright © 2022 Provita, Versión preliminar v{{version}}.
           </div>
         </div>
       </footer>
@@ -107,10 +107,12 @@
 </style>
 
 <script>
+  import {version} from '../../package.json'
 
   export default {
     data() {
       return {
+        version: version,
         availableLocales: this.$i18n.availableLocales,
         is404Page: this.$route.name === '*'
       }
