@@ -7,27 +7,31 @@
     </template>
     <br>
     <b-field>
-      <b-select v-model="selectedTaxonomicGroup">
-        <option
-            v-for="option in Object.keys(taxonomicGroups)"
-            :value="option"
-            :key="option">
-            {{ $t('label.' + option) }}
-        </option>
-      </b-select>
-      <b-field>
+      <b-field label="Categoría" label-position="on-border">
+        <b-select v-model="selectedTaxonomicGroup" @input=" taxonomicGroupFilter = ''; applyFilters = false">
+          <option
+              v-for="option in Object.keys(taxonomicGroups)"
+              :value="option"
+              :key="option">
+              {{ $t('label.' + option) }}
+          </option>
+        </b-select>
+      </b-field>
+      <b-field label="Nombre cientifico" label-position="on-border">
         <b-autocomplete
           :data="taxonomicGroup"
           v-model="taxonomicGroupFilter"
           icon="filter"
-          placeholder="Nombre científico"
+          placeholder="Seleccionar uno..."
           :disabled="!taxonomicGroupsReady"
           :open-on-focus="true"
+          clearable
         >
         </b-autocomplete>
       </b-field>
-      <b-button type="is-primary" @click="">Aplicar</b-button>
-      <b-button icon-right="trash" @click="taxonomicGroupFilter = ''; applyFilters = false"/>
+      <b-checkbox v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
+        Aplicar filtro
+      </b-checkbox>
     </b-field>
     <b-table style="cursor: pointer;"
       :data='filteredGbifDatasetsData'
@@ -121,7 +125,7 @@ export default {
                   this.$set(this.taxonomicGroups[rank][cleanName], ds.key, true)
                 }
               })
-              if (count-- === 0) {this.taxonomicGroupsReady = true; console.log(this.taxonomicGroups)}
+              if (count-- === 0) {this.taxonomicGroupsReady = true}
             })
           })
         }
@@ -137,14 +141,24 @@ export default {
         return (geo[i].boundingBox.minLongitude > -59.57 || geo[i].boundingBox.maxLongitude < -73.036 || geo[i].boundingBox.maxLatitude < 0.72 || geo[i].boundingBox.minLatitude > 12.17)
       }
       return false
+    },
+    isInTaxonomicGroup() {
+      return Object.keys(this.taxonomicGroups[this.selectedTaxonomicGroup]).includes(this.taxonomicGroupFilter)
     }
   },
   computed: {
     filteredGbifDatasetsData() {
+      if (this.applyFilters && this.isInTaxonomicGroup()) {
+        return this.gbifDatasetsData.filter(d => {
+          return !d.outOfRange && Object.keys(this.taxonomicGroups[this.selectedTaxonomicGroup][this.taxonomicGroupFilter]).includes(d.key)
+        })
+      }
       return this.gbifDatasetsData.filter(d => !d.outOfRange)
     },
     taxonomicGroup() {
-      return Object.keys(this.taxonomicGroups[this.selectedTaxonomicGroup]).sort()
+      return Object.keys(this.taxonomicGroups[this.selectedTaxonomicGroup]).sort().filter(tg => {
+        return tg.toLowerCase().indexOf(this.taxonomicGroupFilter.toLowerCase()) >= 0
+      })
     }
   }
 }
