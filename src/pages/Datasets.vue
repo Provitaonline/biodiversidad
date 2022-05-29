@@ -1,9 +1,7 @@
 <template>
   <Layout>
     <template slot="banner">
-      <h1 class="title is-uppercase has-text-centered">
-        Datos GBIF de Venezuela<br>Juegos de datos
-      </h1>
+      <h1 class="title is-uppercase has-text-centered" v-html="$page.datasetsContent.bannerText[$i18n.locale.substr(0, 2)]"></h1>
     </template>
     <br>
     <b-field>
@@ -59,6 +57,17 @@
 <style>
 
 </style>
+
+<page-query>
+  query  {
+    datasetsContent (id: "datasets") {
+      bannerText {
+        en
+        es
+      }
+    }
+  }
+</page-query>
 
 <script>
 import {getGbifOccurrences, getSpeciesSuggestions, getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies} from '~/utils/data'
