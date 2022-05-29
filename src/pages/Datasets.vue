@@ -7,7 +7,7 @@
     </template>
     <br>
     <b-field>
-      <b-field label="Categoría" label-position="on-border">
+      <b-field :label="$t('label.rank')" label-position="on-border">
         <b-select v-model="selectedTaxonomicGroup" @input=" taxonomicGroupFilter = ''; applyFilters = false">
           <option
               v-for="option in Object.keys(taxonomicGroups)"
@@ -17,12 +17,12 @@
           </option>
         </b-select>
       </b-field>
-      <b-field label="Nombre cientifico" label-position="on-border">
+      <b-field :label="$t('label.scientificname')" label-position="on-border">
         <b-autocomplete
           :data="taxonomicGroup"
           v-model="taxonomicGroupFilter"
           icon="filter"
-          placeholder="Seleccionar uno..."
+          :placeholder="$t('label.selectone')"
           :disabled="!taxonomicGroupsReady"
           :open-on-focus="true"
           clearable
@@ -30,7 +30,7 @@
         </b-autocomplete>
       </b-field>
       <b-checkbox v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
-        Aplicar filtro
+        {{ $t('label.applifilters') }}
       </b-checkbox>
     </b-field>
     <b-table style="cursor: pointer;"

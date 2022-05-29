@@ -16,7 +16,11 @@
       "mainbanner": "Provita portal of<br>biodiversity in Venezuela",
       "order": "Order",
       "family": "Family",
-      "genus": "Genus"
+      "genus": "Genus",
+      "scientificname": "Scientific name",
+      "rank": "Rank",
+      "applifilters": "Apply filter",
+      "selectone": "Select one..."
     }
   },
   "es": {
@@ -37,7 +41,11 @@
       "mainbanner": "Portal Provita de<br>la Biodiversidad en Venezuela",
       "order": "Orden",
       "family": "Familia",
-      "genus": "Género"
+      "genus": "Género",
+      "scientificname": "Nombre científico",
+      "rank": "Categoría",
+      "applifilters": "Aplicar filtro",
+      "selectone": "Seleccionar uno..."
     }
   }
 }
