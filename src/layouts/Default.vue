@@ -52,7 +52,7 @@
       <footer class="footer">
         <div class="has-text-centered">
           <div class="footer-text" style="color: white;">
-          Copyright © 2022 Provita, Versión preliminar v{{version}}.
+          Copyright © 2022 Provita, Versión preliminar / Early version v{{version}}.
           </div>
         </div>
       </footer>

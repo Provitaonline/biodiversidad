@@ -20,7 +20,10 @@
       "scientificname": "Scientific name",
       "rank": "Rank",
       "applifilters": "Apply filter",
-      "selectone": "Select one..."
+      "selectone": "Select one...",
+      "title": "Title",
+      "type": "Type",
+      "organization": "Organization"
     }
   },
   "es": {
@@ -45,7 +48,10 @@
       "scientificname": "Nombre científico",
       "rank": "Categoría",
       "applifilters": "Aplicar filtro",
-      "selectone": "Seleccionar uno..."
+      "selectone": "Seleccionar uno...",
+      "title": "Título",
+      "type": "Tipo",
+      "organization": "Organización"
     }
   }
 }

@@ -41,13 +41,13 @@
       :perPage='perPage'
       :pagination-simple='true'
     >
-      <b-table-column width="50%" field="title" label="Título" v-slot="props">
+      <b-table-column width="50%" field="title" :label="$t('label.title')" v-slot="props">
         <a :href="'https://gbif.org/es/dataset/' + props.row.key">{{ props.row.title }}</a>
       </b-table-column>
-      <b-table-column field="type" label="Tipo" v-slot="props">
+      <b-table-column field="type" :label="$t('label.type')" v-slot="props">
         {{ datasetTypes[props.row.type] }}
       </b-table-column>
-      <b-table-column field="publishingOrganizationTitle" label="Organización" v-slot="props">
+      <b-table-column field="publishingOrganizationTitle" :label="$t('label.organization')" v-slot="props">
         {{ props.row.publishingOrganizationTitle }}
       </b-table-column>
     </b-table>
