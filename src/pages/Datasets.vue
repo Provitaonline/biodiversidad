@@ -120,29 +120,31 @@ export default {
       this.gbifDatasetsData = result.data.results
       this.totalGbifDatasets = result.data.count
       this.loading = false
-      let count = this.gbifDatasetsData.length
+      let getSpeciesPromises = []
       this.gbifDatasetsData.forEach(async (ds, idx) => {
         if (ds.type === 'CHECKLIST') {
-          getGbifDatasetSpecies(ds.key).then((s) => {
-            s.data.results.forEach(r => {
-              Object.keys(this.taxonomicGroups).forEach(rank => {
-                if (r[rank]) {
-                  let cleanName = r[rank].replace(/<[^>]*>?/gm, '') // Strip tags that exist in some entries
-                  if (!this.taxonomicGroups[rank][cleanName]) {
-                    this.$set(this.taxonomicGroups[rank], cleanName, {})
-                  }
-                  this.$set(this.taxonomicGroups[rank][cleanName], ds.key, true)
-                }
-              })
-              if (count-- === 0) {this.taxonomicGroupsReady = true}
-            })
-          })
+          getSpeciesPromises.push(function() {return getGbifDatasetSpecies(ds.key)}())
         }
         let dataset = await getGbifDatasetDetail(ds.key)
-        //console.log(dataset)
         let gDS = this.gbifDatasetsData[idx]
         gDS.outOfRange = this.isGeoOutOfRange(dataset.data.geographicCoverages)
         this.$set(this.gbifDatasetsData, idx, gDS)
+      })
+      Promise.all(getSpeciesPromises).then((speciesData) => {
+        speciesData.forEach(s => {
+          s.data.results.forEach(r => {
+            Object.keys(this.taxonomicGroups).forEach(rank => {
+              if (r[rank]) {
+                let cleanName = r[rank].replace(/<[^>]*>?/gm, '') // Strip tags that exist in some entries
+                if (!this.taxonomicGroups[rank][cleanName]) {
+                  this.$set(this.taxonomicGroups[rank], cleanName, {})
+                }
+                this.$set(this.taxonomicGroups[rank][cleanName], r.datasetKey, true)
+              }
+            })
+          })
+        })
+        this.taxonomicGroupsReady = true
       })
     },
     isGeoOutOfRange(geo) {
