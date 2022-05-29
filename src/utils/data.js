@@ -17,31 +17,25 @@ export async function getSpeciesSuggestions(pre) {
 }
 
 export async function getGbifDatasets(offset) {
-  //let response = await axios.get('https://api.gbif.org/v1/dataset/?country=VE&limit=20,facet=license&facet=publishingOrg&offset=' + offset,
   let response = await axios.get('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=20&facet=license&facet=publishingOrg&offset=' + offset,
     {headers: {'Accept-Language': 'es; 0.9, en; 0.8'}})
   return response
 }
 
 export async function getAllGbifDatasets() {
-  //let response = await axios.get('https://api.gbif.org/v1/dataset/?country=VE&limit=20,facet=license&facet=publishingOrg&offset=' + offset,
   let response = await axios.get('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=1000&facet=license&facet=publishingOrg',
     {headers: {'Accept-Language': 'es; 0.9, en; 0.8'}})
+
+  if (!response.data.endOfRecords) console.log('Fix this: there are more than 1000 datasets')
   return response
 }
 
 export async function getGbifDatasetDetail(key) {
   let dataset =  await axios.get('https://api.gbif.org/v1/dataset/' + key)
-  //console.log(dataset.data)
-  //if (dataset.data.geographicCoverages.length > 0)
-  //  console.log(dataset.data.geographicCoverages[0].description)
   return dataset
 }
 
 export async function getGbifDatasetSpecies(key) {
   let species =  await axios.get('https://api.gbif.org/v1/species/search/?datasetKey=' + key + '&rank=GENUS&limit=1000')
-  //console.log(dataset.data)
-  //if (dataset.data.geographicCoverages.length > 0)
-  //  console.log(dataset.data.geographicCoverages[0].description)
   return species
 }
