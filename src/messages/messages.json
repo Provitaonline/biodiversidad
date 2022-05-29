@@ -24,7 +24,8 @@
       "title": "Title",
       "type": "Type",
       "organization": "Organization",
-      "pubdate": "Publication date"
+      "pubdate": "Publication date",
+      "taxonomicfilter": "Taxonomic filter"
     }
   },
   "es": {
@@ -53,7 +54,8 @@
       "title": "Título",
       "type": "Tipo",
       "organization": "Organización",
-      "pubdate": "Fecha de publicación"
+      "pubdate": "Fecha de publicación",
+      "taxonomicfilter": "Filtro taxonómico"
     }
   }
 }

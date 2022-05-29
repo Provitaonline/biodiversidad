@@ -5,6 +5,9 @@
     </template>
     <br>
     <b-field>
+      <div style="align-self: center">
+        <b>{{$t('label.taxonomicfilter')}}:&nbsp</b>
+      </div>
       <b-field :label="$t('label.rank')" label-position="on-border">
         <b-select v-model="selectedTaxonomicGroup" @input=" taxonomicGroupFilter = ''; applyFilters = false">
           <option
@@ -28,6 +31,7 @@
         >
         </b-autocomplete>
       </b-field>
+      &nbsp&nbsp
       <b-checkbox v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
         {{ $t('label.applifilters') }}
       </b-checkbox>
