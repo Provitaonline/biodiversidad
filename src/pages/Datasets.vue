@@ -43,7 +43,7 @@
       paginated
       detailed
       :perPage='perPage'
-      :pagination-simple='true'
+      :pagination-simple='false'
     >
       <b-table-column searchable sortable width="50%" field="title" :label="$t('label.title')" v-slot="props">
         <a :href="'https://gbif.org/es/dataset/' + props.row.key">{{ props.row.title }}</a>
@@ -110,7 +110,7 @@ export default {
       applyFilters: false,
       taxonomicGroupsReady: false,
       selectedTaxonomicGroup: 'order',
-      perPage: 20,
+      perPage: 24,
       tags: [],
       datasetTypes: {
         OCCURRENCE: {es: 'Registro', en: 'Occurrence'},
