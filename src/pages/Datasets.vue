@@ -32,23 +32,32 @@
         {{ $t('label.applifilters') }}
       </b-checkbox>
     </b-field>
-    <b-table style="cursor: pointer;"
+    <b-table
       :data='filteredGbifDatasetsData'
       :loading='loading'
       hoverable
       paginated
+      detailed
       :perPage='perPage'
       :pagination-simple='true'
     >
-      <b-table-column searchable width="50%" field="title" :label="$t('label.title')" v-slot="props">
+      <b-table-column searchable sortable width="50%" field="title" :label="$t('label.title')" v-slot="props">
         <a :href="'https://gbif.org/es/dataset/' + props.row.key">{{ props.row.title }}</a>
       </b-table-column>
-      <b-table-column searchable field="publishingOrganizationTitle" :label="$t('label.organization')" v-slot="props">
+      <b-table-column searchable sortable field="publishingOrganizationTitle" :label="$t('label.organization')" v-slot="props">
         {{ props.row.publishingOrganizationTitle }}
       </b-table-column>
-      <b-table-column field="type" :label="$t('label.type')" v-slot="props">
-        {{ datasetTypes[props.row.type] }}
+      <b-table-column searchable sortable field="typeExpanded" :label="$t('label.type')" v-slot="props">
+        {{ props.row.typeExpanded }}
       </b-table-column>
+
+      <template #detail="props">
+        <div>
+          <div v-html="props.row.description"></div>
+          <br>
+          <small><b>{{ $t('label.pubdate') }}: </b>{{ $d(new Date(props.row.pubDate)) }}</small>
+        </div>
+      </template>
     </b-table>
 
   </Layout>
@@ -100,11 +109,11 @@ export default {
       perPage: 20,
       tags: [],
       datasetTypes: {
-        OCCURRENCE: 'Registro',
-        CHECKLIST: 'Lista de especies',
-        SAMPLING_EVENT: 'Evento de muestreo',
-        METADATA: 'Metadatos',
-        undefined: 'Desconocido'
+        OCCURRENCE: {es: 'Registro', en: 'Occurrence'},
+        CHECKLIST: {es: 'Lista de especies', en: 'Checklist'},
+        SAMPLING_EVENT: {es: 'Evento de muestreo', en: 'Sampling event'},
+        METADATA: {es: 'Metadatos', en: 'Metadata'},
+        undefined: {es: 'Desconocido', en: 'Undefined'}
       },
       selectedOptions: []
     }
@@ -113,12 +122,20 @@ export default {
   },
   mounted() {
     this.loadGbifDatasets()
+    this.$eventBus.$on('localechanged', (locale) => {
+      this.loadGbifDatasets()
+    })
   },
   methods: {
     async loadGbifDatasets() {
       this.loading = true
       let result = await getAllGbifDatasets()
       this.gbifDatasetsData = result.data.results
+
+      this.gbifDatasetsData.forEach((ds, idx) => {
+        this.gbifDatasetsData[idx].typeExpanded = this.datasetTypes[ds.type][this.$i18n.locale.substr(0, 2)]
+      })
+
       this.totalGbifDatasets = result.data.count
       this.loading = false
       let getSpeciesPromises = []
@@ -129,7 +146,9 @@ export default {
         let dataset = await getGbifDatasetDetail(ds.key)
         let gDS = this.gbifDatasetsData[idx]
         gDS.outOfRange = this.isGeoOutOfRange(dataset.data.geographicCoverages)
+        gDS.pubDate = dataset.data.pubDate
         this.$set(this.gbifDatasetsData, idx, gDS)
+        console.log(gDS)
       })
       Promise.all(getSpeciesPromises).then((speciesData) => {
         speciesData.forEach(s => {

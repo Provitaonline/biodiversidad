@@ -34,6 +34,8 @@ export default function (Vue, { router, head, isClient, appOptions }) {
 
   Vue.use(Buefy, {defaultIconComponent: 'font-awesome', defaultIconPack: 'fas'})
 
+  Vue.prototype.$eventBus = new Vue({})
+
   Vue.component('Layout', DefaultLayout)
 
   Vue.component('font-awesome', FontAwesomeIcon)

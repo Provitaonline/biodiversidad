@@ -23,7 +23,8 @@
       "selectone": "Select one...",
       "title": "Title",
       "type": "Type",
-      "organization": "Organization"
+      "organization": "Organization",
+      "pubdate": "Publication date"
     }
   },
   "es": {
@@ -51,7 +52,8 @@
       "selectone": "Seleccionar uno...",
       "title": "Título",
       "type": "Tipo",
-      "organization": "Organización"
+      "organization": "Organización",
+      "pubdate": "Fecha de publicación"
     }
   }
 }

@@ -131,7 +131,8 @@
       changeLocale: function (locale) {
         if (this.$i18n.locale.toString() != locale) {
           // We will do this later to notify components like the map to switch languages
-          //this.$eventBus.$emit('localechanged', locale)
+          this.$eventBus.$emit('localechanged', locale)
+          console.log('locale changed')
         }
       }
     }
