@@ -29,7 +29,8 @@
       "organization": "Organization",
       "pubdate": "Publication date",
       "taxonomicfilter": "Taxonomic filter",
-      "license": "License"
+      "license": "License",
+      "loadingnames": "Loading names in use..."
     }
   },
   "es": {
@@ -63,7 +64,8 @@
       "organization": "Organización",
       "pubdate": "Fecha de publicación",
       "taxonomicfilter": "Filtro taxonómico",
-      "license": "Licencia"
+      "license": "Licencia",
+      "loadingnames": "Cargando nombres en uso..."
     }
   }
 }
