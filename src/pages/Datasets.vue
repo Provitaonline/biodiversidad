@@ -131,6 +131,9 @@ export default {
       loading: false,
       gbifDatasetsPage: 1,
       taxonomicGroups: {
+        kingdom: {},
+        phylum: {},
+        class: {},
         order: {},
         family: {},
         genus: {}
