@@ -36,6 +36,8 @@
       <b-checkbox size="is-small" v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
         {{ $t('label.applifilters') }}
       </b-checkbox>
+      &nbsp&nbsp
+      <span v-if="!taxonomicGroupsReady"><font-awesome class="fa-spin" :icon="['fas', 'spinner']"/></span>
     </b-field>
     <b-table
       :data='filteredGbifDatasetsData'
