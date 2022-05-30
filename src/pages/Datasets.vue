@@ -45,17 +45,42 @@
       :perPage='perPage'
       :pagination-simple='false'
     >
-      <b-table-column searchable sortable width="50%" field="title" :label="$t('label.title')" v-slot="props">
-        <a :href="'https://gbif.org/es/dataset/' + props.row.key">{{ props.row.title }}</a>
+      <b-table-column searchable sortable width="50%" field="title" :label="$t('label.title')">
+        <template v-slot="props">
+          <a :href="'https://gbif.org/es/dataset/' + props.row.key">{{ props.row.title }}</a>
+        </template>
+        <template #searchable="props">
+          <b-input v-model="props.filters[props.column.field]"
+            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
       </b-table-column>
-      <b-table-column searchable sortable field="publishingOrganizationTitle" :label="$t('label.organization')" v-slot="props">
-        {{ props.row.publishingOrganizationTitle }}
+      <b-table-column searchable sortable field="publishingOrganizationTitle" :label="$t('label.organization')">
+        <template v-slot="props">
+          {{ props.row.publishingOrganizationTitle }}
+        </template>
+        <template #searchable="props">
+          <b-input v-model="props.filters[props.column.field]"
+            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
       </b-table-column>
-      <b-table-column searchable sortable field="typeExpanded" :label="$t('label.type')" v-slot="props">
-        {{ props.row.typeExpanded }}
+      <b-table-column searchable sortable field="typeExpanded" :label="$t('label.type')">
+        <template v-slot="props">
+          {{ props.row.typeExpanded }}
+        </template>
+        <template #searchable="props">
+          <b-input v-model="props.filters[props.column.field]"
+            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
       </b-table-column>
-      <b-table-column searchable sortable field="licenseShort" :label="$t('label.license')" v-slot="props">
-        {{ props.row.licenseShort }}
+      <b-table-column searchable sortable field="licenseShort" :label="$t('label.license')">
+        <template v-slot="props">
+          {{ props.row.licenseShort }}
+        </template>
+        <template #searchable="props">
+          <b-input v-model="props.filters[props.column.field]"
+            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+        </template>
       </b-table-column>
 
       <template #detail="props">
