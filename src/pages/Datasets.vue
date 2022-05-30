@@ -6,10 +6,10 @@
     <br>
     <b-field>
       <div style="align-self: center">
-        <b>{{$t('label.taxonomicfilter')}}:&nbsp</b>
+        <b><small>{{$t('label.taxonomicfilter')}}:&nbsp</small></b>
       </div>
       <b-field :label="$t('label.rank')" label-position="on-border">
-        <b-select v-model="selectedTaxonomicGroup" @input=" taxonomicGroupFilter = ''; applyFilters = false">
+        <b-select size="is-small" v-model="selectedTaxonomicGroup" @input=" taxonomicGroupFilter = ''; applyFilters = false">
           <option
               v-for="option in Object.keys(taxonomicGroups)"
               :value="option"
@@ -20,6 +20,7 @@
       </b-field>
       <b-field :label="$t('label.scientificname')" label-position="on-border">
         <b-autocomplete
+          size="is-small"
           :data="taxonomicGroup"
           v-model="taxonomicGroupFilter"
           icon="filter"
@@ -32,7 +33,7 @@
         </b-autocomplete>
       </b-field>
       &nbsp&nbsp
-      <b-checkbox v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
+      <b-checkbox size="is-small" v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
         {{ $t('label.applifilters') }}
       </b-checkbox>
     </b-field>
@@ -50,7 +51,7 @@
           <a :href="'https://gbif.org/es/dataset/' + props.row.key">{{ props.row.title }}</a>
         </template>
         <template #searchable="props">
-          <b-input v-model="props.filters[props.column.field]"
+          <b-input v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
       </b-table-column>
@@ -59,7 +60,7 @@
           {{ props.row.publishingOrganizationTitle }}
         </template>
         <template #searchable="props">
-          <b-input v-model="props.filters[props.column.field]"
+          <b-input v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
       </b-table-column>
@@ -68,7 +69,7 @@
           {{ props.row.typeExpanded }}
         </template>
         <template #searchable="props">
-          <b-input v-model="props.filters[props.column.field]"
+          <b-input v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
       </b-table-column>
@@ -77,7 +78,7 @@
           {{ props.row.licenseShort }}
         </template>
         <template #searchable="props">
-          <b-input v-model="props.filters[props.column.field]"
+          <b-input v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
