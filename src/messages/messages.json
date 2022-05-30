@@ -25,7 +25,8 @@
       "type": "Type",
       "organization": "Organization",
       "pubdate": "Publication date",
-      "taxonomicfilter": "Taxonomic filter"
+      "taxonomicfilter": "Taxonomic filter",
+      "license": "License"
     }
   },
   "es": {
@@ -55,7 +56,8 @@
       "type": "Tipo",
       "organization": "Organización",
       "pubdate": "Fecha de publicación",
-      "taxonomicfilter": "Filtro taxonómico"
+      "taxonomicfilter": "Filtro taxonómico",
+      "license": "Licencia"
     }
   }
 }

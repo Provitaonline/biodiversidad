@@ -54,6 +54,9 @@
       <b-table-column searchable sortable field="typeExpanded" :label="$t('label.type')" v-slot="props">
         {{ props.row.typeExpanded }}
       </b-table-column>
+      <b-table-column searchable sortable field="licenseShort" :label="$t('label.license')" v-slot="props">
+        {{ props.row.licenseShort }}
+      </b-table-column>
 
       <template #detail="props">
         <div>
@@ -119,6 +122,11 @@ export default {
         METADATA: {es: 'Metadatos', en: 'Metadata'},
         undefined: {es: 'Desconocido', en: 'Undefined'}
       },
+      licenseTypes: {
+        'http://creativecommons.org/licenses/by-nc/4.0/legalcode': 'CC BY-NC 4.0',
+        'http://creativecommons.org/publicdomain/zero/1.0/legalcode': 'CC0 1.0',
+        'http://creativecommons.org/licenses/by/4.0/legalcode': 'CC BY 4.0',
+      },
       selectedOptions: []
     }
   },
@@ -138,6 +146,7 @@ export default {
 
       this.gbifDatasetsData.forEach((ds, idx) => {
         this.gbifDatasetsData[idx].typeExpanded = this.datasetTypes[ds.type][this.$i18n.locale.substr(0, 2)]
+        this.gbifDatasetsData[idx].licenseShort = this.licenseTypes[ds.license]
       })
 
       this.totalGbifDatasets = result.data.count
@@ -152,7 +161,6 @@ export default {
         gDS.outOfRange = this.isGeoOutOfRange(dataset.data.geographicCoverages)
         gDS.pubDate = dataset.data.pubDate
         this.$set(this.gbifDatasetsData, idx, gDS)
-        console.log(gDS)
       })
       Promise.all(getSpeciesPromises).then((speciesData) => {
         speciesData.forEach(s => {
