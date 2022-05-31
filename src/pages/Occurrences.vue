@@ -7,27 +7,38 @@
     </template>
     <br>
     <b-field>
-      <b-autocomplete style="width: 30%;"
+      <div style="align-self: center">
+        <b><small>{{$t('label.filters')}}:&nbsp</small></b>
+      </div>
+      <b-autocomplete size="is-small" style="width: 20%;"
         :data="searchAutoData"
         v-model="name"
         icon="filter"
         placeholder="Nombre científico"
         field="scientificName"
         @typing="getSpeciesSuggestions"
+        @input="clearApplyFilters()"
+        clearable
       >
       </b-autocomplete>
-      <b-field>
-        <b-taginput
-          v-model="tags"
-          :data="codes"
-          autocomplete
-          :open-on-focus="true"
-          placeholder="IUCN"
-        >
-        </b-taginput>
-      </b-field>
-      <b-button type="is-primary" @click="loadGbifOccurrences()">Aplicar</b-button>
-      <b-button icon-right="trash" @click="name=''; tags=[]; loadGbifOccurrences(1)"/>
+      <b-taginput
+        size="is-small"
+        v-model="tags"
+        icon="filter"
+        :data="codes"
+        autocomplete
+        :open-on-focus="true"
+        placeholder="IUCN"
+        clearable
+        @input="clearApplyFilters()"
+      >
+      </b-taginput>
+      &nbsp&nbsp
+      <b-checkbox size="is-small" v-model="applyFilters" @input="applyFilterChange()">
+        {{ $t('label.applifilters') }}
+      </b-checkbox>
+      <!-- <b-button size="is-small" type="is-primary" @click="loadGbifOccurrences()">Aplicar</b-button>
+      <b-button size="is-small" icon-right="trash" @click="name=''; tags=[]; loadGbifOccurrences(1)"/> -->
     </b-field>
     <b-table
       :data='gbifOccurrencesData'
@@ -78,6 +89,7 @@ export default {
     return {
       gbifOccurrencesData: [],
       searchAutoData: [],
+      applyFilters: false,
       name: '',
       totalGbifOccurrences: 0,
       loading: false,
@@ -121,6 +133,18 @@ export default {
       getSpeciesSuggestions(name).then((result) => {
         this.searchAutoData = result.data
       })
+    },
+    applyFilterChange() {
+      if (this.applyFilters) {
+        this.loadGbifOccurrences()
+      } else {
+        this.name=''
+        this.tags=[]
+        this.loadGbifOccurrences(1)
+      }
+    },
+    clearApplyFilters() {
+      this.applyFilters = false
     }
   }
 }

@@ -34,7 +34,7 @@
       </b-field>
       &nbsp&nbsp
       <b-checkbox size="is-small" v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
-        {{ $t('label.applifilters') }}
+        {{ $t('label.applifilter') }}
       </b-checkbox>
       <div v-if="!taxonomicGroupsReady" style="align-self: center">
         &nbsp&nbsp
