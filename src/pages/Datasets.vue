@@ -8,7 +8,7 @@
       <div style="align-self: center">
         <b><small>{{$t('label.taxonomicfilter')}}:&nbsp</small></b>
       </div>
-      <b-field :label="$t('label.rank')" label-position="on-border">
+      <b-field>
         <b-select size="is-small" v-model="selectedTaxonomicGroup" @input=" taxonomicGroupFilter = ''; applyFilters = false">
           <option
               v-for="option in Object.keys(taxonomicGroups)"
@@ -18,7 +18,7 @@
           </option>
         </b-select>
       </b-field>
-      <b-field :label="$t('label.scientificname')" label-position="on-border">
+      <b-field>
         <b-autocomplete
           size="is-small"
           :data="taxonomicGroup"
