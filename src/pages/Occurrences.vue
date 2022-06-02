@@ -26,11 +26,8 @@
               </b-autocomplete>
             </b-field>
             <ul>
-              <li>
-                Featured
-              </li>
-              <li>
-                Test
+              <li v-for="item, index in taxonList" @click="taxonClicked(item.taxonKey)">
+                {{ item.taxon }} ({{ item.count }})
               </li>
             </ul>
             <b-field>
@@ -76,7 +73,7 @@
             {{ props.row.year }}
           </b-table-column>
           <b-table-column field="iucnRedListCategory" label="Lista roja IUCN" v-slot="props">
-            {{props.row.iucnRedListCategory}} - {{ iucnCodes[props.row.iucnRedListCategory] }}
+            <span v-if="props.row.iucnRedListCategory">{{props.row.iucnRedListCategory}} - {{ $t('label.' + props.row.iucnRedListCategory) }}</span>
           </b-table-column>
           <b-table-column field="publishingCountry" label="País que publica" v-slot="props">
             {{ props.row.publishingCountry }}
@@ -132,16 +129,20 @@ export default {
       perPage: 20,
       tags: [],
       iucnCodes: ['EX', 'EW', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', 'NE'],
-      selectedOptions: []
+      selectedOptions: [],
+      ranks: ['kingdom', 'phylum', 'class', 'order', 'family', 'genus'],
+      currentRank: 0,
+      taxonList: []
     }
   },
   components: {
   },
   mounted() {
     this.loadGbifOccurrences(1)
-    getGbifOccurrenceTaxonomies('kingdom').then(r => console.log(r))
-    getGbifOccurrenceTaxonomies('phylum', 1).then(r => console.log(r))
+    getGbifOccurrenceTaxonomies('kingdom').then(r => this.taxonList = r)
+    /*getGbifOccurrenceTaxonomies('phylum', 1).then(r => console.log(r))
     getGbifOccurrenceTaxonomies('class', 44).then(r => console.log(r))
+    getGbifOccurrenceTaxonomies('order', 212).then(r => console.log(r)) */
   },
   methods: {
     loadGbifOccurrences(page) {
@@ -173,8 +174,10 @@ export default {
     clearApplyFilters() {
       this.applyFilters = false
     },
-    testme(a) {
-      console.log(a)
+    taxonClicked(taxonKey) {
+      this.currentRank++
+      getGbifOccurrenceTaxonomies(this.ranks[this.currentRank], taxonKey).then(r => this.taxonList = r)
+      console.log(taxonKey)
     }
   }
 }
