@@ -5,78 +5,105 @@
         Datos GBIF de Venezuela<br>Registros de presencia de especies
       </h1>
     </template>
-    <br>
-    <b-field>
-      <div style="align-self: center">
-        <b><small>{{$t('label.filters')}}:&nbsp</small></b>
+    <div class="columns is-gapless">
+      <aside class="column is-narrow side-panel">
+        <div class="side-panel-content">
+          <div class="box">
+            <div class="has-text-centered">
+              <b><small>{{$t('label.filters')}}</small></b><br><br>
+            </div>
+            <b-field>
+              <b-autocomplete size="is-small"
+                :data="searchAutoData"
+                v-model="name"
+                icon="filter"
+                placeholder="Nombre científico"
+                field="scientificName"
+                @typing="getSpeciesSuggestions"
+                @input="clearApplyFilters()"
+                clearable
+              >
+              </b-autocomplete>
+            </b-field>
+            <b-field>
+              <b-taginput
+                size="is-small"
+                v-model="tags"
+                icon="filter"
+                :data="Object.keys(iucnCodes)"
+                autocomplete
+                :open-on-focus="true"
+                placeholder="IUCN"
+                clearable
+                @input="clearApplyFilters()"
+              >
+                <template slot-scope="props">
+                  {{props.option}} - {{ iucnCodes[props.option] }}
+                </template>
+              </b-taginput>
+            </b-field>
+            <b-field>
+              <b-checkbox size="is-small" v-model="applyFilters" @input="applyFilterChange()">
+                {{ $t('label.applifilters') }}
+              </b-checkbox>
+            </b-field>
+          </div>
+        </div>
+      </aside>
+      <div class="column">
+        <b-table
+          :data='gbifOccurrencesData'
+          :loading='loading'
+          hoverable
+          paginated
+          :pagination-simple='true'
+          backend-pagination
+          :total='totalGbifOccurrences'
+          @page-change='gbifOccurrencesOnPageChange'
+        >
+          <b-table-column width="30%" field="scientificName" label="Nombre científico" v-slot="props">
+            <a :href="'https://gbif.org/es/occurrence/' + props.row.gbifID">{{ props.row.scientificName }}</a>
+          </b-table-column>
+          <b-table-column field="year" label="Año" v-slot="props">
+            {{ props.row.year }}
+          </b-table-column>
+          <b-table-column field="iucnRedListCategory" label="Lista roja IUCN" v-slot="props">
+            {{props.row.iucnRedListCategory}} - {{ iucnCodes[props.row.iucnRedListCategory] }}
+          </b-table-column>
+          <b-table-column field="publishingCountry" label="País que publica" v-slot="props">
+            {{ props.row.publishingCountry }}
+          </b-table-column>
+          <b-table-column field="datasetName" label="Juego de datos" v-slot="props">
+            <a :href="'https://gbif.org/es/dataset/' + props.row.datasetKey">{{props.row.datasetName}}</a>
+          </b-table-column>
+        </b-table>
       </div>
-      <b-autocomplete size="is-small" style="width: 20%;"
-        :data="searchAutoData"
-        v-model="name"
-        icon="filter"
-        placeholder="Nombre científico"
-        field="scientificName"
-        @typing="getSpeciesSuggestions"
-        @input="clearApplyFilters()"
-        clearable
-      >
-      </b-autocomplete>
-      <b-taginput
-        size="is-small"
-        v-model="tags"
-        icon="filter"
-        :data="codes"
-        autocomplete
-        :open-on-focus="true"
-        placeholder="IUCN"
-        clearable
-        @input="clearApplyFilters()"
-      >
-      </b-taginput>
-      &nbsp&nbsp
-      <b-checkbox size="is-small" v-model="applyFilters" @input="applyFilterChange()">
-        {{ $t('label.applifilters') }}
-      </b-checkbox>
-      <!-- <b-button size="is-small" type="is-primary" @click="loadGbifOccurrences()">Aplicar</b-button>
-      <b-button size="is-small" icon-right="trash" @click="name=''; tags=[]; loadGbifOccurrences(1)"/> -->
-    </b-field>
-    <b-table
-      :data='gbifOccurrencesData'
-      :loading='loading'
-      hoverable
-      paginated
-      :pagination-simple='true'
-      backend-pagination
-      :total='totalGbifOccurrences'
-      @page-change='gbifOccurrencesOnPageChange'
-    >
-      <b-table-column width="30%" field="scientificName" label="Nombre científico" v-slot="props">
-        <a :href="'https://gbif.org/es/occurrence/' + props.row.gbifID">{{ props.row.scientificName }}</a>
-      </b-table-column>
-      <b-table-column field="year" label="Año" v-slot="props">
-        {{ props.row.year }}
-      </b-table-column>
-      <b-table-column field="iucnRedListCategory" label="Lista roja IUCN" v-slot="props">
-        {{props.row.iucnRedListCategory}} - {{ iucnCodes[props.row.iucnRedListCategory] }}
-      </b-table-column>
-      <b-table-column field="publishingCountry" label="País que publica" v-slot="props">
-        {{ props.row.publishingCountry }}
-      </b-table-column>
-      <b-table-column field="datasetName" label="Juego de datos" v-slot="props">
-        <a :href="'https://gbif.org/es/dataset/' + props.row.datasetKey">{{props.row.datasetName}}</a>
-      </b-table-column>
-    </b-table>
-
+    </div>
   </Layout>
 </template>
 
 
-<style>
+<style lang="scss" scoped>
+  @import "~/assets/style/_variables";
+
+  @media only screen and (min-width: 769px) {
+    .side-panel {
+      width: 20rem;
+      transition: margin-left .3s;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .side-panel {
+      min-width: 20rem;
+      border-right: 0;
+    }
+  }
 
 </style>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions} from '~/utils/data'
+import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies} from '~/utils/data'
 
 export default {
   metaInfo() {
@@ -96,10 +123,9 @@ export default {
       gbifOccurrencesPage: 1,
       perPage: 20,
       tags: [],
-      codes: ['EX', 'EW', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', 'NE'],
       iucnCodes: {
         EX: 'Extinto',
-        EW: 'Extinto',
+        EW: 'Extinto en estado silvestre',
         CR: 'En peligro crítico',
         EN: 'En peligro',
         VU: 'Vulnerable',
@@ -114,7 +140,10 @@ export default {
   components: {
   },
   mounted() {
-    this.loadGbifOccurrences()
+    this.loadGbifOccurrences(1)
+    getGbifOccurrenceTaxonomies('kingdom').then(r => console.log(r))
+    getGbifOccurrenceTaxonomies('phylum', 1).then(r => console.log(r))
+    getGbifOccurrenceTaxonomies('class', 44).then(r => console.log(r))
   },
   methods: {
     loadGbifOccurrences(page) {
@@ -136,7 +165,7 @@ export default {
     },
     applyFilterChange() {
       if (this.applyFilters) {
-        this.loadGbifOccurrences()
+        this.loadGbifOccurrences(1)
       } else {
         this.name=''
         this.tags=[]
@@ -145,6 +174,9 @@ export default {
     },
     clearApplyFilters() {
       this.applyFilters = false
+    },
+    testme(a) {
+      console.log(a)
     }
   }
 }
