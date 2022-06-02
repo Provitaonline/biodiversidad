@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "buefy": "^0.9.20",
+    "bulma-block-list": "^0.6.0",
     "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
     "mapbox-gl": "^2.8.2",

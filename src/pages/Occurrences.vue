@@ -25,9 +25,10 @@
               >
               </b-autocomplete>
             </b-field>
-            <ul>
-              <li v-for="item, index in taxonList" @click="taxonClicked(item.taxonKey)">
-                {{ item.taxon }} ({{ item.count }})
+            <ul class="block-list is-small">
+              <li v-for="item, index in taxonList">
+                <a @click="taxonClicked(item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
+                <a @click="countClicked(item.taxon)" style="float: right;">({{ $n(item.count) }})</a>
               </li>
             </ul>
             <b-field>
@@ -105,6 +106,10 @@
     }
   }
 
+  .block-list li {
+    padding: 4px;
+  }
+
 </style>
 
 <script>
@@ -178,6 +183,10 @@ export default {
       this.currentRank++
       getGbifOccurrenceTaxonomies(this.ranks[this.currentRank], taxonKey).then(r => this.taxonList = r)
       console.log(taxonKey)
+    },
+    countClicked(taxon) {
+      this.name = taxon
+      console.log(taxon)
     }
   }
 }
