@@ -25,12 +25,20 @@
               >
               </b-autocomplete>
             </b-field>
+            <ul>
+              <li>
+                Featured
+              </li>
+              <li>
+                Test
+              </li>
+            </ul>
             <b-field>
               <b-taginput
                 size="is-small"
                 v-model="tags"
                 icon="filter"
-                :data="Object.keys(iucnCodes)"
+                :data="iucnCodes"
                 autocomplete
                 :open-on-focus="true"
                 placeholder="IUCN"
@@ -38,7 +46,7 @@
                 @input="clearApplyFilters()"
               >
                 <template slot-scope="props">
-                  {{props.option}} - {{ iucnCodes[props.option] }}
+                  {{props.option}} - {{ $t('label.' + props.option) }}
                 </template>
               </b-taginput>
             </b-field>
@@ -123,17 +131,7 @@ export default {
       gbifOccurrencesPage: 1,
       perPage: 20,
       tags: [],
-      iucnCodes: {
-        EX: 'Extinto',
-        EW: 'Extinto en estado silvestre',
-        CR: 'En peligro crítico',
-        EN: 'En peligro',
-        VU: 'Vulnerable',
-        NT: 'Casi amenazado',
-        LC: 'Preocupación menor',
-        DD: 'Datos insuficientes',
-        NE: 'No evaluado'
-      },
+      iucnCodes: ['EX', 'EW', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', 'NE'],
       selectedOptions: []
     }
   },
