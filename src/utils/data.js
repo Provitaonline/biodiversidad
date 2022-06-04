@@ -6,9 +6,10 @@ export async function getGbifOccurrences(offset, name, tags) {
   if (tags.length) {
     tags.forEach(t => sT += '&iucnRedListCategory=' + t)
   }
-  let response = await axios.get('https://api.gbif.org/v1/occurrence/search?country=VE&facet=type&offset=' + offset + sN +sT,
+  let response = await fetch('https://api.gbif.org/v1/occurrence/search?country=VE&offset=' + offset + sN +sT,
     {headers: {'Accept-Language': 'es; 0.9, en; 0.8'}})
 
+  response = await response.json()
   return response
 }
 
@@ -44,12 +45,14 @@ export async function getGbifDatasetSpecies(key) {
 export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
   //let result =  await axios.get('https://www.gbif.org/api/occurrence/breakdown?country=VE&limit=100&dimension=' + rank + 'Key' + ((taxonKey) ? '&taxon_key=' + taxonKey : ''))
 
-  let response =  await axios.get('/.netlify/functions/gbiftaxonomy?country=VE&limit=100&dimension=' + rank + 'Key' + ((taxonKey !== undefined) ? '&taxon_key=' + taxonKey : ''))
+  console.log(rank)
+  let response =  await fetch('/.netlify/functions/gbiftaxonomy?country=VE&limit=100&dimension=' + rank + 'Key' + ((taxonKey !== undefined) ? '&taxon_key=' + taxonKey : ''))
+  response = await response.json()
 
-  //console.log(response)
+  let result = response.results.map(r => {
+    //return {taxon: r._resolved.canonicalName, count: r.count, taxonKey: r.filter[rank + '_key']}
+    return {taxon: r._resolved.canonicalName ? r._resolved.canonicalName : r.displayName, count: r.count, taxonKey: r.filter[rank + '_key']}
 
-  let result = response.data.results.map(r => {
-    return {taxon: r.displayName, count: r.count, taxonKey: r.filter[rank + '_key']}
   })
 
 

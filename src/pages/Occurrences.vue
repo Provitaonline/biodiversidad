@@ -25,12 +25,22 @@
               >
               </b-autocomplete>
             </b-field>
-            <ul class="block-list is-small">
-              <li v-for="item, index in taxonList">
-                <a @click="taxonClicked(item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
-                <a @click="countClicked(item.taxon)" style="float: right;">({{ $n(item.count) }})</a>
-              </li>
-            </ul>
+            <div>
+              <div v-if="currentRank === 0">{{ $t('label.' + ranks[currentRank]) }}:</div>
+              <div v-for="selected, index in selectedTaxons">
+                <div class="is-flex is-align-items-center">
+                  <span>{{ $t('label.' + selected.rank) }}: {{ selected.taxon }}</span>
+                  <span class="is-flex-grow-1"></span>
+                  <a @click="removeTaxonClicked(index)"><font-awesome size="sm" :icon="['fas', 'times-circle']"/></a>
+                </div>
+              </div>
+              <ul class="block-list is-small">
+                <li v-for="item, index in taxonList">
+                  <a @click="taxonClicked(item.taxon, item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
+                  <a @click="countClicked(item.taxon)" style="float: right;">({{ $n(item.count) }})</a>
+                </li>
+              </ul>
+            </div>
             <b-field>
               <b-taginput
                 size="is-small"
@@ -130,14 +140,17 @@ export default {
       name: '',
       totalGbifOccurrences: 0,
       loading: false,
+      isTaxonomyLoading: true,
+      isFullPage: false,
       gbifOccurrencesPage: 1,
       perPage: 20,
       tags: [],
       iucnCodes: ['EX', 'EW', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', 'NE'],
       selectedOptions: [],
-      ranks: ['kingdom', 'phylum', 'class', 'order', 'family', 'genus'],
+      ranks: ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'],
       currentRank: 0,
-      taxonList: []
+      taxonList: [],
+      selectedTaxons: []
     }
   },
   components: {
@@ -153,8 +166,8 @@ export default {
     loadGbifOccurrences(page) {
       this.loading = true
       getGbifOccurrences((page-1)*20, this.name, this.tags).then((result) => {
-        this.gbifOccurrencesData = result.data.results
-        this.totalGbifOccurrences = result.data.count
+        this.gbifOccurrencesData = result.results
+        this.totalGbifOccurrences = result.count
         this.loading = false
       })
     },
@@ -179,14 +192,21 @@ export default {
     clearApplyFilters() {
       this.applyFilters = false
     },
-    taxonClicked(taxonKey) {
+    taxonClicked(taxon, taxonKey) {
+      if (this.currentRank >= this.ranks.length - 1) return
+
+      this.selectedTaxons.push({taxon: taxon, taxonKey: taxonKey, rank: this.ranks[this.currentRank]})
       this.currentRank++
       getGbifOccurrenceTaxonomies(this.ranks[this.currentRank], taxonKey).then(r => this.taxonList = r)
-      console.log(taxonKey)
     },
     countClicked(taxon) {
       this.name = taxon
-      console.log(taxon)
+    },
+    removeTaxonClicked(index) {
+      let taxonKey = (index === 0) ? undefined : this.selectedTaxons[index - 1].taxonKey
+      this.selectedTaxons = this.selectedTaxons.filter((s, i) => i < index)
+      this.currentRank = index
+      getGbifOccurrenceTaxonomies(this.ranks[index], taxonKey).then(r => this.taxonList = r)
     }
   }
 }
