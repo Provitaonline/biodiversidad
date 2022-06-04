@@ -177,7 +177,7 @@ export default {
     },
     getSpeciesSuggestions(name) {
       getSpeciesSuggestions(name).then((result) => {
-        this.searchAutoData = result.data
+        this.searchAutoData = result
       })
     },
     applyFilterChange() {

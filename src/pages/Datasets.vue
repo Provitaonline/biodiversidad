@@ -177,14 +177,14 @@ export default {
     async loadGbifDatasets() {
       this.loading = true
       let result = await getAllGbifDatasets()
-      this.gbifDatasetsData = result.data.results
+      this.gbifDatasetsData = result.results
 
       this.gbifDatasetsData.forEach((ds, idx) => {
         this.gbifDatasetsData[idx].typeExpanded = this.datasetTypes[ds.type][this.$i18n.locale.substr(0, 2)]
         this.gbifDatasetsData[idx].licenseShort = this.licenseTypes[ds.license]
       })
 
-      this.totalGbifDatasets = result.data.count
+      this.totalGbifDatasets = result.count
       this.loading = false
       let getSpeciesPromises = []
       this.gbifDatasetsData.forEach(async (ds, idx) => {
@@ -193,13 +193,13 @@ export default {
         }
         let dataset = await getGbifDatasetDetail(ds.key)
         let gDS = this.gbifDatasetsData[idx]
-        gDS.outOfRange = this.isGeoOutOfRange(dataset.data.geographicCoverages)
-        gDS.pubDate = dataset.data.pubDate
+        gDS.outOfRange = this.isGeoOutOfRange(dataset.geographicCoverages)
+        gDS.pubDate = dataset.pubDate
         this.$set(this.gbifDatasetsData, idx, gDS)
       })
       Promise.all(getSpeciesPromises).then((speciesData) => {
         speciesData.forEach(s => {
-          s.data.results.forEach(r => {
+          s.results.forEach(r => {
             Object.keys(this.taxonomicGroups).forEach(rank => {
               if (r[rank]) {
                 let cleanName = r[rank].replace(/<[^>]*>?/gm, '') // Strip tags that exist in some entries
