@@ -26,7 +26,8 @@
               </b-autocomplete>
             </b-field>
             <div>
-              <div v-if="currentRank === 0">{{ $t('label.' + ranks[currentRank]) }}:</div>
+              <div class="is-size-7 has-text-centered">Cliquea el nombre para navegar. Cliquea el número para escoger.</div>
+              <!-- <div v-if="currentRank === 0"><small>{{ $t('label.' + ranks[currentRank]) }}:</small></div> -->
               <div v-for="selected, index in selectedTaxons">
                 <div class="is-flex is-align-items-center">
                   <span>{{ $t('label.' + selected.rank) }}: {{ selected.taxon }}</span>
@@ -34,12 +35,16 @@
                   <a @click="removeTaxonClicked(index)"><font-awesome size="sm" :icon="['fas', 'times-circle']"/></a>
                 </div>
               </div>
-              <ul class="block-list is-small">
-                <li v-for="item, index in taxonList">
-                  <a @click="taxonClicked(item.taxon, item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
-                  <a @click="countClicked(item.taxon)" style="float: right;">({{ $n(item.count) }})</a>
-                </li>
-              </ul>
+              <div style="display:block; position: relative;">
+                <b-loading :is-full-page="false" v-model="isTaxonomyLoading"></b-loading>
+                <ul class="block-list is-small">
+                  <li v-for="item, index in taxonList">
+                    <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
+                    <span v-else style="display:inline-block">{{ item.taxon }}</span>
+                    <a @click="countClicked(item.taxon)" style="float: right;">({{ $n(item.count) }})</a>
+                  </li>
+                </ul>
+              </div>
             </div>
             <b-field>
               <b-taginput
@@ -140,7 +145,7 @@ export default {
       name: '',
       totalGbifOccurrences: 0,
       loading: false,
-      isTaxonomyLoading: true,
+      isTaxonomyLoading: false,
       isFullPage: false,
       gbifOccurrencesPage: 1,
       perPage: 20,
@@ -157,10 +162,7 @@ export default {
   },
   mounted() {
     this.loadGbifOccurrences(1)
-    getGbifOccurrenceTaxonomies('kingdom').then(r => this.taxonList = r)
-    /*getGbifOccurrenceTaxonomies('phylum', 1).then(r => console.log(r))
-    getGbifOccurrenceTaxonomies('class', 44).then(r => console.log(r))
-    getGbifOccurrenceTaxonomies('order', 212).then(r => console.log(r)) */
+    this.loadGbifOccurrenceTaxonomies(this.ranks[0])
   },
   methods: {
     loadGbifOccurrences(page) {
@@ -180,6 +182,13 @@ export default {
         this.searchAutoData = result
       })
     },
+    loadGbifOccurrenceTaxonomies(rank, taxonKey) {
+      this.isTaxonomyLoading = true
+      getGbifOccurrenceTaxonomies(rank, taxonKey).then(r => {
+        this.taxonList = r
+        this.isTaxonomyLoading = false
+      })
+    },
     applyFilterChange() {
       if (this.applyFilters) {
         this.loadGbifOccurrences(1)
@@ -193,11 +202,9 @@ export default {
       this.applyFilters = false
     },
     taxonClicked(taxon, taxonKey) {
-      if (this.currentRank >= this.ranks.length - 1) return
-
       this.selectedTaxons.push({taxon: taxon, taxonKey: taxonKey, rank: this.ranks[this.currentRank]})
       this.currentRank++
-      getGbifOccurrenceTaxonomies(this.ranks[this.currentRank], taxonKey).then(r => this.taxonList = r)
+      this.loadGbifOccurrenceTaxonomies(this.ranks[this.currentRank], taxonKey)
     },
     countClicked(taxon) {
       this.name = taxon
@@ -206,7 +213,8 @@ export default {
       let taxonKey = (index === 0) ? undefined : this.selectedTaxons[index - 1].taxonKey
       this.selectedTaxons = this.selectedTaxons.filter((s, i) => i < index)
       this.currentRank = index
-      getGbifOccurrenceTaxonomies(this.ranks[index], taxonKey).then(r => this.taxonList = r)
+      this.loadGbifOccurrenceTaxonomies(this.ranks[index], taxonKey)
+
     }
   }
 }
