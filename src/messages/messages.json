@@ -11,6 +11,7 @@
       "gbif": "GBIF Data",
       "occurrences": "Occurrences",
       "datasets": "Datasets",
+      "dataset": "Dataset",
       "occurrencesmap": "Occurrences map",
       "explore": "Explore",
       "mainbanner": "Provita portal of<br>biodiversity in Venezuela",
@@ -27,6 +28,7 @@
       "applifilters": "Apply filters",
       "applifilter": "Apply filter",
       "selectone": "Select one...",
+      "addone": "Add one...",
       "title": "Title",
       "type": "Type",
       "organization": "Organization",
@@ -42,7 +44,15 @@
       "NT": "Near threatened",
       "LC": "Least concern",
       "DD": "Data deficient",
-      "NE": "Not evaluated"
+      "NE": "Not evaluated",
+      "clicktonavigate": "Click name to navigate.",
+      "clicktochoose": "Click count to choose.",
+      "taxon": "Taxon",
+      "iucnredlistcategory": "IUCN Red List category",
+      "year": " Year",
+      "publishingcountry": "Publishing country",
+      "entername": "Enter name",
+      "taxonomynavigator": "Taxonomy navigator"
     }
   },
   "es": {
@@ -58,6 +68,7 @@
       "gbif": "Datos GBIF",
       "occurrences": "Registros de presencia",
       "datasets": "Juegos de datos",
+      "dataset": "Juego de datos",
       "occurrencesmap": "Mapa de registros de presencia",
       "explore": "Explorar",
       "mainbanner": "Portal Provita de<br>la Biodiversidad en Venezuela",
@@ -74,6 +85,7 @@
       "applifilters": "Aplicar filtros",
       "applifilter": "Aplicar filtro",
       "selectone": "Seleccionar uno...",
+      "addone": "Añadir uno...",
       "title": "Título",
       "type": "Tipo",
       "organization": "Organización",
@@ -89,7 +101,15 @@
       "NT": "Casi amenazado",
       "LC": "Preocupación menor",
       "DD": "Datos insuficientes",
-      "NE": "No evaluado"
+      "NE": "No evaluado",
+      "clicktonavigate": "Cliquea el nombre para navegar.",
+      "clicktochoose": "Cliquea el número para escoger.",
+      "taxon": "Taxón",
+      "iucnredlistcategory": "Categoría Lista Roja IUCN",
+      "year": " Año",
+      "publishingcountry": "País que publica",
+      "entername": "Coloca un nombre",
+      "taxonomynavigator": "Navegador de taxonomía"
     }
   }
 }
