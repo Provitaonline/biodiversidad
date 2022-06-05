@@ -13,40 +13,6 @@
               <b><small>{{$t('label.filters')}}</small></b><br><br>
             </div>
             <b-field>
-              <b-autocomplete size="is-small"
-                :data="searchAutoData"
-                v-model="name"
-                icon="filter"
-                placeholder="Nombre científico"
-                field="scientificName"
-                @typing="getSpeciesSuggestions"
-                @input="clearApplyFilters()"
-                clearable
-              >
-              </b-autocomplete>
-            </b-field>
-            <div>
-              <div class="is-size-7 has-text-centered">Cliquea el nombre para navegar. Cliquea el número para escoger.</div>
-              <!-- <div v-if="currentRank === 0"><small>{{ $t('label.' + ranks[currentRank]) }}:</small></div> -->
-              <div v-for="selected, index in selectedTaxons">
-                <div class="is-flex is-align-items-center">
-                  <span>{{ $t('label.' + selected.rank) }}: {{ selected.taxon }}</span>
-                  <span class="is-flex-grow-1"></span>
-                  <a @click="removeTaxonClicked(index)"><font-awesome size="sm" :icon="['fas', 'times-circle']"/></a>
-                </div>
-              </div>
-              <div style="display:block; position: relative;">
-                <b-loading :is-full-page="false" v-model="isTaxonomyLoading"></b-loading>
-                <ul class="block-list is-small">
-                  <li v-for="item, index in taxonList">
-                    <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
-                    <span v-else style="display:inline-block">{{ item.taxon }}</span>
-                    <a @click="countClicked(item.taxon)" style="float: right;">({{ $n(item.count) }})</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <b-field>
               <b-taginput
                 size="is-small"
                 v-model="tags"
@@ -63,6 +29,52 @@
                 </template>
               </b-taginput>
             </b-field>
+            <b-field>
+              <b-autocomplete size="is-small"
+                :data="searchAutoData"
+                v-model="name"
+                icon="filter"
+                placeholder="Nombre científico"
+                field="scientificName"
+                @typing="getSpeciesSuggestions"
+                @input="clearApplyFilters()"
+                clearable
+              >
+              </b-autocomplete>
+            </b-field>
+            <b-collapse class="has-text-centered" :open="false">
+              <template #trigger="props">
+                  <a
+                      aria-controls="contentIdForA11y4"
+                      :aria-expanded="props.open">
+                      <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
+                      <small><b>{{ 'Taxonomy navigator' }}</b></small>
+                  </a>
+              </template>
+              <div>
+                <div class="is-size-7 has-text-centered">Cliquea el nombre para navegar.</div>
+                <div class="is-size-7 has-text-centered">Cliquea el número para escoger.</div>
+                <!-- <div v-if="currentRank === 0"><small>{{ $t('label.' + ranks[currentRank]) }}:</small></div> -->
+                <div v-for="selected, index in selectedTaxons">
+                  <div class="is-flex is-align-items-center is-size-6">
+                    <span><small>{{ $t('label.' + selected.rank) }}: {{ selected.taxon }}</small></span>
+                    <span class="is-flex-grow-1"></span>
+                    <a @click="removeTaxonClicked(index)"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
+                  </div>
+                </div>
+              </div>
+              <div style="display:block; position: relative; overflow-y: auto; max-height: 30vh;">
+                <b-loading :is-full-page="false" v-model="isTaxonomyLoading"></b-loading>
+                <ul class="block-list is-small">
+                  <li v-for="item, index in taxonList">
+                    <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
+                    <span v-else style="display:inline-block">{{ item.taxon }}</span>
+                    <a @click="countClicked(item.taxon)" style="float: right;">({{ $n(item.count) }})</a>
+                  </li>
+                </ul>
+              </div>
+            </b-collapse>
+            <hr>
             <b-field>
               <b-checkbox size="is-small" v-model="applyFilters" @input="applyFilterChange()">
                 {{ $t('label.applifilters') }}
