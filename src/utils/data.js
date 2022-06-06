@@ -1,3 +1,16 @@
+
+async function checkCacheAge() {
+  const cacheDate = localStorage.getItem('gbifCacheDate')
+
+  if (cacheDate && (new Date().getTime() - new Date(cacheDate).getTime()) < 86400000) {
+    console.log(new Date().getTime() - new Date(cacheDate).getTime())
+    return
+  }
+
+  localStorage.setItem('gbifCacheDate', new Date().toString())
+  await caches.delete('gbif-cache')
+}
+
 export async function getGbifOccurrences(offset, name, tags) {
   let sN = (name) ? '&scientificName=' + name : ''
   let sT = ''
@@ -18,8 +31,19 @@ export async function getSpeciesSuggestions(pre) {
 }
 
 export async function getAllGbifDatasets() {
-  let response = await fetch('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=1000&facet=license&facet=publishingOrg',
+  checkCacheAge()
+
+  const cache = await caches.open('gbif-cache')
+
+  let request = new Request ('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=1000&facet=license&facet=publishingOrg',
     {headers: {'Accept-Language': 'es; 0.9, en; 0.8'}})
+
+  let response = await cache.match(request)
+
+  if (!response) {
+    await cache.add(request)
+    response = await cache.match(request)
+  }
 
   response = await response.json()
   if (!response.endOfRecords) console.log('Fix this: there are more than 1000 datasets')
@@ -27,17 +51,37 @@ export async function getAllGbifDatasets() {
 }
 
 export async function getGbifDatasetDetail(key) {
-  let dataset =  await fetch('https://api.gbif.org/v1/dataset/' + key)
+  const cache = await caches.open('gbif-cache')
+
+  let url = 'https://api.gbif.org/v1/dataset/' + key
+
+  let dataset = await cache.match(url)
+
+  if (!dataset) {
+    await cache.add(url)
+    dataset = await cache.match(url)
+  }
 
   dataset = await dataset.json()
   return dataset
 }
 
 export async function getGbifDatasetSpecies(key) {
-  let species =  await fetch('https://api.gbif.org/v1/species/search/?datasetKey=' + key + '&rank=GENUS&limit=1000')
+  const cache = await caches.open('gbif-cache')
+
+  let url = 'https://api.gbif.org/v1/species/search/?datasetKey=' + key + '&rank=GENUS&limit=1000'
+
+  let species = await cache.match(url)
+
+  if (!species) { // Cache miss
+    await cache.add(url)
+    species = await cache.match(url)
+  }
 
   species = await species.json()
+
   return species
+
 }
 
 export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
