@@ -42,12 +42,10 @@
             </b-field>
             <b-collapse :open="false" class="has-text-centered">
               <template #trigger="props">
-                  <a
-                      aria-controls="contentIdForA11y4"
-                      :aria-expanded="props.open">
-                      <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
-                      <small><b>{{ $t('label.taxonomynavigator') }}</b></small>
-                  </a>
+                <a>
+                  <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
+                  <small><b>{{ $t('label.taxonomynavigator') }}</b></small>
+                </a>
               </template>
               <div>
                 <div class="is-size-7 has-text-centered">{{ $t('label.clicktonavigate') }}</div>
