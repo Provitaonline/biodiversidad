@@ -59,17 +59,17 @@
                   </div>
                 </div>
               </div>
-              <div style="display:block; position: relative; overflow-y: auto; max-height: 30vh;">
+              <div class="taxon-list">
                 <b-loading :is-full-page="false" v-model="isTaxonomyLoading"></b-loading>
                 <ul class="block-list is-small has-text-left">
-                  <li style="border-bottom-style: groove; border-bottom-width: thin;">
-                    <span style="display:inline-block"><b>{{ $t('label.' + ranks[currentRank]) }}</b></span>
-                    <span style="float: right;"><b>({{ $t('label.count') }})</b></span>
+                  <li class="taxon-list-header">
+                    <span class="taxon-list-name"><b>{{ $t('label.' + ranks[currentRank]) }}</b></span>
+                    <span class="taxon-list-count"><b>({{ $t('label.count') }})</b></span>
                   </li>
                   <li v-for="item, index in taxonList">
-                    <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
-                    <span v-else style="display:inline-block">{{ item.taxon }}</span>
-                    <a @click="countClicked(item.taxon)" style="float: right;">({{ $n(item.count) }})</a>
+                    <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" class="taxon-list-name">{{ item.taxon }}</a>
+                    <span v-else class="taxon-list-name">{{ item.taxon }}</span>
+                    <a @click="countClicked(item.taxon)" class="taxon-list-count">({{ $n(item.count) }})</a>
                   </li>
                 </ul>
               </div>
@@ -135,6 +135,26 @@
 
   .block-list li {
     padding: 4px;
+  }
+
+  .taxon-list {
+    display: block;
+    position: relative;
+    overflow-y: auto;
+    max-height: 30vh;
+  }
+
+  .taxon-list-header {
+    border-bottom-style: groove;
+    border-bottom-width: thin;
+  }
+
+  .taxon-list-name {
+    display: inline-block
+  }
+
+  .taxon-list-count {
+    float: right;
   }
 
 </style>
