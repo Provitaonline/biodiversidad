@@ -137,7 +137,6 @@ export default {
   components: {
   },
   mounted() {
-    console.log(this.$page.homeContent)
   },
   methods: {
 

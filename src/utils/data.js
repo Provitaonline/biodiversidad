@@ -1,11 +1,10 @@
 
 async function checkCacheAge() {
+
+  // Bust the cache if older than 24 hours
   const cacheDate = localStorage.getItem('gbifCacheDate')
 
-  if (cacheDate && (new Date().getTime() - new Date(cacheDate).getTime()) < 86400000) {
-    console.log(new Date().getTime() - new Date(cacheDate).getTime())
-    return
-  }
+  if (cacheDate && (new Date().getTime() - new Date(cacheDate).getTime()) < 86400000) return
 
   localStorage.setItem('gbifCacheDate', new Date().toString())
   await caches.delete('gbif-cache')
@@ -85,14 +84,11 @@ export async function getGbifDatasetSpecies(key) {
 }
 
 export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
-  //let result =  await axios.get('https://www.gbif.org/api/occurrence/breakdown?country=VE&limit=100&dimension=' + rank + 'Key' + ((taxonKey) ? '&taxon_key=' + taxonKey : ''))
 
-  console.log(rank)
   let response =  await fetch('/.netlify/functions/gbiftaxonomy?country=VE&limit=100&dimension=' + rank + 'Key' + ((taxonKey !== undefined) ? '&taxon_key=' + taxonKey : ''))
   response = await response.json()
 
   let result = response.results.map(r => {
-    //return {taxon: r._resolved.canonicalName, count: r.count, taxonKey: r.filter[rank + '_key']}
     return {taxon: r._resolved.canonicalName ? r._resolved.canonicalName : r.displayName, count: r.count, taxonKey: r.filter[rank + '_key']}
 
   })
