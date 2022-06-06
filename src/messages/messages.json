@@ -52,7 +52,8 @@
       "year": " Year",
       "publishingcountry": "Publishing country",
       "entername": "Enter name",
-      "taxonomynavigator": "Taxonomy navigator"
+      "taxonomynavigator": "Taxonomy navigator",
+      "count": "Count"
     }
   },
   "es": {
@@ -109,7 +110,8 @@
       "year": " Año",
       "publishingcountry": "País que publica",
       "entername": "Coloca un nombre",
-      "taxonomynavigator": "Navegador de taxonomía"
+      "taxonomynavigator": "Navegador de taxonomía",
+      "count": "Registros"
     }
   }
 }

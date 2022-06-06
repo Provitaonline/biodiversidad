@@ -64,6 +64,10 @@
               <div style="display:block; position: relative; overflow-y: auto; max-height: 30vh;">
                 <b-loading :is-full-page="false" v-model="isTaxonomyLoading"></b-loading>
                 <ul class="block-list is-small has-text-left">
+                  <li style="border-bottom-style: groove; border-bottom-width: thin;">
+                    <span style="display:inline-block"><b>{{ $t('label.' + ranks[currentRank]) }}</b></span>
+                    <span style="float: right;"><b>({{ $t('label.count') }})</b></span>
+                  </li>
                   <li v-for="item, index in taxonList">
                     <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" style="display:inline-block">{{ item.taxon }}</a>
                     <span v-else style="display:inline-block">{{ item.taxon }}</span>
