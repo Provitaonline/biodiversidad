@@ -15,7 +15,7 @@ exports.handler = async function(event, context) {
 
     return {
       statusCode: 200,
-      headers: {'Cache-Control': 'public, s-maxage=86400'},
+      headers: {'Cache-Control': 'max-age=86400'},
       body: JSON.stringify(data),
     }
   } catch (err) {
