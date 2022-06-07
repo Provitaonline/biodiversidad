@@ -100,6 +100,9 @@
           <b-table-column field="year" :label="$t('label.year')" v-slot="props">
             {{ props.row.year }}
           </b-table-column>
+          <b-table-column field="gadm" :label="$t('label.state')" v-slot="props">
+            {{ (props.row.gadm && props.row.gadm.level1) ? props.row.gadm.level1.name : '' }}
+          </b-table-column>
           <b-table-column field="iucnRedListCategory" :label="$t('label.iucnredlistcategory')" v-slot="props">
             <span v-if="props.row.iucnRedListCategory">{{props.row.iucnRedListCategory}} - {{ $t('label.' + props.row.iucnRedListCategory) }}</span>
           </b-table-column>

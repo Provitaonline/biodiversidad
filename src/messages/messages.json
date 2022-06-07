@@ -53,7 +53,8 @@
       "publishingcountry": "Publishing country",
       "entername": "Enter name",
       "taxonomynavigator": "Taxonomy navigator",
-      "count": "Count"
+      "count": "Count",
+      "state": "State"
     }
   },
   "es": {
@@ -111,7 +112,8 @@
       "publishingcountry": "País que publica",
       "entername": "Coloca un nombre",
       "taxonomynavigator": "Navegador de taxonomía",
-      "count": "Registros"
+      "count": "Registros",
+      "state": "Estado"
     }
   }
 }
