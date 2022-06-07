@@ -84,7 +84,7 @@
         </div>
       </aside>
       <div class="column">
-        <div class="is-size-5 has-text-weight-semibold" style="background-color: white; border-bottom-style: solid; border-bottom-color: #DBDBDB;">
+        <div class="is-size-5 has-text-weight-semibold total-heading">
           {{$t('label.numberofoccurrences')}}: {{ $n(totalGbifOccurrences) }}
         </div>
         <b-table
@@ -161,6 +161,12 @@
 
   .taxon-list-count {
     float: right;
+  }
+
+  .total-heading {
+    background-color: white;
+    border-bottom-style: solid;
+    border-bottom-color: #DBDBDB;
   }
 
 </style>
