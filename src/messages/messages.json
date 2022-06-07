@@ -54,7 +54,8 @@
       "entername": "Enter name",
       "taxonomynavigator": "Taxonomy navigator",
       "count": "Count",
-      "state": "State"
+      "state": "State",
+      "numberofoccurrences": "Number of occurrences"
     }
   },
   "es": {
@@ -113,7 +114,8 @@
       "entername": "Coloca un nombre",
       "taxonomynavigator": "Navegador de taxonomía",
       "count": "Registros",
-      "state": "Estado"
+      "state": "Estado",
+      "numberofoccurrences": "Número de registros"
     }
   }
 }

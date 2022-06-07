@@ -84,6 +84,9 @@
         </div>
       </aside>
       <div class="column">
+        <div class="is-size-5 has-text-weight-semibold" style="background-color: white; border-bottom-style: solid; border-bottom-color: #DBDBDB;">
+          {{$t('label.numberofoccurrences')}}: {{ $n(totalGbifOccurrences) }}
+        </div>
         <b-table
           :data='gbifOccurrencesData'
           :loading='loading'
