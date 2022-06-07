@@ -179,6 +179,14 @@
         es
       }
     }
+    allGadmData: allGadmData (sortBy: "name", order: ASC) {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
   }
 </page-query>
 
@@ -216,6 +224,7 @@ export default {
   components: {
   },
   mounted() {
+    console.log(this.$page.allGadmData)
     this.loadGbifOccurrences(1)
     this.loadGbifOccurrenceTaxonomies(this.ranks[0])
   },
