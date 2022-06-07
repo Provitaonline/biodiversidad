@@ -90,7 +90,12 @@ export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
 
   let result = response.results.map(r => {
     return {taxon: r._resolved.canonicalName ? r._resolved.canonicalName : r.displayName, count: r.count, taxonKey: r.filter[rank + '_key']}
-
+  }).sort((a, b) => {
+    const aTaxon = a.taxon.toUpperCase()
+    const bTaxon = b.taxon.toUpperCase()
+    if (aTaxon < bTaxon) return -1
+    if (aTaxon > bTaxon) return 1
+    return 0
   })
 
   return result
