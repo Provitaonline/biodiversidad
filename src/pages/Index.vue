@@ -11,7 +11,7 @@
       <div class="tile is-ancestor">
         <div class="tile">
           <div v-for="item in $page.homeContent.cards" class="tile is-parent" style="flex-direction: column;">
-            <g-link :to="item.link">
+            <g-link :to="$tp(item.link)">
               <div class="card tile is-child menu-card">
                 <div class="card-image">
                   <figure class="image is-4by3">
