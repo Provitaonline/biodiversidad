@@ -83,24 +83,6 @@ export async function getGbifDatasetSpecies(key) {
 
 }
 
-/*export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
-
-  let response =  await fetch('/.netlify/functions/gbiftaxonomy?country=VE&limit=100&dimension=' + rank + 'Key' + ((taxonKey !== undefined) ? '&taxon_key=' + taxonKey : ''))
-  response = await response.json()
-
-  let result = response.results.map(r => {
-    return {taxon: r._resolved.canonicalName ? r._resolved.canonicalName : r.displayName, count: r.count, taxonKey: r.filter[rank + '_key']}
-  }).sort((a, b) => {
-    const aTaxon = a.taxon.toUpperCase()
-    const bTaxon = b.taxon.toUpperCase()
-    if (aTaxon < bTaxon) return -1
-    if (aTaxon > bTaxon) return 1
-    return 0
-  })
-
-  return result
-} */
-
 export async function getTaxonName(taxonKey) {
   let response = await fetch('https://api.gbif.org/v1/species/' + taxonKey)
 
