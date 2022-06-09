@@ -191,7 +191,7 @@
 </page-query>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies} from '~/utils/data'
+import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getGbifOccurrenceTaxonomiesV2} from '~/utils/data'
 
 export default {
   metaInfo() {

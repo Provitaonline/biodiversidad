@@ -83,7 +83,7 @@ export async function getGbifDatasetSpecies(key) {
 
 }
 
-export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
+/*export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
 
   let response =  await fetch('/.netlify/functions/gbiftaxonomy?country=VE&limit=100&dimension=' + rank + 'Key' + ((taxonKey !== undefined) ? '&taxon_key=' + taxonKey : ''))
   response = await response.json()
@@ -99,4 +99,44 @@ export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
   })
 
   return result
+} */
+
+export async function getTaxonName(taxonKey) {
+  let response = await fetch('https://api.gbif.org/v1/species/' + taxonKey)
+
+  response = await response.json()
+
+  return response
+}
+
+export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
+
+  let response = await fetch('https://api.gbif.org/v1/occurrence/search?country=VE&facetLimit=100&limit=0&facet=' + rank + 'Key' + ((taxonKey !== undefined) ? '&taxonKey=' + taxonKey : ''))
+
+  response = await response.json()
+
+  let result = []
+  let taxonNamePromises = []
+
+  async function taxonNamePromise(c) {
+    let taxonName = await getTaxonName(c.name)
+    return {taxon: taxonName.canonicalName ? taxonName.canonicalName : taxonName.scientificName, count: c.count, taxonKey: taxonName.key}
+  }
+
+  response.facets[0].counts.forEach(c => {
+    taxonNamePromises.push(taxonNamePromise(c))
+  })
+
+  result = await Promise.all(taxonNamePromises)
+
+  result = result.sort((a, b) => {
+    const aTaxon = a.taxon.toUpperCase()
+    const bTaxon = b.taxon.toUpperCase()
+    if (aTaxon < bTaxon) return -1
+    if (aTaxon > bTaxon) return 1
+    return 0
+  })
+
+  return(result)
+
 }
