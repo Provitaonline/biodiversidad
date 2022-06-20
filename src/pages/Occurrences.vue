@@ -52,10 +52,10 @@
                   <div class="is-size-7 has-text-centered">{{ $t('label.clicktonavigate') }}</div>
                   <div class="is-size-7 has-text-centered">{{ $t('label.clicktochoose') }}</div>
                   <!-- <div v-if="currentRank === 0"><small>{{ $t('label.' + ranks[currentRank]) }}:</small></div> -->
-                  <div v-if="name" class="is-flex is-align-items-center has-text-left" style="padding-top: 4px; padding-bottom: 4px;">
-                    <div class="is-size-7"><span class="has-text-weight-bold">Selección:</span> {{name}}</div>
+                  <div v-if="taxon" class="is-flex is-align-items-center has-text-left" style="padding-top: 4px; padding-bottom: 4px;">
+                    <div class="is-size-7"><span class="has-text-weight-bold">Selección:</span> {{taxon}}</div>
                     <span class="is-flex-grow-1"></span>
-                    <a @click="name=''"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
+                    <a @click="taxon=''; taxonKey=0"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
                   </div>
                   <div v-for="selected, index in selectedTaxons">
                     <div class="is-flex is-align-items-center is-size-6">
@@ -75,7 +75,7 @@
                     <li v-for="item, index in taxonList">
                       <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" class="taxon-list-name">{{ item.taxon }}</a>
                       <span v-else class="taxon-list-name">{{ item.taxon }}</span>
-                      <a @click="countClicked(item.taxon)" class="taxon-list-count">({{ $n(item.count) }})</a>
+                      <a @click="countClicked(item.taxon, item.taxonKey)" class="taxon-list-count">({{ $n(item.count) }})</a>
                     </li>
                   </ul>
                 </div>
@@ -213,6 +213,8 @@ export default {
       searchAutoData: [],
       applyFilters: false,
       name: '',
+      taxon: '',
+      taxonKey: 0,
       totalGbifOccurrences: 0,
       loading: false,
       isTaxonomyLoading: false,
@@ -238,7 +240,7 @@ export default {
   methods: {
     loadGbifOccurrences(page) {
       this.loading = true
-      getGbifOccurrences((page-1)*20, this.name, this.tags).then((result) => {
+      getGbifOccurrences((page-1)*20, {scientificName: this.name, iucnRedListCategory: this.tags, taxonKey: this.taxonKey}).then((result) => {
         this.gbifOccurrencesData = result.results
         this.totalGbifOccurrences = result.count
         this.loading = false
@@ -266,6 +268,8 @@ export default {
       } else {
         this.name=''
         this.tags=[]
+        this.taxonKey=0
+        this.taxon=''
         this.loadGbifOccurrences(1)
       }
     },
@@ -277,8 +281,9 @@ export default {
       this.currentRank++
       this.loadGbifOccurrenceTaxonomies(this.ranks[this.currentRank], taxonKey)
     },
-    countClicked(taxon) {
-      this.name = taxon
+    countClicked(taxon, taxonKey) {
+      this.taxon = taxon
+      this.taxonKey = taxonKey
     },
     removeTaxonClicked(index) {
       let taxonKey = (index === 0) ? undefined : this.selectedTaxons[index - 1].taxonKey
