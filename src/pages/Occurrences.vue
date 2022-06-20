@@ -27,7 +27,7 @@
                 </template>
               </b-taginput>
             </b-field>
-            <b-field label-position="on-border" :label="$t('label.taxon')">
+            <b-field label-position="on-border" :label="$t('label.scientificname')">
               <b-autocomplete size="is-small"
                 :data="searchAutoData"
                 v-model="name"
@@ -40,40 +40,47 @@
               >
               </b-autocomplete>
             </b-field>
-            <b-collapse :open="false" class="has-text-centered">
-              <template #trigger="props">
-                <a>
-                  <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
-                  <small><b>{{ $t('label.taxonomynavigator') }}</b></small>
-                </a>
-              </template>
-              <div>
-                <div class="is-size-7 has-text-centered">{{ $t('label.clicktonavigate') }}</div>
-                <div class="is-size-7 has-text-centered">{{ $t('label.clicktochoose') }}</div>
-                <!-- <div v-if="currentRank === 0"><small>{{ $t('label.' + ranks[currentRank]) }}:</small></div> -->
-                <div v-for="selected, index in selectedTaxons">
-                  <div class="is-flex is-align-items-center is-size-6">
-                    <span><small>{{ $t('label.' + selected.rank) }}: {{ selected.taxon }}</small></span>
+            <div style="border: 1px; border-color: #dbdbdb; padding-bottom: 5px; border-style: solid; border-radius: 2px;">
+              <b-collapse :open="false">
+                <template #trigger="props">
+                  <a>
+                    <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
+                    <small><b>{{ $t('label.taxonomynavigator') }}</b></small>
+                  </a>
+                </template>
+                <div>
+                  <div class="is-size-7 has-text-centered">{{ $t('label.clicktonavigate') }}</div>
+                  <div class="is-size-7 has-text-centered">{{ $t('label.clicktochoose') }}</div>
+                  <!-- <div v-if="currentRank === 0"><small>{{ $t('label.' + ranks[currentRank]) }}:</small></div> -->
+                  <div v-if="name" class="is-flex is-align-items-center has-text-left" style="padding-top: 4px; padding-bottom: 4px;">
+                    <div class="is-size-7"><span class="has-text-weight-bold">Selección:</span> {{name}}</div>
                     <span class="is-flex-grow-1"></span>
-                    <a @click="removeTaxonClicked(index)"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
+                    <a @click="name=''"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
+                  </div>
+                  <div v-for="selected, index in selectedTaxons">
+                    <div class="is-flex is-align-items-center is-size-6">
+                      <span><small>{{ $t('label.' + selected.rank) }}: {{ selected.taxon }}</small></span>
+                      <span class="is-flex-grow-1"></span>
+                      <a @click="removeTaxonClicked(index)"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="taxon-list">
-                <b-loading :is-full-page="false" v-model="isTaxonomyLoading"></b-loading>
-                <ul class="block-list is-small has-text-left">
-                  <li class="taxon-list-header">
-                    <span class="taxon-list-name"><b>{{ $t('label.' + ranks[currentRank]) }}</b></span>
-                    <span class="taxon-list-count"><b>({{ $t('label.count') }})</b></span>
-                  </li>
-                  <li v-for="item, index in taxonList">
-                    <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" class="taxon-list-name">{{ item.taxon }}</a>
-                    <span v-else class="taxon-list-name">{{ item.taxon }}</span>
-                    <a @click="countClicked(item.taxon)" class="taxon-list-count">({{ $n(item.count) }})</a>
-                  </li>
-                </ul>
-              </div>
-            </b-collapse>
+                <div class="taxon-list">
+                  <b-loading :is-full-page="false" v-model="isTaxonomyLoading"></b-loading>
+                  <ul class="block-list is-small has-text-left">
+                    <li class="taxon-list-header">
+                      <span class="taxon-list-name"><b>{{ $t('label.' + ranks[currentRank]) }}</b></span>
+                      <span class="taxon-list-count"><b>({{ $t('label.count') }})</b></span>
+                    </li>
+                    <li v-for="item, index in taxonList">
+                      <a v-if="((currentRank < ranks.length - 1) && (item.taxon !== 'incertae sedis'))" @click="taxonClicked(item.taxon, item.taxonKey)" class="taxon-list-name">{{ item.taxon }}</a>
+                      <span v-else class="taxon-list-name">{{ item.taxon }}</span>
+                      <a @click="countClicked(item.taxon)" class="taxon-list-count">({{ $n(item.count) }})</a>
+                    </li>
+                  </ul>
+                </div>
+              </b-collapse>
+            </div>
             <hr>
             <b-field>
               <b-checkbox size="is-small" v-model="applyFilters" @input="applyFilterChange()">
