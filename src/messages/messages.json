@@ -55,7 +55,8 @@
       "taxonomynavigator": "Taxonomy navigator",
       "count": "Count",
       "state": "State",
-      "numberofoccurrences": "Number of occurrences"
+      "numberofoccurrences": "Number of occurrences",
+      "chooseone": "Choose one"
     }
   },
   "es": {
@@ -111,11 +112,12 @@
       "iucnredlistcategory": "Categoría Lista Roja UICN",
       "year": " Año",
       "publishingcountry": "País que publica",
-      "entername": "Coloca un nombre",
+      "entername": "Colocar un nombre",
       "taxonomynavigator": "Navegador de taxonomía",
       "count": "Registros",
       "state": "Estado",
-      "numberofoccurrences": "Número de registros"
+      "numberofoccurrences": "Número de registros",
+      "chooseone": "Escoger uno"
     }
   }
 }
