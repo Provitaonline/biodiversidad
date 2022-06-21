@@ -4,45 +4,54 @@
       <h1 class="title is-uppercase has-text-centered" v-html="$page.datasetsContent.bannerText[$i18n.locale.substr(0, 2)]"></h1>
     </template>
     <br>
-    <b-field>
-      <div style="align-self: center">
-        <b><small>{{$t('label.taxonomicfilter')}}:&nbsp</small></b>
+    <div class="filter-container">
+      <div class="rank-selector">
+        <div class="taxonomic-filter-label">
+          <b><small>{{$t('label.taxonomicfilter')}}:</small></b>
+        </div>
+        <b-field>
+          <b-select size="is-small" v-model="selectedTaxonomicGroup" @input=" taxonomicGroupFilter = ''; applyFilters = false">
+            <option
+                v-for="option in Object.keys(taxonomicGroups)"
+                :value="option"
+                :key="option">
+                {{ $t('label.' + option) }}
+            </option>
+          </b-select>
+        </b-field>
       </div>
-      <b-field>
-        <b-select size="is-small" v-model="selectedTaxonomicGroup" @input=" taxonomicGroupFilter = ''; applyFilters = false">
-          <option
-              v-for="option in Object.keys(taxonomicGroups)"
-              :value="option"
-              :key="option">
-              {{ $t('label.' + option) }}
-          </option>
-        </b-select>
-      </b-field>
-      <b-field>
-        <b-autocomplete
-          size="is-small"
-          :data="taxonomicGroup"
-          v-model="taxonomicGroupFilter"
-          icon="filter"
-          :placeholder="$t('label.selectone')"
-          :disabled="!taxonomicGroupsReady"
-          :open-on-focus="true"
-          keep-first
-          clearable
-        >
-        </b-autocomplete>
-      </b-field>
-      &nbsp&nbsp
-      <b-checkbox size="is-small" v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
-        {{ $t('label.applifilter') }}
-      </b-checkbox>
-      <div v-if="!taxonomicGroupsReady" style="align-self: center">
-        &nbsp&nbsp
-        <font-awesome class="fa-spin" :icon="['fas', 'spinner']"/>
-        &nbsp&nbsp
-        <small><i>{{ $t('label.loadingnames') }}</i></small>
+      <div class="taxonomy-select">
+        <b-field>
+          <b-autocomplete
+            size="is-small"
+            :data="taxonomicGroup"
+            v-model="taxonomicGroupFilter"
+            icon="filter"
+            :placeholder="$t('label.selectone')"
+            :disabled="!taxonomicGroupsReady"
+            :open-on-focus="true"
+            keep-first
+            clearable
+          >
+          </b-autocomplete>
+        </b-field>
       </div>
-    </b-field>
+      <div class="apply-filter">
+        <b-field >
+          <b-checkbox size="is-small" v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
+            {{ $t('label.applifilter') }}
+          </b-checkbox>
+
+          <div class="loading-indicator">
+            <div v-show="!taxonomicGroupsReady">
+              <font-awesome class="fa-spin" :icon="['fas', 'spinner']"/>
+              <small><i> {{ $t('label.loadingnames') }}</i></small>
+            </div>
+          </div>
+        </b-field>
+      </div>
+    </div>
+    <br>
     <b-table
       :data='filteredGbifDatasetsData'
       :loading='loading'
@@ -103,7 +112,52 @@
 </template>
 
 
-<style>
+<style lang="scss" scoped>
+  @import "~/assets/style/_variables";
+
+  .filter-container {
+    display: flex;
+    align-items: center;
+    border: 1px;
+    border-color: #dbdbdb;
+    border-style: solid;
+    border-radius: 2px;
+  }
+
+  .taxonomy-select {
+    padding: 4px;
+    width: 15rem;
+  }
+
+  .apply-filter {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+  }
+
+  .loading-indicator {
+    width: 8rem;
+  }
+
+  .rank-selector {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+  }
+
+  .taxonomic-filter-label {
+    padding-right: 6px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .filter-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .taxonomy-select {
+      width: 100%;
+    }
+  }
 
 </style>
 
