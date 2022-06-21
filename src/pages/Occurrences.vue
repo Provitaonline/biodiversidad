@@ -155,8 +155,12 @@
 
   @media only screen and (max-width: 768px) {
     .side-panel {
-      min-width: 20rem;
+      //min-width: 20rem;
       border-right: 0;
+    }
+    .side-panel-content>div {
+      padding-left: 0px;
+      padding-right: 0px;
     }
   }
 
