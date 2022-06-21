@@ -17,7 +17,7 @@ export async function getGbifOccurrences(offset, filters) {
       if (Array.isArray(filters[f])) {
         filters[f].forEach(el => parms += '&' + f + '=' + el)
       } else {
-        if (filters[f]) parms += '&' + f + '=' + filters[f]
+        if (filters[f] !== undefined) parms += '&' + f + '=' + filters[f]
       }
     })
   }

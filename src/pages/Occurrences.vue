@@ -10,6 +10,20 @@
             <div class="has-text-centered">
               <b>{{$t('label.filters')}}</b><br><br>
             </div>
+            <b-field label-position="on-border" :label="$t('label.state')">
+              <b-autocomplete size="is-small"
+                :data="filteredStates"
+                v-model="state"
+                icon="filter"
+                :open-on-focus="true"
+                :keep-first="true"
+                :placeholder="$t('label.chooseone')"
+                field="node.name"
+                clearable
+                @input="clearApplyFilters()"
+              >
+              </b-autocomplete>
+            </b-field>
             <b-field label-position="on-border" :label="$t('label.iucnredlistcategory')">
               <b-taginput
                 size="is-small"
@@ -55,7 +69,7 @@
                   <div v-if="taxon" class="is-flex is-align-items-center has-text-left" style="padding-top: 4px; padding-bottom: 4px;">
                     <div class="is-size-7"><span class="has-text-weight-bold">Selección:</span> {{taxon}}</div>
                     <span class="is-flex-grow-1"></span>
-                    <a @click="taxon=''; taxonKey=0"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
+                    <a @click="taxon=''; taxonKey=undefined; clearApplyFilters()"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
                   </div>
                   <div v-for="selected, index in selectedTaxons">
                     <div class="is-flex is-align-items-center is-size-6">
@@ -199,6 +213,7 @@
 
 <script>
 import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies} from '~/utils/data'
+import {getPureText} from '~/utils/misc'
 
 export default {
   metaInfo() {
@@ -214,7 +229,8 @@ export default {
       applyFilters: false,
       name: '',
       taxon: '',
-      taxonKey: 0,
+      taxonKey: undefined,
+      state: '',
       totalGbifOccurrences: 0,
       loading: false,
       isTaxonomyLoading: false,
@@ -233,14 +249,19 @@ export default {
   components: {
   },
   mounted() {
-    console.log(this.$page.allGadmData)
     this.loadGbifOccurrences(1)
     this.loadGbifOccurrenceTaxonomies(this.ranks[0])
   },
   methods: {
     loadGbifOccurrences(page) {
       this.loading = true
-      getGbifOccurrences((page-1)*20, {scientificName: this.name, iucnRedListCategory: this.tags, taxonKey: this.taxonKey}).then((result) => {
+      let filters = {
+        scientificName: this.name,
+        iucnRedListCategory: this.tags,
+        taxonKey: this.taxonKey,
+        gadmLevel1Gid: this.getStateId()
+      }
+      getGbifOccurrences((page-1)*20, filters).then((result) => {
         this.gbifOccurrencesData = result.results
         this.totalGbifOccurrences = result.count
         this.loading = false
@@ -268,8 +289,8 @@ export default {
       } else {
         this.name=''
         this.tags=[]
-        this.taxonKey=0
-        this.taxon=''
+        this.taxonKey=undefined
+        this.taxon=
         this.loadGbifOccurrences(1)
       }
     },
@@ -282,6 +303,7 @@ export default {
       this.loadGbifOccurrenceTaxonomies(this.ranks[this.currentRank], taxonKey)
     },
     countClicked(taxon, taxonKey) {
+      this.clearApplyFilters()
       this.taxon = taxon
       this.taxonKey = taxonKey
     },
@@ -291,6 +313,15 @@ export default {
       this.currentRank = index
       this.loadGbifOccurrenceTaxonomies(this.ranks[index], taxonKey)
 
+    },
+    getStateId() {
+      let edge = this.$page.allGadmData.edges.find(e => e.node.name === this.state)
+      return edge ? edge.node.id : ''
+    }
+  },
+  computed: {
+    filteredStates() {
+      return this.$page.allGadmData.edges.filter(item => {return getPureText(item.node.name).includes(getPureText(this.state))})
     }
   }
 }

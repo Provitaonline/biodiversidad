@@ -1,3 +1,7 @@
+export function getPureText(text) {
+  return text.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
 export function stripePattern(color, isFlipped) {
   return new Promise((resolve, reject) => {
     let canvas = document.createElement('canvas')
