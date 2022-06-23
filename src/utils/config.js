@@ -10,24 +10,24 @@ export const mapConfig = {
       uri:'/mapstyles/topo.json'
     },
     {
-        title: 'gbif-natural',
-        uri:'/mapstyles/gbif-natural.json'
+      title: 'gbif-natural',
+      uri:'/mapstyles/gbif-natural.json'
     },
     {
-        title: 'osm',
-        uri:'/mapstyles/osm.json'
+      title: 'osm',
+      uri:'/mapstyles/osm.json'
     },
     {
-        title: 'simple',
-        uri:'/mapstyles/simple.json'
+      title: 'simple',
+      uri:'/mapstyles/simple.json'
     },
     {
-        title: 'ng',
+      title: 'ng',
         uri:'/mapstyles/ng.json'
     },
     {
-        title: 'satellite',
-        uri:'/mapstyles/satellite.json'
+      title: 'satellite',
+      uri:'/mapstyles/satellite.json'
     }
   ],
   mapCenter: [-66.58, 8.42],
