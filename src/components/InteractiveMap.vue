@@ -100,7 +100,7 @@
           })
           this.map.addSource('gbif', {
             type: 'vector',
-            tiles: ['https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&country=VE'],
+            tiles: ['https://api.gbif.org/v2/map/occurrence/adhoc/{z}/{x}/{y}.mvt?style=scaled.circles&mode=GEO_CENTROID&srs=EPSG:3857&country=VE&taxonKey=359&gadmLevel1Gid=VEN.3_1&iucnRedListCategory=EN'],
             attribution: 'GBIF'
           })
           this.map.addLayer({

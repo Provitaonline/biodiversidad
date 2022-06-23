@@ -1,0 +1,13 @@
+{
+  "version":8,
+  "sources":{
+    "gbif-natural":{
+      "type":"raster",
+      "tiles":["https://tile.gbif.org/3857/omt/{z}/{x}/{y}@2x.png?style=gbif-natural"],
+      "tileSize":512,
+      "attribution":"Tiles - GBIF — Source: <a href=\"https://tile.gbif.org/ui/\">GBIF Base Map Tiles</a>",
+      "maxzoom": 19
+    }
+  },
+  "layers":[{"id":"1","type":"raster","source":"gbif-natural"}]
+}

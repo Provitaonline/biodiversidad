@@ -12,6 +12,7 @@ async function checkCacheAge() {
 
 export async function getGbifOccurrences(offset, filters) {
   let parms = ''
+  console.log(filters)
   if (filters) {
     Object.keys(filters).forEach(f => {
       if (Array.isArray(filters[f])) {

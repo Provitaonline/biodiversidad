@@ -6,8 +6,12 @@ export const awsConfig = {
 export const mapConfig = {
   styles: [
     {
-        title: 'topo',
-        uri:'/mapstyles/topo.json'
+      title: 'topo',
+      uri:'/mapstyles/topo.json'
+    },
+    {
+        title: 'gbif-natural',
+        uri:'/mapstyles/gbif-natural.json'
     },
     {
         title: 'osm',
