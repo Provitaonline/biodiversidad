@@ -306,6 +306,7 @@ export default {
         this.taxon=''
         this.loadGbifOccurrences(1)
       }
+      this.$eventBus.$emit('filterchange', this.applyFilters)
     },
     clearApplyFilters() {
       this.applyFilters = false

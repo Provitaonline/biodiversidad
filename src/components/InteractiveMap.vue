@@ -19,6 +19,7 @@
   import { ResetViewControl } from '~/utils/map'
   import { stripePattern } from '~/utils/misc'
   import { mapConfig } from '~/utils/config'
+  import { filtersToParms } from '~/utils/data'
 
   export default {
     name: 'InteractiveMap',
@@ -32,7 +33,6 @@
     components: {
     },
     mounted() {
-      console.log(this.filters)
       if (process.isClient) {
         this.map = new Maplibre.Map({
           container: 'map',
@@ -98,41 +98,52 @@
               }
             })
           })
-          this.map.addSource('gbif', {
-            type: 'vector',
-            tiles: ['https://api.gbif.org/v2/map/occurrence/adhoc/{z}/{x}/{y}.mvt?style=scaled.circles&mode=GEO_CENTROID&srs=EPSG:3857&country=VE&taxonKey=359&gadmLevel1Gid=VEN.3_1&iucnRedListCategory=EN'],
-            attribution: 'GBIF'
-          })
-          this.map.addLayer({
-            id: 'gbif',
-            type: 'circle',
-            source: 'gbif',
-            'source-layer': 'occurrence',
-            paint: {
-              'circle-stroke-color': '#000',
-              'circle-stroke-width': 0.5,
-              'circle-opacity': 0.4,
-              'circle-color': {
-                property: 'total',
-                stops: [
-                  [0, '#ffa500'],
-                  [1000, '#ff8c00'],
-                  [5000, '#ff7f50'],
-                  [10000, '#ff4500']
-                ]
-              },
-              'circle-radius': {
-                property: 'total',
-                stops: [
-                  [0, 3],
-                  [1000, 8],
-                  [5000, 16],
-                  [10000, 25]
-                ]
-              }
-            }
+          this.addGbifLayer()
+          this.$eventBus.$on('filterchange', (applyFilters) => {
+            this.removeGbifLayer()
+            this.addGbifLayer(applyFilters ? this.filters : null)
           })
         }
+      },
+      addGbifLayer(filters) {
+        this.map.addSource('gbif', {
+          type: 'vector',
+          tiles: ['https://api.gbif.org/v2/map/occurrence/adhoc/{z}/{x}/{y}.mvt?style=scaled.circles&mode=GEO_CENTROID&srs=EPSG:3857&country=VE' + filtersToParms(filters)],
+          attribution: 'GBIF'
+        })
+        this.map.addLayer({
+          id: 'gbif',
+          type: 'circle',
+          source: 'gbif',
+          'source-layer': 'occurrence',
+          paint: {
+            'circle-stroke-color': '#000',
+            'circle-stroke-width': 0.5,
+            'circle-opacity': 0.4,
+            'circle-color': {
+              property: 'total',
+              stops: [
+                [0, '#ffa500'],
+                [1000, '#ff8c00'],
+                [5000, '#ff7f50'],
+                [10000, '#ff4500']
+              ]
+            },
+            'circle-radius': {
+              property: 'total',
+              stops: [
+                [0, 3],
+                [1000, 8],
+                [5000, 16],
+                [10000, 25]
+              ]
+            }
+          }
+        })
+      },
+      removeGbifLayer() {
+        if (this.map.getLayer('gbif')) this.map.removeLayer('gbif')
+        if (this.map.getSource('gbif')) this.map.removeSource('gbif')
       },
       mapClickHandler(e) {
         let features = e.features
@@ -156,6 +167,13 @@
     computed: {
 
     },
+    /*watch: {
+      applyFilters(nV, oV) {
+        console.log('filters updated')
+        this.removeGbifLayer()
+        this.addGbifLayer()
+      }
+    },*/
     beforeDestroy () {
       // Save map view before leaving
 
