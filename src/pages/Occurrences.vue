@@ -98,9 +98,9 @@
             <hr>
             <b-field>
               <b-checkbox size="is-small" v-model="applyFilters" @input="applyFilterChange()">
-                {{ $t('label.applifilters') }}
+                {{ $t('label.applyfilters') }}
               </b-checkbox>
-              <a @click="clearFilters()">&nbsp<font-awesome :icon="['fas', 'trash']"/></a><span class="is-size-7" style="margin-top: auto; margin-bottom: auto;">&nbspLimpiar filtros</span>
+              <a @click="clearFilters()">&nbsp<font-awesome :icon="['fas', 'trash']"/></a><span class="is-size-7" style="margin-top: auto; margin-bottom: auto;">&nbsp{{ $t('label.clearfilters') }}</span>
             </b-field>
           </div>
         </div>

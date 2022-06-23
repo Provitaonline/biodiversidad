@@ -39,7 +39,7 @@
       <div class="apply-filter">
         <b-field >
           <b-checkbox size="is-small" v-model="applyFilters" :disabled="!isInTaxonomicGroup()">
-            {{ $t('label.applifilter') }}
+            {{ $t('label.applyfilter') }}
           </b-checkbox>
 
           <div class="loading-indicator">
