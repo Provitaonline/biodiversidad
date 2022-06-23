@@ -274,7 +274,7 @@ export default {
     loadGbifOccurrences(page) {
       this.loading = true
       this.filters.gadmLevel1Gid = this.stateId
-      getGbifOccurrences((page-1)*20, this.filters).then((result) => {
+      getGbifOccurrences((page-1)*20, this.applyFilters ? this.filters : null).then((result) => {
         this.gbifOccurrencesData = result.results
         this.totalGbifOccurrences = result.count
         this.loading = false
@@ -297,15 +297,7 @@ export default {
       })
     },
     applyFilterChange() {
-      if (this.applyFilters) {
-        this.loadGbifOccurrences(1)
-      } else {
-        this.filters.scientificName=''
-        this.filters.iucnRedListCategory=[]
-        this.filters.taxonKey=undefined
-        this.taxon=''
-        this.loadGbifOccurrences(1)
-      }
+      this.loadGbifOccurrences(1)
       this.$eventBus.$emit('filterchange', this.applyFilters)
     },
     clearApplyFilters() {
