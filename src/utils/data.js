@@ -12,7 +12,6 @@ async function checkCacheAge() {
 
 export function filtersToParms(filters) {
   let parms = ''
-  console.log(filters)
   if (filters) {
     Object.keys(filters).forEach(f => {
       if (Array.isArray(filters[f])) {

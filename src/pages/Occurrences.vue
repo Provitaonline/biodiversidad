@@ -100,6 +100,7 @@
               <b-checkbox size="is-small" v-model="applyFilters" @input="applyFilterChange()">
                 {{ $t('label.applifilters') }}
               </b-checkbox>
+              <a @click="clearFilters()">&nbsp<font-awesome :icon="['fas', 'trash']"/></a><span class="is-size-7" style="margin-top: auto; margin-bottom: auto;">&nbspLimpiar filtros</span>
             </b-field>
           </div>
         </div>
@@ -302,6 +303,18 @@ export default {
     },
     clearApplyFilters() {
       this.applyFilters = false
+    },
+    clearFilters() {
+      console.log('clear')
+      this.state = ''
+      this.filters.scientificName = ''
+      this.filters.iucnRedListCategory = []
+      this.filters.taxonKey = undefined
+      this.taxon = ''
+      if (this.applyFilters) {
+        this.clearApplyFilters()
+        this.applyFilterChange()
+      }
     },
     taxonClicked(taxon, taxonKey) {
       this.selectedTaxons.push({taxon: taxon, taxonKey: taxonKey, rank: this.ranks[this.currentRank]})
