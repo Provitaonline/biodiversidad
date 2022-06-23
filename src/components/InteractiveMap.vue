@@ -23,6 +23,7 @@
   export default {
     name: 'InteractiveMap',
     props: {
+      filters: { type: Object, required: true }
     },
     data() {
       return {
@@ -31,6 +32,7 @@
     components: {
     },
     mounted() {
+      console.log(this.filters)
       if (process.isClient) {
         this.map = new Maplibre.Map({
           container: 'map',
