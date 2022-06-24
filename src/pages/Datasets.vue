@@ -288,7 +288,7 @@ export default {
       return Object.keys(this.taxonomicGroups[this.selectedTaxonomicGroup]).includes(this.taxonomicGroupFilter)
     },
     numItems() {
-      if (this.$refs.table) return this.$refs.table.newData.length
+      if (this.$refs.table) return this.$refs.table.newDataTotal
     }
   },
   computed: {
