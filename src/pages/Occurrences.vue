@@ -107,7 +107,7 @@
       </aside>
       <div class="column">
         <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
-          <b-tab-item value="table" active label="Table">
+          <b-tab-item value="table" active :label="$t('label.table')">
             <div class="is-size-5 has-text-weight-semibold total-heading">
               {{$t('label.numberofoccurrences')}}: {{ $n(totalGbifOccurrences) }}
             </div>
@@ -141,7 +141,7 @@
               </b-table-column>
             </b-table>
           </b-tab-item>
-          <b-tab-item value="map" active label="Map">
+          <b-tab-item value="map" active :label="$t('label.map')">
             <InteractiveMap :filters="filters" />
           </b-tab-item>
         </b-tabs>

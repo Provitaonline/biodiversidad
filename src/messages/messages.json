@@ -58,7 +58,9 @@
       "state": "State",
       "numberofoccurrences": "Number of occurrences",
       "chooseone": "Choose one",
-      "record": "record"
+      "record": "record",
+      "table": "Table",
+      "map": "Map"
     }
   },
   "es": {
@@ -121,7 +123,9 @@
       "state": "Estado",
       "numberofoccurrences": "Número de registros",
       "chooseone": "Escoger uno",
-      "record": "registro"
+      "record": "registro",
+      "table": "Tabla",
+      "map": "Mapa"
     }
   }
 }
