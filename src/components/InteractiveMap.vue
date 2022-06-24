@@ -15,7 +15,8 @@
 
 <script>
   import Vue from 'vue'
-  import Maplibre from 'maplibre-gl'
+  //import Maplibre from 'maplibre-gl'
+  import mapboxgl from 'mapbox-gl'
   import { ResetViewControl } from '~/utils/map'
   import { stripePattern } from '~/utils/misc'
   import { mapConfig } from '~/utils/config'
@@ -33,8 +34,13 @@
     components: {
     },
     mounted() {
+<<<<<<< HEAD
+=======
+      console.log(this.filters)
+      mapboxgl.accessToken = 'pk.eyJ1IjoiamltbXlhbmdlbCIsImEiOiJjaW5sMGR0cDkweXN2dHZseXl6OWM4YnloIn0.v2Sv_ODztWuLuk78rUoiqg'
+>>>>>>> 6f3f8d37810eb53dd51d006cd85a4364b1d4fc3c
       if (process.isClient) {
-        this.map = new Maplibre.Map({
+        this.map = new mapboxgl.Map({
           container: 'map',
           style: mapConfig.styles[0].uri,
           center: mapConfig.mapCenter,
@@ -45,7 +51,7 @@
           maxZoom: mapConfig.maxZoom
         })
         this.map.on('load',( () => {
-          this.map.addControl(new Maplibre.NavigationControl(), 'top-right')
+          this.map.addControl(new mapboxgl.NavigationControl(), 'top-right')
           const resetView = new ResetViewControl({
             center: mapConfig.mapCenter,
             zoom: mapConfig.mapZoom,
@@ -53,7 +59,7 @@
             pitch: mapConfig.mapPitch
           })
           this.map.addControl(resetView, 'top-right')
-          this.map.addControl(new Maplibre.ScaleControl())
+          this.map.addControl(new mapboxgl.ScaleControl())
           this.addLayers()
           this.map.on('styledata',() => {
             this.addLayers()
@@ -150,8 +156,13 @@
         if (features.length) {
           let coordinates = e.features[0].geometry.coordinates.slice();
           let totalTotal = features.map(o => o.properties.total).reduce((p, c) => p + c, 0)
+<<<<<<< HEAD
           let description = totalTotal + ' ' + this.$t('label.record') + ((totalTotal === 1) ? '': 's');
           new Maplibre.Popup().setLngLat(coordinates).setHTML(description).addTo(this.map);
+=======
+          let description = totalTotal + ' registro' + ((totalTotal === 1) ? '': 's');
+          new mapboxgl.Popup().setLngLat(coordinates).setHTML(description).addTo(this.map);
+>>>>>>> 6f3f8d37810eb53dd51d006cd85a4364b1d4fc3c
           //console.log(coordinates, features.map(o => o.properties.total).reduce((p, c) => p + c, 0), Math.max(...features.map(o => o.properties.total)))
         }
       },
