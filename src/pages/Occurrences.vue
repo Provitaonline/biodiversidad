@@ -306,7 +306,6 @@ export default {
       this.applyFilters = false
     },
     clearFilters() {
-      console.log('clear')
       this.state = ''
       this.scientificName = ''
       this.filters.iucnRedListCategory = []
@@ -346,7 +345,6 @@ export default {
       }
     },
     scientificNameKey() {
-      console.log(this.scientificName)
       if (this.scientificName.trim() === '') return undefined
       let item = this.searchAutoData.find(e => e.scientificName.toLowerCase() === this.scientificName.toLowerCase())
       return item && item.key ? item.key : undefined
