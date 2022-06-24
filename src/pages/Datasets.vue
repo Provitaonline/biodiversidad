@@ -72,7 +72,8 @@
         <template #searchable="props">
           <b-input v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+        </template>
       </b-table-column>
       <b-table-column searchable sortable field="publishingOrganizationTitle" :label="$t('label.organization')">
         <template v-slot="props">
@@ -81,7 +82,8 @@
         <template #searchable="props">
           <b-input v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+        </template>
       </b-table-column>
       <b-table-column searchable sortable field="typeExpanded" :label="$t('label.type')">
         <template v-slot="props">
@@ -90,7 +92,8 @@
         <template #searchable="props">
           <b-input v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />        </template>
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+        </template>
       </b-table-column>
       <b-table-column searchable sortable field="licenseShort" :label="$t('label.license')">
         <template v-slot="props">
