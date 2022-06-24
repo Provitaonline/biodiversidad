@@ -57,7 +57,8 @@
       "count": "Count",
       "state": "State",
       "numberofoccurrences": "Number of occurrences",
-      "chooseone": "Choose one"
+      "chooseone": "Choose one",
+      "record": "record"
     }
   },
   "es": {
@@ -119,7 +120,8 @@
       "count": "Registros",
       "state": "Estado",
       "numberofoccurrences": "Número de registros",
-      "chooseone": "Escoger uno"
+      "chooseone": "Escoger uno",
+      "record": "registro"
     }
   }
 }

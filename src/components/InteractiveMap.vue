@@ -150,7 +150,7 @@
         if (features.length) {
           let coordinates = e.features[0].geometry.coordinates.slice();
           let totalTotal = features.map(o => o.properties.total).reduce((p, c) => p + c, 0)
-          let description = totalTotal + ' registro' + ((totalTotal === 1) ? '': 's');
+          let description = totalTotal + ' ' + this.$t('label.record') + ((totalTotal === 1) ? '': 's');
           new Maplibre.Popup().setLngLat(coordinates).setHTML(description).addTo(this.map);
           //console.log(coordinates, features.map(o => o.properties.total).reduce((p, c) => p + c, 0), Math.max(...features.map(o => o.properties.total)))
         }
