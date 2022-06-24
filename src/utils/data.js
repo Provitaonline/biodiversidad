@@ -10,19 +10,23 @@ async function checkCacheAge() {
   await caches.delete('gbif-cache')
 }
 
-export async function getGbifOccurrences(offset, filters) {
+export function filtersToParms(filters) {
   let parms = ''
   if (filters) {
     Object.keys(filters).forEach(f => {
       if (Array.isArray(filters[f])) {
-        filters[f].forEach(el => parms += '&' + f + '=' + el)
+        filters[f].forEach(el => { if (el) parms += '&' + f + '=' + el})
       } else {
         if (filters[f] !== undefined) parms += '&' + f + '=' + filters[f]
       }
     })
   }
+  return parms
+}
 
-  let response = await fetch('https://api.gbif.org/v1/occurrence/search?country=VE&offset=' + offset + parms,
+export async function getGbifOccurrences(offset, filters) {
+
+  let response = await fetch('https://api.gbif.org/v1/occurrence/search?country=VE&offset=' + offset + filtersToParms(filters),
     {headers: {'Accept-Language': 'es; 0.9, en; 0.8'}})
 
   response = await response.json()

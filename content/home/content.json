@@ -8,7 +8,7 @@
     {
       "title": {
         "en": "Occurrences",
-        "es": "Registros de Presencia"
+        "es": "Registros de presencia"
       },
       "summary": {
         "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -28,18 +28,6 @@
       },
       "link": "/datasets",
       "image": "./images/img-2.png"
-    },
-    {
-      "title": {
-        "en": "Occurences map",
-        "es": "Mapa de presencias"
-      },
-      "summary": {
-        "en": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        "es": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
-      },
-      "link": "/occurrences-map",
-      "image": "./images/img-3.png"
     }
   ]
 }

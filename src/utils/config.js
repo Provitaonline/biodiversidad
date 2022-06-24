@@ -6,24 +6,28 @@ export const awsConfig = {
 export const mapConfig = {
   styles: [
     {
-        title: 'topo',
-        uri:'/mapstyles/topo.json'
+      title: 'topo',
+      uri:'/mapstyles/topo.json'
     },
     {
-        title: 'osm',
-        uri:'/mapstyles/osm.json'
+      title: 'gbif-natural',
+      uri:'/mapstyles/gbif-natural.json'
     },
     {
-        title: 'simple',
-        uri:'/mapstyles/simple.json'
+      title: 'osm',
+      uri:'/mapstyles/osm.json'
     },
     {
-        title: 'ng',
+      title: 'simple',
+      uri:'/mapstyles/simple.json'
+    },
+    {
+      title: 'ng',
         uri:'/mapstyles/ng.json'
     },
     {
-        title: 'satellite',
-        uri:'/mapstyles/satellite.json'
+      title: 'satellite',
+      uri:'/mapstyles/satellite.json'
     }
   ],
   mapCenter: [-66.58, 8.42],

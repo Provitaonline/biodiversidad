@@ -25,8 +25,9 @@
       "scientificname": "Scientific name",
       "rank": "Rank",
       "filters": "Filters",
-      "applifilters": "Apply filters",
-      "applifilter": "Apply filter",
+      "applyfilters": "Apply filters",
+      "applyfilter": "Apply filter",
+      "clearfilters": "Clear filters",
       "selectone": "Select one...",
       "addone": "Add one...",
       "title": "Title",
@@ -56,7 +57,8 @@
       "count": "Count",
       "state": "State",
       "numberofoccurrences": "Number of occurrences",
-      "chooseone": "Choose one"
+      "chooseone": "Choose one",
+      "record": "record"
     }
   },
   "es": {
@@ -86,8 +88,9 @@
       "scientificname": "Nombre científico",
       "rank": "Rango",
       "filters": "Filtros",
-      "applifilters": "Aplicar filtros",
-      "applifilter": "Aplicar filtro",
+      "applyfilters": "Aplicar filtros",
+      "applyfilter": "Aplicar filtro",
+      "clearfilters": "Limpiar filtros",
       "selectone": "Seleccionar uno...",
       "addone": "Añadir uno...",
       "title": "Título",
@@ -117,7 +120,8 @@
       "count": "Registros",
       "state": "Estado",
       "numberofoccurrences": "Número de registros",
-      "chooseone": "Escoger uno"
+      "chooseone": "Escoger uno",
+      "record": "registro"
     }
   }
 }

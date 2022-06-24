@@ -19,9 +19,6 @@
           <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/datasets')">
             {{ $t('label.datasets') }}
           </b-navbar-item>
-          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/occurrences-map')">
-            {{ $t('label.occurrencesmap') }}
-          </b-navbar-item>
         </b-navbar-dropdown>
         <b-navbar-item tag="g-link" :to="$tp('/about')">
           {{ $t('label.about') }}

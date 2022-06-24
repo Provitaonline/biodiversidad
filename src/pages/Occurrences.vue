@@ -27,7 +27,7 @@
             <b-field label-position="on-border" :label="$t('label.iucnredlistcategory')">
               <b-taginput
                 size="is-small"
-                v-model="tags"
+                v-model="filters.iucnRedListCategory"
                 icon="filter"
                 :data="iucnCodes"
                 autocomplete
@@ -44,7 +44,7 @@
             <b-field label-position="on-border" :label="$t('label.scientificname')">
               <b-autocomplete size="is-small"
                 :data="searchAutoData"
-                v-model="name"
+                v-model="scientificName"
                 icon="filter"
                 :placeholder="$t('label.entername')"
                 field="scientificName"
@@ -69,7 +69,7 @@
                   <div v-if="taxon" class="is-flex is-align-items-center has-text-left" style="padding-top: 4px; padding-bottom: 4px;">
                     <div class="is-size-7"><span class="has-text-weight-bold">Selección:</span> {{taxon}}</div>
                     <span class="is-flex-grow-1"></span>
-                    <a @click="taxon=''; taxonKey=undefined; clearApplyFilters()"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
+                    <a @click="clearSelectedTaxon()"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
                   </div>
                   <div v-for="selected, index in selectedTaxons">
                     <div class="is-flex is-align-items-center is-size-6">
@@ -98,45 +98,53 @@
             <hr>
             <b-field>
               <b-checkbox size="is-small" v-model="applyFilters" @input="applyFilterChange()">
-                {{ $t('label.applifilters') }}
+                {{ $t('label.applyfilters') }}
               </b-checkbox>
+              <a @click="clearFilters()">&nbsp<font-awesome :icon="['fas', 'trash']"/></a><span class="is-size-7" style="margin-top: auto; margin-bottom: auto;">&nbsp{{ $t('label.clearfilters') }}</span>
             </b-field>
           </div>
         </div>
       </aside>
       <div class="column">
-        <div class="is-size-5 has-text-weight-semibold total-heading">
-          {{$t('label.numberofoccurrences')}}: {{ $n(totalGbifOccurrences) }}
-        </div>
-        <b-table
-          :data='gbifOccurrencesData'
-          :loading='loading'
-          hoverable
-          paginated
-          :pagination-simple='true'
-          backend-pagination
-          :total='totalGbifOccurrences'
-          @page-change='gbifOccurrencesOnPageChange'
-        >
-          <b-table-column width="30%" field="scientificName" :label="$t('label.scientificname')" v-slot="props">
-            <a :href="'https://gbif.org/es/occurrence/' + props.row.gbifID">{{ props.row.scientificName }}</a>
-          </b-table-column>
-          <b-table-column field="year" :label="$t('label.year')" v-slot="props">
-            {{ props.row.year }}
-          </b-table-column>
-          <b-table-column field="gadm" :label="$t('label.state')" v-slot="props">
-            {{ (props.row.gadm && props.row.gadm.level1) ? props.row.gadm.level1.name : '' }}
-          </b-table-column>
-          <b-table-column field="iucnRedListCategory" :label="$t('label.iucnredlistcategory')" v-slot="props">
-            <span v-if="props.row.iucnRedListCategory">{{props.row.iucnRedListCategory}} - {{ $t('label.' + props.row.iucnRedListCategory) }}</span>
-          </b-table-column>
-          <b-table-column field="publishingCountry" :label="$t('label.publishingcountry')" v-slot="props">
-            {{ props.row.publishingCountry }}
-          </b-table-column>
-          <b-table-column field="datasetName" :label="$t('label.dataset')" v-slot="props">
-            <a :href="'https://gbif.org/es/dataset/' + props.row.datasetKey">{{props.row.datasetName}}</a>
-          </b-table-column>
-        </b-table>
+        <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
+          <b-tab-item value="table" active label="Table">
+            <div class="is-size-5 has-text-weight-semibold total-heading">
+              {{$t('label.numberofoccurrences')}}: {{ $n(totalGbifOccurrences) }}
+            </div>
+            <b-table
+              :data='gbifOccurrencesData'
+              :loading='loading'
+              hoverable
+              paginated
+              :pagination-simple='true'
+              backend-pagination
+              :total='totalGbifOccurrences'
+              @page-change='gbifOccurrencesOnPageChange'
+            >
+              <b-table-column width="30%" field="scientificName" :label="$t('label.scientificname')" v-slot="props">
+                <a :href="'https://gbif.org/es/occurrence/' + props.row.gbifID">{{ props.row.scientificName }}</a>
+              </b-table-column>
+              <b-table-column field="year" :label="$t('label.year')" v-slot="props">
+                {{ props.row.year }}
+              </b-table-column>
+              <b-table-column field="gadm" :label="$t('label.state')" v-slot="props">
+                {{ (props.row.gadm && props.row.gadm.level1) ? props.row.gadm.level1.name : '' }}
+              </b-table-column>
+              <b-table-column field="iucnRedListCategory" :label="$t('label.iucnredlistcategory')" v-slot="props">
+                <span v-if="props.row.iucnRedListCategory">{{props.row.iucnRedListCategory}} - {{ $t('label.' + props.row.iucnRedListCategory) }}</span>
+              </b-table-column>
+              <b-table-column field="publishingCountry" :label="$t('label.publishingcountry')" v-slot="props">
+                {{ props.row.publishingCountry }}
+              </b-table-column>
+              <b-table-column field="datasetName" :label="$t('label.dataset')" v-slot="props">
+                <a :href="'https://gbif.org/es/dataset/' + props.row.datasetKey">{{props.row.datasetName}}</a>
+              </b-table-column>
+            </b-table>
+          </b-tab-item>
+          <b-tab-item value="map" active label="Map">
+            <InteractiveMap :filters="filters" />
+          </b-tab-item>
+        </b-tabs>
       </div>
     </div>
   </Layout>
@@ -219,6 +227,8 @@
 import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies} from '~/utils/data'
 import {getPureText} from '~/utils/misc'
 
+import InteractiveMap from '~/components/InteractiveMap.vue'
+
 export default {
   metaInfo() {
     return {
@@ -228,29 +238,34 @@ export default {
   },
   data() {
     return {
+      activeTab: 'table',
       gbifOccurrencesData: [],
       searchAutoData: [],
       applyFilters: false,
-      name: '',
       taxon: '',
-      taxonKey: undefined,
       state: '',
+      scientificName: '',
       totalGbifOccurrences: 0,
       loading: false,
       isTaxonomyLoading: false,
       isFullPage: false,
       gbifOccurrencesPage: 1,
       perPage: 20,
-      tags: [],
       iucnCodes: ['EX', 'EW', 'CR', 'EN', 'VU', 'NT', 'LC', 'DD', 'NE'],
       selectedOptions: [],
       ranks: ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'],
       currentRank: 0,
       taxonList: [],
-      selectedTaxons: []
+      selectedTaxons: [],
+      filters: {
+        iucnRedListCategory: [],
+        taxonKey: [],
+        gadmLevel1Gid: undefined
+      }
     }
   },
   components: {
+    InteractiveMap
   },
   mounted() {
     this.loadGbifOccurrences(1)
@@ -259,13 +274,9 @@ export default {
   methods: {
     loadGbifOccurrences(page) {
       this.loading = true
-      let filters = {
-        scientificName: this.name,
-        iucnRedListCategory: this.tags,
-        taxonKey: this.taxonKey,
-        gadmLevel1Gid: this.getStateId()
-      }
-      getGbifOccurrences((page-1)*20, filters).then((result) => {
+      this.filters.gadmLevel1Gid = this.stateId
+      this.filters.taxonKey[1] = this.scientificNameKey()
+      getGbifOccurrences((page-1)*20, this.applyFilters ? this.filters : null).then((result) => {
         this.gbifOccurrencesData = result.results
         this.totalGbifOccurrences = result.count
         this.loading = false
@@ -288,18 +299,23 @@ export default {
       })
     },
     applyFilterChange() {
-      if (this.applyFilters) {
-        this.loadGbifOccurrences(1)
-      } else {
-        this.name=''
-        this.tags=[]
-        this.taxonKey=undefined
-        this.taxon=
-        this.loadGbifOccurrences(1)
-      }
+      this.loadGbifOccurrences(1)
+      this.$eventBus.$emit('filterchange', this.applyFilters)
     },
     clearApplyFilters() {
       this.applyFilters = false
+    },
+    clearFilters() {
+      this.state = ''
+      this.scientificName = ''
+      this.filters.iucnRedListCategory = []
+      this.filters.taxonKey = []
+      this.filters.gadmLevel1Gid = undefined
+      this.taxon = ''
+      if (this.applyFilters) {
+        this.clearApplyFilters()
+        this.applyFilterChange()
+      }
     },
     taxonClicked(taxon, taxonKey) {
       this.selectedTaxons.push({taxon: taxon, taxonKey: taxonKey, rank: this.ranks[this.currentRank]})
@@ -309,7 +325,7 @@ export default {
     countClicked(taxon, taxonKey) {
       this.clearApplyFilters()
       this.taxon = taxon
-      this.taxonKey = taxonKey
+      this.filters.taxonKey[0] = taxonKey
     },
     removeTaxonClicked(index) {
       let taxonKey = (index === 0) ? undefined : this.selectedTaxons[index - 1].taxonKey
@@ -318,14 +334,29 @@ export default {
       this.loadGbifOccurrenceTaxonomies(this.ranks[index], taxonKey)
 
     },
-    getStateId() {
-      let edge = this.$page.allGadmData.edges.find(e => e.node.name === this.state)
-      return edge ? edge.node.id : ''
+    clearSelectedTaxon() {
+      this.taxon = ''
+      this.filters.taxonKey[0] = undefined
+      this.clearApplyFilters()
+    },
+    tabChanged() {
+      if (this.activeTab === 'map') {
+        this.$nextTick(() => window.dispatchEvent(new Event('resize')))
+      }
+    },
+    scientificNameKey() {
+      if (this.scientificName.trim() === '') return undefined
+      let item = this.searchAutoData.find(e => e.scientificName.toLowerCase() === this.scientificName.toLowerCase())
+      return item && item.key ? item.key : undefined
     }
   },
   computed: {
     filteredStates() {
       return this.$page.allGadmData.edges.filter(item => {return getPureText(item.node.name).includes(getPureText(this.state))})
+    },
+    stateId() {
+      let edge = this.$page.allGadmData.edges.find(e => e.node.name === this.state)
+      return edge ? edge.node.id : undefined
     }
   }
 }
