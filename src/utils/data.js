@@ -15,7 +15,7 @@ export function filtersToParms(filters) {
   if (filters) {
     Object.keys(filters).forEach(f => {
       if (Array.isArray(filters[f])) {
-        filters[f].forEach(el => parms += '&' + f + '=' + el)
+        filters[f].forEach(el => { if (el) parms += '&' + f + '=' + el})
       } else {
         if (filters[f] !== undefined) parms += '&' + f + '=' + filters[f]
       }

@@ -44,7 +44,7 @@
             <b-field label-position="on-border" :label="$t('label.scientificname')">
               <b-autocomplete size="is-small"
                 :data="searchAutoData"
-                v-model="filters.scientificName"
+                v-model="scientificName"
                 icon="filter"
                 :placeholder="$t('label.entername')"
                 field="scientificName"
@@ -69,7 +69,7 @@
                   <div v-if="taxon" class="is-flex is-align-items-center has-text-left" style="padding-top: 4px; padding-bottom: 4px;">
                     <div class="is-size-7"><span class="has-text-weight-bold">Selección:</span> {{taxon}}</div>
                     <span class="is-flex-grow-1"></span>
-                    <a @click="taxon=''; filters.taxonKey=undefined; clearApplyFilters()"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
+                    <a @click="clearSelectedTaxon()"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
                   </div>
                   <div v-for="selected, index in selectedTaxons">
                     <div class="is-flex is-align-items-center is-size-6">
@@ -244,6 +244,7 @@ export default {
       applyFilters: false,
       taxon: '',
       state: '',
+      scientificName: '',
       totalGbifOccurrences: 0,
       loading: false,
       isTaxonomyLoading: false,
@@ -257,10 +258,9 @@ export default {
       taxonList: [],
       selectedTaxons: [],
       filters: {
-        scientificName: '',
         iucnRedListCategory: [],
-        taxonKey: undefined,
-        gadmLevel1Gid: ''
+        taxonKey: [],
+        gadmLevel1Gid: undefined
       }
     }
   },
@@ -275,6 +275,7 @@ export default {
     loadGbifOccurrences(page) {
       this.loading = true
       this.filters.gadmLevel1Gid = this.stateId
+      this.filters.taxonKey[1] = this.scientificNameKey()
       getGbifOccurrences((page-1)*20, this.applyFilters ? this.filters : null).then((result) => {
         this.gbifOccurrencesData = result.results
         this.totalGbifOccurrences = result.count
@@ -307,9 +308,10 @@ export default {
     clearFilters() {
       console.log('clear')
       this.state = ''
-      this.filters.scientificName = ''
+      this.scientificName = ''
       this.filters.iucnRedListCategory = []
-      this.filters.taxonKey = undefined
+      this.filters.taxonKey = []
+      this.filters.gadmLevel1Gid = undefined
       this.taxon = ''
       if (this.applyFilters) {
         this.clearApplyFilters()
@@ -324,7 +326,7 @@ export default {
     countClicked(taxon, taxonKey) {
       this.clearApplyFilters()
       this.taxon = taxon
-      this.$set(this.filters, 'taxonKey', taxonKey)
+      this.filters.taxonKey[0] = taxonKey
     },
     removeTaxonClicked(index) {
       let taxonKey = (index === 0) ? undefined : this.selectedTaxons[index - 1].taxonKey
@@ -333,10 +335,21 @@ export default {
       this.loadGbifOccurrenceTaxonomies(this.ranks[index], taxonKey)
 
     },
+    clearSelectedTaxon() {
+      this.taxon = ''
+      this.filters.taxonKey[0] = undefined
+      this.clearApplyFilters()
+    },
     tabChanged() {
       if (this.activeTab === 'map') {
         this.$nextTick(() => window.dispatchEvent(new Event('resize')))
       }
+    },
+    scientificNameKey() {
+      console.log(this.scientificName)
+      if (this.scientificName.trim() === '') return undefined
+      let item = this.searchAutoData.find(e => e.scientificName.toLowerCase() === this.scientificName.toLowerCase())
+      return item && item.key ? item.key : undefined
     }
   },
   computed: {
@@ -345,7 +358,7 @@ export default {
     },
     stateId() {
       let edge = this.$page.allGadmData.edges.find(e => e.node.name === this.state)
-      return edge ? edge.node.id : ''
+      return edge ? edge.node.id : undefined
     }
   }
 }
