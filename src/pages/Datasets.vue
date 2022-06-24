@@ -52,7 +52,11 @@
       </div>
     </div>
     <br>
+    <div class="is-size-5 has-text-weight-semibold total-heading">
+      {{$t('label.numberofitems')}}: {{ $n(numItems()) }}
+    </div>
     <b-table
+      ref="table"
       :data='filteredGbifDatasetsData'
       :loading='loading'
       hoverable
@@ -157,6 +161,12 @@
     .taxonomy-select {
       width: 100%;
     }
+  }
+
+  .total-heading {
+    background-color: white;
+    border-bottom-style: solid;
+    border-bottom-color: #DBDBDB;
   }
 
 </style>
@@ -276,6 +286,9 @@ export default {
     },
     isInTaxonomicGroup() {
       return Object.keys(this.taxonomicGroups[this.selectedTaxonomicGroup]).includes(this.taxonomicGroupFilter)
+    },
+    numItems() {
+      if (this.$refs.table) return this.$refs.table.newData.length
     }
   },
   computed: {
