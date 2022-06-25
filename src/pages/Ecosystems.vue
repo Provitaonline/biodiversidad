@@ -14,7 +14,7 @@
           <div v-for="item in $page.vcards.edges" class="tile is-child is-6">
             <div class="vcard-frame">
               <div class="media">
-                <figure class="media-left is-hidden-mobile">
+                <figure class="media-left">
                   <a :href="'https://ecosistemasamenazados.org/fichas/' + makeLink(item.node.title)"><g-image :src="item.node.cardimage"></g-image></a>
                 </figure>
                 <div>
@@ -58,6 +58,19 @@
   .skinny {
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+
+  @media screen and (max-width: 600px)  {
+    ::v-deep .layout {
+      padding: 4px;
+    }
+    ::v-deep .section {
+      padding: 4px;
+    }
+
+    ::v-deep .box {
+      padding: 4px;
+    }
   }
 
 </style>
