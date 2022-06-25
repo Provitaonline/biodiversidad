@@ -269,7 +269,7 @@ export default {
     InteractiveMap
   },
   mounted() {
-    let q = unflatten(this.$route.query)
+    /*let q = unflatten(this.$route.query)
     console.log(this.$route.query)
     Object.keys(q).forEach(k => {
       if (this.filters.hasOwnProperty(k)) {
@@ -288,7 +288,7 @@ export default {
       let edge = this.$page.allGadmData.edges.find(e => e.node.id === this.filters.gadmLevel1Gid)
       if (edge.node.name) this.state = edge.node.name
     }
-    console.log(this.filters)
+    console.log(this.filters)*/
     this.$nextTick(() => {
       if (this.$route.query !== {}) this.applyFilters = true
       this.loadGbifOccurrences(1)
@@ -375,7 +375,14 @@ export default {
       return item && item.key ? item.key : undefined
     },
     updateQueryParms() {
-      this.$router.replace({query: this.applyFilters ? flatten(this.filters) : {}})
+      let query = {}
+      if (this.state) query.state = this.state
+      if (this.scientificName) query.scientificName = this.scientificName
+      if (this.filters.iucnRedListCategory.length) query.iucnRedListCategory = this.filters.iucnRedListCategory
+      this.$router.replace({query: this.applyFilters ? query : {}})
+    },
+    restoreFromQueryParms() {
+
     }
   },
   computed: {
