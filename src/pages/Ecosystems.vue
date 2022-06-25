@@ -27,9 +27,9 @@
                     &nbsp;&nbsp;<a :href="'https://ecosistemasamenazados.org/fichas/' + makeLink(item.node.title)"><strong v-html="item.node.title"></strong></a>
                   </div>
                   <div is-size-7 style="margin-left: 38px;" v-if="item.node.areain2010">
-                    {{$n(item.node.areain1988)}} km<sup>2</sup> en 1988<br>
+                    {{$n(item.node.areain1988)}} km<sup>2</sup> {{$t('label.in')}} 1988<br>
                     <hr class="skinny">
-                    {{$n(item.node.areain2010)}} km<sup>2</sup> en 2010<br>
+                    {{$n(item.node.areain2010)}} km<sup>2</sup> {{$t('label.in')}} 2010<br>
                   </div>
                 </div>
               </div>

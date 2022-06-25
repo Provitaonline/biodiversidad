@@ -64,7 +64,8 @@
       "table": "Table",
       "map": "Map",
       "ecosystems": "Terrestrial ecosystems",
-      "faunarb": "Threatened fauna species"
+      "faunarb": "Threatened fauna species",
+      "in": "in"
     }
   },
   "es": {
@@ -133,7 +134,8 @@
       "table": "Tabla",
       "map": "Mapa",
       "ecosystems": "Ecosistemas terrestres",
-      "faunarb": "Especies de fauna amenazadas"
+      "faunarb": "Especies de fauna amenazadas",
+      "in": "en"
     }
   }
 }
