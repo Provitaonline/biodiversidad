@@ -11,6 +11,17 @@
       <template slot="end">
         <b-navbar-dropdown>
           <template slot="label">
+            {{ $t('label.provita') }}
+          </template>
+          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/ecosystems')">
+            {{ $t('label.ecosystems') }}
+          </b-navbar-item>
+          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/faunarb')">
+            {{ $t('label.faunarb') }}
+          </b-navbar-item>
+        </b-navbar-dropdown>
+        <b-navbar-dropdown>
+          <template slot="label">
             {{ $t('label.gbif') }}
           </template>
           <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/occurrences')">

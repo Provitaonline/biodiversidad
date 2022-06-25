@@ -8,29 +8,27 @@
       {{ $page.homeContent.intro[$i18n.locale.substr(0, 2)] }}
     </section>
     <section class="section card-section">
-      <div class="tile is-ancestor">
-        <div class="tile">
-          <div v-for="item in $page.homeContent.cards" class="tile is-parent" style="flex-direction: column;">
-            <g-link :to="$tp(item.link)">
-              <div class="card tile is-child menu-card">
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <g-image class="img-hover-effect" :src="item.image"/>
-                  </figure>
-                </div>
-                <div class="card-content has-text-centered">
-                  <div class="content">
-                    <div class="box is-size-4 is-size-5-mobile has-text-weight-medium explore-title">{{item.title[$i18n.locale.substr(0, 2)]}}</div>
-                    <span>{{item.summary[$i18n.locale.substr(0, 2)]}}</span>
-                    <br><br>
-                  </div>
-                </div>
-                <div class="menu-card-button" >
-                  <button class="button is-primary">{{$t('label.explore')}}</button>
+      <div class="row">
+        <div v-for="item in $page.homeContent.cards" class="column">
+          <g-link :to="$tp(item.link)">
+            <div class="card is-child menu-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <g-image class="img-hover-effect" :src="item.image"/>
+                </figure>
+              </div>
+              <div class="card-content has-text-centered" style="padding: 4px;">
+                <div class="content">
+                  <div class="box is-size-4 is-size-5-mobile has-text-weight-medium explore-title">{{item.title[$i18n.locale.substr(0, 2)]}}</div>
+                  <span>{{item.summary[$i18n.locale.substr(0, 2)]}}</span>
+                  <br><br>
                 </div>
               </div>
-            </g-link>
-          </div>
+              <div class="menu-card-button" >
+                <button class="button is-primary">{{$t('label.explore')}}</button>
+              </div>
+            </div>
+          </g-link>
         </div>
       </div>
     </section>
@@ -94,6 +92,28 @@
     color: $primary;
     margin: 0;
     box-shadow: none;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .column {
+    flex: 20%;
+    padding: 10px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .column {
+      flex: 50%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .row {
+      flex-direction: column;
+    }
   }
 
 </style>
