@@ -9,6 +9,7 @@
       "main": "Main",
       "about": "About",
       "gbif": "GBIF Data",
+      "provita": "Provita Data",
       "occurrences": "Occurrences",
       "datasets": "Datasets",
       "dataset": "Dataset",
@@ -61,7 +62,9 @@
       "chooseone": "Choose one",
       "record": "record",
       "table": "Table",
-      "map": "Map"
+      "map": "Map",
+      "ecosystems": "Terrestrial ecosystems",
+      "faunarb": "Threatened fauna species"
     }
   },
   "es": {
@@ -75,6 +78,7 @@
       "main": "Página Principal",
       "about": "Acerca De",
       "gbif": "Datos GBIF",
+      "provita": "Datos Provita",
       "occurrences": "Registros de presencia",
       "datasets": "Juegos de datos",
       "dataset": "Juego de datos",
@@ -127,7 +131,9 @@
       "chooseone": "Escoger uno",
       "record": "registro",
       "table": "Tabla",
-      "map": "Mapa"
+      "map": "Mapa",
+      "ecosystems": "Ecosistemas terrestres",
+      "faunarb": "Especies de fauna amenazadas"
     }
   }
 }
