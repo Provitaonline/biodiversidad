@@ -9,6 +9,7 @@
   "dependencies": {
     "buefy": "^0.9.20",
     "bulma-block-list": "^0.6.0",
+    "flat": "^5.0.2",
     "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
     "mapbox-gl": "^2.8.2",

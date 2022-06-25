@@ -226,6 +226,7 @@
 <script>
 import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies} from '~/utils/data'
 import {getPureText} from '~/utils/misc'
+import {flatten, unflatten} from 'flat'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
 
@@ -268,8 +269,31 @@ export default {
     InteractiveMap
   },
   mounted() {
-    this.loadGbifOccurrences(1)
-    this.loadGbifOccurrenceTaxonomies(this.ranks[0])
+    let q = unflatten(this.$route.query)
+    console.log(this.$route.query)
+    Object.keys(q).forEach(k => {
+      if (this.filters.hasOwnProperty(k)) {
+        if (Array.isArray(this.filters[k])) {
+          if (Array.isArray(q[k])) {
+             this.filters[k] = q[k]
+          } else {
+            this.filters[k].push(q[k])
+          }
+        } else {
+          this.filters[k] = q[k]
+        }
+      }
+    })
+    if (this.filters.gadmLevel1Gid) {
+      let edge = this.$page.allGadmData.edges.find(e => e.node.id === this.filters.gadmLevel1Gid)
+      if (edge.node.name) this.state = edge.node.name
+    }
+    console.log(this.filters)
+    this.$nextTick(() => {
+      if (this.$route.query !== {}) this.applyFilters = true
+      this.loadGbifOccurrences(1)
+      this.loadGbifOccurrenceTaxonomies(this.ranks[0])
+    })
   },
   methods: {
     loadGbifOccurrences(page) {
@@ -300,6 +324,7 @@ export default {
     },
     applyFilterChange() {
       this.loadGbifOccurrences(1)
+      this.updateQueryParms()
       this.$eventBus.$emit('filterchange', this.applyFilters)
     },
     clearApplyFilters() {
@@ -348,6 +373,9 @@ export default {
       if (this.scientificName.trim() === '') return undefined
       let item = this.searchAutoData.find(e => e.scientificName.toLowerCase() === this.scientificName.toLowerCase())
       return item && item.key ? item.key : undefined
+    },
+    updateQueryParms() {
+      this.$router.replace({query: this.applyFilters ? flatten(this.filters) : {}})
     }
   },
   computed: {
