@@ -28,6 +28,30 @@
       },
       "link": "/datasets",
       "image": "./images/img-2.png"
+    },
+    {
+      "title": {
+        "en": "Terrestrial ecosystems",
+        "es": "Ecosistemas terrestres"
+      },
+      "summary": {
+        "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      "link": "/ecosystems",
+      "image": "./images/img-3.png"
+    },
+    {
+      "title": {
+        "en": "Threatened fauna species",
+        "es": "Especies de fauna amenazadas"
+      },
+      "summary": {
+        "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      "link": "/faunarb",
+      "image": "./images/img-4.png"
     }
   ]
 }

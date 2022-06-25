@@ -29,6 +29,20 @@ module.exports = {
       }
     },
     {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/ecosystems/vcards/**/content.md',
+        typeName: 'RiskCard'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/ecosystems/labels/labels.md',
+        typeName: 'Labels'
+      }
+    },
+    {
       use: "gridsome-plugin-i18n",
       options: {
         locales: [ // locales list
