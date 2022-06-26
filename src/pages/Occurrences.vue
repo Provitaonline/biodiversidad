@@ -66,11 +66,6 @@
                   <div class="is-size-7 has-text-centered">{{ $t('label.clicktonavigate') }}</div>
                   <div class="is-size-7 has-text-centered">{{ $t('label.clicktochoose') }}</div>
                   <!-- <div v-if="currentRank === 0"><small>{{ $t('label.' + ranks[currentRank]) }}:</small></div> -->
-                  <div v-if="taxon" class="is-flex is-align-items-center has-text-left" style="padding-top: 4px; padding-bottom: 4px;">
-                    <div class="is-size-7"><span class="has-text-weight-bold">Selección:</span> {{taxon}}</div>
-                    <span class="is-flex-grow-1"></span>
-                    <a @click="clearSelectedTaxon()"><small><font-awesome size="sm" :icon="['fas', 'times-circle']"/></small></a>
-                  </div>
                   <div v-for="selected, index in selectedTaxons">
                     <div class="is-flex is-align-items-center is-size-6">
                       <span><small>{{ $t('label.' + selected.rank) }}: {{ selected.taxon }}</small></span>
@@ -118,6 +113,7 @@
               paginated
               :pagination-simple='true'
               backend-pagination
+              :current-page="gbifOccurrencesPage"
               :total='totalGbifOccurrences'
               @page-change='gbifOccurrencesOnPageChange'
             >
@@ -224,8 +220,9 @@
 </page-query>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies} from '~/utils/data'
+import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName} from '~/utils/data'
 import {getPureText} from '~/utils/misc'
+import {flatten, unflatten} from 'flat'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
 
@@ -259,7 +256,6 @@ export default {
       selectedTaxons: [],
       filters: {
         iucnRedListCategory: [],
-        taxonKey: [],
         gadmLevel1Gid: undefined
       }
     }
@@ -268,14 +264,14 @@ export default {
     InteractiveMap
   },
   mounted() {
-    this.loadGbifOccurrences(1)
-    this.loadGbifOccurrenceTaxonomies(this.ranks[0])
+    this.restoreFromQueryParms()
   },
   methods: {
     loadGbifOccurrences(page) {
+      this.gbifOccurrencesPage = page
       this.loading = true
       this.filters.gadmLevel1Gid = this.stateId
-      this.filters.taxonKey[1] = this.scientificNameKey()
+      this.filters.taxonKey = this.scientificNameKey()
       getGbifOccurrences((page-1)*20, this.applyFilters ? this.filters : null).then((result) => {
         this.gbifOccurrencesData = result.results
         this.totalGbifOccurrences = result.count
@@ -283,7 +279,6 @@ export default {
       })
     },
     gbifOccurrencesOnPageChange(page) {
-      this.gbifOccurrencesPage = page
       this.loadGbifOccurrences(page)
     },
     getSpeciesSuggestions(name) {
@@ -300,6 +295,7 @@ export default {
     },
     applyFilterChange() {
       this.loadGbifOccurrences(1)
+      this.updateQueryParms()
       this.$eventBus.$emit('filterchange', this.applyFilters)
     },
     clearApplyFilters() {
@@ -324,8 +320,8 @@ export default {
     },
     countClicked(taxon, taxonKey) {
       this.clearApplyFilters()
-      this.taxon = taxon
-      this.filters.taxonKey[0] = taxonKey
+      this.scientificName = taxon
+      this.searchAutoData.push({scientificName: taxon, key: taxonKey, status: "ACCEPTED"})
     },
     removeTaxonClicked(index) {
       let taxonKey = (index === 0) ? undefined : this.selectedTaxons[index - 1].taxonKey
@@ -334,11 +330,6 @@ export default {
       this.loadGbifOccurrenceTaxonomies(this.ranks[index], taxonKey)
 
     },
-    clearSelectedTaxon() {
-      this.taxon = ''
-      this.filters.taxonKey[0] = undefined
-      this.clearApplyFilters()
-    },
     tabChanged() {
       if (this.activeTab === 'map') {
         this.$nextTick(() => window.dispatchEvent(new Event('resize')))
@@ -346,8 +337,37 @@ export default {
     },
     scientificNameKey() {
       if (this.scientificName.trim() === '') return undefined
-      let item = this.searchAutoData.find(e => e.scientificName.toLowerCase() === this.scientificName.toLowerCase())
+      let item = this.searchAutoData.find(e => e.status === "ACCEPTED" && e.scientificName.toLowerCase() === this.scientificName.toLowerCase())
       return item && item.key ? item.key : undefined
+    },
+    updateQueryParms() {
+      let query = {}
+      if (this.state) query.state = this.state
+      if (this.filters.taxonKey) query.taxonKey = this.filters.taxonKey
+      if (this.filters.iucnRedListCategory.length) query.iucnRedListCategory = this.filters.iucnRedListCategory
+      if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: this.applyFilters ? query : {}})
+    },
+    async restoreFromQueryParms() {
+      if (Object.keys(this.$route.query).length) {
+        if (this.$route.query.state) this.state = this.$route.query.state
+        if (this.$route.query.taxonKey) {
+          let tn = await getTaxonName(this.$route.query.taxonKey)
+          this.scientificName = tn.canonicalName ? tn.canonicalName : tn.scientificName
+          this.searchAutoData.push({scientificName: this.scientificName, key: this.$route.query.taxonKey, status: "ACCEPTED"})
+        }
+        if (this.$route.query.iucnRedListCategory) {
+          if (Array.isArray(this.$route.query.iucnRedListCategory)) {
+            this.filters.iucnRedListCategory = this.$route.query.iucnRedListCategory
+          } else {
+            this.filters.iucnRedListCategory.push(this.$route.query.iucnRedListCategory)
+          }
+        }
+      }
+      this.$nextTick(() => {
+        if (Object.keys(this.$route.query).length) this.applyFilters = true
+        this.loadGbifOccurrences(1)
+        this.loadGbifOccurrenceTaxonomies(this.ranks[0])
+      })
     }
   },
   computed: {
