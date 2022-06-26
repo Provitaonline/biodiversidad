@@ -26,7 +26,7 @@ export function stripePattern(color, isFlipped) {
 // and do not restore form values consistently
 export function reloadPageIfBrowserCached(route) {
   window.onpageshow = (e => {
-    if (e.persisted  && Object.keys(route.query).length) {
+    if (e.persisted  && window.location.search) {
       window.location.reload();
     }
   })
