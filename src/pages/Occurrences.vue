@@ -264,7 +264,7 @@ export default {
     InteractiveMap
   },
   created() {
-    reloadPageIfBrowserCached(this.$route)
+    if (process.isClient) reloadPageIfBrowserCached(this.$route)
   },
   mounted() {
     this.restoreFromQueryParms()
