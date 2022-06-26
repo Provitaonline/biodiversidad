@@ -138,7 +138,7 @@
             </b-table>
           </b-tab-item>
           <b-tab-item value="map" active :label="$t('label.map')">
-            <InteractiveMap :filters="filters" />
+            <InteractiveMap v-if="renderMap" :filters="filters" :applyFilters="applyFilters"/>
           </b-tab-item>
         </b-tabs>
       </div>
@@ -257,18 +257,17 @@ export default {
       filters: {
         iucnRedListCategory: [],
         gadmLevel1Gid: undefined
-      }
+      },
+      renderMap: false
     }
   },
   components: {
     InteractiveMap
   },
   created() {
-    console.log('created')
     reloadPageIfBrowserCached(this.$route)
   },
   mounted() {
-    console.log('mounted')
     this.restoreFromQueryParms()
   },
   methods: {
@@ -373,10 +372,10 @@ export default {
       this.$nextTick(() => {
         if (Object.keys(this.$route.query).length) {
           this.applyFilters = true
-          this.$eventBus.$emit('filterchange', this.applyFilters)
         }
         this.loadGbifOccurrences(1)
         this.loadGbifOccurrenceTaxonomies(this.ranks[0])
+        this.renderMap = true
       })
     }
   },

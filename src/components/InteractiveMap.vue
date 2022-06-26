@@ -24,7 +24,8 @@
   export default {
     name: 'InteractiveMap',
     props: {
-      filters: { type: Object, required: true }
+      filters: { type: Object, required: true },
+      applyFilters: { type: Boolean, required: true }
     },
     data() {
       return {
@@ -54,22 +55,19 @@
           })
           this.map.addControl(resetView, 'top-right')
           this.map.addControl(new Maplibre.ScaleControl())
-          this.addLayers()
-          this.map.on('styledata',() => {
-            this.addLayers()
-          })
+          this.addBaseLayers()
+          this.addGbifLayer(this.applyFilters ? this.filters : null)
         }))
         this.map.on('click', 'gbif', this.mapClickHandler)
         this.map.on('mousemove', this.mapMouseMoveHandler)
         this.$eventBus.$on('filterchange', (applyFilters) => {
-          console.log('processing filter change')
           this.removeGbifLayer()
           this.addGbifLayer(applyFilters ? this.filters : null)
         })
       }
     },
     methods: {
-      addLayers() {
+      addBaseLayers() {
         if (!this.map.getLayer('venezuela')) {
           this.map.addSource('venezuela', {
             type: 'vector',
@@ -103,7 +101,6 @@
               }
             })
           })
-          this.addGbifLayer()
         }
       },
       addGbifLayer(filters) {
@@ -168,13 +165,6 @@
     computed: {
 
     },
-    /*watch: {
-      applyFilters(nV, oV) {
-        console.log('filters updated')
-        this.removeGbifLayer()
-        this.addGbifLayer()
-      }
-    },*/
     beforeDestroy () {
       // Save map view before leaving
 
