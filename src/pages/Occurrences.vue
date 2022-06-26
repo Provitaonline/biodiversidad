@@ -222,7 +222,6 @@
 <script>
 import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName} from '~/utils/data'
 import {getPureText, reloadPageIfBrowserCached} from '~/utils/misc'
-import {flatten, unflatten} from 'flat'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
 
