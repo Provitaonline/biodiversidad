@@ -121,7 +121,6 @@ export default {
     })
   },
   mounted() {
-    console.log(this.$page.vcards.edges)
   },
   methods: {
     makeLink(t) {
