@@ -21,3 +21,13 @@ export function stripePattern(color, isFlipped) {
     }
   })
 }
+
+// This is to address a bug in some browsers (e.g., Safari, ChromeiOS) which use cached page on 'back button' backend
+// and do not restore form values consistently
+export function reloadPageIfBrowserCached(route) {
+  window.onpageshow = ((e) => {
+    if (event.persisted  && Object.keys(route.query).length) {
+      window.location.reload();
+    }
+  })
+}

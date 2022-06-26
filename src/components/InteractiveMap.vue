@@ -61,6 +61,11 @@
         }))
         this.map.on('click', 'gbif', this.mapClickHandler)
         this.map.on('mousemove', this.mapMouseMoveHandler)
+        this.$eventBus.$on('filterchange', (applyFilters) => {
+          console.log('processing filter change')
+          this.removeGbifLayer()
+          this.addGbifLayer(applyFilters ? this.filters : null)
+        })
       }
     },
     methods: {
@@ -99,10 +104,6 @@
             })
           })
           this.addGbifLayer()
-          this.$eventBus.$on('filterchange', (applyFilters) => {
-            this.removeGbifLayer()
-            this.addGbifLayer(applyFilters ? this.filters : null)
-          })
         }
       },
       addGbifLayer(filters) {

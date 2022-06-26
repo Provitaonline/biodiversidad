@@ -221,7 +221,7 @@
 
 <script>
 import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName} from '~/utils/data'
-import {getPureText} from '~/utils/misc'
+import {getPureText, reloadPageIfBrowserCached} from '~/utils/misc'
 import {flatten, unflatten} from 'flat'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
@@ -263,7 +263,12 @@ export default {
   components: {
     InteractiveMap
   },
+  created() {
+    console.log('created')
+    reloadPageIfBrowserCached(this.$route)
+  },
   mounted() {
+    console.log('mounted')
     this.restoreFromQueryParms()
   },
   methods: {
@@ -364,11 +369,11 @@ export default {
           }
         }
       }
+
       this.$nextTick(() => {
         if (Object.keys(this.$route.query).length) {
           this.applyFilters = true
           this.$eventBus.$emit('filterchange', this.applyFilters)
-          console.log('hey')
         }
         this.loadGbifOccurrences(1)
         this.loadGbifOccurrenceTaxonomies(this.ranks[0])
