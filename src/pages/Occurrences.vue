@@ -321,7 +321,7 @@ export default {
     countClicked(taxon, taxonKey) {
       this.clearApplyFilters()
       this.scientificName = taxon
-      this.searchAutoData.push({scientificName: taxon, key: taxonKey, status: "ACCEPTED"})
+      this.searchAutoData = [{scientificName: taxon, key: taxonKey, status: "ACCEPTED"}]
     },
     removeTaxonClicked(index) {
       let taxonKey = (index === 0) ? undefined : this.selectedTaxons[index - 1].taxonKey
@@ -337,23 +337,24 @@ export default {
     },
     scientificNameKey() {
       if (this.scientificName.trim() === '') return undefined
-      let item = this.searchAutoData.find(e => e.status === "ACCEPTED" && e.scientificName.toLowerCase() === this.scientificName.toLowerCase())
-      return item && item.key ? item.key : undefined
+      let item = this.searchAutoData.find(e => (e.scientificName === 'incertae sedis' || e.status === "ACCEPTED") && e.scientificName.toLowerCase() === this.scientificName.toLowerCase())
+      return (item && item.key !== undefined) ? item.key : undefined
     },
     updateQueryParms() {
       let query = {}
       if (this.state) query.state = this.state
-      if (this.filters.taxonKey) query.taxonKey = this.filters.taxonKey
+      if (this.filters.taxonKey !== undefined) query.taxonKey = this.filters.taxonKey
       if (this.filters.iucnRedListCategory.length) query.iucnRedListCategory = this.filters.iucnRedListCategory
       if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: this.applyFilters ? query : {}})
     },
     async restoreFromQueryParms() {
       if (Object.keys(this.$route.query).length) {
         if (this.$route.query.state) this.state = this.$route.query.state
-        if (this.$route.query.taxonKey) {
+        if (this.$route.query.taxonKey !== undefined) {
           let tn = await getTaxonName(this.$route.query.taxonKey)
+          this.filters.taxonKey = this.$route.query.taxonKey
           this.scientificName = tn.canonicalName ? tn.canonicalName : tn.scientificName
-          this.searchAutoData.push({scientificName: this.scientificName, key: this.$route.query.taxonKey, status: "ACCEPTED"})
+          this.searchAutoData = [{scientificName: this.scientificName, key: this.$route.query.taxonKey, status: "ACCEPTED"}]
         }
         if (this.$route.query.iucnRedListCategory) {
           if (Array.isArray(this.$route.query.iucnRedListCategory)) {
@@ -364,7 +365,11 @@ export default {
         }
       }
       this.$nextTick(() => {
-        if (Object.keys(this.$route.query).length) this.applyFilters = true
+        if (Object.keys(this.$route.query).length) {
+          this.applyFilters = true
+          this.$eventBus.$emit('filterchange', this.applyFilters)
+          console.log('hey')
+        }
         this.loadGbifOccurrences(1)
         this.loadGbifOccurrenceTaxonomies(this.ranks[0])
       })
