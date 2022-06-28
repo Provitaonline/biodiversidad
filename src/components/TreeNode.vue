@@ -3,7 +3,7 @@
     <a @click="toggle()" v-if="!isLast(node)">
       <font-awesome :icon="['fas', hideNext ? 'caret-right' : 'caret-down']"/>
     </a>
-    <a @click="toggle()" v-if="!isLast(node)">
+    <a :href="'https://especiesamenazadas.org' + link" v-if="!isLast(node)">
       {{nodeLabel}}
     </a>
     <a v-else :href="'https://especiesamenazadas.org' + link">
@@ -38,8 +38,16 @@ export default {
     }
   },
   created() {
-    if (this.isLast(this.node)) {
-      this.link = '/taxon/' + this.path.slice(1, -1).join('/').toLowerCase() + '/' + this.node.jsonFile.split('.')[0]
+    if (this.level > 0) {
+      this.link = this.path.slice(1, -1).join('/').toLowerCase()
+      if (this.isLast(this.node)) {
+        this.link += '/' + this.node.jsonFile.split('.')[0]
+      } else {
+        this.link += '/' + this.nodeLabel.toLowerCase().replace(' ', '-')
+      }
+
+      this.link = (this.link.charAt(0) === '/' ? '' : '/') + this.link
+      this.link = '/taxon' + this.link + '/'
     }
   },
   methods: {
