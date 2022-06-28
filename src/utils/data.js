@@ -40,7 +40,7 @@ export async function getSpeciesSuggestions(pre) {
 }
 
 export async function getAllGbifDatasets() {
-  checkCacheAge()
+  await checkCacheAge()
 
   const cache = await caches.open('gbif-cache')
 
