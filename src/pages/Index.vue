@@ -53,20 +53,23 @@
   }
 
   .card-content {
-    height: 200px;
     padding-top: 0px !important;
     padding-bottom: 0px !important;
   }
 
+  .card-content, .content {
+    height: 265px;
+  }
+
   @media screen and (max-width: 1024px) and (min-width: 769px)  {
-    .card-content {
-      height: 260px;
+    .card-content, .content {
+      height: 265px;
     }
   }
 
   @media screen and (min-width: 1279px)  {
-    .card-content {
-      height: 170px;
+    .card-content, .content {
+      height: 200px;
     }
   }
 

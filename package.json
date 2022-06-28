@@ -1,6 +1,6 @@
 {
   "name": "biodiversidad",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
@@ -13,6 +13,7 @@
     "gridsome-plugin-i18n": "^1.6.0",
     "maplibre-gl": "^2.1.9",
     "slugify": "^1.6.5",
+    "traverse": "^0.6.6",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
