@@ -1,7 +1,7 @@
 <template>
   <li v-show="!isHidden">
     <a @click="toggle()" v-if="!isLast(node)">
-      <font-awesome :icon="['fas', hideNext ? 'caret-right' : 'caret-down']"/>
+      <font-awesome size="lg" :icon="['fas', hideNext ? 'caret-right' : 'caret-down']"/>
     </a>
     <a :href="'https://especiesamenazadas.org' + link" v-if="!isLast(node)">
       {{nodeLabel}}
