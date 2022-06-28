@@ -8,7 +8,7 @@
     <section class="section has-text-centered">
       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
     </section>
-    <section class="is-size-5">
+    <section class="is-size-5 is-size-7-mobile">
       <Tree :treeData="taxonomy" />
     </section>
   </Layout>
