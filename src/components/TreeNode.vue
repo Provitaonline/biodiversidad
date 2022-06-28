@@ -6,11 +6,11 @@
     <a @click="toggle()" v-if="!isLast(node)">
       {{nodeLabel}}
     </a>
-    <a v-else :href="'https://especiesamenazadas.org' + node.link">
-      <b>{{nodeLabel}} ({{node.risk}})</b>
+    <a v-else :href="'https://especiesamenazadas.org' + link">
+      <b>{{nodeLabel}} ({{node.risk}})</b><br>
     </a>
     <ul style="list-style-type: none;" v-if="!isLast(node)">
-      <TreeNode v-for="k in Object.keys(node)" :node="node[k]" :nodeLabel="k" :key="k" :isHidden="hideNext" :level="level + 1"></TreeNode>
+      <TreeNode v-for="k in Object.keys(node)" :node="node[k]" :nodeLabel="k" :key="k" :isHidden="hideNext" :level="level + 1" :path="newPath(k)"></TreeNode>
     </ul>
   </li>
 </template>
@@ -28,14 +28,19 @@ export default {
     node: { type: Object, required: true },
     nodeLabel: { type: String },
     isHidden: {type: Boolean},
-    level: {type: Number }
+    level: {type: Number },
+    path: {type: Array}
   },
   data() {
     return {
       hideNext: this.level > 2,
+      link: ''
     }
   },
   created() {
+    if (this.isLast(this.node)) {
+      this.link = '/taxon/' + this.path.slice(1, -1).join('/').toLowerCase() + '/' + this.node.jsonFile.split('.')[0]
+    }
   },
   methods: {
     isLast(n) {
@@ -44,6 +49,11 @@ export default {
     },
     toggle() {
       this.hideNext = !this.hideNext
+    },
+    newPath(k) {
+      let p = [...this.path]
+      p.push(k)
+      return p
     }
   },
   components: {
