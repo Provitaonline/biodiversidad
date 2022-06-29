@@ -290,7 +290,7 @@ export default {
         })
       } else {
         // Ok, we will use the cached taxonomicGroups data
-        // Data structure needs to be reactive
+        // Data structure needs to be reactive, hence the nested loops below
         Object.keys(savedTaxonomicGroups).forEach(rank => {
           Object.keys(savedTaxonomicGroups[rank]).forEach(name => {
             Object.keys(savedTaxonomicGroups[rank][name]).forEach(datasetKey => {
