@@ -186,7 +186,7 @@
 </page-query>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions, getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies} from '~/utils/data'
+import {getGbifOccurrences, getSpeciesSuggestions, getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies, getSavedTaxonomicGroups, saveTaxonomicGroups} from '~/utils/data'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
 
@@ -253,10 +253,16 @@ export default {
 
       this.totalGbifDatasets = result.count
       this.loading = false
+
+      // Retrieve cached taxonomicGroups
+      let savedTaxonomicGroups = getSavedTaxonomicGroups()
+
       let getSpeciesPromises = []
       this.gbifDatasetsData.forEach(async (ds, idx) => {
-        if (ds.type === 'CHECKLIST') {
-          getSpeciesPromises.push(function() {return getGbifDatasetSpecies(ds.key)}())
+        if (!savedTaxonomicGroups) {
+          if (ds.type === 'CHECKLIST') {
+            getSpeciesPromises.push(function() {return getGbifDatasetSpecies(ds.key)}())
+          }
         }
         let dataset = await getGbifDatasetDetail(ds.key)
         let gDS = this.gbifDatasetsData[idx]
@@ -264,22 +270,39 @@ export default {
         gDS.pubDate = dataset.pubDate
         this.$set(this.gbifDatasetsData, idx, gDS)
       })
-      Promise.all(getSpeciesPromises).then((speciesData) => {
-        speciesData.forEach(s => {
-          s.results.forEach(r => {
-            Object.keys(this.taxonomicGroups).forEach(rank => {
-              if (r[rank]) {
-                let cleanName = r[rank].replace(/<[^>]*>?/gm, '') // Strip tags that exist in some entries
-                if (!this.taxonomicGroups[rank][cleanName]) {
-                  this.$set(this.taxonomicGroups[rank], cleanName, {})
+      if (!savedTaxonomicGroups) {
+        Promise.all(getSpeciesPromises).then((speciesData) => {
+          speciesData.forEach(s => {
+            s.results.forEach(r => {
+              Object.keys(this.taxonomicGroups).forEach(rank => {
+                if (r[rank]) {
+                  let cleanName = r[rank].replace(/<[^>]*>?/gm, '') // Strip tags that exist in some entries
+                  if (!this.taxonomicGroups[rank][cleanName]) {
+                    this.$set(this.taxonomicGroups[rank], cleanName, {})
+                  }
+                  this.$set(this.taxonomicGroups[rank][cleanName], r.datasetKey, true)
                 }
-                this.$set(this.taxonomicGroups[rank][cleanName], r.datasetKey, true)
+              })
+            })
+          })
+          saveTaxonomicGroups(this.taxonomicGroups)
+          this.taxonomicGroupsReady = true
+        })
+      } else {
+        // Ok, we will use the cached taxonomicGroups data
+        // Data structure needs to be reactive
+        Object.keys(savedTaxonomicGroups).forEach(rank => {
+          Object.keys(savedTaxonomicGroups[rank]).forEach(name => {
+            Object.keys(savedTaxonomicGroups[rank][name]).forEach(datasetKey => {
+              if (!this.taxonomicGroups[rank][name]) {
+                this.$set(this.taxonomicGroups[rank], name, {})
               }
+              this.$set(this.taxonomicGroups[rank][name], datasetKey, true)
             })
           })
         })
         this.taxonomicGroupsReady = true
-      })
+      }
     },
     isGeoOutOfRange(geo) {
       for (let i=0; i<geo.length; i++) {
