@@ -1,13 +1,14 @@
+function isCacheExpired() {
+  const cacheDate = localStorage.getItem('gbifCacheDate')
+  if (cacheDate && (new Date().getTime() - new Date(cacheDate).getTime()) < 86400000) return false
+  localStorage.setItem('gbifCacheDate', new Date().toString())
+  return true
+}
 
 async function checkCacheAge() {
-
-  // Bust the cache if older than 24 hours
-  const cacheDate = localStorage.getItem('gbifCacheDate')
-
-  if (cacheDate && (new Date().getTime() - new Date(cacheDate).getTime()) < 86400000) return
-
-  localStorage.setItem('gbifCacheDate', new Date().toString())
-  await caches.delete('gbif-cache')
+  if (isCacheExpired()) {
+    await caches.delete('gbif-cache')
+  }
 }
 
 export function filtersToParms(filters) {
@@ -131,4 +132,19 @@ export async function getGbifOccurrenceTaxonomies(rank, taxonKey) {
 
   return(result)
 
+}
+
+export function getSavedTaxonomicGroups() {
+  const savedDate = localStorage.getItem('taxonomicGroupsSavedDate')
+  if (savedDate && (new Date().getTime() - new Date(savedDate).getTime()) < 86400000) {
+    let taxonomicGroups = localStorage.getItem('taxonomicGroups')
+    if (taxonomicGroups) return JSON.parse(taxonomicGroups)
+  }
+  localStorage.removeItem('taxonomicGroups')
+  return null
+}
+
+export function saveTaxonomicGroups(taxonomicGroups) {
+  localStorage.setItem('taxonomicGroups', JSON.stringify(taxonomicGroups))
+  localStorage.setItem('taxonomicGroupsSavedDate', new Date().toString())
 }
