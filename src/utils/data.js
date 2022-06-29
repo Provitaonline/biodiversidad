@@ -77,19 +77,10 @@ export async function getGbifDatasetDetail(key) {
 }
 
 export async function getGbifDatasetSpecies(key) {
-  const cache = await caches.open('gbif-cache')
 
-  let url = 'https://api.gbif.org/v1/species/search/?datasetKey=' + key + '&rank=GENUS&limit=1000'
-
-  let species = await cache.match(url)
-
-  if (!species) { // Cache miss
-    await cache.add(url)
-    species = await cache.match(url)
-  }
+  let species =  await fetch('https://api.gbif.org/v1/species/search/?datasetKey=' + key + '&rank=GENUS&limit=1000')
 
   species = await species.json()
-
   return species
 
 }
