@@ -25,10 +25,10 @@ export function filtersToParms(filters) {
   return parms
 }
 
-export async function getGbifOccurrences(offset, filters) {
+export async function getGbifOccurrences(offset, filters, locale) {
 
-  let response = await fetch('https://api.gbif.org/v1/occurrence/search?country=VE&offset=' + offset + filtersToParms(filters),
-    {headers: {'Accept-Language': 'es; 0.9, en; 0.8'}})
+  let response = await fetch('https://api.gbif.org/v1/occurrence/search?country=VE&offset=' + offset + filtersToParms(filters) + '&locale=' + locale,
+    {headers: {'Accept-Language': locale}})
 
   response = await response.json()
   return response
@@ -40,13 +40,13 @@ export async function getSpeciesSuggestions(pre) {
   return response
 }
 
-export async function getAllGbifDatasets() {
+export async function getAllGbifDatasets(locale) {
   await checkCacheAge()
 
   const cache = await caches.open('gbif-cache')
 
-  let request = new Request ('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=1000&facet=license&facet=publishingOrg',
-    {headers: {'Accept-Language': 'es; 0.9, en; 0.8'}})
+  let request = new Request ('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=1000&facet=license&facet=publishingOrg&locale=' + locale,
+    {headers: {'Accept-Language': locale}})
 
   let response = await cache.match(request)
 

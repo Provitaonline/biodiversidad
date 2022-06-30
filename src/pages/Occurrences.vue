@@ -275,7 +275,7 @@ export default {
       this.loading = true
       this.filters.gadmLevel1Gid = this.stateId
       this.filters.taxonKey = this.scientificNameKey()
-      getGbifOccurrences((page-1)*20, this.applyFilters ? this.filters : null).then((result) => {
+      getGbifOccurrences((page-1)*20, this.applyFilters ? this.filters : null, this.$i18n.locale.substr(0, 2)).then((result) => {
         this.gbifOccurrencesData = result.results
         this.totalGbifOccurrences = result.count
         this.loading = false

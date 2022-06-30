@@ -186,7 +186,7 @@
 </page-query>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions, getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies, getSavedTaxonomicGroups, saveTaxonomicGroups} from '~/utils/data'
+import {getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies, getSavedTaxonomicGroups, saveTaxonomicGroups} from '~/utils/data'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
 
@@ -243,7 +243,7 @@ export default {
   methods: {
     async loadGbifDatasets() {
       this.loading = true
-      let result = await getAllGbifDatasets()
+      let result = await getAllGbifDatasets(this.$i18n.locale.substr(0, 2))
       this.gbifDatasetsData = result.results
 
       this.gbifDatasetsData.forEach((ds, idx) => {
