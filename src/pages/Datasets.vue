@@ -67,7 +67,7 @@
     >
       <b-table-column searchable sortable width="50%" field="title" :label="$t('label.title')">
         <template v-slot="props">
-          <a :href="'https://gbif.org/es/dataset/' + props.row.key">{{ props.row.title }}</a>
+          <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/dataset/' + props.row.key">{{ props.row.title }}</a>
         </template>
         <template #searchable="props">
           <b-input v-model="props.filters[props.column.field]" size="is-small"

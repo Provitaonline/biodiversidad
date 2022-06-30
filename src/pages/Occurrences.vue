@@ -118,7 +118,7 @@
               @page-change='gbifOccurrencesOnPageChange'
             >
               <b-table-column width="30%" field="scientificName" :label="$t('label.scientificname')" v-slot="props">
-                <a :href="'https://gbif.org/es/occurrence/' + props.row.gbifID">{{ props.row.scientificName }}</a>
+                <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/occurrence/' + props.row.gbifID">{{ props.row.scientificName }}</a>
               </b-table-column>
               <b-table-column field="year" :label="$t('label.year')" v-slot="props">
                 {{ props.row.year }}
@@ -133,7 +133,7 @@
                 {{ props.row.publishingCountry }}
               </b-table-column>
               <b-table-column field="datasetName" :label="$t('label.dataset')" v-slot="props">
-                <a :href="'https://gbif.org/es/dataset/' + props.row.datasetKey">{{props.row.datasetName}}</a>
+                <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/dataset/' + props.row.datasetKey">{{props.row.datasetName}}</a>
               </b-table-column>
             </b-table>
           </b-tab-item>
