@@ -9,39 +9,86 @@
       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
     </section>
     <section class="section">
-      <div class="tile box is-ancestor is-size-6 is-size-7-mobile">
-        <div class="tile is-parent" style="flex-wrap: wrap;">
-          <div v-for="item in $page.vcards.edges" class="tile is-child is-6">
-            <div class="vcard-frame">
-              <div class="media">
-                <figure class="media-left">
-                  <a :href="'https://ecosistemasamenazados.org/fichas/' + makeLink(item.node.title)"><g-image :src="item.node.cardimage"></g-image></a>
-                </figure>
-                <div>
-                  <div style="display: flex;">
-                    <b-tooltip :label="threatCategories[item.node.category].text" position="is-top" type="is-warning">
-                      <div class="iconInTable">
-                        <img :src="threatCategories[item.node.category].img.src"></img>
+      <b-tabs type="is-boxed">
+        <b-tab-item value="plantformations" active :label="$t('label.plantformations')">
+          <div class="tile box is-ancestor is-size-6 is-size-7-mobile">
+            <div class="tile is-parent" style="flex-wrap: wrap;">
+              <div v-for="item in $page.vcards.edges" class="tile is-child is-6">
+                <div class="vcard-frame">
+                  <div class="media">
+                    <figure class="media-left">
+                      <a :href="'https://ecosistemasamenazados.org/fichas/' + makeLink(item.node.title)"><g-image :src="item.node.cardimage"></g-image></a>
+                    </figure>
+                    <div>
+                      <div style="display: flex;">
+                        <b-tooltip :label="threatCategories[item.node.category].text" position="is-top" type="is-warning">
+                          <div class="iconInTable">
+                            <img :src="threatCategories[item.node.category].img.src"></img>
+                          </div>
+                        </b-tooltip>
+                        &nbsp;&nbsp;<a :href="'https://ecosistemasamenazados.org/fichas/' + makeLink(item.node.title)"><strong v-html="item.node.title"></strong></a>
                       </div>
-                    </b-tooltip>
-                    &nbsp;&nbsp;<a :href="'https://ecosistemasamenazados.org/fichas/' + makeLink(item.node.title)"><strong v-html="item.node.title"></strong></a>
-                  </div>
-                  <div is-size-7 style="margin-left: 38px;" v-if="item.node.areain2010">
-                    {{$n(item.node.areain1988)}} km<sup>2</sup> {{$t('label.in')}} 1988<br>
-                    <hr class="skinny">
-                    {{$n(item.node.areain2010)}} km<sup>2</sup> {{$t('label.in')}} 2010<br>
+                      <div is-size-7 style="margin-left: 38px;" v-if="item.node.areain2010">
+                        {{$n(item.node.areain1988)}} km<sup>2</sup> {{$t('label.in')}} 1988<br>
+                        <hr class="skinny">
+                        {{$n(item.node.areain2010)}} km<sup>2</sup> {{$t('label.in')}} 2010<br>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </b-tab-item>
+        <b-tab-item value="bystate" active :label="$t('label.bystate')">
+          <b-table
+            :data="byState"
+            ref="table"
+            detailed
+            hoverable
+            custom-detail-row
+            detail-key="state"
+            :opened-detailed="openedStates"
+            :mobile-cards="false"
+            :show-detail-icon="true">
+            <b-table-column width="50%" field="state">
+              <template v-slot:header="{ column }">
+                {{openedStates.length ? $t('label.plantformations') : ''}}
+              </template>
+              <template v-slot="props">
+                <b>{{ props.row.state }}</b>
+              </template>
+            </b-table-column>
+            <b-table-column  field="area">
+              <template v-slot:header="{ column }">
+                {{openedStates.length ? $t('label.area') : ''}}
+              </template>
+              <template v-slot="props">
+              </template>
+            </b-table-column>
+            <template slot="detail" slot-scope="props">
+              <tr v-for="item in props.row.plantFormations">
+                <td></td>
+                <td max-width="50%"><div style="padding-left: 10px;"><a :href="'https://ecosistemasamenazados.org/fichas/' + item.slug">{{item.plantFormation}}</a></div></td>
+                <td><span v-if="item.areaKm2">{{$n(item.areaKm2)}} km<sup>2</sup></span></td>
+              </tr>
+            </template>
+          </b-table>
+        </b-tab-item>
+      </b-tabs>
     </section>
   </Layout>
 </template>
 
 <style lang="scss" scoped>
+
+  ::v-deep td {
+    padding: 4px !important;
+  }
+
+  ::v-deep th {
+    padding: 4px !important;
+  }
 
   .iconInTable {
     width: 30px;
@@ -101,6 +148,7 @@
 </page-query>
 
 <script>
+const byState = require('/content/ecosystems/plant-formations-by-state.json')
 import slugify from 'slugify'
 
 export default {
@@ -112,7 +160,9 @@ export default {
   },
   data() {
     return {
-      threatCategories: {}
+      threatCategories: {},
+      byState: byState,
+      openedStates: []
     }
   },
   created() {

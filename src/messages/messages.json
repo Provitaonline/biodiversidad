@@ -65,7 +65,10 @@
       "map": "Map",
       "ecosystems": "Terrestrial ecosystems",
       "faunarb": "Threatened fauna species",
-      "in": "in"
+      "in": "in",
+      "plantformations": "Plant formations",
+      "bystate": "By State",
+      "area": "Approximate area"
     }
   },
   "es": {
@@ -135,7 +138,10 @@
       "map": "Mapa",
       "ecosystems": "Ecosistemas terrestres",
       "faunarb": "Especies de fauna amenazadas",
-      "in": "en"
+      "in": "en",
+      "plantformations": "Formaciones vegetales",
+      "bystate": "Por estado",
+      "area": "Área aproximada"
     }
   }
 }

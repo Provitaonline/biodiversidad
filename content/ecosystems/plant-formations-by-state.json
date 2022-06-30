@@ -1,0 +1,1104 @@
+[
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales ribereños",
+        "slug": "arbustales-riberenos",
+        "areaKm2": 11414
+      },
+      {
+        "plantFormation": "Arbustales siempreverdes per se",
+        "slug": "arbustales-siempreverdes-per-se",
+        "areaKm2": 4344
+      },
+      {
+        "plantFormation": "Arbustales tepuyanos",
+        "slug": "arbustales-y-herbazales-tepuyanos",
+        "areaKm2": 1684
+      },
+      {
+        "plantFormation": "Bosques de palmas",
+        "slug": "bosques-de-palmas-y-bosques-de-pantano",
+        "areaKm2": 1400
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 3687
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 10143
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 130695
+      },
+      {
+        "plantFormation": "Herbazales arbustivos sobre arena",
+        "slug": "herbazales-arbustivos-sobre-arena-blanca",
+        "areaKm2": 7587
+      },
+      {
+        "plantFormation": "Herbazales arbustivos sobre arena",
+        "slug": "herbazales-arbustivos-sobre-arena-blanca",
+        "areaKm2": 11
+      },
+      {
+        "plantFormation": "Herbazales tepuyanos",
+        "slug": "arbustales-y-herbazales-tepuyanos",
+        "areaKm2": 720
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 1320
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 2822
+      },
+      {
+        "plantFormation": "Vegetación saxícola",
+        "slug": "vegetacion-saxicola"
+      }
+    ],
+    "state": "Amazonas"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 429
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 13
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 4584
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 7
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 12365
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 1159
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 145
+      },
+      {
+        "plantFormation": "Herbazales litorales",
+        "slug": "herbazales-litorales",
+        "areaKm2": 26
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 1516
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 5662
+      }
+    ],
+    "state": "Anzoátegui",
+    "count": 10
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 40
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 67
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 17725
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 1972
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 182
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 43523
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 782
+      }
+    ],
+    "state": "Apure",
+    "count": 7
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales litorales",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 224
+      },
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 52
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 7
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 1977
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 203
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 24
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 311
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 374
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 1286
+      }
+    ],
+    "state": "Aragua",
+    "count": 9
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 83
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 399
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 4892
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 3277
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 678
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 9
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 45
+      }
+    ],
+    "state": "Barinas",
+    "count": 7
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales siempreverdes per se",
+        "slug": "arbustales-siempreverdes-per-se",
+        "areaKm2": 5586
+      },
+      {
+        "plantFormation": "Arbustales tepuyanos",
+        "slug": "arbustales-y-herbazales-tepuyanos",
+        "areaKm2": 3477
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 3985
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 9206
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 16532
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 153111
+      },
+      {
+        "plantFormation": "Herbazales arbustivos sobre arena",
+        "slug": "herbazales-arbustivos-sobre-arena-blanca",
+        "areaKm2": 466
+      },
+      {
+        "plantFormation": "Herbazales tepuyanos",
+        "slug": "arbustales-y-herbazales-tepuyanos",
+        "areaKm2": 2030
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 7178
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 41551
+      },
+      {
+        "plantFormation": "Vegetación saxícola",
+        "slug": "vegetacion-saxicola"
+      }
+    ],
+    "state": "Bolívar"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 31
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 1230
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 20
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 723
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 357
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 336
+      }
+    ],
+    "state": "Carabobo"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 1255
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 1178
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 120
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 21
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 3607
+      }
+    ],
+    "state": "Cojedes"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 4196
+      },
+      {
+        "plantFormation": "Bosques de palmas",
+        "slug": "bosques-de-palmas-y-bosques-de-pantano",
+        "areaKm2": 2452
+      },
+      {
+        "plantFormation": "Bosques de pantano",
+        "slug": "bosques-de-palmas-y-bosques-de-pantano",
+        "areaKm2": 13608
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 49
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 635
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 327
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 6993
+      },
+      {
+        "plantFormation": "Herbazales de pantano",
+        "slug": "herbazales-de-pantano",
+        "areaKm2": 2683
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 4963
+      }
+    ],
+    "state": "Delta Amacuro"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 251
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 27
+      }
+    ],
+    "state": "Dependencias Federales"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 6
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 29
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 62
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 12
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 28
+      }
+    ],
+    "state": "Distrito Capital"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 6852
+      },
+      {
+        "plantFormation": "Arbustales litorales",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 1451
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 256
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 2872
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 339
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 64
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 6094
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 1
+      },
+      {
+        "plantFormation": "Herbazales litorales",
+        "slug": "herbazales-litorales",
+        "areaKm2": 688
+      }
+    ],
+    "state": "Falcón"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 779
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 23
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 10529
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 325
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 133
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 1187
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 20395
+      }
+    ],
+    "state": "Guárico"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 4235
+      },
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 29
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 6670
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 936
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 1637
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 1874
+      }
+    ],
+    "state": "Lara"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 1148
+      },
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 2594
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 1254
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 471
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 1782
+      }
+    ],
+    "state": "Mérida"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 197
+      },
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 44
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 154
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 1519
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 166
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 2117
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 2897
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 93
+      }
+    ],
+    "state": "Miranda"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 1686
+      },
+      {
+        "plantFormation": "Bosques de palmas",
+        "slug": "bosques-de-palmas-y-bosques-de-pantano",
+        "areaKm2": 45
+      },
+      {
+        "plantFormation": "Bosques de pantano",
+        "slug": "bosques-de-palmas-y-bosques-de-pantano",
+        "areaKm2": 1132
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 194
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 115
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 2152
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 7
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 1071
+      },
+      {
+        "plantFormation": "Herbazales de pantano",
+        "slug": "herbazales-de-pantano",
+        "areaKm2": 693
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 1447
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 4340
+      }
+    ],
+    "state": "Monagas"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 257
+      },
+      {
+        "plantFormation": "Arbustales litorales",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 214
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 26
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 22
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 110
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 45
+      },
+      {
+        "plantFormation": "Herbazales litorales",
+        "slug": "herbazales-litorales",
+        "areaKm2": 41
+      }
+    ],
+    "state": "Nueva Esparta"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 578
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 8
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 2424
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 1264
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 799
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 394
+      }
+    ],
+    "state": "Portuguesa"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 208
+      },
+      {
+        "plantFormation": "Arbustales litorales",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 625
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 1049
+      },
+      {
+        "plantFormation": "Bosques de palmas",
+        "slug": "bosques-de-palmas-y-bosques-de-pantano",
+        "areaKm2": 365
+      },
+      {
+        "plantFormation": "Bosques de pantano",
+        "slug": "bosques-de-palmas-y-bosques-de-pantano",
+        "areaKm2": 225
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 1172
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 229
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 2822
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 1289
+      },
+      {
+        "plantFormation": "Herbazales de pantano",
+        "slug": "herbazales-de-pantano",
+        "areaKm2": 1042
+      },
+      {
+        "plantFormation": "Herbazales litorales",
+        "slug": "herbazales-litorales",
+        "areaKm2": 106
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 6
+      },
+      {
+        "plantFormation": "Sabanas arbustivas y/o arboladas",
+        "slug": "sabanas-arbustivas-y-o-arboladas",
+        "areaKm2": 847
+      }
+    ],
+    "state": "Sucre"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 428
+      },
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 547
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 534
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 516
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 1144
+      }
+    ],
+    "state": "Táchira"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 1451
+      },
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 461
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 24
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 742
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 695
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 117
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 85
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 2886
+      }
+    ],
+    "state": "Trujillo"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales litorales",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 35
+      },
+      {
+        "plantFormation": "Arbustales siempreverdes per se",
+        "slug": "arbustales-siempreverdes-per-se",
+        "areaKm2": 4
+      },
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 40
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 147
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 82
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 362
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 313
+      }
+    ],
+    "state": "Vargas"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 36
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 3
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 615
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 1092
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 1169
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 277
+      }
+    ],
+    "state": "Yaracuy"
+  },
+  {
+    "plantFormations": [
+      {
+        "plantFormation": "Arbustales espinosos",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 1098
+      },
+      {
+        "plantFormation": "Arbustales litorales",
+        "slug": "arbustales-espinosos",
+        "areaKm2": 392
+      },
+      {
+        "plantFormation": "Arbustales y herbazales parameros",
+        "slug": "arbustales-y-herbazales-parameros",
+        "areaKm2": 346
+      },
+      {
+        "plantFormation": "Bosques de manglares",
+        "slug": "bosques-de-manglares",
+        "areaKm2": 449
+      },
+      {
+        "plantFormation": "Bosques de pantano",
+        "slug": "bosques-de-palmas-y-bosques-de-pantano",
+        "areaKm2": 2423
+      },
+      {
+        "plantFormation": "Bosques deciduos",
+        "slug": "bosques-deciduos",
+        "areaKm2": 201
+      },
+      {
+        "plantFormation": "Bosques nublados",
+        "slug": "bosques-nublados",
+        "areaKm2": 774
+      },
+      {
+        "plantFormation": "Bosques ribereños",
+        "slug": "bosques-riberenos",
+        "areaKm2": 1368
+      },
+      {
+        "plantFormation": "Bosques semideciduos",
+        "slug": "bosques-semideciduos",
+        "areaKm2": 4514
+      },
+      {
+        "plantFormation": "Bosques siempreverdes per se",
+        "slug": "bosques-siempreverdes-per-se",
+        "areaKm2": 4976
+      },
+      {
+        "plantFormation": "Herbazales de pantano",
+        "slug": "herbazales-de-pantano",
+        "areaKm2": 1505
+      },
+      {
+        "plantFormation": "Herbazales litorales",
+        "slug": "herbazales-litorales",
+        "areaKm2": 456
+      },
+      {
+        "plantFormation": "Sabanas abiertas",
+        "slug": "sabanas-abiertas",
+        "areaKm2": 293
+      }
+    ],
+    "state": "Zulia"
+  }
+]
