@@ -337,6 +337,7 @@ export default {
       if (this.activeTab === 'map') {
         this.$nextTick(() => window.dispatchEvent(new Event('resize')))
       }
+      this.updateQueryParms()
     },
     scientificNameKey() {
       if (this.scientificName.trim() === '') return undefined
@@ -345,13 +346,15 @@ export default {
     },
     updateQueryParms() {
       let query = {}
+      if (this.activeTab !== 'table') query.tab = this.activeTab
       if (this.state) query.state = this.state
       if (this.filters.taxonKey !== undefined) query.taxonKey = this.filters.taxonKey
       if (this.filters.iucnRedListCategory.length) query.iucnRedListCategory = this.filters.iucnRedListCategory
-      if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: this.applyFilters ? query : {}})
+      if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: this.applyFilters || query.tab ? query : {}})
     },
     async restoreFromQueryParms() {
       if (Object.keys(this.$route.query).length) {
+        if (this.$route.query.tab) this.activeTab = this.$route.query.tab
         if (this.$route.query.state) this.state = this.$route.query.state
         if (this.$route.query.taxonKey !== undefined) {
           let tn = await getTaxonName(this.$route.query.taxonKey)
