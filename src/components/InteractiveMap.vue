@@ -117,7 +117,7 @@
           paint: {
             'circle-stroke-color': '#000',
             'circle-stroke-width': 0.5,
-            'circle-opacity': 0.4,
+            'circle-opacity': 0.8,
             'circle-color': {
               property: 'total',
               stops: [
@@ -130,10 +130,11 @@
             'circle-radius': {
               property: 'total',
               stops: [
-                [0, 3],
-                [1000, 8],
-                [5000, 16],
-                [10000, 25]
+                [0, 4],
+                [1000, 10],
+                [5000, 15],
+                [10000, 20],
+                [30000, 25]
               ]
             }
           }
