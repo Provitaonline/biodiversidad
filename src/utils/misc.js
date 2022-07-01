@@ -31,3 +31,13 @@ export function reloadPageIfBrowserCached(route) {
     }
   })
 }
+
+export function computeFormationTotals(byState) {
+  let total = 0
+  byState.forEach((e, idx) => {
+    let stateTotal = e.plantFormations.reduce((pV, cV) => pV + (cV.areaKm2 ? cV.areaKm2 : 0), 0)
+    byState[idx].stateTotal = stateTotal
+    total += stateTotal
+  })
+  return({total: total, byState})
+}

@@ -42,7 +42,7 @@
         </b-tab-item>
         <b-tab-item value="bystate" active :label="$t('label.bystate')">
           <b-table
-            :data="byState"
+            :data="plantFormations.byState"
             ref="table"
             detailed
             hoverable
@@ -51,7 +51,7 @@
             :opened-detailed="openedStates"
             :mobile-cards="false"
             :show-detail-icon="true">
-            <b-table-column width="50%" field="state">
+            <b-table-column width="50%" style="text-align: left;" field="state">
               <template v-slot:header="{ column }">
                 {{openedStates.length ? $t('label.plantformations') : ''}}
               </template>
@@ -59,18 +59,34 @@
                 <b>{{ props.row.state }}</b>
               </template>
             </b-table-column>
-            <b-table-column  field="area">
+            <b-table-column  field="area" numeric>
               <template v-slot:header="{ column }">
                 {{openedStates.length ? $t('label.area') : ''}}
               </template>
               <template v-slot="props">
               </template>
             </b-table-column>
+            <b-table-column  field="percentState" numeric>
+              <template v-slot:header="{ column }">
+                {{openedStates.length ? '% ' + $t('label.state') : ''}}
+              </template>
+              <template v-slot="props">
+              </template>
+            </b-table-column>
+            <b-table-column field="percentCountry" numeric>
+              <template v-slot:header="{ column }">
+                <div>{{openedStates.length ? '% ' + $t('label.country') : ''}}</div>
+              </template>
+              <template v-slot="props">
+              </template>
+            </b-table-column>
             <template slot="detail" slot-scope="props">
-              <tr v-for="item in props.row.plantFormations">
+              <tr v-for="item, idx in props.row.plantFormations" :key="props.row.state + idx">
                 <td></td>
                 <td max-width="50%"><div style="padding-left: 10px;"><a :href="'https://ecosistemasamenazados.org/fichas/' + item.slug">{{item.plantFormation}}</a></div></td>
-                <td><span v-if="item.areaKm2">{{$n(item.areaKm2)}} km<sup>2</sup></span></td>
+                <td><span style="float: right;" v-if="item.areaKm2">{{$n(item.areaKm2)}} km<sup>2</sup></span></td>
+                <td><span style="float: right;" v-if="item.areaKm2">{{computePercent(item.areaKm2, props.row.stateTotal)}}</span></td>
+                <td><span style="float: right;" v-if="item.areaKm2">{{computePercent(item.areaKm2, plantFormations.total)}}</span></td>
               </tr>
             </template>
           </b-table>
@@ -89,6 +105,10 @@
   ::v-deep th {
     padding: 4px !important;
   }
+
+  /*::v-deep .th-wrap {
+    justify-content: flex-end;
+  }*/
 
   .iconInTable {
     width: 30px;
@@ -150,6 +170,10 @@
 <script>
 const byState = require('/content/ecosystems/plant-formations-by-state.json')
 import slugify from 'slugify'
+import {computeFormationTotals} from '~/utils/misc'
+
+//console.log(computeFormationTotals(byState))
+
 
 export default {
   metaInfo() {
@@ -161,7 +185,7 @@ export default {
   data() {
     return {
       threatCategories: {},
-      byState: byState,
+      plantFormations: computeFormationTotals(byState),
       openedStates: []
     }
   },
@@ -175,6 +199,10 @@ export default {
   methods: {
     makeLink(t) {
       return slugify(t, {lower: true})
+    },
+    computePercent(value, total) {
+      let p = (100 * value / total).toFixed(1)
+      return p === '0.0' ? '<0.1%': p + '%'
     }
   }
 }
