@@ -75,7 +75,14 @@
             </b-table-column>
             <b-table-column field="percentCountry" numeric>
               <template v-slot:header="{ column }">
-                <div>{{openedStates.length ? '% ' + $t('label.country') : ''}}</div>
+                <div v-html="openedStates.length ? '% ' + $t('label.country') : ''"></div>
+              </template>
+              <template v-slot="props">
+              </template>
+            </b-table-column>
+            <b-table-column field="percentOverTotal" numeric>
+              <template v-slot:header="{ column }">
+                <div v-html="openedStates.length ? '% / ' + $t('label.total') : ''"></div>
               </template>
               <template v-slot="props">
               </template>
@@ -87,6 +94,7 @@
                 <td><span style="float: right;" v-if="item.areaKm2">{{$n(item.areaKm2)}} km<sup>2</sup></span></td>
                 <td><span style="float: right;" v-if="item.areaKm2">{{computePercent(item.areaKm2, props.row.stateTotal)}}</span></td>
                 <td><span style="float: right;" v-if="item.areaKm2">{{computePercent(item.areaKm2, plantFormations.total)}}</span></td>
+                <td><span style="float: right;" v-if="item.areaKm2">{{computePercent(item.areaKm2, plantFormations.formationTotals[item.plantFormation])}}</span></td>
               </tr>
             </template>
           </b-table>

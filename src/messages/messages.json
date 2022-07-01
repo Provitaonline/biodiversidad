@@ -69,7 +69,8 @@
       "plantformations": "Plant formations",
       "bystate": "By State",
       "area": "Approximate area",
-      "country": "Country"
+      "country": "Country",
+      "total": "Total"
     }
   },
   "es": {
@@ -143,7 +144,8 @@
       "plantformations": "Formaciones vegetales",
       "bystate": "Por estado",
       "area": "Área aproximada",
-      "country": "País"
+      "country": "País",
+      "total": "Total"
     }
   }
 }

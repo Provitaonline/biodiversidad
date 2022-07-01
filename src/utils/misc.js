@@ -34,10 +34,20 @@ export function reloadPageIfBrowserCached(route) {
 
 export function computeFormationTotals(byState) {
   let total = 0
+  let formationTotals = {}
   byState.forEach((e, idx) => {
-    let stateTotal = e.plantFormations.reduce((pV, cV) => pV + (cV.areaKm2 ? cV.areaKm2 : 0), 0)
+    //let stateTotal = e.plantFormations.reduce((pV, cV) => pV + (cV.areaKm2 ? cV.areaKm2 : 0), 0)
+    let stateTotal = 0
+    e.plantFormations.forEach(pf => {
+      stateTotal += pf.areaKm2 ? pf.areaKm2 : 0
+      if (formationTotals[pf.plantFormation]) {
+        if (pf.areaKm2) formationTotals[pf.plantFormation] += pf.areaKm2
+      } else {
+        if (pf.areaKm2) formationTotals[pf.plantFormation] = pf.areaKm2
+      }
+    })
     byState[idx].stateTotal = stateTotal
     total += stateTotal
   })
-  return({total: total, byState})
+  return({total: total, byState, formationTotals})
 }
