@@ -210,7 +210,7 @@ export default {
     },
     computePercent(value, total) {
       let p = (100 * value / total).toFixed(1)
-      return p === '0.0' ? '<0.1%': p + '%'
+      return p === '0.0' ? '<' + this.$i18n.n(0.1) + '%': this.$i18n.n(p) + '%'
     }
   }
 }
