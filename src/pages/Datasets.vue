@@ -61,18 +61,20 @@
       :loading='loading'
       hoverable
       paginated
+      :current-page="gbifDatasetsPage"
+      @page-change="pageChanged"
       detailed
-      :perPage='perPage'
-      :pagination-simple='false'
+      :perPage="perPage"
+      :pagination-simple="false"
     >
       <b-table-column searchable sortable width="50%" field="title" :label="$t('label.title')">
         <template v-slot="props">
           <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/dataset/' + props.row.key">{{ props.row.title }}</a>
         </template>
         <template #searchable="props">
-          <b-input v-model="props.filters[props.column.field]" size="is-small"
+          <b-input @input="columnFiltersChange()" v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''; columnFiltersChange();" />
         </template>
       </b-table-column>
       <b-table-column searchable sortable field="publishingOrganizationTitle" :label="$t('label.organization')">
@@ -80,9 +82,9 @@
           {{ props.row.publishingOrganizationTitle }}
         </template>
         <template #searchable="props">
-          <b-input v-model="props.filters[props.column.field]" size="is-small"
+          <b-input @input="columnFiltersChange()" v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''; columnFiltersChange();" />
         </template>
       </b-table-column>
       <b-table-column searchable sortable field="typeExpanded" :label="$t('label.type')">
@@ -90,9 +92,9 @@
           {{ props.row.typeExpanded }}
         </template>
         <template #searchable="props">
-          <b-input v-model="props.filters[props.column.field]" size="is-small"
+          <b-input @input="columnFiltersChange()" v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''; columnFiltersChange();" />
         </template>
       </b-table-column>
       <b-table-column searchable sortable field="licenseShort" :label="$t('label.license')">
@@ -100,9 +102,9 @@
           {{ props.row.licenseShort }}
         </template>
         <template #searchable="props">
-          <b-input v-model="props.filters[props.column.field]" size="is-small"
+          <b-input @input="columnFiltersChange()" v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''; columnFiltersChange();" />
         </template>
       </b-table-column>
 
@@ -229,7 +231,8 @@ export default {
         'http://creativecommons.org/publicdomain/zero/1.0/legalcode': 'CC0 1.0',
         'http://creativecommons.org/licenses/by/4.0/legalcode': 'CC BY 4.0',
       },
-      selectedOptions: []
+      selectedOptions: [],
+      isPropertyChangesEnabled: false
     }
   },
   components: {
@@ -239,6 +242,8 @@ export default {
     this.$eventBus.$on('localechanged', (locale) => {
       this.loadGbifDatasets()
     })
+    this.restoreFromQueryParms()
+    this.$nextTick(() => this.isPropertyChangesEnabled = true)
   },
   methods: {
     async loadGbifDatasets() {
@@ -315,6 +320,40 @@ export default {
     },
     numItems() {
       if (this.$refs.table) return this.$refs.table.newDataTotal
+    },
+    updateQueryParms() {
+      let query = {}
+      if (this.$refs.table.filters && this.$refs.table.filters.title) query.title = this.$refs.table.filters.title
+      if (this.$refs.table.filters) {
+        Object.keys(this.$refs.table.filters).forEach(filter => {
+          if (this.$refs.table.filters[filter]) query[filter] = this.$refs.table.filters[filter]
+        })
+      }
+      if (this.gbifDatasetsPage !== 1) query.page = this.gbifDatasetsPage
+      if (this.selectedTaxonomicGroup !== 'order') query.rank = this.selectedTaxonomicGroup
+      if (this.taxonomicGroupFilter) query.taxon = this.taxonomicGroupFilter
+      if (this.applyFilters) query.filter = this.applyFilters
+      if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: query})
+    },
+    restoreFromQueryParms() {
+      if (Object.keys(this.$route.query).length) {
+        if (this.$route.query.title || this.$route.query.publishingOrganizationTitle || this.$route.query.typeExpanded || this.$route.query.licenseShort) {
+          if (this.$route.query.title) this.$set(this.$refs.table.filters, 'title', this.$route.query.title)
+          if (this.$route.query.publishingOrganizationTitle) this.$set(this.$refs.table.filters, 'publishingOrganizationTitle', this.$route.query.publishingOrganizationTitle)
+          if (this.$route.query.typeExpanded) this.$set(this.$refs.table.filters, 'typeExpanded', this.$route.query.typeExpanded)
+          if (this.$route.query.licenseShort) this.$set(this.$refs.table.filters, 'licenseShort', this.$route.query.licenseShort)
+        }
+        if (this.$route.query.page) this.gbifDatasetsPage = parseInt(this.$route.query.page)
+        if (this.$route.query.rank) this.selectedTaxonomicGroup = this.$route.query.rank
+        if (this.$route.query.taxon) this.taxonomicGroupFilter = this.$route.query.taxon
+        if (this.$route.query.filter) this.applyFilters = this.$route.query.filter
+      }
+    },
+    columnFiltersChange(e) {
+      this.updateQueryParms()
+    },
+    pageChanged(p) {
+      this.gbifDatasetsPage = p
     }
   },
   computed: {
@@ -330,6 +369,14 @@ export default {
       return Object.keys(this.taxonomicGroups[this.selectedTaxonomicGroup]).sort().filter(tg => {
         return tg.toLowerCase().indexOf(this.taxonomicGroupFilter.toLowerCase()) >= 0
       })
+    },
+    propertyChanges() {
+      return `${this.gbifDatasetsPage}|${this.selectedTaxonomicGroup}|${this.taxonomicGroupFilter}|${this.applyFilters}`
+    }
+  },
+  watch: {
+    propertyChanges() {
+      if (this.isPropertyChangesEnabled) this.updateQueryParms()
     }
   }
 }
