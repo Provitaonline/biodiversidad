@@ -52,8 +52,12 @@
       </div>
     </div>
     <br>
-    <div class="is-size-5 has-text-weight-semibold total-heading">
-      {{$t('label.numberofitems')}}: {{ $n(numItems()) }}
+    <div style="display: flex;" class="total-heading">
+      <div class="is-size-5 has-text-weight-semibold" style="margin-top: auto; margin-bottom: auto;">
+        {{$t('label.numberofitems')}}: {{ $n(numItems()) }}
+      </div>
+      <a style="margin-top: auto; margin-bottom: auto; padding: 8px;" @click="clearFilters()"><font-awesome size="sm" :icon="['fas', 'trash']"/></a>
+      <span class="is-size-7" style="margin-top: auto; margin-bottom: auto;">{{ $t('label.clearfilters') }}</span>
     </div>
     <b-table
       ref="table"
@@ -323,7 +327,6 @@ export default {
     },
     updateQueryParms() {
       let query = {}
-      if (this.$refs.table.filters && this.$refs.table.filters.title) query.title = this.$refs.table.filters.title
       if (this.$refs.table.filters) {
         Object.keys(this.$refs.table.filters).forEach(filter => {
           if (this.$refs.table.filters[filter]) query[filter] = this.$refs.table.filters[filter]
@@ -354,6 +357,18 @@ export default {
     },
     pageChanged(p) {
       this.gbifDatasetsPage = p
+    },
+    clearFilters() {
+      this.selectedTaxonomicGroup = 'order'
+      this.taxonomicGroupFilter = ''
+      this.applyFilters = false
+      this.gbifDatasetsPage = 1
+      if (Object.keys(this.$refs.table.filters).length) {
+        Object.keys(this.$refs.table.filters).forEach(filter => {
+          this.$refs.table.filters[filter] = ''
+        })
+        this.updateQueryParms()
+      }
     }
   },
   computed: {
