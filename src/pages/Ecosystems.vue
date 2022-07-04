@@ -9,7 +9,7 @@
       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
     </section>
     <section class="section">
-      <b-tabs type="is-boxed">
+      <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
         <b-tab-item value="plantformations" active :label="$t('label.plantformations')">
           <div class="tile box is-ancestor is-size-6 is-size-7-mobile">
             <div class="tile is-parent" style="flex-wrap: wrap;">
@@ -40,7 +40,11 @@
             </div>
           </div>
         </b-tab-item>
-        <b-tab-item value="bystate" active :label="$t('label.bystate')">
+        <b-tab-item value="bystate" active>
+          <template #header>
+            <span>{{$t('label.bystate')}}</span>
+            <span @click="closeAllDetails" v-if="openedStates.length">&nbsp;<font-awesome :icon="['fas', 'angle-up']"/></span>
+          </template>
           <b-table
             :data="plantFormations.byState"
             ref="table"
@@ -49,6 +53,8 @@
             custom-detail-row
             detail-key="state"
             :opened-detailed="openedStates"
+            @details-open="detailsChanged"
+            @details-close="detailsChanged"
             :mobile-cards="false"
             :show-detail-icon="true">
             <b-table-column width="50%" style="text-align: left;" field="state">
@@ -194,7 +200,8 @@ export default {
     return {
       threatCategories: {},
       plantFormations: computeFormationTotals(byState),
-      openedStates: []
+      openedStates: [],
+      activeTab: 'plantformations',
     }
   },
   created() {
@@ -203,6 +210,7 @@ export default {
     })
   },
   mounted() {
+    this.restoreFromQueryParms()
   },
   methods: {
     makeLink(t) {
@@ -211,6 +219,35 @@ export default {
     computePercent(value, total) {
       let p = (100 * value / total).toFixed(1)
       return p === '0.0' ? '<' + this.$i18n.n(0.1) + '%': this.$i18n.n(p) + '%'
+    },
+    tabChanged() {
+      this.updateQueryParms()
+    },
+    detailsChanged() {
+      this.updateQueryParms()
+    },
+    closeAllDetails() {
+      this.openedStates = []
+      this.updateQueryParms()
+    },
+    updateQueryParms() {
+      let query = {}
+      if (this.activeTab !== 'plantformations') query.tab = this.activeTab
+      if (this.openedStates.length) query.openedStates = JSON.stringify(this.openedStates)
+      if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: query})
+    },
+    restoreFromQueryParms() {
+      if (Object.keys(this.$route.query).length) {
+        if (this.$route.query.tab) this.activeTab = this.$route.query.tab
+        if (this.$route.query.openedStates) {
+          try {
+            let oS = JSON.parse(this.$route.query.openedStates)
+            if (Array.isArray(oS)) {
+              this.openedStates = oS
+            }
+          } catch {}
+        }
+      }
     }
   }
 }
