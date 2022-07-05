@@ -45,7 +45,7 @@ export async function getAllGbifDatasets(locale) {
 
   const cache = await caches.open('gbif-cache')
 
-  let request = new Request ('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=1000&facet=license&facet=publishingOrg&locale=' + locale,
+  let request = new Request ('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=1000&locale=' + locale,
     {headers: {'Accept-Language': locale}})
 
   let response = await cache.match(request)
