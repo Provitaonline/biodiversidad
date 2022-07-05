@@ -242,9 +242,7 @@ export default {
         if (this.$route.query.openedStates) {
           try {
             let oS = JSON.parse(this.$route.query.openedStates)
-            if (Array.isArray(oS)) {
-              this.openedStates = oS
-            }
+            if (Array.isArray(oS)) this.openedStates = oS.filter(s => this.plantFormations.byState.some(pfS => pfS.state === s))
           } catch {}
         }
       }
