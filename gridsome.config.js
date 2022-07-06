@@ -17,6 +17,13 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
+        path: 'content/about/content.json',
+        typeName: 'AboutContent'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
         path: 'content/datasets/content.json',
         typeName: 'DatasetsContent'
       }

@@ -1,15 +1,26 @@
 <template>
   <Layout>
     <template slot="banner">
-      <h1 class="title is-uppercase has-text-centered">
-        {{ $t('label.about') }}
-      </h1>
+      <h1 class="title is-uppercase has-text-centered" v-html="$page.aboutContent.bannerText[$i18n.locale.substr(0, 2)]"></h1>
     </template>
-    <section class="section has-text-centered">
-      <p>Prototipo del portal Provita de biodiversidad en Venezuela. Incluye acceso a datos alojados en la <a href="https://www.gbif.org/es/">Infraestructura Mundial de Información en Biodiversidad (GBIF)</a>.</p>
-    </section>
+    <section class="section has-text-centered" v-html="$page.aboutContent.summaryText[$i18n.locale.substr(0, 2)]"></section>
   </Layout>
 </template>
+
+<page-query>
+  query {
+    aboutContent (id: "about") {
+      bannerText {
+        en
+        es
+      }
+      summaryText {
+        en
+        es
+      }
+    }
+  }
+</page-query>
 
 <script>
 export default {
