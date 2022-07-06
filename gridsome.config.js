@@ -31,6 +31,13 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
+        path: 'content/ecosystems/content.json',
+        typeName: 'EcosystemsContent'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
         path: 'content/ecosystems/vcards/**/content.md',
         typeName: 'RiskCard'
       }

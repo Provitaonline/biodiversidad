@@ -1,13 +1,9 @@
 <template>
   <Layout>
     <template slot="banner">
-      <h1 class="title is-uppercase has-text-centered">
-        {{ $t('label.ecosystems') }}
-      </h1>
+      <h1 class="title is-uppercase has-text-centered" v-html="$page.ecosystemsContent.bannerText[$i18n.locale.substr(0, 2)]"></h1>
     </template>
-    <section class="section has-text-centered">
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    </section>
+    <section class="section has-text-centered" v-html="$page.ecosystemsContent.summaryText[$i18n.locale.substr(0, 2)]"></section>
     <section class="section">
       <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
         <b-tab-item value="plantformations" active :label="$t('label.plantformations')">
@@ -167,6 +163,16 @@
           areain1988
           areain2010
         }
+      }
+    }
+    ecosystemsContent (id: "ecosystems") {
+      bannerText {
+        en
+        es
+      }
+      summaryText {
+        en
+        es
       }
     }
     labels (id: "labels") {
