@@ -38,6 +38,13 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
+        path: 'content/faunarb/content.json',
+        typeName: 'FaunaRbContent'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
         path: 'content/ecosystems/vcards/**/content.md',
         typeName: 'RiskCard'
       }
