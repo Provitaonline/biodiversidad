@@ -5,7 +5,7 @@
     "es": "Acerca de"
   },
   "summaryText": {
-    "en": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-    "es": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    "en": "This is a prototype of Provita's biodiversity portal. It includes access to data hosted in the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/).",
+    "es": "Prototipo del portal Provita de biodiversidad en Venezuela. Incluye acceso a datos alojados en la [Infraestructura Mundial de Información en Biodiversidad (GBIF)](https://www.gbif.org/es/)."
   }
 }
