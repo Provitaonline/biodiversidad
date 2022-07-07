@@ -52,8 +52,10 @@ export function computeFormationTotals(byState) {
   return({total: total, byState, formationTotals})
 }
 
-export function transform(object) {
-    return Object.entries(object).map(([key, value]) => {
-      return Object.assign({ name: key, value: 1}, value && typeof value === 'object' && !value.hasDescription ? {children: transform(value) } : { link: value.jsonFile.split('.')[0] })
-    })
+export function transform(object, kk) {
+  if (kk === undefined || kk === '/Animalia') kk = ''
+  return Object.entries(object).map(([key, value]) => {
+    console.log(kk)
+    return Object.assign({ name: key}, value && typeof value === 'object' && !value.hasDescription ? {children: transform(value, kk + '/' + key) } : { value: 1, link: 'https://especiesamenazadas.org/taxon' + kk + '/' + value.jsonFile.split('.')[0] })
+  })
 }

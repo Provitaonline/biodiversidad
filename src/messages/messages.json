@@ -70,7 +70,9 @@
       "bystate": "By State",
       "area": "Approximate area",
       "country": "Country",
-      "total": "Total"
+      "total": "Total",
+      "list": "List",
+      "graph": "Graph"
     }
   },
   "es": {
@@ -145,7 +147,9 @@
       "bystate": "Por estado",
       "area": "Área aproximada",
       "country": "País",
-      "total": "Total"
+      "total": "Total",
+      "list": "Lista",
+      "graph": "Gráfico"
     }
   }
 }

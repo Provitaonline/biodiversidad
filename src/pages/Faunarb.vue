@@ -7,16 +7,24 @@
 
     <section class="section">
       <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
-        <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" active :label="$t('label.tree')">
+        <b-tab-item class="is-size-5 is-size-7-mobile" value="list" active :label="$t('label.list')">
           <Tree :treeData="taxonomy" />
         </b-tab-item>
-        <b-tab-item value="circles" :label="$t('label.circles')">
-          <div id="chart"></div>
+        <b-tab-item value="graph" :label="$t('label.graph')">
+          <div style="overflow-x: scroll;" id="chart"></div>
         </b-tab-item>
       </b-tabs>
     </section>
   </Layout>
 </template>
+
+<style lang="scss" scoped>
+
+  ::v-deep .tooltip {
+    max-width: none;
+  }
+
+</style>
 
 <page-query>
   query {
@@ -49,10 +57,10 @@ export default {
   },
   data() {
     return {
-      activeTab: 'tree',
+      activeTab: 'list',
       taxonomy: taxonomy,
       taxonomy4Chart: transform(taxonomy),
-      myChart: null
+      chart: null
     }
   },
   components: {
@@ -63,18 +71,25 @@ export default {
   },
   mounted() {
     const color = d3.scaleOrdinal(d3.schemePaired)
-    this.myChart = SunBurst()
-    console.log(this.taxonomy4Chart)
-    this.myChart.data(this.taxonomy4Chart[0]).onClick(this.itemClicked).color(d => color(d.name))(document.getElementById('chart'))
+    this.chart = SunBurst()
+    this.chart.data(this.taxonomy4Chart[0])
+      .width(window.innerWidth*0.8)
+      .height(window.innerHeight*0.8)
+      .centerRadius(0.05)
+      .radiusScaleExponent(1)
+      .onClick(this.itemClicked)
+      .color(d => color(d.name))
+      (document.getElementById('chart'))
   },
   methods: {
     tabChanged() {
     },
     itemClicked(n) {
-      if (n.link) {
-        console.log(n)
+      if (n && n.link) {
+        window.location.href = n.link
+      } else {
+        this.chart.focusOnNode(n)
       }
-      this.myChart.focusOnNode(n)
     }
   }
 }
