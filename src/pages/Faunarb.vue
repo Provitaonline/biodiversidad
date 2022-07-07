@@ -20,14 +20,6 @@
   </Layout>
 </template>
 
-<style lang="scss" scoped>
-
-  ::v-deep .tooltip {
-    max-width: none;
-  }
-
-</style>
-
 <page-query>
   query {
     faunaRbContent (id: "faunarb") {
@@ -47,7 +39,6 @@
 const taxonomy = require('/content/faunarb/taxonomy.json')
 import {transform} from '~/utils/misc'
 import Tree from '~/components/Tree.vue'
-//import TaxonomyChart from '~/components/TaxonomyChart.vue'
 
 export default {
   metaInfo() {
@@ -66,12 +57,7 @@ export default {
   },
   components: {
     Tree,
-    TaxonomyChart: () => import ('~/components/TaxonomyChart.vue').then(m => m),
-    /*TaxonomyChart: TaxonomyChart
-    TaxonomyChart: () =>
-        import ('~/components/TaxonomyChart.vue')
-        .then(m => m.TaxonomyChart)
-        .catch()*/
+    TaxonomyChart: () => import ('~/components/TaxonomyChart.vue').then(m => m)
   },
   created() {
 
