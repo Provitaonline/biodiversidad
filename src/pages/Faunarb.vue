@@ -70,6 +70,7 @@ export default {
 
   },
   mounted() {
+    this.restoreFromQueryParms()
     if (process.isClient) {
       const color = d3.scaleOrdinal(d3.schemeTableau10)
       let chart = SunBurst()
@@ -113,6 +114,17 @@ export default {
   },
   methods: {
     tabChanged() {
+      this.updateQueryParms()
+    },
+    updateQueryParms() {
+      let query = {}
+      if (this.activeTab !== 'list') query.tab = this.activeTab
+      if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: query})
+    },
+    restoreFromQueryParms() {
+      if (Object.keys(this.$route.query).length) {
+        if (this.$route.query.tab) this.activeTab = this.$route.query.tab
+      }
     }
   }
 }
