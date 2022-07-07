@@ -11,7 +11,9 @@
           <Tree :treeData="taxonomy" />
         </b-tab-item>
         <b-tab-item value="graph" :label="$t('label.graph')">
-          <div style="overflow-x: scroll;" id="chart"></div>
+          <ClientOnly>
+            <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" />
+          </ClientOnly>
         </b-tab-item>
       </b-tabs>
     </section>
@@ -42,11 +44,10 @@
 </page-query>
 
 <script>
-import SunBurst from 'sunburst-chart'
-import * as d3 from 'd3'
 const taxonomy = require('/content/faunarb/taxonomy.json')
 import {transform} from '~/utils/misc'
 import Tree from '~/components/Tree.vue'
+//import TaxonomyChart from '~/components/TaxonomyChart.vue'
 
 export default {
   metaInfo() {
@@ -64,53 +65,19 @@ export default {
     }
   },
   components: {
-    Tree
+    Tree,
+    TaxonomyChart: () => import ('~/components/TaxonomyChart.vue').then(m => m),
+    /*TaxonomyChart: TaxonomyChart
+    TaxonomyChart: () =>
+        import ('~/components/TaxonomyChart.vue')
+        .then(m => m.TaxonomyChart)
+        .catch()*/
   },
   created() {
 
   },
   mounted() {
     this.restoreFromQueryParms()
-    if (process.isClient) {
-      const color = d3.scaleOrdinal(d3.schemeTableau10)
-      let chart = SunBurst()
-      chart.data(this.taxonomy4Chart[0])
-        .width(window.innerWidth*0.8)
-        .height(window.innerHeight*0.8)
-        .centerRadius(0.05)
-        .radiusScaleExponent(1)
-        .onClick(itemClicked)
-        .color(getColor)
-        (document.getElementById('chart'))
-
-      function itemClicked(n) {
-        if (n && n.link) {
-          window.location.href = 'https://especiesamenazadas.org/taxon' + n.link
-        } else {
-          chart.focusOnNode(n)
-        }
-      }
-
-      function getColor(n) {
-        let riskColors = {
-          'En Peligro': '#FFA500',
-          'En Peligro Crítico': '#E91C1F',
-          'Extinto': '#060000',
-          'Vulnerable': '#FFFF00',
-          'Extinto a Nivel Regional': '#CD1417'
-        }
-        if (n.level === 6) {
-          return d3.rgb(riskColors[n.risk]).darker(0.3)
-        } else {
-          if (n.level > 2) {
-            let c = d3.rgb(color(n.class))
-            return c.darker((n.level*3)/10)
-          } else {
-            return color(n.name)
-          }
-        }
-      }
-    }
   },
   methods: {
     tabChanged() {
