@@ -51,3 +51,9 @@ export function computeFormationTotals(byState) {
   })
   return({total: total, byState, formationTotals})
 }
+
+export function transform(object) {
+    return Object.entries(object).map(([key, value]) => {
+      return Object.assign({ name: key, value: 1}, value && typeof value === 'object' && !value.hasDescription ? {children: transform(value) } : { link: value.jsonFile.split('.')[0] })
+    })
+}
