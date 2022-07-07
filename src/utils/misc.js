@@ -51,3 +51,17 @@ export function computeFormationTotals(byState) {
   })
   return({total: total, byState, formationTotals})
 }
+
+export function transform(object, kk, level) {
+  if (level === undefined) level = 0
+  if (kk === undefined || kk === '/Animalia') kk = ''
+  let path = kk.split('/')
+  let clazz = path[2] ? path[2] : ''
+  return Object.entries(object).map(([key, value]) => {
+    return Object.assign(
+      {name: key, level: level, class: clazz},
+        value && typeof value === 'object' && !value.hasDescription ?
+          {children: transform(value, kk + '/' + key, level + 1) } :
+            { value: 1, link: kk + '/' + value.jsonFile.split('.')[0], risk: value.risk })
+  })
+}
