@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
 
-  ::v-deep .tooltip {
+  ::v-deep .sunburst-viz .tooltip {
     max-width: none;
   }
 
