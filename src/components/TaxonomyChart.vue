@@ -107,7 +107,6 @@ export default {
       }
     },
     riskColor(r) {
-      console.log(r)
       return d3.rgb(this.riskColors[r]).darker(0.2).formatHex()
     }
   }
