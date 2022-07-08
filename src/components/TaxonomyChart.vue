@@ -1,5 +1,14 @@
 <template>
   <div>
+    <div style="display: flex;">
+      <div v-for="entry in Object.entries(riskColors)" class="legend-box">
+        <div class="legend-item" :style="'background: ' + riskColor(entry[0]) + ';'">
+        </div>
+        <div class="is-size-7" style="padding-left: 4px">
+          {{entry[0]}}
+        </div>
+      </div>
+    </div>
     <div style="margin: auto; overflow-x: scroll;" id="chart"></div>
   </div>
 </template>
@@ -15,11 +24,26 @@
     margin: auto;
   }
 
+  .legend-box {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+    padding-right: 6px;
+  }
+
+  .legend-item {
+    height: 14px;
+    width: 18px;
+  }
+
 </style>
 
 <script>
 import SunBurst from 'sunburst-chart'
 import * as d3 from 'd3'
+
+const color = d3.scaleOrdinal(d3.schemeTableau10)
 
 export default {
   name: 'TaxonomyChart',
@@ -28,47 +52,32 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      riskColors: {
+        'Extinto': '#060000',
+        'Extinto a Nivel Regional': '#970f11',
+        'En Peligro Crítico': '#E91C1F',
+        'En Peligro': '#FFA500',
+        'Vulnerable': '#FFFF00'
+      }
     }
   },
   mounted() {
     if (process.isClient) {
       let chartElement = document.getElementById('chart')
 
-      const color = d3.scaleOrdinal(d3.schemeTableau10)
       this.chart = SunBurst()
       this.chart.data(this.taxonomy4Chart[0])
         .width(window.innerWidth*0.8)
         .height(window.innerHeight*0.8)
         .centerRadius(0.05)
         .radiusScaleExponent(1)
-        //.onClick(itemClicked)
-        .color(getColor)
         (chartElement)
 
       window.addEventListener('resize', this.resizeChart)
 
       this.chart.onClick(this.itemClicked)
-
-      function getColor(n) {
-        let riskColors = {
-          'En Peligro': '#FFA500',
-          'En Peligro Crítico': '#E91C1F',
-          'Extinto': '#060000',
-          'Vulnerable': '#FFFF00',
-          'Extinto a Nivel Regional': '#CD1417'
-        }
-        if (n.level === 6) {
-          return d3.rgb(riskColors[n.risk]).darker(0.3)
-        } else {
-          if (n.level > 2) {
-            let c = d3.rgb(color(n.class))
-            return c.darker((n.level*3)/10)
-          } else {
-            return color(n.name)
-          }
-        }
-      }
+      this.chart.color(this.getColor)
     }
   },
   unmounted() {
@@ -84,6 +93,22 @@ export default {
       } else {
         this.chart.focusOnNode(n)
       }
+    },
+    getColor(n) {
+      if (n.level === 6) {
+        return this.riskColor(n.risk)
+      } else {
+        if (n.level > 2) {
+          let c = d3.rgb(color(n.class))
+          return c.darker((n.level*3)/10)
+        } else {
+          return color(n.name)
+        }
+      }
+    },
+    riskColor(r) {
+      console.log(r)
+      return d3.rgb(this.riskColors[r]).darker(0.2).formatHex()
     }
   }
 }
