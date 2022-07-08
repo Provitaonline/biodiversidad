@@ -53,11 +53,15 @@ export function computeFormationTotals(byState) {
 }
 
 export function transform(object, kk, level) {
+
   if (level === undefined) level = 0
   if (kk === undefined || kk === '/Animalia') kk = ''
   let path = kk.split('/')
+
   let clazz = path[2] ? path[2] : ''
+
   return Object.entries(object).map(([key, value]) => {
+    if (level === 2) clazz = key
     return Object.assign(
       {name: key, level: level, class: clazz},
         value && typeof value === 'object' && !value.hasDescription ?
