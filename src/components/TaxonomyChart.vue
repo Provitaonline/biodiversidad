@@ -43,7 +43,9 @@
 import SunBurst from 'sunburst-chart'
 import * as d3 from 'd3'
 
-const color = d3.scaleOrdinal(d3.schemeTableau10)
+const colorClass = d3.scaleOrdinal(d3.schemeSet3)
+
+const colorHigh =  d3.scaleOrdinal(d3.schemeDark2)
 
 export default {
   name: 'TaxonomyChart',
@@ -88,6 +90,7 @@ export default {
       this.chart.width(window.innerWidth*0.8).height(window.innerHeight*0.8)
     },
     itemClicked(n) {
+      console.log(n)
       if (n && n.link) {
         window.location.href = 'https://especiesamenazadas.org/taxon' + n.link
       } else {
@@ -98,11 +101,11 @@ export default {
       if (n.level === 6) {
         return this.riskColor(n.risk)
       } else {
-        if (n.level > 2) {
-          let c = d3.rgb(color(n.class))
-          return c.darker((n.level*3)/10)
+        if (n.level > 1) {
+          let c = d3.rgb(colorClass(n.class))
+          return c.darker((n.level*5)/10)
         } else {
-          return color(n.name)
+          return colorHigh(n.name)
         }
       }
     },
