@@ -20,6 +20,23 @@
   </Layout>
 </template>
 
+<style lang="scss" scoped>
+
+  @media screen and (max-width: 600px)  {
+    ::v-deep .layout {
+      padding: 4px;
+    }
+    ::v-deep .section {
+      padding: 4px;
+    }
+
+    ::v-deep .box {
+      padding: 4px;
+    }
+  }
+
+</style>
+
 <page-query>
   query {
     faunaRbContent (id: "faunarb") {

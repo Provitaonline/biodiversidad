@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="overflow-x: scroll;" id="chart"></div>
+    <div style="margin: auto; overflow-x: scroll;" id="chart"></div>
   </div>
 </template>
 
@@ -8,6 +8,11 @@
 
   ::v-deep .sunburst-viz .tooltip {
     max-width: none;
+  }
+
+  ::v-deep .sunburst-viz>svg {
+    display: block;
+    margin: auto;
   }
 
 </style>
@@ -23,28 +28,27 @@ export default {
   },
   data() {
     return {
+      chart: null
     }
   },
   mounted() {
     if (process.isClient) {
+      let chartElement = document.getElementById('chart')
+
       const color = d3.scaleOrdinal(d3.schemeTableau10)
-      let chart = SunBurst()
-      chart.data(this.taxonomy4Chart[0])
+      this.chart = SunBurst()
+      this.chart.data(this.taxonomy4Chart[0])
         .width(window.innerWidth*0.8)
         .height(window.innerHeight*0.8)
         .centerRadius(0.05)
         .radiusScaleExponent(1)
-        .onClick(itemClicked)
+        //.onClick(itemClicked)
         .color(getColor)
-        (document.getElementById('chart'))
+        (chartElement)
 
-      function itemClicked(n) {
-        if (n && n.link) {
-          window.location.href = 'https://especiesamenazadas.org/taxon' + n.link
-        } else {
-          chart.focusOnNode(n)
-        }
-      }
+      window.addEventListener('resize', this.resizeChart)
+
+      this.chart.onClick(this.itemClicked)
 
       function getColor(n) {
         let riskColors = {
@@ -64,6 +68,21 @@ export default {
             return color(n.name)
           }
         }
+      }
+    }
+  },
+  unmounted() {
+    window.removeEventListener('resize', this.resizeChart)
+  },
+  methods: {
+    resizeChart() {
+      this.chart.width(window.innerWidth*0.8).height(window.innerHeight*0.8)
+    },
+    itemClicked(n) {
+      if (n && n.link) {
+        window.location.href = 'https://especiesamenazadas.org/taxon' + n.link
+      } else {
+        this.chart.focusOnNode(n)
       }
     }
   }
