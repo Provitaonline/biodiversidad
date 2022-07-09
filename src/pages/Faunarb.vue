@@ -6,13 +6,18 @@
     <section class="section has-text-centered" v-html="$page.faunaRbContent.summaryText[$i18n.locale.substr(0, 2)]"></section>
 
     <section class="section">
+      <b-field class="is-size-7">
+        <b-checkbox v-model="newTabLinks">
+          {{ $t('label.openrbtab') }}
+        </b-checkbox>
+      </b-field>
       <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
         <b-tab-item class="is-size-5 is-size-7-mobile" value="list" active :label="$t('label.list')">
-          <Tree :treeData="taxonomy" />
+          <Tree :treeData="taxonomy" :newTabLinks="newTabLinks" />
         </b-tab-item>
         <b-tab-item value="graph" :label="$t('label.graph')">
           <ClientOnly>
-            <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" />
+            <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" />
           </ClientOnly>
         </b-tab-item>
       </b-tabs>
@@ -69,7 +74,8 @@ export default {
       activeTab: 'list',
       taxonomy: taxonomy,
       taxonomy4Chart: transform(taxonomy),
-      chart: null
+      chart: null,
+      newTabLinks: false
     }
   },
   components: {

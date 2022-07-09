@@ -50,7 +50,8 @@ const colorHigh =  d3.scaleOrdinal(d3.schemeDark2)
 export default {
   name: 'TaxonomyChart',
   props: {
-    taxonomy4Chart: { type: Array, required: true }
+    taxonomy4Chart: { type: Array, required: true },
+    newTabLinks: { type: Boolean }
   },
   data() {
     return {
@@ -98,7 +99,7 @@ export default {
       console.log(n)
       if (n && n.link) {
         //window.location.href = 'https://especiesamenazadas.org/taxon' + n.link
-        window.open('https://especiesamenazadas.org/taxon' + n.link, '_blank')
+        window.open('https://especiesamenazadas.org/taxon' + n.link, this.newTabLinks ? '_blank' :'_self')
       } else {
         this.chart.focusOnNode(n)
       }

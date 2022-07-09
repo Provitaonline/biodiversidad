@@ -72,7 +72,8 @@
       "country": "Country",
       "total": "Total",
       "list": "List",
-      "graph": "Graph"
+      "graph": "Graph",
+      "openrbtab": "Open Red Book links in separate tabs"
     }
   },
   "es": {
@@ -149,7 +150,8 @@
       "country": "País",
       "total": "Total",
       "list": "Lista",
-      "graph": "Gráfico"
+      "graph": "Gráfico",
+      "openrbtab": "Abrir enlaces al Libro Rojo en pestañas separadas"
     }
   }
 }
