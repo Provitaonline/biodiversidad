@@ -61,7 +61,8 @@ export default {
         'En Peligro Crítico': '#E91C1F',
         'En Peligro': '#FFA500',
         'Vulnerable': '#FFFF00'
-      }
+      },
+      innerWidth: 0
     }
   },
   mounted() {
@@ -76,6 +77,7 @@ export default {
         .radiusScaleExponent(1)
         (chartElement)
 
+      this.innerWidth = window.innerWidth // Save initial value
       window.addEventListener('resize', this.resizeChart)
 
       this.chart.onClick(this.itemClicked)
@@ -87,7 +89,10 @@ export default {
   },
   methods: {
     resizeChart() {
-      this.chart.width(window.innerWidth*0.8).height(window.innerHeight*0.8)
+      if (this.innerWidth !== window.innerWidth) { // Only if width actually changed
+        this.innerWidth = window.innerWidth
+        this.chart.width(window.innerWidth*0.8).height(window.innerHeight*0.8)
+      }
     },
     itemClicked(n) {
       console.log(n)
