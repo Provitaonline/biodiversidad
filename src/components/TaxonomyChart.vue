@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="display: flex;">
+    <div style="display: flex; flex-wrap: wrap;">
       <div v-for="entry in Object.entries(riskColors)" class="legend-box">
         <div class="legend-item" :style="'background: ' + riskColor(entry[0]) + ';'">
         </div>
@@ -92,7 +92,8 @@ export default {
     itemClicked(n) {
       console.log(n)
       if (n && n.link) {
-        window.location.href = 'https://especiesamenazadas.org/taxon' + n.link
+        //window.location.href = 'https://especiesamenazadas.org/taxon' + n.link
+        window.open('https://especiesamenazadas.org/taxon' + n.link, '_blank')
       } else {
         this.chart.focusOnNode(n)
       }
