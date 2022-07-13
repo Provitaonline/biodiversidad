@@ -63,6 +63,14 @@ export default {
         'En Peligro': '#FFA500',
         'Vulnerable': '#FFFF00'
       },
+      highRankTaxonColors: {
+        Animalia: '#178867',
+        Chordata: '#CECDCB',
+        Arthropoda: '#7570b3',
+        Mollusca: '#e729aa',
+        Cnidaria: '#D8BEA2'
+
+      },
       innerWidth: 0
     }
   },
@@ -112,7 +120,7 @@ export default {
           let c = d3.rgb(colorClass(n.class))
           return c.darker((n.level*5)/10)
         } else {
-          return colorHigh(n.name)
+          return this.highRankTaxonColors[n.name]
         }
       }
     },
