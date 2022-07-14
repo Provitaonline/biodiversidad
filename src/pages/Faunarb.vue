@@ -17,7 +17,7 @@
         </b-tab-item>
         <b-tab-item value="graph" :label="$t('label.graph')">
           <ClientOnly>
-            <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" />
+            <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" :chartHelpText="$page.faunaRbContent.chartHelpText[$i18n.locale.substr(0, 2)]" />
           </ClientOnly>
         </b-tab-item>
       </b-tabs>
@@ -50,6 +50,10 @@
         es
       }
       summaryText {
+        en
+        es
+      }
+      chartHelpText {
         en
         es
       }

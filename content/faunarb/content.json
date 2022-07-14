@@ -7,5 +7,9 @@
   "summaryText": {
     "en": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
     "es": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+  },
+  "chartHelpText": {
+    "en": "Click a slice to drill-down<br>Click a leaf node to view card<br>Click the center to go up<br>Click outside the circle to reset",
+    "es": "Cliquea una pieza para bajar de nivel<br>Cliquea un nodo terminal para ver la ficha<br>Cliquea el centro para subir de nivel<br>Cliquea fuera del círculo para reiniciar"
   }
 }

@@ -9,7 +9,14 @@
         </div>
       </div>
     </div>
-    <div style="margin: auto; overflow-x: scroll;" id="chart"></div>
+    <b-dropdown style="display: fit-content; white-space: nowrap;" class="info-icon" :mobile-modal="false">
+      <a slot="trigger"><font-awesome :icon="['fas', 'info-circle']" /></a>
+      <b-dropdown-item custom>
+        <p class="has-text-left is-size-7" v-html="chartHelpText">
+        </p>
+      </b-dropdown-item>
+    </b-dropdown>
+    <div style="margin-left: auto; margin-top: 0rem; overflow-x: scroll;" id="chart"></div>
   </div>
 </template>
 
@@ -51,7 +58,8 @@ export default {
   name: 'TaxonomyChart',
   props: {
     taxonomy4Chart: { type: Array, required: true },
-    newTabLinks: { type: Boolean }
+    newTabLinks: { type: Boolean },
+    chartHelpText: { type: String }
   },
   data() {
     return {
@@ -104,9 +112,7 @@ export default {
       }
     },
     itemClicked(n) {
-      console.log(n)
       if (n && n.link) {
-        //window.location.href = 'https://especiesamenazadas.org/taxon' + n.link
         window.open('https://especiesamenazadas.org/taxon' + n.link, this.newTabLinks ? '_blank' :'_self')
       } else {
         this.chart.focusOnNode(n)
