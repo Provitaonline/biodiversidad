@@ -66,6 +66,6 @@ export function transform(object, kk, level) {
       {name: key, level: level, class: clazz},
         value && typeof value === 'object' && !value.hasDescription ?
           {children: transform(value, kk + '/' + key, level + 1) } :
-            { value: 1, link: kk + '/' + value.jsonFile.split('.')[0], risk: value.risk })
+            { value: 1, link: kk + '/' + value.jsonFile.split('.')[0], risk: value.risk, hierarchy: '/Animalia' + kk})
   })
 }

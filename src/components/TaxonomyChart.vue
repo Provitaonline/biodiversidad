@@ -9,13 +9,17 @@
         </div>
       </div>
     </div>
-    <b-dropdown style="display: fit-content; white-space: nowrap;" class="info-icon" :mobile-modal="false">
-      <a slot="trigger"><font-awesome :icon="['fas', 'info-circle']" /></a>
-      <b-dropdown-item custom>
-        <p class="has-text-left is-size-7" v-html="chartHelpText">
-        </p>
-      </b-dropdown-item>
-    </b-dropdown>
+    <div style="display: flex; flex-wrap: wrap;">
+      <b-dropdown style="display: fit-content; white-space: nowrap;" :mobile-modal="false">
+        <a slot="trigger"><font-awesome :icon="['fas', 'info-circle']" /></a>
+        <b-dropdown-item custom>
+          <p class="has-text-left is-size-7" v-html="chartHelpText">
+          </p>
+        </b-dropdown-item>
+      </b-dropdown>
+      <a id="download-file" download="list.csv" :href="downloadLink"></a>
+      &nbsp;<a @click="getListCSV()"><font-awesome :icon="['fas', 'download']"/></a>
+    </div>
     <div style="margin-left: auto; margin-top: 0rem; overflow-x: scroll;" id="chart"></div>
   </div>
 </template>
@@ -54,6 +58,16 @@ const colorClass = d3.scaleOrdinal(d3.schemeSet3)
 
 const colorHigh =  d3.scaleOrdinal(d3.schemeDark2)
 
+function traverse(n, list) {
+  if (n.children) {
+    n.children.forEach(child => {
+      traverse(child, list)
+    })
+  } else {
+    list.push(n.hierarchy + ',' + n.name + ',' + n.risk + ',' + 'https://especiesamenazadas.org/taxon' + n.link)
+  }
+}
+
 export default {
   name: 'TaxonomyChart',
   props: {
@@ -79,7 +93,9 @@ export default {
         Cnidaria: '#D8BEA2'
 
       },
-      innerWidth: 0
+      innerWidth: 0,
+      currentNode: this.taxonomy4Chart[0],
+      downloadLink: null
     }
   },
   mounted() {
@@ -115,6 +131,7 @@ export default {
       if (n && n.link) {
         window.open('https://especiesamenazadas.org/taxon' + n.link, this.newTabLinks ? '_blank' :'_self')
       } else {
+        this.currentNode = n ? n : this.taxonomy4Chart[0]
         this.chart.focusOnNode(n)
       }
     },
@@ -132,6 +149,11 @@ export default {
     },
     riskColor(r) {
       return d3.rgb(this.riskColors[r]).darker(0.2).formatHex()
+    },
+    getListCSV() {
+      let list = []
+      traverse(this.currentNode, list)
+      console.log(list)
     }
   }
 }
