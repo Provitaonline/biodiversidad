@@ -73,7 +73,10 @@
       "total": "Total",
       "list": "List",
       "graph": "Graph",
-      "openrbtab": "Open Red Book links in separate tabs"
+      "openrbtab": "Open Red Book links in separate tabs",
+      "taxonomy": "Taxonomy",
+      "category": "Category",
+      "link": "Link"
     }
   },
   "es": {
@@ -151,7 +154,10 @@
       "total": "Total",
       "list": "Lista",
       "graph": "Gráfico",
-      "openrbtab": "Abrir enlaces al Libro Rojo en pestañas separadas"
+      "openrbtab": "Abrir enlaces al Libro Rojo en pestañas separadas",
+      "taxonomy": "Taxonomía",
+      "category": "Categoría",
+      "link": "Enlace"
     }
   }
 }

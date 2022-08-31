@@ -151,9 +151,15 @@ export default {
       return d3.rgb(this.riskColors[r]).darker(0.2).formatHex()
     },
     getListCSV() {
-      let list = []
+      let list = [this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link')]
       traverse(this.currentNode, list)
-      console.log(list)
+      this.downloadLink = URL.createObjectURL(new Blob([list.join('\r\n')]))
+      this.$nextTick(() => {
+        document.getElementById('download-file').click()
+        URL.revokeObjectURL(this.downloadLink)
+        this.downloadLink = null
+        this.isLoading = false
+      })
     }
   }
 }
