@@ -76,7 +76,8 @@
       "openrbtab": "Open Red Book links in separate tabs",
       "taxonomy": "Taxonomy",
       "category": "Category",
-      "link": "Link"
+      "link": "Link",
+      "download": "Download"
     }
   },
   "es": {
@@ -157,7 +158,8 @@
       "openrbtab": "Abrir enlaces al Libro Rojo en pestañas separadas",
       "taxonomy": "Taxonomía",
       "category": "Categoría",
-      "link": "Enlace"
+      "link": "Enlace",
+      "download": "Descargar"
     }
   }
 }

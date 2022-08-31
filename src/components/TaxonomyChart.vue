@@ -18,7 +18,7 @@
         </b-dropdown-item>
       </b-dropdown>
       <a id="download-file" download="list.csv" :href="downloadLink"></a>
-      &nbsp;<a @click="getListCSV()"><font-awesome :icon="['fas', 'download']"/></a>
+      &nbsp;<a @click="getListCSV()" :title="$t('label.download')"><font-awesome :icon="['fas', 'download']"/></a>
     </div>
     <div style="margin-left: auto; margin-top: 0rem; overflow-x: scroll;" id="chart"></div>
   </div>
