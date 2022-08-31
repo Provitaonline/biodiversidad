@@ -7,7 +7,7 @@
       {{nodeLabel}}
     </a>
     <a v-else :href="'https://especiesamenazadas.org' + link" :target="newTabLinks ? '_blank' :'_self'">
-      <b>{{nodeLabel}} ({{node.risk}})</b><br>
+      <b>{{nodeLabel}} ({{riskText(node.risk)}})</b><br>
     </a>
     <ul style="list-style-type: none;" v-if="!isLast(node)">
       <TreeNode v-for="k in Object.keys(node)" :node="node[k]" :nodeLabel="k" :key="k" :isHidden="hideNext" :level="level + 1" :path="newPath(k)" :newTabLinks="newTabLinks"></TreeNode>
@@ -22,6 +22,8 @@
 
 
 <script>
+import {riskText} from '~/utils/misc'
+
 export default {
   name: 'TreeNode',
   props: {
@@ -63,6 +65,9 @@ export default {
       let p = [...this.path]
       p.push(k)
       return p
+    },
+    riskText(r) {
+      return riskText(r, this.$i18n.locale.substr(0, 2))
     }
   },
   components: {

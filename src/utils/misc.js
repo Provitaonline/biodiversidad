@@ -69,3 +69,15 @@ export function transform(object, kk, level) {
             { value: 1, link: kk + '/' + value.jsonFile.split('.')[0], risk: value.risk, hierarchy: '/Animalia' + kk})
   })
 }
+
+export function riskText(r, locale) {
+  let riskTranslations = {
+    'Extinto': 'Extinct',
+    'Extinto a Nivel Regional': 'Regionally extinct',
+    'En Peligro Crítico': 'Critically endangered',
+    'En Peligro': 'Endangered',
+    'Vulnerable': 'Vulnerable'
+  }
+
+  return locale === 'es' ? r : riskTranslations[r]
+}

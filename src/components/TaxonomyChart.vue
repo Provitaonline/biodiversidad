@@ -5,7 +5,7 @@
         <div class="legend-item" :style="'background: ' + riskColor(entry[0]) + ';'">
         </div>
         <div class="is-size-7" style="padding-left: 4px">
-          {{entry[0]}}
+          {{riskText(entry[0])}}
         </div>
       </div>
     </div>
@@ -53,20 +53,11 @@
 <script>
 import SunBurst from 'sunburst-chart'
 import * as d3 from 'd3'
+import {riskText} from '~/utils/misc'
 
 const colorClass = d3.scaleOrdinal(d3.schemeSet3)
 
 const colorHigh =  d3.scaleOrdinal(d3.schemeDark2)
-
-function traverse(n, list) {
-  if (n.children) {
-    n.children.forEach(child => {
-      traverse(child, list)
-    })
-  } else {
-    list.push(n.hierarchy + ',' + n.name + ',' + n.risk + ',' + 'https://especiesamenazadas.org/taxon' + n.link)
-  }
-}
 
 export default {
   name: 'TaxonomyChart',
@@ -91,7 +82,6 @@ export default {
         Arthropoda: '#7570b3',
         Mollusca: '#e729aa',
         Cnidaria: '#D8BEA2'
-
       },
       innerWidth: 0,
       currentNode: this.taxonomy4Chart[0],
@@ -150,9 +140,21 @@ export default {
     riskColor(r) {
       return d3.rgb(this.riskColors[r]).darker(0.2).formatHex()
     },
+    riskText(r) {
+      return riskText(r, this.$i18n.locale.substr(0, 2))
+    },
+    traverse(n, list) {
+      if (n.children) {
+        n.children.forEach(child => {
+          this.traverse(child, list)
+        })
+      } else {
+        list.push(n.hierarchy + ',' + n.name + ',' + this.riskText(n.risk) + ',' + 'https://especiesamenazadas.org/taxon' + n.link)
+      }
+    },
     getListCSV() {
       let list = [this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link')]
-      traverse(this.currentNode, list)
+      this.traverse(this.currentNode, list)
       this.downloadLink = URL.createObjectURL(new Blob([list.join('\r\n')]))
       this.$nextTick(() => {
         document.getElementById('download-file').click()
