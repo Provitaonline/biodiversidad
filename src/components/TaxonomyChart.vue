@@ -153,7 +153,6 @@ export default {
       }
     },
     confirmDownload() {
-      console.log('confirm download')
       this.$buefy.dialog.confirm({
         message: this.$t('label.downloadspecieslist'),
         cancelText: this.$t('label.cancel'),
@@ -165,9 +164,10 @@ export default {
       })
     },
     getListCSV() {
-      let list = [this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link')]
+      let list = []
       this.traverse(this.currentNode, list)
-      this.downloadLink = URL.createObjectURL(new Blob([list.join('\r\n')]))
+      list.sort().unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
+      this.downloadLink = URL.createObjectURL(new Blob([list.join('\r\n')], {type: 'text/csv'}))
       this.$nextTick(() => {
         document.getElementById('download-file').click()
         URL.revokeObjectURL(this.downloadLink)
