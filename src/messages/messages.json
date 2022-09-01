@@ -77,7 +77,10 @@
       "taxonomy": "Taxonomy",
       "category": "Category",
       "link": "Link",
-      "download": "Download"
+      "download": "Download",
+      "downloadspecieslist": "Download species list?",
+      "cancel": "Cancel",
+      "datadownloaded": "Data downloaded..."
     }
   },
   "es": {
@@ -159,7 +162,10 @@
       "taxonomy": "Taxonomía",
       "category": "Categoría",
       "link": "Enlace",
-      "download": "Descargar"
+      "download": "Descargar",
+      "downloadspecieslist": "¿Descargar lista de especies?",
+      "cancel": "Cancelar",
+      "datadownloaded": "Datos descargados..."
     }
   }
 }

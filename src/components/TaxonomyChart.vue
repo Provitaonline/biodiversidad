@@ -18,7 +18,7 @@
         </b-dropdown-item>
       </b-dropdown>
       <a id="download-file" download="list.csv" :href="downloadLink"></a>
-      &nbsp;<a @click="getListCSV()" :title="$t('label.download')"><font-awesome :icon="['fas', 'download']"/></a>
+      &nbsp;<a @click="confirmDownload()" :title="$t('label.download')"><font-awesome :icon="['fas', 'download']"/></a>
     </div>
     <div style="margin-left: auto; margin-top: 0rem; overflow-x: scroll;" id="chart"></div>
   </div>
@@ -151,6 +151,18 @@ export default {
       } else {
         list.push(n.hierarchy + ',' + n.name + ',' + this.riskText(n.risk) + ',' + 'https://especiesamenazadas.org/taxon' + n.link)
       }
+    },
+    confirmDownload() {
+      console.log('confirm download')
+      this.$buefy.dialog.confirm({
+        message: this.$t('label.downloadspecieslist'),
+        cancelText: this.$t('label.cancel'),
+        confirmText: 'Ok',
+        onConfirm: () => {
+          this.$buefy.toast.open(this.$t('label.datadownloaded'))
+          this.getListCSV()
+        }
+      })
     },
     getListCSV() {
       let list = [this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link')]
