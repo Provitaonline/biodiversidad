@@ -13,6 +13,9 @@ public_folder: "/images/uploads"
 
 site_url: https://biodiversidad-provita.netlify.app/
 
+editor:
+   preview: false
+
 collections:
   - name: "pages"
     label: "Páginas"
