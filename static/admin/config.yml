@@ -43,7 +43,7 @@ collections:
           - {label: "Id", name: "id", widget: "hidden", required: true}
           - {label: "Título", name: "bannerText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "string"},
-              {label: "En inglés", name: "en", widget: "string"}
+              {label: "En inglés", name: "en", widget: "string"}]}
           - {label: "Descripción", name: "summaryText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
               {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
@@ -55,7 +55,7 @@ collections:
           - {label: "Id", name: "id", widget: "hidden", required: true}
           - {label: "Título", name: "bannerText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "string"},
-              {label: "En inglés", name: "en", widget: "string"}
+              {label: "En inglés", name: "en", widget: "string"}]}
       - file: content/datasets/content.json
         label: "Juegos de datos"
         name: "datasets"
@@ -64,7 +64,7 @@ collections:
           - {label: "Id", name: "id", widget: "hidden", required: true}
           - {label: "Título", name: "bannerText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "string"},
-              {label: "En inglés", name: "en", widget: "string"}
+              {label: "En inglés", name: "en", widget: "string"}]}
       - file: content/about/content.json
         label: "Ecosistemas"
         name: "ecosystems"
@@ -73,7 +73,7 @@ collections:
           - {label: "Id", name: "id", widget: "hidden", required: true}
           - {label: "Título", name: "bannerText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "string"},
-              {label: "En inglés", name: "en", widget: "string"}
+              {label: "En inglés", name: "en", widget: "string"}]}
           - {label: "Descripción", name: "summaryText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
               {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
@@ -85,7 +85,7 @@ collections:
           - {label: "Id", name: "id", widget: "hidden", required: true}
           - {label: "Título", name: "bannerText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "string"},
-              {label: "En inglés", name: "en", widget: "string"}
+              {label: "En inglés", name: "en", widget: "string"}]}
           - {label: "Descripción", name: "summaryText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
               {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
