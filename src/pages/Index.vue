@@ -161,7 +161,7 @@ export default {
   },
   mounted() {
     let hash = this.$route.hash
-    if (hash.includes('invite_token')) window.location.href = 'admin' + hash
+    if (hash.includes('invite_token') || hash.includes('recovery_token')) window.location.href = 'admin' + hash
   },
   methods: {
 
