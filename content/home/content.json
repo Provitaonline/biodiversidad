@@ -12,7 +12,7 @@
       },
       "summary": {
         "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "es": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        "es": "Datos de especies en la plataforma de [GBIF](https://www.gbif.org/es/). Posee filtros de búsqueda y un mapa de visualización."
       },
       "link": "/occurrences",
       "image": "./images/img-1.png"
@@ -24,7 +24,7 @@
       },
       "summary": {
         "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "es": "Información en función de los 4 tipos de [juegos de datos](https://www.gbif.org/es/dataset-classes) establecidos para publicación por GBIF."
       },
       "link": "/datasets",
       "image": "./images/img-2.png"
@@ -36,7 +36,7 @@
       },
       "summary": {
         "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "es": "Ecosistemas terrestres de Venezuela, basado en el [libro rojo del año 2010](https://ecosistemasamenazados.org/)."
       },
       "link": "/ecosystems",
       "image": "./images/img-3.png"
@@ -48,7 +48,7 @@
       },
       "summary": {
         "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-        "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "es": "Fauna amenazada de Venezuela, basado en el [libro rojo del año 2015](https://especiesamenazadas.org/)."
       },
       "link": "/faunarb",
       "image": "./images/img-4.png"
