@@ -5,6 +5,7 @@ backend:
 
 locale: "es"
 
+publish_mode: editorial_workflow
 show_preview_links: false
 
 media_folder: "static/images/uploads"
