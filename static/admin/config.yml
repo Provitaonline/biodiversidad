@@ -26,7 +26,7 @@ collections:
           - {label: "Introducción", name: "intro", widget: "object", fields: [
               {label: "En español", name: "es", widget: "markdown"},
               {label: "En inglés", name: "en", widget: "markdown"}]}
-          - {label: "Fichas de página", summary: "{{fields.title.es}}", name: "cards", widget: "list", fields: [
+          - {label: "Fichas de página", summary: "{{fields.title.es}} ({{fields.title.en}})", name: "cards", widget: "list", fields: [
               {label: "Título", name: "title", widget: "object", fields: [
                 {label: "En español", name: "es", widget: "markdown"},
                 {label: "En inglés", name: "en", widget: "markdown"}]},
