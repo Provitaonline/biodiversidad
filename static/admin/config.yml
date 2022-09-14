@@ -12,7 +12,6 @@ media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 site_url: https://biodiversidad-provita.netlify.app/
-logo_url: https://biodiversidad-provita.netlify.app/images/provitalogo.png
 
 editor:
    preview: false
