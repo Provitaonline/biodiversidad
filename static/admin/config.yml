@@ -35,3 +35,60 @@ collections:
                 {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]},
               {label: "Enlace", name: "link", widget: "string"},
               {label: "Imagen", name: "image", widget: "image", allow_multiple: false}]}
+      - file: content/about/content.json
+        label: "Acerca de"
+        name: "about"
+        media_folder: "./images"
+        fields:
+          - {label: "Id", name: "id", widget: "hidden", required: true}
+          - {label: "Título", name: "bannerText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "string"},
+              {label: "En inglés", name: "en", widget: "string"}
+          - {label: "Descripción", name: "summaryText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
+              {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
+      - file: content/occurrences/content.json
+        label: "Registros de presencia"
+        name: "occurrences"
+        media_folder: "./images"
+        fields:
+          - {label: "Id", name: "id", widget: "hidden", required: true}
+          - {label: "Título", name: "bannerText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "string"},
+              {label: "En inglés", name: "en", widget: "string"}
+      - file: content/datasets/content.json
+        label: "Juegos de datos"
+        name: "datasets"
+        media_folder: "./images"
+        fields:
+          - {label: "Id", name: "id", widget: "hidden", required: true}
+          - {label: "Título", name: "bannerText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "string"},
+              {label: "En inglés", name: "en", widget: "string"}
+      - file: content/about/content.json
+        label: "Ecosistemas"
+        name: "ecosystems"
+        media_folder: "./images"
+        fields:
+          - {label: "Id", name: "id", widget: "hidden", required: true}
+          - {label: "Título", name: "bannerText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "string"},
+              {label: "En inglés", name: "en", widget: "string"}
+          - {label: "Descripción", name: "summaryText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
+              {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
+      - file: content/about/content.json
+        label: "Fauna amenazada"
+        name: "faunarb"
+        media_folder: "./images"
+        fields:
+          - {label: "Id", name: "id", widget: "hidden", required: true}
+          - {label: "Título", name: "bannerText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "string"},
+              {label: "En inglés", name: "en", widget: "string"}
+          - {label: "Descripción", name: "summaryText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
+              {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
+          - {label: "Texto de ayuda del gráfico", name: "chartHelpText", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
+              {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
