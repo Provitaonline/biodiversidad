@@ -45,6 +45,32 @@ module.exports = function (api) {
           obj.intro.en = marked(obj.intro.en)
           obj.intro.es = marked(obj.intro.es)
           return obj.intro
+        },
+        cards(obj) {
+          return obj.cards.map(c => {
+            c.summary.en = marked(c.summary.en)
+            c.summary.es = marked(c.summary.es)
+            return c
+          })
+        }
+      },
+      EcosystemsContent: {
+        summaryText(obj) {
+          obj.summaryText.en = marked(obj.summaryText.en)
+          obj.summaryText.es = marked(obj.summaryText.es)
+          return obj.summaryText
+        }
+      },
+      FaunaRbContent: {
+        summaryText(obj) {
+          obj.summaryText.en = marked(obj.summaryText.en)
+          obj.summaryText.es = marked(obj.summaryText.es)
+          return obj.summaryText
+        },
+        chartHelpText(obj) {
+          obj.chartHelpText.en = marked(obj.chartHelpText.en)
+          obj.chartHelpText.es = marked(obj.chartHelpText.es)
+          return obj.chartHelpText
         }
       }
     })

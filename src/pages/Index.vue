@@ -19,7 +19,7 @@
               <div class="card-content has-text-centered" style="padding: 4px;">
                 <div class="content">
                   <div class="box is-size-4 is-size-5-mobile has-text-weight-medium explore-title">{{item.title[$i18n.locale.substr(0, 2)]}}</div>
-                  <span>{{item.summary[$i18n.locale.substr(0, 2)]}}</span>
+                  <span v-html="item.summary[$i18n.locale.substr(0, 2)]"></span>
                   <br><br>
                 </div>
               </div>
