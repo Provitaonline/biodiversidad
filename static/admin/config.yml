@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: master
+  squash_merges: true
+
+locale: "es"
+
+publish_mode: editorial_workflow
+show_preview_links: false
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://biodiversidad-provita.netlify.app/
+
+collections:
+  - name: "pages"
+    label: "Páginas"
+    files:
+      - file: content/home/content.json
+        label: "Página principal"
+        name: "home"
+        media_folder: "./images"
+        fields:
+          - {label: "Id", name: "id", widget: "hidden", required: true}
+          - {label: "Introducción", name: "intro", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown"},
+              {label: "En inglés", name: "en", widget: "markdown"}]}
+          - {label: "Fichas de página", name: "cards", widget: "list", fields: [
+              {label: "Título", name: "title", widget: "object", fields: [
+                {label: "En español", name: "es", widget: "markdown"},
+                {label: "En inglés", name: "en", widget: "markdown"}]},
+              {label: "Descripción", name: "summary", widget: "object", fields: [
+                {label: "En español", name: "es", widget: "markdown"},
+                {label: "En inglés", name: "en", widget: "markdown"}]},
+              {label: "Enlace", name: "link", widget: "string"},
+              {label: "Imagen", name: "image", widget: "image", allow_multiple: false}]}
