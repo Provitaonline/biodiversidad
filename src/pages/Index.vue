@@ -3,9 +3,8 @@
     <template slot="banner">
       <h1 class="title is-uppercase has-text-centered" v-html="$t('label.mainbanner')"></h1>
     </template>
-    <section class="section has-text-centered">
-      <br>
-      {{ $page.homeContent.intro[$i18n.locale.substr(0, 2)] }}
+    <section style="padding-bottom: 0px;" class="section has-text-centered">
+      <div class="content" v-html="$page.homeContent.intro[$i18n.locale.substr(0, 2)]"></div>
     </section>
     <section class="section card-section">
       <div class="row">

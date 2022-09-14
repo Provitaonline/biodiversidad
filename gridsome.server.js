@@ -31,12 +31,20 @@ module.exports = function (api) {
 
   // Load markdown so the client doesn't have to do it
   api.loadSource(({ addSchemaResolvers }) => {
+    console.log('Add schema resolvers')
     addSchemaResolvers({
       AboutContent: {
         summaryText(obj) {
           obj.summaryText.en = marked(obj.summaryText.en)
           obj.summaryText.es = marked(obj.summaryText.es)
           return obj.summaryText
+        }
+      },
+      HomeContent: {
+        intro(obj) {
+          obj.intro.en = marked(obj.intro.en)
+          obj.intro.es = marked(obj.intro.es)
+          return obj.intro
         }
       }
     })
