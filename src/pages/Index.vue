@@ -160,6 +160,8 @@ export default {
   components: {
   },
   mounted() {
+    let hash = this.$route.hash
+    if (hash.includes('invite_token')) window.location.href = 'admin' + hash
   },
   methods: {
 
