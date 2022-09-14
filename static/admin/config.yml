@@ -24,14 +24,14 @@ collections:
         fields:
           - {label: "Id", name: "id", widget: "hidden", required: true}
           - {label: "Introducción", name: "intro", widget: "object", fields: [
-              {label: "En español", name: "es", widget: "markdown", modes:["raw"]},
-              {label: "En inglés", name: "en", widget: "markdown", modes:["raw"]}]}
+              {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
+              {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
           - {label: "Fichas de página", summary: "{{fields.title.es}} ({{fields.title.en}})", name: "cards", widget: "list", fields: [
               {label: "Título", name: "title", widget: "object", fields: [
                 {label: "En español", name: "es", widget: "string"},
                 {label: "En inglés", name: "en", widget: "string"}]},
               {label: "Descripción", name: "summary", widget: "object", fields: [
-                {label: "En español", name: "es", widget: "markdown", modes:["raw"]},
-                {label: "En inglés", name: "en", widget: "markdown", modes:["raw"]}]},
+                {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
+                {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]},
               {label: "Enlace", name: "link", widget: "string"},
               {label: "Imagen", name: "image", widget: "image", allow_multiple: false}]}
