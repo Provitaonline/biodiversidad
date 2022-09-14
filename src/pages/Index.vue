@@ -9,13 +9,14 @@
     <section class="section card-section">
       <div class="row">
         <div v-for="item in $page.homeContent.cards" class="column">
-          <g-link :to="$tp(item.link)">
             <div class="card is-child menu-card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <g-image class="img-hover-effect" :src="item.image"/>
-                </figure>
-              </div>
+              <g-link :to="$tp(item.link)">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <g-image class="img-hover-effect" :src="item.image"/>
+                  </figure>
+                </div>
+              </g-link>
               <div class="card-content has-text-centered" style="padding: 4px;">
                 <div class="content">
                   <div class="box is-size-4 is-size-5-mobile has-text-weight-medium explore-title">{{item.title[$i18n.locale.substr(0, 2)]}}</div>
@@ -24,10 +25,11 @@
                 </div>
               </div>
               <div class="menu-card-button" >
-                <button class="button is-primary">{{$t('label.explore')}}</button>
+                <g-link :to="$tp(item.link)">
+                  <button class="button is-primary">{{$t('label.explore')}}</button>
+                </g-link>
               </div>
             </div>
-          </g-link>
         </div>
       </div>
     </section>
