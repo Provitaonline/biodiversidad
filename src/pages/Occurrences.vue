@@ -3,6 +3,7 @@
     <template slot="banner">
       <h1 class="title is-uppercase has-text-centered" v-html="$page.occurrencesContent.bannerText[$i18n.locale.substr(0, 2)]"></h1>
     </template>
+    <b-loading :is-full-page="false" v-model="isDataLoading"></b-loading>
     <div class="columns is-gapless">
       <aside class="column is-narrow side-panel">
         <div class="side-panel-content">
@@ -246,6 +247,7 @@ export default {
       totalGbifOccurrences: 0,
       loading: false,
       isTaxonomyLoading: false,
+      isDataLoading: false,
       isFullPage: false,
       gbifOccurrencesPage: 1,
       perPage: 20,
@@ -387,7 +389,9 @@ export default {
     },
     openOccurrenceDetails(occurrence) {
       console.log(occurrence)
+      this.isDataLoading = true
       getGbifDataset(occurrence.datasetKey).then(dataset => {
+        this.isDataLoading = false
         this.$buefy.modal.open({
           parent: this,
           component: OccurrenceDetails,
