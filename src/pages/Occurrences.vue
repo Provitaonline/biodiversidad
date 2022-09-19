@@ -118,7 +118,8 @@
               @page-change='gbifOccurrencesOnPageChange'
             >
               <b-table-column width="30%" field="scientificName" :label="$t('label.scientificname')" v-slot="props">
-                <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/occurrence/' + props.row.gbifID">{{ props.row.scientificName }}</a>
+                <!-- <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/occurrence/' + props.row.gbifID">{{ props.row.scientificName }}</a> -->
+                <a @click="openOccurrenceDetails(props.row)" href="">{{ props.row.scientificName }}</a>
               </b-table-column>
               <b-table-column field="year" :label="$t('label.year')" v-slot="props">
                 {{ props.row.year }}
@@ -220,10 +221,11 @@
 </page-query>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName} from '~/utils/data'
+import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName, getGbifDataset} from '~/utils/data'
 import {getPureText, reloadPageIfBrowserCached} from '~/utils/misc'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
+import OccurrenceDetails from '~/components/OccurrenceDetails.vue'
 
 export default {
   metaInfo() {
@@ -382,7 +384,20 @@ export default {
         this.loadGbifOccurrenceTaxonomies(this.ranks[0])
         this.renderMap = true
       })
-    }
+    },
+    openOccurrenceDetails(occurrence) {
+      console.log(occurrence)
+      getGbifDataset(occurrence.datasetKey).then(dataset => {
+        this.$buefy.modal.open({
+          parent: this,
+          component: OccurrenceDetails,
+          props: {
+            occurrence: occurrence,
+            dataset: dataset
+          }
+        })
+      })
+    },
   },
   computed: {
     filteredStates() {

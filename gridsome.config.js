@@ -84,6 +84,9 @@ module.exports = {
             long: {
               year: 'numeric', month: 'short', day: 'numeric',
               hour: 'numeric', minute: 'numeric'
+            },
+            longdateonly: {
+              year: 'numeric', month: 'long', day: 'numeric',
             }
           },
           'es-ve': {
@@ -93,6 +96,9 @@ module.exports = {
             long: {
               year: 'numeric', month: 'short', day: 'numeric',
               hour: 'numeric', minute: 'numeric', hour12: true
+            },
+            longdateonly: {
+              year: 'numeric', month: 'long', day: 'numeric',
             }
           }
         },

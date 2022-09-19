@@ -34,6 +34,16 @@ export async function getGbifOccurrences(offset, filters, locale) {
   return response
 }
 
+export async function getGbifDataset(key, locale) {
+
+  let response = await fetch('https://api.gbif.org/v1/dataset/' + key,
+    {headers: {'Accept-Language': locale}})
+
+  response = await response.json()
+  console.log(response)
+  return response
+}
+
 export async function getSpeciesSuggestions(pre) {
   let response = await fetch('https://api.gbif.org/v1/species/suggest?q=' + pre)
   response = await response.json()
