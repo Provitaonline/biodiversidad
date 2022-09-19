@@ -222,7 +222,7 @@
 </page-query>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName, getGbifDataset} from '~/utils/data'
+import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName, getGbifDatasetDetail} from '~/utils/data'
 import {getPureText, reloadPageIfBrowserCached} from '~/utils/misc'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
@@ -390,7 +390,7 @@ export default {
     openOccurrenceDetails(occurrence) {
       console.log(occurrence)
       this.isDataLoading = true
-      getGbifDataset(occurrence.datasetKey).then(dataset => {
+      getGbifDatasetDetail(occurrence.datasetKey).then(dataset => {
         this.isDataLoading = false
         this.$buefy.modal.open({
           parent: this,

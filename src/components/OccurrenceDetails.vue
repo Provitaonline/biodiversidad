@@ -18,10 +18,7 @@
         <dd>{{occurrence.basisOfRecord}}</dd>
       </dl>
       <div>Citation</div>
-      <dl style="display: grid; grid-template-columns: minmax(75px, 150px) 1fr;">
-        <dt>Use this</dt>
-        <dd>{{dataset.citation.text}}</dd>
-      </dl>
+      <div>{{dataset.citation.text}}</div>
     </div>
   </div>
 </template>
@@ -39,7 +36,7 @@
       }
     },
     created() {
-      console.log(this.occurrence)
+      console.log(this.dataset)
     }
   }
 
