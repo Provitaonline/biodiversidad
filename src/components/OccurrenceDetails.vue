@@ -6,7 +6,7 @@
           {{$t('label.occurrence')}} ({{$d(new Date(occurrence.eventDate), 'longdateonly')}}) <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/>
         </a>
         <br>
-        <h4 class="title-5" v-html="occurrenceMore.gbifClassification.acceptedUsage.formattedName"></h4>
+        <h4 class="title-5" v-html="occurrenceMore.gbifClassification.usage.formattedName"></h4>
         <div v-if="occurrence.iucnRedListCategory" class="has-text-weight-semibold">{{$t('label.iucnredlistcategory')}}: {{occurrence.iucnRedListCategory}} - {{ $t('label.' + occurrence.iucnRedListCategory) }}</div>
       </div>
       <hr>
@@ -18,7 +18,7 @@
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.summary')}}</div>
       <dl style="display: grid; grid-template-columns: minmax(75px, 150px) 1fr;">
         <dt>{{$t('label.scientificname')}}</dt>
-        <dd v-html="occurrenceMore.gbifClassification.acceptedUsage.formattedName"></dd>
+        <dd v-html="occurrenceMore.gbifClassification.usage.formattedName"></dd>
         <dt>{{$t('label.taxonomy')}}</dt>
         <dd>{{occurrence.kingdom}} &gt; {{occurrence.phylum}} &gt; {{occurrence.class}} &gt; {{occurrence.order}} &gt; {{occurrence.family}} &gt; {{occurrence.genus}}</dd>
         <dt>{{$t('label.dataset')}}</dt>
