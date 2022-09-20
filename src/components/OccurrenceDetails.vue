@@ -47,7 +47,7 @@
         <dd>{{occurrence.locality}}</dd>
         <dt>{{$t('label.coordinates')}}</dt>
         <dd>{{$t('label.latitude')}}: {{occurrence.decimalLatitude}}, {{$t('label.longitude')}}: {{occurrence.decimalLongitude}}</dd>
-        <dt>Incertidumbre de las coordenadas</dt>
+        <dt>{{$t('label.coordinateuncertainity')}}</dt>
         <dd v-if="occurrence.coordinateUncertaintyInMeters">{{$n(occurrence.coordinateUncertaintyInMeters)}} m</dd>
       </dl>
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}</div>

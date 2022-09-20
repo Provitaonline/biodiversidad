@@ -81,7 +81,17 @@
       "download": "Download",
       "downloadspecieslist": "Download species list?",
       "cancel": "Cancel",
-      "datadownloaded": "Data downloaded..."
+      "datadownloaded": "Data downloaded...",
+      "summary": "Summary",
+      "basisofrecord": "Basis of record",
+      "publisher": "Publisher",
+      "locality": "Locality",
+      "localization": "Localization",
+      "coordinates": "Coordinates",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "coordinateuncertainity": "Coordinate uncertainty",
+      "citation": "Citation"
     }
   },
   "es": {
@@ -167,7 +177,17 @@
       "download": "Descargar",
       "downloadspecieslist": "¿Descargar lista de especies?",
       "cancel": "Cancelar",
-      "datadownloaded": "Datos descargados..."
+      "datadownloaded": "Datos descargados...",
+      "summary": "Resumen",
+      "basisofrecord": "Base del registro",
+      "publisher": "Publicador",
+      "locality": "Localidad",
+      "localization": "Localización",
+      "coordinates": "Coordenadas",
+      "latitude": "Latitud",
+      "longitude": "Longitud",
+      "coordinateuncertainity": "Incertidumbre de las coordenadas",
+      "citation": "Cita"
     }
   }
 }
