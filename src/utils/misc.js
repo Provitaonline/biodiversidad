@@ -81,3 +81,14 @@ export function riskText(r, locale) {
 
   return locale === 'es' ? r : riskTranslations[r]
 }
+
+export function loadGbifTranslations(collection) {
+  let translations = {}
+  collection.edges.forEach(edge => {
+    translations[edge.node.id] = {
+      en: JSON.parse(edge.node.en),
+      es: JSON.parse(edge.node.es)
+    }
+  })
+  return translations
+}

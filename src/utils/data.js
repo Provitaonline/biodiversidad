@@ -1,3 +1,5 @@
+import {gbifGraphQlQuery} from '~/utils/config'
+
 function isCacheExpired() {
   const cacheDate = localStorage.getItem('gbifCacheDate')
   if (cacheDate && (new Date().getTime() - new Date(cacheDate).getTime()) < 86400000) return false
@@ -32,6 +34,26 @@ export async function getGbifOccurrences(offset, filters, locale) {
 
   response = await response.json()
   return response
+}
+
+export async function getGbifDataset(key, locale) {
+
+  let response = await fetch('https://api.gbif.org/v1/dataset/' + key,
+    {headers: {'Accept-Language': locale}})
+
+  response = await response.json()
+  console.log(response)
+  return response
+}
+
+export async function getGbifOccurrenceGQL(key, locale) {
+
+  let response = await fetch('https://graphql.gbif.org/graphql/?query=' + gbifGraphQlQuery.occurrence + '&variables={"key":"' + key + '"}',
+    {headers: {'Accept-Language': locale}})
+
+  response = await response.json()
+
+  return response.data.occurrence
 }
 
 export async function getSpeciesSuggestions(pre) {

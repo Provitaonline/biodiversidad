@@ -29,6 +29,27 @@ module.exports = function (api) {
     }
   })
 
+  api.loadSource(async actions => {
+    const translationsEs = await axios.get('https://www.gbif.org/api/translation.json?lang=es')
+    const translationsEn = await axios.get('https://www.gbif.org/api/translation.json?lang=en')
+
+    const collection = actions.addCollection({
+      typeName: 'GbifTranslations'
+    })
+
+    collection.addNode({
+      id: 'basisOfRecord',
+      en: JSON.stringify(translationsEn.data.basisOfRecord),
+      es: JSON.stringify(translationsEs.data.basisOfRecord)
+    })
+
+    collection.addNode({
+      id: 'country',
+      en: JSON.stringify(translationsEn.data.country),
+      es: JSON.stringify(translationsEs.data.country)
+    })
+  })
+
   // Load markdown so the client doesn't have to do it
   api.loadSource(({ addSchemaResolvers }) => {
     console.log('Add schema resolvers')
