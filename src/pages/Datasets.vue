@@ -68,7 +68,6 @@
       paginated
       :current-page="gbifDatasetsPage"
       @page-change="pageChanged"
-      detailed
       :perPage="perPage"
       :pagination-simple="false"
     >
@@ -112,14 +111,6 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''; columnFiltersChange();" />
         </template>
       </b-table-column>
-
-      <template #detail="props">
-        <div>
-          <div v-html="props.row.description"></div>
-          <br>
-          <small><b>{{ $t('label.pubdate') }}: </b>{{ $d(new Date(props.row.pubDate)) }}</small>
-        </div>
-      </template>
     </b-table>
 
   </Layout>
