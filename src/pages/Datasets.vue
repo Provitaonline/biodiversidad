@@ -73,7 +73,7 @@
     >
       <b-table-column searchable sortable width="50%" field="title" :label="$t('label.title')">
         <template v-slot="props">
-          <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/dataset/' + props.row.key">{{ props.row.title }}</a>
+          <a @click="openDatasetDetails(props.row)" href="">{{ props.row.title }}</a>
         </template>
         <template #searchable="props">
           <b-input @input="columnFiltersChange()" v-model="props.filters[props.column.field]" size="is-small"
@@ -192,7 +192,8 @@
 </page-query>
 
 <script>
-import {getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies, getSavedTaxonomicGroups, saveTaxonomicGroups} from '~/utils/data'
+import {getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies, getSavedTaxonomicGroups, saveTaxonomicGroups, getGbifGraphQLData} from '~/utils/data'
+import {gbifGraphQlQuery} from '~/utils/config'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
 
@@ -369,7 +370,22 @@ export default {
         })
         this.updateQueryParms()
       }
-    }
+    },
+    openDatasetDetails(dataset) {
+      this.isDataLoading = true
+      getGbifGraphQLData(gbifGraphQlQuery.dataset, dataset.key).then(d => {
+        this.isDataLoading = false
+        console.log(d.dataset)
+        /* this.$buefy.modal.open({
+          parent: this,
+          component: OccurrenceDetails,
+          props: {
+            occurrence: occurrence,
+            occurrenceMore: o
+          }
+        }) */
+      })
+    },
   },
   computed: {
     filteredGbifDatasetsData() {

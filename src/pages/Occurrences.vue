@@ -222,8 +222,9 @@
 </page-query>
 
 <script>
-import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName, getGbifOccurrenceGQL} from '~/utils/data'
+import {getGbifOccurrences, getSpeciesSuggestions, getGbifOccurrenceTaxonomies, getTaxonName, getGbifGraphQLData} from '~/utils/data'
 import {getPureText, reloadPageIfBrowserCached} from '~/utils/misc'
+import {gbifGraphQlQuery} from '~/utils/config'
 
 import InteractiveMap from '~/components/InteractiveMap.vue'
 import OccurrenceDetails from '~/components/OccurrenceDetails.vue'
@@ -389,14 +390,14 @@ export default {
     },
     openOccurrenceDetails(occurrence) {
       this.isDataLoading = true
-      getGbifOccurrenceGQL(occurrence.key).then(o => {
+      getGbifGraphQLData(gbifGraphQlQuery.occurrence, occurrence.key).then(o => {
         this.isDataLoading = false
         this.$buefy.modal.open({
           parent: this,
           component: OccurrenceDetails,
           props: {
             occurrence: occurrence,
-            occurrenceMore: o
+            occurrenceMore: o.occurrence
           }
         })
       })

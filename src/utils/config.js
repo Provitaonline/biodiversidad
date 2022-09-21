@@ -72,6 +72,61 @@ export const gbifGraphQlQuery = {
         identifier
       }
     }
+  }`,
+  dataset: `query dataset($key: ID!){
+    dataset(key: $key) {
+      title
+      created
+      description
+      temporalCoverages
+      logoUrl
+      publishingOrganizationKey
+      publishingOrganizationTitle
+      volatileContributors {
+        firstName
+        lastName
+        position
+        organization
+        address
+        userId
+        type
+        _highlighted
+        roles
+      }
+      geographicCoverages {
+        description
+        boundingBox {
+          minLatitude
+          maxLatitude
+          minLongitude
+          maxLongitude
+          globalCoverage
+        }
+      }
+      taxonomicCoverages {
+        description
+        coverages {
+          scientificName
+          rank {
+            interpreted
+          }
+        }
+      }
+      bibliographicCitations {
+        identifier
+        text
+      }
+      samplingDescription {
+        studyExtent
+        sampling
+        qualityControl
+        methodSteps
+      }
+      citation {
+        text
+      }
+      license
+    }
   }`
 }
 
