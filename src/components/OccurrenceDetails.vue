@@ -3,7 +3,7 @@
     <div class="box content">
       <div class="has-text-centered">
         <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/occurrence/' + occurrence.gbifID" target="_blank">
-          {{$t('label.occurrence')}} ({{$d(new Date(occurrence.eventDate), 'longdateonly')}}) <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/>
+          {{$t('label.occurrence')}} <span v-if="occurrence.eventDate">({{$d(new Date(occurrence.eventDate), 'longdateonly')}})</span> <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/>
         </a>
         <br>
         <h4 class="title-5" v-html="occurrenceMore.gbifClassification.usage.formattedName"></h4>
@@ -12,7 +12,7 @@
       <hr>
       <div v-if="occurrenceMore.primaryImage && occurrenceMore.primaryImage.identifier" style="margin-left: auto; margin-right: auto;">
         <figure>
-          <a><img height="240" width="240" :src="'https://api.gbif.org/v1/image/unsafe/240x240/' + occurrenceMore.primaryImage.identifier"></a>
+          <img height="240" width="240" :src="'https://api.gbif.org/v1/image/unsafe/240x240/' + occurrenceMore.primaryImage.identifier">
         </figure>
       </div>
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.summary')}}</div>
@@ -24,7 +24,7 @@
         <dt>{{$t('label.dataset')}}</dt>
         <dd>
           <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/dataset/' + occurrence.datasetKey" target="_blank">
-            {{occurrence.datasetName}} <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/>
+            {{occurrenceMore.datasetTitle}} <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/>
           </a>
         </dd>
         <dt>{{$t('label.basisofrecord')}}</dt>
@@ -32,22 +32,35 @@
       </dl>
       <div class="d-heading has-text-weight-semibold has-text-centered"><span style="text-transform:capitalize;">{{$t('label.record')}}</span></div>
       <dl style="display: grid; grid-template-columns: minmax(75px, 150px) 1fr;">
+        <dt>{{$t('label.recordid')}}</dt>
+        <dd>
+          <a v-if="occurrence.occurrenceID.toLowerCase().startsWith('http')" :href="occurrence.occurrenceID" target="_blank">{{occurrence.occurrenceID}} </span> <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/></a>
+          <span v-else>{{occurrence.occurrenceID}}</span>
+        </dd>
+        <dt>{{$t('label.occurrencestatus')}}</dt>
+        <dd>{{occurrenceStatuses[occurrence.occurrenceStatus][$i18n.locale.substr(0, 2)]}}</dd>
         <dt>{{$t('label.publisher')}}</dt>
         <dd>{{occurrenceMore.publisherTitle}}</dd>
         <dt>{{$t('label.publishingcountry')}}</dt>
         <dd>{{gbifTranslations.country[$i18n.locale.substr(0, 2)][occurrence.publishingCountry]}}</dd>
+        <dt v-if="occurrenceMore.institution">{{$t('label.institution')}}</dt>
+        <dd v-if="occurrenceMore.institution">{{occurrenceMore.institution.name}}</dd>
+        <dt>{{$t('label.license')}}</dt>
+        <dd><a :href="occurrence.license" target="_blank">{{licenseTypes[occurrence.license]}} </span> <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/></a></dd>
+        <dt>{{$t('label.rightsholder')}}</dt>
+        <dd>{{occurrence.rightsHolder}}</dd>
       </dl>
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.localization')}}</div>
       <dl style="display: grid; grid-template-columns: minmax(75px, 150px) 1fr; word-break: break-word;">
         <dt>{{$t('label.country')}}</dt>
         <dd>{{gbifTranslations.country[$i18n.locale.substr(0, 2)][occurrence.countryCode]}}</dd>
-        <dt>GADM</dt>
-        <dd>{{occurrence.gadm.level0.name}} &gt; {{occurrence.gadm.level1.name}} &gt; {{occurrence.gadm.level2.name}}</dd>
-        <dt>{{$t('label.locality')}}</dt>
-        <dd>{{occurrence.locality}}</dd>
+        <dt v-if="occurrence.gadm.level0">GADM</dt>
+        <dd v-if="occurrence.gadm.level0">{{occurrence.gadm.level0.name}} &gt; {{occurrence.gadm.level1.name}} &gt; {{occurrence.gadm.level2.name}}</dd>
+        <dt v-if="occurrence.verbatimLocality">{{$t('label.locality')}}</dt>
+        <dd v-if="occurrence.verbatimLocality">{{occurrence.verbatimLocality}}</dd>
         <dt>{{$t('label.coordinates')}}</dt>
         <dd>{{$t('label.latitude')}}: {{occurrence.decimalLatitude}}, {{$t('label.longitude')}}: {{occurrence.decimalLongitude}}</dd>
-        <dt>{{$t('label.coordinateuncertainity')}}</dt>
+        <dt v-if="occurrence.coordinateUncertaintyInMeters">{{$t('label.coordinateuncertainity')}}</dt>
         <dd v-if="occurrence.coordinateUncertaintyInMeters">{{$n(occurrence.coordinateUncertaintyInMeters)}} m</dd>
       </dl>
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}</div>
@@ -86,6 +99,7 @@
 
 <script>
 import {loadGbifTranslations} from '~/utils/misc'
+import {licenseTypes} from '~/utils/config'
 
   export default {
     name: 'OccurrenceDetails',
@@ -95,7 +109,12 @@ import {loadGbifTranslations} from '~/utils/misc'
     },
     data() {
       return {
-        gbifTranslations: {}
+        gbifTranslations: {},
+        occurrenceStatuses: {
+          PRESENT: {es: 'Presente', en: 'Present'},
+          ABSENT: {es: 'Ausente', en: 'Absent'}
+        },
+        licenseTypes: licenseTypes
       }
     },
     created() {

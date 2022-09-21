@@ -44,41 +44,11 @@ export const gbifGraphQlQuery = {
   occurrence: `query occurrence($key: ID!){
     occurrence(key: $key) {
       key
-      coordinates
-      coordinateUncertaintyInMeters
-      countryCode
-      country
-      eventDate
-      typeStatus
-      issues
-      datasetKey
-      basisOfRecord
-      locality
       institution {
         name
         key
       }
-      collection {
-        name
-        key
-      }
-      volatile {
-        globe(sphere: false, land: false, graticule: false) {
-          svg
-          lat
-          lon
-        }
-        features {
-          isSpecimen
-          isTreament
-          isSequenced
-          isClustered
-          isSamplingEvent
-        }
-      }
-      datasetKey,
       datasetTitle
-      publishingOrgKey,
       publisherTitle,
       dataset {
         citation {
@@ -86,61 +56,8 @@ export const gbifGraphQlQuery = {
         }
       }
       institutionCode
-      recordedByIDs {
-        value
-        person(expand: true) {
-          name
-          birthDate
-          deathDate
-          image
-        }
-      }
-      identifiedByIDs {
-        value
-        person(expand: true) {
-          name
-          birthDate
-          deathDate
-          image
-        }
-      }
       gadm
-      stillImageCount
-      movingImageCount
-      soundCount
-      stillImages {
-        type
-        format
-        identifier
-        created
-        creator
-        license
-        publisher
-        references
-        rightsHolder
-        description
-      }
       gbifClassification {
-        kingdom
-        kingdomKey
-        phylum
-        phylumKey
-        class
-        classKey
-        order
-        orderKey
-        family
-        familyKey
-        genus
-        genusKey
-        species
-        speciesKey
-        synonym
-        classification {
-          key
-          rank
-          name
-        }
         usage {
           rank
           formattedName
@@ -154,14 +71,12 @@ export const gbifGraphQlQuery = {
       primaryImage {
         identifier
       }
-      terms {
-        simpleName
-        verbatim
-        value
-        htmlValue
-        remarks
-        issues
-      }
     }
   }`
+}
+
+export const licenseTypes = {
+  'http://creativecommons.org/licenses/by-nc/4.0/legalcode': 'CC BY-NC 4.0',
+  'http://creativecommons.org/publicdomain/zero/1.0/legalcode': 'CC0 1.0',
+  'http://creativecommons.org/licenses/by/4.0/legalcode': 'CC BY 4.0',
 }

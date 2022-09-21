@@ -91,7 +91,10 @@
       "latitude": "Latitude",
       "longitude": "Longitude",
       "coordinateuncertainity": "Coordinate uncertainty",
-      "citation": "Citation"
+      "citation": "Citation",
+      "recordid": "Record ID",
+      "rightsholder": "Rights holder",
+      "occurrencestatus": "Occurrence status"
     }
   },
   "es": {
@@ -187,7 +190,10 @@
       "latitude": "Latitud",
       "longitude": "Longitud",
       "coordinateuncertainity": "Incertidumbre de las coordenadas",
-      "citation": "Cita"
+      "citation": "Cita",
+      "recordid": "ID del registro",
+      "rightsholder": "Titular de los derechos",
+      "occurrencestatus": "Estátus de registro"
     }
   }
 }
