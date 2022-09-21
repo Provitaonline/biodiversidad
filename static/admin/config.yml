@@ -48,8 +48,8 @@ collections:
               {label: "En español", name: "es", widget: "string"},
               {label: "En inglés", name: "en", widget: "string"}]}
           - {label: "Descripción", name: "summaryText", widget: "object", fields: [
-              {label: "En español", name: "es", widget: "markdown"},
-              {label: "En inglés", name: "en", widget: "markdown"}]}
+              {label: "En español", name: "es", widget: "markdown", editor_components: ["image"]},
+              {label: "En inglés", name: "en", widget: "markdown", editor_components: ["image"]}]}
       - file: content/occurrences/content.json
         label: "Registros de presencia"
         name: "occurrences"
