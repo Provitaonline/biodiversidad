@@ -63,7 +63,11 @@
         <dt v-if="occurrence.coordinateUncertaintyInMeters">{{$t('label.coordinateuncertainity')}}</dt>
         <dd v-if="occurrence.coordinateUncertaintyInMeters">{{$n(occurrence.coordinateUncertaintyInMeters)}} m</dd>
       </dl>
-      <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}</div>
+      <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}
+        <a title="Copiar" class="copy-citation-to-clipboard" :data-clipboard-text="occurrenceMore.dataset.citation.text">
+          <font-awesome :icon="['far', 'copy']"/>
+        </a>
+      </div>
       <div>{{occurrenceMore.dataset.citation.text}}</div>
     </div>
   </div>
@@ -101,6 +105,9 @@
 import {loadGbifTranslations} from '~/utils/misc'
 import {licenseTypes} from '~/utils/config'
 
+import ClipboardJS from 'clipboard'
+let clipboard
+
   export default {
     name: 'OccurrenceDetails',
     props: {
@@ -119,6 +126,12 @@ import {licenseTypes} from '~/utils/config'
     },
     created() {
       this.gbifTranslations = loadGbifTranslations(this.$static.allGbifTranslations)
+    },
+    mounted() {
+      clipboard = new ClipboardJS('.copy-citation-to-clipboard')
+    },
+    beforeDestroy() {
+      clipboard.destroy()
     }
   }
 
