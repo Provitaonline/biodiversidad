@@ -75,6 +75,7 @@ export const gbifGraphQlQuery = {
   }`,
   dataset: `query dataset($key: ID!){
     dataset(key: $key) {
+      key
       title
       created
       description

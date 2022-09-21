@@ -3,6 +3,7 @@
     <template slot="banner">
       <h1 class="title is-uppercase has-text-centered" v-html="$page.datasetsContent.bannerText[$i18n.locale.substr(0, 2)]"></h1>
     </template>
+    <b-loading :is-full-page="false" v-model="isDataLoading"></b-loading>
     <br>
     <div class="filter-container">
       <div class="rank-selector">
@@ -195,7 +196,7 @@
 import {getAllGbifDatasets, getGbifDatasetDetail, getGbifDatasetSpecies, getSavedTaxonomicGroups, saveTaxonomicGroups, getGbifGraphQLData} from '~/utils/data'
 import {gbifGraphQlQuery} from '~/utils/config'
 
-import InteractiveMap from '~/components/InteractiveMap.vue'
+import DatasetDetails from '~/components/DatasetDetails.vue'
 
 export default {
   metaInfo() {
@@ -209,6 +210,7 @@ export default {
       gbifDatasetsData: [],
       totalGbifDatasets: 0,
       loading: false,
+      isDataLoading: false,
       gbifDatasetsPage: 1,
       taxonomicGroups: {
         kingdom: {},
@@ -375,15 +377,15 @@ export default {
       this.isDataLoading = true
       getGbifGraphQLData(gbifGraphQlQuery.dataset, dataset.key).then(d => {
         this.isDataLoading = false
+        d.dataset.typeExpanded = dataset.typeExpanded
         console.log(d.dataset)
-        /* this.$buefy.modal.open({
+        this.$buefy.modal.open({
           parent: this,
-          component: OccurrenceDetails,
+          component: DatasetDetails,
           props: {
-            occurrence: occurrence,
-            occurrenceMore: o
+            dataset: d.dataset
           }
-        }) */
+        })
       })
     },
   },
