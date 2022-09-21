@@ -34,8 +34,8 @@ collections:
                 {label: "En español", name: "es", widget: "string"},
                 {label: "En inglés", name: "en", widget: "string"}]},
               {label: "Descripción", name: "summary", widget: "object", fields: [
-                {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
-                {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]},
+                {label: "En español", name: "es", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: []},
+                {label: "En inglés", name: "en", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: []}]},
               {label: "Enlace", name: "link", widget: "string"},
               {label: "Imagen", name: "image", widget: "image", allow_multiple: false}]}
       - file: content/about/content.json
@@ -48,8 +48,8 @@ collections:
               {label: "En español", name: "es", widget: "string"},
               {label: "En inglés", name: "en", widget: "string"}]}
           - {label: "Descripción", name: "summaryText", widget: "object", fields: [
-              {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
-              {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
+              {label: "En español", name: "es", widget: "markdown"},
+              {label: "En inglés", name: "en", widget: "markdown"}]}
       - file: content/occurrences/content.json
         label: "Registros de presencia"
         name: "occurrences"
@@ -78,8 +78,8 @@ collections:
               {label: "En español", name: "es", widget: "string"},
               {label: "En inglés", name: "en", widget: "string"}]}
           - {label: "Descripción", name: "summaryText", widget: "object", fields: [
-              {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
-              {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
+              {label: "En español", name: "es", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: []}]}
       - file: content/faunarb/content.json
         label: "Fauna amenazada"
         name: "faunarb"
@@ -93,5 +93,5 @@ collections:
               {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
               {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
           - {label: "Texto de ayuda del gráfico", name: "chartHelpText", widget: "object", fields: [
-              {label: "En español", name: "es", widget: "markdown", modes: ["raw"]},
-              {label: "En inglés", name: "en", widget: "markdown", modes: ["raw"]}]}
+              {label: "En español", name: "es", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: []}]}
