@@ -369,7 +369,6 @@ export default {
       getGbifGraphQLData(gbifGraphQlQuery.dataset, dataset.key).then(d => {
         this.isDataLoading = false
         d.dataset.typeExpanded = dataset.typeExpanded
-        console.log(d.dataset)
         this.$buefy.modal.open({
           parent: this,
           component: DatasetDetails,
