@@ -135,7 +135,7 @@
                 {{ props.row.publishingCountry }}
               </b-table-column>
               <b-table-column field="datasetName" :label="$t('label.dataset')" v-slot="props">
-                <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/dataset/' + props.row.datasetKey">{{props.row.datasetName}}</a>
+                <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/dataset/' + props.row.datasetKey">{{props.row.datasetName ? props.row.datasetName : props.row.datasetKey}}</a>
               </b-table-column>
             </b-table>
           </b-tab-item>
