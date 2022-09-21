@@ -28,7 +28,7 @@ collections:
           - {label: "Id", name: "id", widget: "hidden", required: true}
           - {label: "Introducción", name: "intro", widget: "object", fields: [
               {label: "En español", name: "es", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: []},
-              {label: "En inglés", name: "en", widget: "markdown"}, buttons: ["bold", "italic", "link"], editor_components: []}]}
+              {label: "En inglés", name: "en", widget: "markdown", buttons: ["bold", "italic", "link"], editor_components: []}]}
           - {label: "Fichas de página", summary: "{{fields.title.es}} ({{fields.title.en}})", name: "cards", widget: "list", fields: [
               {label: "Título", name: "title", widget: "object", fields: [
                 {label: "En español", name: "es", widget: "string"},
