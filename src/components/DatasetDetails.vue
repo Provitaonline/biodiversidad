@@ -20,6 +20,15 @@
           <div v-html="gc.description"></div>
         </div>
       </div>
+      <div v-if="dataset.taxonomicCoverages && dataset.taxonomicCoverages.length">
+        <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.taxonomicscope')}}</div>
+        <div v-for="tc in dataset.taxonomicCoverages">
+          <div v-html="tc.description"></div><br>
+          <div class="tags">
+            <span class="tag is-light" v-for="(c, idx) in tc.coverages">{{c.scientificName}}</span>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

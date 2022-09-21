@@ -97,7 +97,8 @@
       "occurrencestatus": "Occurrence status",
       "publishedby": "Published by",
       "description": "Description",
-      "geographicscope": "Geographic scope"
+      "geographicscope": "Geographic scope",
+      "taxonomicscope": "Taxonomic scope"
     }
   },
   "es": {
@@ -199,7 +200,8 @@
       "occurrencestatus": "Estátus de registro",
       "publishedby": "Publicado por",
       "description": "Descripción",
-      "geographicscope": "Escala geográfica"
+      "geographicscope": "Escala geográfica",
+      "taxonomicscope": "Escala taxonómica"
     }
   }
 }
