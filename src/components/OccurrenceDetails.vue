@@ -64,9 +64,7 @@
         <dd v-if="occurrence.coordinateUncertaintyInMeters">{{$n(occurrence.coordinateUncertaintyInMeters)}} m</dd>
       </dl>
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}
-        <a title="Copiar" class="copy-citation-to-clipboard" :data-clipboard-text="occurrenceMore.dataset.citation.text">
-          <font-awesome :icon="['far', 'copy']"/>
-        </a>
+        <CopyTextToClipboard :text="occurrenceMore.dataset.citation.text"/>
       </div>
       <div>{{occurrenceMore.dataset.citation.text}}</div>
     </div>
@@ -105,34 +103,31 @@
 import {loadGbifTranslations} from '~/utils/misc'
 import {licenseTypes} from '~/utils/config'
 
-import ClipboardJS from 'clipboard'
-let clipboard
+import CopyTextToClipboard from '~/components/CopyTextToClipboard.vue'
 
-  export default {
-    name: 'OccurrenceDetails',
-    props: {
-      occurrence: { type: Object, required: true },
-      occurrenceMore: { type: Object, required: true }
-    },
-    data() {
-      return {
-        gbifTranslations: {},
-        occurrenceStatuses: {
-          PRESENT: {es: 'Presente', en: 'Present'},
-          ABSENT: {es: 'Ausente', en: 'Absent'}
-        },
-        licenseTypes: licenseTypes
-      }
-    },
-    created() {
-      this.gbifTranslations = loadGbifTranslations(this.$static.allGbifTranslations)
-    },
-    mounted() {
-      clipboard = new ClipboardJS('.copy-citation-to-clipboard')
-    },
-    beforeDestroy() {
-      clipboard.destroy()
+export default {
+  name: 'OccurrenceDetails',
+  props: {
+    occurrence: { type: Object, required: true },
+    occurrenceMore: { type: Object, required: true }
+  },
+  data() {
+    return {
+      gbifTranslations: {},
+      occurrenceStatuses: {
+        PRESENT: {es: 'Presente', en: 'Present'},
+        ABSENT: {es: 'Ausente', en: 'Absent'}
+      },
+      licenseTypes: licenseTypes,
+      showCopiedMsg: false
     }
+  },
+  components: {
+    CopyTextToClipboard
+  },
+  created() {
+    this.gbifTranslations = loadGbifTranslations(this.$static.allGbifTranslations)
   }
+}
 
 </script>

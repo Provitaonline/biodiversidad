@@ -99,7 +99,9 @@
       "description": "Description",
       "geographicscope": "Geographic scope",
       "taxonomicscope": "Taxonomic scope",
-      "contacts": "Contacts"
+      "contacts": "Contacts",
+      "copy": "Copy",
+      "copied": "Copied"
     }
   },
   "es": {
@@ -203,7 +205,9 @@
       "description": "Descripción",
       "geographicscope": "Escala geográfica",
       "taxonomicscope": "Escala taxonómica",
-      "contacts": "Contactos"
+      "contacts": "Contactos",
+      "copy": "Copiar",
+      "copied": "Copiado"
     }
   }
 }

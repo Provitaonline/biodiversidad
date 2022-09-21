@@ -29,8 +29,6 @@
           </div>
         </div>
       </div>
-      <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}</div>
-      <div>{{dataset.citation.text}}</div>
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.contacts')}}</div>
       <div class="is-flex is-flex-wrap-wrap is-justify-content-center">
         <div class="contact" v-for="contact in dataset.volatileContributors">
@@ -43,6 +41,10 @@
         </div>
         <div v-if="dataset.volatileContributors.length % 2" class="empty-contact"></div>
       </div>
+      <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}
+        <CopyTextToClipboard :text="dataset.citation.text"/>
+      </div>
+      <div>{{dataset.citation.text}}</div>
     </div>
   </div>
 </template>
@@ -93,6 +95,8 @@
 import {loadGbifTranslations} from '~/utils/misc'
 import {licenseTypes} from '~/utils/config'
 
+import CopyTextToClipboard from '~/components/CopyTextToClipboard.vue'
+
   export default {
     name: 'DatasetDetails',
     props: {
@@ -103,6 +107,9 @@ import {licenseTypes} from '~/utils/config'
         gbifTranslations: {},
         licenseTypes: licenseTypes,
       }
+    },
+    components: {
+      CopyTextToClipboard
     },
     created() {
       this.gbifTranslations = loadGbifTranslations(this.$static.allGbifTranslations)
