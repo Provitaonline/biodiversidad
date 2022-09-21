@@ -389,7 +389,6 @@ export default {
     },
     openOccurrenceDetails(occurrence) {
       this.isDataLoading = true
-      console.log(occurrence)
       getGbifOccurrenceGQL(occurrence.key).then(o => {
         this.isDataLoading = false
         this.$buefy.modal.open({

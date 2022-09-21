@@ -119,7 +119,6 @@ import {licenseTypes} from '~/utils/config'
     },
     created() {
       this.gbifTranslations = loadGbifTranslations(this.$static.allGbifTranslations)
-      console.log(this.occurrenceMore)
     }
   }
 
