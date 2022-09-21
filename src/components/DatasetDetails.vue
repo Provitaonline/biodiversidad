@@ -24,7 +24,7 @@
         <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.taxonomicscope')}}</div>
         <div v-for="tc in dataset.taxonomicCoverages">
           <div v-html="tc.description"></div><br>
-          <div class="tags">
+          <div class="tags" style="margin-bottom: 5px;">
             <span class="tag is-light" v-for="(c, idx) in sortedCoverages(tc.coverages)">{{c.scientificName}}</span>
           </div>
         </div>
