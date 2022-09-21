@@ -31,12 +31,24 @@
       </div>
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}</div>
       <div>{{dataset.citation.text}}</div>
-
+      <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.contacts')}}</div>
+      <div class="is-flex is-flex-wrap-wrap is-justify-content-center">
+        <div class="contact" v-for="contact in dataset.volatileContributors">
+          <div class="has-text-weight-semibold">{{contact.firstName}} {{contact.lastName}}</div>
+          <div class="has-text-weight-semibold">{{contact.organization}}</div>
+          <div class="has-text-weight-medium"><small>{{contact.position[0]}}</small></div>
+          <hr style="margin: 0px;">
+          <div v-for="role in contact.roles"><small>{{tRole(role)}}</small></div>
+          <div><a :href="'mailto:'+ contact.email[0]" target="_blank"><small>{{contact.email[0]}}</small></a></div>
+        </div>
+        <div v-if="dataset.volatileContributors.length % 2" class="empty-contact"></div>
+      </div>
     </div>
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
+  @import "~/assets/style/_variables";
 
   .d-heading {
       background: rgb(245, 245, 245);
@@ -46,6 +58,19 @@
       border-color: rgb(238, 238, 238);
       border-width: 1px 0px;
       margin-right: auto;
+  }
+
+  .contact {
+    width: 300px;
+    padding: 5px;
+    margin: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+  }
+
+  .empty-contact {
+    width: 300px;
   }
 
 </style>
@@ -95,6 +120,10 @@ import {licenseTypes} from '~/utils/config'
           }
           return 0
         })
+      },
+      tRole(role) {
+        let t = this.gbifTranslations.role[this.$i18n.locale.substr(0, 2)][role]
+        return t ? t : role
       }
     }
   }

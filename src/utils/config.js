@@ -90,6 +90,7 @@ export const gbifGraphQlQuery = {
         organization
         address
         userId
+        email
         type
         _highlighted
         roles

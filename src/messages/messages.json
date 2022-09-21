@@ -98,7 +98,8 @@
       "publishedby": "Published by",
       "description": "Description",
       "geographicscope": "Geographic scope",
-      "taxonomicscope": "Taxonomic scope"
+      "taxonomicscope": "Taxonomic scope",
+      "contacts": "Contacts"
     }
   },
   "es": {
@@ -201,7 +202,8 @@
       "publishedby": "Publicado por",
       "description": "Descripción",
       "geographicscope": "Escala geográfica",
-      "taxonomicscope": "Escala taxonómica"
+      "taxonomicscope": "Escala taxonómica",
+      "contacts": "Contactos"
     }
   }
 }
