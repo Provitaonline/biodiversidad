@@ -25,10 +25,12 @@
         <div v-for="tc in dataset.taxonomicCoverages">
           <div v-html="tc.description"></div><br>
           <div class="tags">
-            <span class="tag is-light" v-for="(c, idx) in tc.coverages">{{c.scientificName}}</span>
+            <span class="tag is-light" v-for="(c, idx) in sortedCoverages(tc.coverages)">{{c.scientificName}}</span>
           </div>
         </div>
       </div>
+      <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}</div>
+      <div>{{dataset.citation.text}}</div>
 
     </div>
   </div>
@@ -74,11 +76,26 @@ import {licenseTypes} from '~/utils/config'
     data() {
       return {
         gbifTranslations: {},
-        licenseTypes: licenseTypes
+        licenseTypes: licenseTypes,
       }
     },
     created() {
       this.gbifTranslations = loadGbifTranslations(this.$static.allGbifTranslations)
+    },
+    methods: {
+      sortedCoverages(coverages) {
+        return coverages.sort((a, b) => {
+          const nameA = a.scientificName.toUpperCase()
+          const nameB = b.scientificName.toUpperCase()
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          return 0
+        })
+      }
     }
   }
 

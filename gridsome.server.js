@@ -48,6 +48,12 @@ module.exports = function (api) {
       en: JSON.stringify(translationsEn.data.country),
       es: JSON.stringify(translationsEs.data.country)
     })
+
+    collection.addNode({
+      id: 'role',
+      en: JSON.stringify(translationsEn.data.role),
+      es: JSON.stringify(translationsEs.data.role)
+    })
   })
 
   // Load markdown so the client doesn't have to do it
