@@ -34,7 +34,7 @@
       <dl style="display: grid; grid-template-columns: minmax(75px, 150px) 1fr;">
         <dt>{{$t('label.recordid')}}</dt>
         <dd>
-          <a v-if="occurrence.occurrenceID.toLowerCase().startsWith('http')" :href="occurrence.occurrenceID" target="_blank">{{occurrence.occurrenceID}} </span> <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/></a>
+          <a v-if="occurrence.occurrenceID && occurrence.occurrenceID.toLowerCase().startsWith('http')" :href="occurrence.occurrenceID" target="_blank">{{occurrence.occurrenceID}} </span> <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/></a>
           <span v-else>{{occurrence.occurrenceID}}</span>
         </dd>
         <dt>{{$t('label.occurrencestatus')}}</dt>
