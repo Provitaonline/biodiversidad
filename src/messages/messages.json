@@ -101,7 +101,8 @@
       "taxonomicscope": "Taxonomic scope",
       "contacts": "Contacts",
       "copy": "Copy",
-      "copied": "Copied"
+      "copied": "Copied",
+      "institution": "Institution"
     }
   },
   "es": {
@@ -207,7 +208,8 @@
       "taxonomicscope": "Escala taxonómica",
       "contacts": "Contactos",
       "copy": "Copiar",
-      "copied": "Copiado"
+      "copied": "Copiado",
+      "institution": "Institución"
     }
   }
 }
