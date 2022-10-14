@@ -11,7 +11,7 @@
         "es": "Registros de presencia"
       },
       "summary": {
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "en": "Species data on the [GBIF](https://www.gbif.org/en/) platform. It has search filters and a visualization map.",
         "es": "Datos de especies en la plataforma de [GBIF](https://www.gbif.org/es/). Posee filtros de búsqueda y un mapa de visualización."
       },
       "link": "/occurrences",
@@ -23,7 +23,7 @@
         "es": "Juegos de datos"
       },
       "summary": {
-        "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "en": "Information based on the 4 types of [data sets](https://www.gbif.org/en/dataset-classes) established for publication by GBIF.",
         "es": "Información en función de los 4 tipos de [juegos de datos](https://www.gbif.org/es/dataset-classes) establecidos para publicación por GBIF."
       },
       "link": "/datasets",
@@ -35,7 +35,7 @@
         "es": "Ecosistemas terrestres"
       },
       "summary": {
-        "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "en": "Terrestrial ecosystems of Venezuela, based on the r[ed book of the year 2010](https://ecosistemasamenazados.org/).",
         "es": "Ecosistemas terrestres de Venezuela, basado en el [libro rojo del año 2010](https://ecosistemasamenazados.org/)."
       },
       "link": "/ecosystems",
@@ -47,7 +47,7 @@
         "es": "Especies de fauna amenazadas"
       },
       "summary": {
-        "en": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        "en": "Endangered fauna of Venezuela, based on the [red book of the year 2015](https://especiesamenazadas.org/).",
         "es": "Fauna amenazada de Venezuela, basado en el [libro rojo del año 2015](https://especiesamenazadas.org/)."
       },
       "link": "/faunarb",
