@@ -1,8 +1,8 @@
 {
   "id": "home",
   "intro": {
-    "en": "Because of the extraordinary diversity of animals, plants and ecosystems that Venezuela has, it is considered a megadiverse country globally. This makes it imperative to have available and consolidated information, which allows generating useful knowledge for conservation, education, research and decision-making.\n\nThis biodiversity portal was created by [Provita](https://www.provita.org.ve/) with the purpose of promoting the use and making available the data records of species found on the platform of [GBIF](https://www.gbif.org/en/) Venezuela, as well as data generated within the projects managed by the institution.\n\nThe objective is to collect in a common place the information available on the biodiversity of Venezuela in a public access, which can be consulted, downloaded and used by visitors, respecting the associated copyright.\n\nSite developed by [Ricardo Morin](https://morinricardo.com/).",
-    "es": "Dada la extraordinaria diversidad de animales, plantas y ecosistemas que posee Venezuela, es considerado como un país megadiverso a nivel internacional. Esto hace imperativo poder contar con información disponible y consolidada, que permita generar conocimiento útil para la conservación, educación, investigación y toma de decisiones.\n\nEste portal de biodiversidad fue creado por [Provita](https://www.provita.org.ve/) con el propósito de promover el uso y poner a disposición los registros de datos de especies de Venezuela que se encuentran en la plataforma de [GBIF](https://www.gbif.org/es/), así como datos generados dentro de los proyectos que maneja la institución.\n\nEl objetivo es recabar en un lugar común la información disponible sobre la biodiversidad de Venezuela de forma pública, que pueda ser consultada, descargada y utilizada por los visitantes, respetando los derechos de autor asociados.\n\nSitio desarrollado por [Ricardo Morin](https://morinricardo.com/)."
+    "en": "Because of the extraordinary diversity of animals, plants and ecosystems that Venezuela has, it is considered a megadiverse country globally. This makes it imperative to have available and consolidated information, which allows generating useful knowledge for conservation, education, research and decision-making.\n\nThis biodiversity portal was created by** [Provita](https://www.provita.org.ve/)** with the purpose of promoting the use and making available the data records of species found on the platform of **[GBIF](https://www.gbif.org/en/)** Venezuela, as well as data generated within the projects managed by the institution.\n\nThe objective is to collect in a common place the information available on the biodiversity of Venezuela in a public access, which can be consulted, downloaded and used by visitors, respecting the associated copyright.\n\nSite developed by **[Ricardo Morin](https://morinricardo.com/)**.",
+    "es": "Dada la extraordinaria diversidad de animales, plantas y ecosistemas que posee Venezuela, es considerado como un país megadiverso a nivel internacional. Esto hace imperativo poder contar con información disponible y consolidada, que permita generar conocimiento útil para la conservación, educación, investigación y toma de decisiones.\n\nEste portal de biodiversidad fue creado por **[Provita](https://www.provita.org.ve/)** con el propósito de promover el uso y poner a disposición los registros de datos de especies de Venezuela que se encuentran en la plataforma de **[GBIF](https://www.gbif.org/es/)**, así como datos generados dentro de los proyectos que maneja la institución.\n\nEl objetivo es recabar en un lugar común la información disponible sobre la biodiversidad de Venezuela de forma pública, que pueda ser consultada, descargada y utilizada por los visitantes, respetando los derechos de autor asociados.\n\nSitio desarrollado por **[Ricardo Morin](https://morinricardo.com/)**."
   },
   "cards": [
     {
@@ -11,8 +11,8 @@
         "es": "Registros de presencia"
       },
       "summary": {
-        "en": "Species data on the [GBIF](https://www.gbif.org/en/) platform. It has search filters and a visualization map.",
-        "es": "Datos de especies en la plataforma de [GBIF](https://www.gbif.org/es/). Posee filtros de búsqueda y un mapa de visualización."
+        "en": "Species data on the** [GBIF](https://www.gbif.org/en/)** platform. It has search filters and a visualization map.",
+        "es": "Datos de especies en la plataforma de **[GBIF](https://www.gbif.org/es/)**. Posee filtros de búsqueda y un mapa de visualización."
       },
       "link": "/occurrences",
       "image": "./images/img-1.png"
@@ -23,8 +23,8 @@
         "es": "Juegos de datos"
       },
       "summary": {
-        "en": "Information based on the 4 types of [data sets](https://www.gbif.org/en/dataset-classes) established for publication by GBIF.",
-        "es": "Información en función de los 4 tipos de [juegos de datos](https://www.gbif.org/es/dataset-classes) establecidos para publicación por GBIF."
+        "en": "Information based on the 4 types of **[data sets](https://www.gbif.org/en/dataset-classes)** established for publication by GBIF.",
+        "es": "Información en función de los 4 tipos de **[juegos de datos](https://www.gbif.org/es/dataset-classes)** establecidos para publicación por GBIF."
       },
       "link": "/datasets",
       "image": "./images/img-2.png"
@@ -35,8 +35,8 @@
         "es": "Ecosistemas terrestres"
       },
       "summary": {
-        "en": "Terrestrial ecosystems of Venezuela, based on the r[ed book of the year 2010](https://ecosistemasamenazados.org/).",
-        "es": "Ecosistemas terrestres de Venezuela, basado en el [libro rojo del año 2010](https://ecosistemasamenazados.org/)."
+        "en": "Terrestrial ecosystems of Venezuela, based on the **[red book of the year 2010](https://ecosistemasamenazados.org/)**.",
+        "es": "Ecosistemas terrestres de Venezuela, basado en el **[libro rojo del año 2010](https://ecosistemasamenazados.org/)**."
       },
       "link": "/ecosystems",
       "image": "./images/img-3.png"
@@ -47,8 +47,8 @@
         "es": "Especies de fauna amenazadas"
       },
       "summary": {
-        "en": "Endangered fauna of Venezuela, based on the [red book of the year 2015](https://especiesamenazadas.org/).",
-        "es": "Fauna amenazada de Venezuela, basado en el [libro rojo del año 2015](https://especiesamenazadas.org/)."
+        "en": "Endangered fauna of Venezuela, based on the **[red book of the year 2015](https://especiesamenazadas.org/)**.",
+        "es": "Fauna amenazada de Venezuela, basado en el **[libro rojo del año 2015](https://especiesamenazadas.org/)**."
       },
       "link": "/faunarb",
       "image": "./images/img-4.png"
