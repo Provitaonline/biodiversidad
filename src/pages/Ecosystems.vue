@@ -3,8 +3,8 @@
     <template slot="banner">
       <h1 class="title is-uppercase has-text-centered" v-html="$page.ecosystemsContent.bannerText[$i18n.locale.substr(0, 2)]"></h1>
     </template>
-    <section class="section has-text-centered" v-html="$page.ecosystemsContent.summaryText[$i18n.locale.substr(0, 2)]"></section>
-    <section class="section">
+    <div class="section container has-text-centered" v-html="$page.ecosystemsContent.summaryText[$i18n.locale.substr(0, 2)]"></div>
+    <div class="section container">
       <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
         <b-tab-item value="plantformations" active :label="$t('label.plantformations')">
           <div class="tile box is-ancestor is-size-6 is-size-7-mobile">
@@ -102,7 +102,7 @@
           </b-table>
         </b-tab-item>
       </b-tabs>
-    </section>
+    </div>
   </Layout>
 </template>
 

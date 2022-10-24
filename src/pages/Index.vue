@@ -3,10 +3,10 @@
     <template slot="banner">
       <h1 class="title is-uppercase has-text-centered" v-html="$t('label.mainbanner')"></h1>
     </template>
-    <section style="padding-bottom: 0px;" class="section has-text-centered">
+    <div style="padding-bottom: 0px;" class="section container has-text-centered">
       <div class="content" v-html="$page.homeContent.intro[$i18n.locale.substr(0, 2)]"></div>
-    </section>
-    <section class="section card-section">
+    </div>
+    <div class="section card-section">
       <div class="row">
         <div v-for="item in $page.homeContent.cards" class="column">
             <div class="card is-child menu-card">
@@ -32,7 +32,7 @@
             </div>
         </div>
       </div>
-    </section>
+    </div>
 
   </Layout>
 </template>
@@ -58,18 +58,18 @@
     padding-bottom: 0px !important;
   }
 
-  .card-content, .content {
+  .card-content {
     height: 265px;
   }
 
   @media screen and (max-width: 1024px) and (min-width: 769px)  {
-    .card-content, .content {
+    .card-content {
       height: 265px;
     }
   }
 
   @media screen and (min-width: 1279px)  {
-    .card-content, .content {
+    .card-content {
       height: 200px;
     }
   }

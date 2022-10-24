@@ -3,7 +3,7 @@
     <template slot="banner">
       <h1 class="title is-uppercase has-text-centered" v-html="$page.faunaRbContent.bannerText[$i18n.locale.substr(0, 2)]"></h1>
     </template>
-    <section class="section has-text-centered" v-html="$page.faunaRbContent.summaryText[$i18n.locale.substr(0, 2)]"></section>
+    <section class="section has-text-centered container" v-html="$page.faunaRbContent.summaryText[$i18n.locale.substr(0, 2)]"></section>
 
     <section class="section">
       <b-field class="is-size-7">
