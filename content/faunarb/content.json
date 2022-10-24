@@ -5,8 +5,8 @@
     "es": "Especies de fauna amenazada"
   },
   "summaryText": {
-    "en": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-    "es": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    "en": "Endangered fauna of Venezuela, based on the [**red book of the year 2015**](https://especiesamenazadas.org/).\r\n",
+    "es": "Fauna amenazada de Venezuela, basado en el [**libro rojo del año 2015**](https://especiesamenazadas.org/).\r\n"
   },
   "chartHelpText": {
     "en": "Click a slice to drill-down<br>Click a leaf node to view card<br>Click the center to go up<br>Click outside the circle to reset",
