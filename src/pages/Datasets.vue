@@ -76,7 +76,7 @@
           <a @click="openDatasetDetails(props.row)" href="">{{ props.row.title }}</a>
         </template>
         <template #searchable="props">
-          <b-input @input="columnFiltersChange()" v-model="props.filters[props.column.field]" size="is-small"
+          <b-input class="search-field" @input="columnFiltersChange()" v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''; columnFiltersChange();" />
         </template>
@@ -168,6 +168,14 @@
     background-color: white;
     border-bottom-style: solid;
     border-bottom-color: #DBDBDB;
+  }
+
+  ::v-deep .top.level {
+    padding-bottom: 24px;
+  }
+
+  .search-field {
+    padding-bottom: 1rem;
   }
 
 </style>

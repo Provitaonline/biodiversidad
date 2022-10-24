@@ -200,6 +200,10 @@
     border-bottom-color: #DBDBDB;
   }
 
+  ::v-deep .top.level {
+    padding-bottom: 8px;
+  }
+
 </style>
 
 <page-query>
