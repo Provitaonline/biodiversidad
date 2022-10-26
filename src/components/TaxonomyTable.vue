@@ -80,6 +80,10 @@
     background-color: #FFFF00;
   }
 
+  .search-field {
+    padding-bottom: 1rem;
+  }
+
 </style>
 
 <script>
