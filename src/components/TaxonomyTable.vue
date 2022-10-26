@@ -58,7 +58,7 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <b-table-column searchable sortable width="160" field="risk" :label="$t('label.category')">
+      <b-table-column searchable sortable width="210" field="risk" :label="$t('label.category')">
         <template v-slot="props">
           <div style="display: flex; align-items: center;">
             <img width="30" :src="'https://especiesamenazadas.org/assets/web/images/categories/' + props.row.risk.toLowerCase().replaceAll(' ', '-').replaceAll('í', 'i') + '.png'">
