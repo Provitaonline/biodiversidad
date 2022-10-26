@@ -102,7 +102,8 @@
       "contacts": "Contacts",
       "copy": "Copy",
       "copied": "Copied",
-      "institution": "Institution"
+      "institution": "Institution",
+      "tree": "Tree"
     }
   },
   "es": {
@@ -209,7 +210,8 @@
       "contacts": "Contactos",
       "copy": "Copiar",
       "copied": "Copiado",
-      "institution": "Institución"
+      "institution": "Institución",
+      "tree": "Árbol"
     }
   }
 }

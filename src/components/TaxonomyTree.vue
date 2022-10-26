@@ -27,7 +27,6 @@ export default {
   },
   mounted() {
     if (process.isClient) {
-      console.log(this.taxonomy4Chart)
       new mitchTree.boxedTree({theme: 'custom'})
         .setData(this.taxonomy4Chart[0])
         .setElement(document.getElementById('mitchTree'))

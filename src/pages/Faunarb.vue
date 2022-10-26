@@ -15,6 +15,9 @@
         <b-tab-item class="is-size-5 is-size-7-mobile" value="list" active :label="$t('label.list')">
           <Tree :treeData="taxonomy" :newTabLinks="newTabLinks" />
         </b-tab-item>
+        <b-tab-item value="table" active :label="$t('label.table')">
+          <TaxonomyTable :taxonomy="taxonomy" :newTabLinks="newTabLinks" />
+        </b-tab-item>
         <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" active :label="$t('label.tree')">
           <ClientOnly>
             <TaxonomyTree :taxonomy4Chart="taxonomy4Chart" />
@@ -70,6 +73,7 @@
 const taxonomy = require('/content/faunarb/taxonomy.json')
 import {transform} from '~/utils/misc'
 import Tree from '~/components/Tree.vue'
+import TaxonomyTable from '~/components/TaxonomyTable.vue'
 
 export default {
   metaInfo() {
@@ -89,11 +93,11 @@ export default {
   },
   components: {
     Tree,
+    TaxonomyTable,
     TaxonomyChart: () => import ('~/components/TaxonomyChart.vue').then(m => m),
     TaxonomyTree: () => import ('~/components/TaxonomyTree.vue').then(m => m)
   },
   created() {
-
   },
   mounted() {
     this.restoreFromQueryParms()
