@@ -61,7 +61,7 @@
       <b-table-column searchable sortable width="210" field="risk" :label="$t('label.category')">
         <template v-slot="props">
           <div style="display: flex; align-items: center;">
-            <img width="30" :src="'https://especiesamenazadas.org/assets/web/images/categories/' + props.row.risk.toLowerCase().replaceAll(' ', '-').replaceAll('í', 'i') + '.png'">
+            <img style="width: 30px;" :src="getRiskImage(props.row.risk)">
             <span style="cursor: pointer;" @click="cellClick(props.row.risk, 'risk')">&nbsp;&nbsp;{{ riskText(props.row.risk) }}</span>
           </div>
         </template>
@@ -137,6 +137,9 @@ export default {
         })
       }
     },
+    getRiskImage(r) {
+      return require('~/assets/images/' + r.toLowerCase().replaceAll(' ', '-').replaceAll('í', 'i') + '.png')
+    }
   }
 }
 
