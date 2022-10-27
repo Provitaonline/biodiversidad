@@ -23,11 +23,14 @@
             <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" :chartHelpText="$page.faunaRbContent.chartHelpText[$i18n.locale.substr(0, 2)]" />
           </ClientOnly>
         </b-tab-item>
-        <!-- <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" active :label="$t('label.tree')">
+        <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" :label="$t('label.tree')">
           <ClientOnly>
-            <TaxonomyTree :taxonomy4Chart="taxonomy4Chart" />
+            <keep-alive>
+              <component v-if="activeTab === 'tree'" is="TaxonomyTree" :taxonomy4Chart="taxonomy4Chart"></component>
+            <!-- <TaxonomyTree v-if="activeTab === 'tree'" :taxonomy4Chart="taxonomy4Chart" /> -->
+            </keep-alive>
           </ClientOnly>
-        </b-tab-item> -->
+        </b-tab-item>
       </b-tabs>
     </section>
   </Layout>
