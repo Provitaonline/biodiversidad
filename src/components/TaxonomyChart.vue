@@ -168,13 +168,7 @@ export default {
       let list = []
       this.traverse(this.currentNode, list)
       list.sort().unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
-      this.downloadLink = URL.createObjectURL(new Blob([list.join('\r\n')], {type: 'text/csv'}))
-      this.$nextTick(() => {
-        this.$refs.download.click()
-        URL.revokeObjectURL(this.downloadLink)
-        this.downloadLink = null
-        this.isLoading = false
-      })
+      this.doDownload(list)
     }
   }
 }

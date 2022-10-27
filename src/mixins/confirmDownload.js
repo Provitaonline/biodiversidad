@@ -10,6 +10,15 @@ export default {
           this.getListCSV()
         }
       })
+    },
+    doDownload(list) {
+      this.downloadLink = URL.createObjectURL(new Blob([list.join('\r\n')], {type: 'text/csv'}))
+      this.$nextTick(() => {
+        this.$refs.download.click()
+        URL.revokeObjectURL(this.downloadLink)
+        this.downloadLink = null
+        this.isLoading = false
+      })
     }
   }
 }

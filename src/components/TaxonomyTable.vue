@@ -162,13 +162,7 @@ export default {
         return `/Animalia/${item.phylum}/${item.class}/${item.order}/${item.family}/${item.genus},${item.species},${this.riskText(item.risk)},${item.link}`
       })
       list.unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
-      this.downloadLink = URL.createObjectURL(new Blob([list.join('\r\n')], {type: 'text/csv'}))
-      this.$nextTick(() => {
-        this.$refs.download.click()
-        URL.revokeObjectURL(this.downloadLink)
-        this.downloadLink = null
-        this.isLoading = false
-      })
+      this.doDownload(list)
     }
   }
 }
