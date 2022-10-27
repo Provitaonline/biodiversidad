@@ -102,7 +102,7 @@
         </div>
       </aside>
       <div class="column">
-        <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
+        <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed" animation="fade">
           <b-tab-item value="table" active :label="$t('label.table')">
             <div class="is-size-5 has-text-weight-semibold total-heading">
               {{$t('label.numberofoccurrences')}}: {{ $n(totalGbifOccurrences) }}

@@ -11,7 +11,7 @@
           {{ $t('label.openrbtab') }}
         </b-checkbox>
       </b-field>
-      <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed" :animated="true" animation="fade">
+      <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed" animation="fade">
         <!-- <b-tab-item class="is-size-5 is-size-7-mobile" value="list" active :label="$t('label.list')">
           <Tree :treeData="taxonomy" :newTabLinks="newTabLinks" />
         </b-tab-item> -->
