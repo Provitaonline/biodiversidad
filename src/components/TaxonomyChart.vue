@@ -13,7 +13,7 @@
       <b-dropdown style="display: fit-content; white-space: nowrap;" :mobile-modal="false">
         <a slot="trigger"><font-awesome :icon="['fas', 'info-circle']" /></a>
         <b-dropdown-item custom>
-          <p class="has-text-left is-size-7" v-html="chartHelpText">
+          <p class="has-text-left is-size-7" v-html="$static.faunaRbContent.chartHelpText[$i18n.locale.substr(0, 2)]">
           </p>
         </b-dropdown-item>
       </b-dropdown>
@@ -50,6 +50,17 @@
 
 </style>
 
+<static-query>
+  query {
+    faunaRbContent (id: "faunarb") {
+      chartHelpText {
+        en
+        es
+      }
+    }
+  }
+</static-query>
+
 <script>
 import SunBurst from 'sunburst-chart'
 import * as d3 from 'd3'
@@ -63,8 +74,7 @@ export default {
   name: 'TaxonomyChart',
   props: {
     taxonomy4Chart: { type: Array, required: true },
-    newTabLinks: { type: Boolean },
-    chartHelpText: { type: String }
+    newTabLinks: { type: Boolean }
   },
   data() {
     return {
