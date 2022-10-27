@@ -65,8 +65,8 @@ export function transform(object, kk, level) {
     return Object.assign(
       {name: key, level: level, class: clazz},
         value && typeof value === 'object' && !value.hasDescription ?
-          {children: transform(value, kk + '/' + key, level + 1) } :
-            { value: 1, link: kk + '/' + value.jsonFile.split('.')[0], risk: value.risk, hierarchy: '/Animalia' + kk})
+          {children: transform(value, kk.toLowerCase() + '/' + key, level + 1) } :
+            { value: 1, link: kk.toLowerCase() + '/' + value.jsonFile.split('.')[0], risk: value.risk, hierarchy: '/Animalia' + kk})
   })
 }
 
