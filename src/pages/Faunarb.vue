@@ -11,7 +11,7 @@
           {{ $t('label.openrbtab') }}
         </b-checkbox>
       </b-field>
-      <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
+      <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed" :animated="false">
         <!-- <b-tab-item class="is-size-5 is-size-7-mobile" value="list" active :label="$t('label.list')">
           <Tree :treeData="taxonomy" :newTabLinks="newTabLinks" />
         </b-tab-item> -->
@@ -20,7 +20,10 @@
         </b-tab-item>
         <b-tab-item value="graph" :label="$t('label.graph')">
           <ClientOnly>
-            <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" :chartHelpText="$page.faunaRbContent.chartHelpText[$i18n.locale.substr(0, 2)]" />
+            <keep-alive>
+              <component style="min-height: 400px;" v-if="activeTab === 'graph'" is="TaxonomyChart" :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" :chartHelpText="$page.faunaRbContent.chartHelpText[$i18n.locale.substr(0, 2)]"></component>
+            </keep-alive>
+            <!-- <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" :chartHelpText="$page.faunaRbContent.chartHelpText[$i18n.locale.substr(0, 2)]" /> -->
           </ClientOnly>
         </b-tab-item>
         <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" :label="$t('label.tree')">
