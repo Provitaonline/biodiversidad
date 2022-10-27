@@ -1,6 +1,6 @@
 {
   "name": "biodiversidad",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
