@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div id="chart-content">
+    <b-loading :is-full-page="true" v-model="isCapturing"></b-loading>
+
     <div style="display: flex; flex-wrap: wrap;">
       <div v-for="entry in Object.entries(riskColors)" class="legend-box">
         <div class="legend-item" :style="'background: ' + riskColor(entry[0]) + ';'">
@@ -9,7 +11,7 @@
         </div>
       </div>
     </div>
-    <div style="display: flex; flex-wrap: wrap;">
+    <div v-show="!isCapturing" class="chart-controls" style="display: flex; flex-wrap: wrap;">
       <b-dropdown style="display: fit-content; white-space: nowrap;" :mobile-modal="false">
         <a slot="trigger"><font-awesome :icon="['fas', 'info-circle']" /></a>
         <b-dropdown-item custom>
@@ -19,8 +21,11 @@
       </b-dropdown>
       <a id="download-file" download="list.csv" ref="download" :href="downloadLink">{{downloadLink}}</a>
       &nbsp;<a @click="confirmDownload()" :title="$t('label.download')"><font-awesome :icon="['fas', 'download']"/></a>
+      <div style="flex-grow: 1;"></div>
+      &nbsp;<a @click="confirmScreenShot()" :title="$t('label.screenshot')"><font-awesome :icon="['fas', 'camera']"/></a>
     </div>
     <div style="margin-left: auto; margin-top: 0rem; overflow-x: scroll;" id="chart"></div>
+    <audio id="cameraClick" src="/sound/camera-shutter-click.mp3"></audio>
   </div>
 </template>
 
@@ -64,6 +69,8 @@
 <script>
 import SunBurst from 'sunburst-chart'
 import * as d3 from 'd3'
+import html2canvas from 'html2canvas'
+
 import {riskText} from '~/utils/misc'
 import confirmDownload from "~//mixins/confirmDownload.js"
 
@@ -97,7 +104,8 @@ export default {
       },
       innerWidth: 0,
       currentNode: this.taxonomy4Chart[0],
-      downloadLink: null
+      downloadLink: null,
+      isCapturing: false
     }
   },
   mounted() {
@@ -169,6 +177,29 @@ export default {
       this.traverse(this.currentNode, list)
       list.sort().unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
       this.doDownload(list)
+    },
+    confirmScreenShot() {
+      this.$buefy.dialog.confirm({
+        message: this.$t('label.confirmscreenshot'),
+        cancelText: this.$t('label.cancel'),
+        confirmText: 'Ok',
+        onConfirm: () => {
+          this.screenShot()
+        }
+      })
+    },
+    async screenShot() {
+      this.isCapturing = true
+      document.getElementById('cameraClick').play()
+      await this.$nextTick()
+      let canvas = await html2canvas(document.getElementById('chart-content'))
+      let link = document.createElement('a')
+      link.setAttribute('download', 'chart.png')
+      link.href = canvas.toDataURL()
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      this.isCapturing = false
     }
   }
 }

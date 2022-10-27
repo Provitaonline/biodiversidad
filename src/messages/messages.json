@@ -103,7 +103,9 @@
       "copy": "Copy",
       "copied": "Copied",
       "institution": "Institution",
-      "tree": "Tree"
+      "tree": "Tree",
+      "confirmscreenshot": "Download graph image?",
+      "screenshot": "Download graph image"
     }
   },
   "es": {
@@ -211,7 +213,9 @@
       "copy": "Copiar",
       "copied": "Copiado",
       "institution": "Institución",
-      "tree": "Árbol"
+      "tree": "Árbol",
+      "confirmscreenshot": "¿Descargar la imágen del gráfico?",
+      "screenshot": "Descargar la imágen del gráfico"
     }
   }
 }
