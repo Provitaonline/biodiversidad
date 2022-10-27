@@ -17,7 +17,7 @@
           </p>
         </b-dropdown-item>
       </b-dropdown>
-      <a id="download-file" download="list.csv" :href="downloadLink"></a>
+      <a id="download-file" download="list.csv" ref="download" :href="downloadLink">{{downloadLink}}</a>
       &nbsp;<a @click="confirmDownload()" :title="$t('label.download')"><font-awesome :icon="['fas', 'download']"/></a>
     </div>
     <div style="margin-left: auto; margin-top: 0rem; overflow-x: scroll;" id="chart"></div>
@@ -65,6 +65,7 @@
 import SunBurst from 'sunburst-chart'
 import * as d3 from 'd3'
 import {riskText} from '~/utils/misc'
+import confirmDownload from "~//mixins/confirmDownload.js"
 
 const colorClass = d3.scaleOrdinal(d3.schemeSet3)
 
@@ -76,6 +77,7 @@ export default {
     taxonomy4Chart: { type: Array, required: true },
     newTabLinks: { type: Boolean }
   },
+  mixins: [confirmDownload],
   data() {
     return {
       chart: null,
@@ -162,24 +164,13 @@ export default {
         list.push(n.hierarchy + ',' + n.name + ',' + this.riskText(n.risk) + ',' + 'https://especiesamenazadas.org/taxon' + n.link)
       }
     },
-    confirmDownload() {
-      this.$buefy.dialog.confirm({
-        message: this.$t('label.downloadspecieslist'),
-        cancelText: this.$t('label.cancel'),
-        confirmText: 'Ok',
-        onConfirm: () => {
-          this.$buefy.toast.open(this.$t('label.datadownloaded'))
-          this.getListCSV()
-        }
-      })
-    },
     getListCSV() {
       let list = []
       this.traverse(this.currentNode, list)
       list.sort().unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
       this.downloadLink = URL.createObjectURL(new Blob([list.join('\r\n')], {type: 'text/csv'}))
       this.$nextTick(() => {
-        document.getElementById('download-file').click()
+        this.$refs.download.click()
         URL.revokeObjectURL(this.downloadLink)
         this.downloadLink = null
         this.isLoading = false
