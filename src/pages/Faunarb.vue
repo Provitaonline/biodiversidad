@@ -12,12 +12,20 @@
         </b-checkbox>
       </b-field>
       <b-tabs @input="tabChanged" v-model="activeTab" type="is-boxed">
-        <b-tab-item class="is-size-5 is-size-7-mobile" value="list" active :label="$t('label.list')">
+        <!-- <b-tab-item class="is-size-5 is-size-7-mobile" value="list" active :label="$t('label.list')">
           <Tree :treeData="taxonomy" :newTabLinks="newTabLinks" />
+        </b-tab-item> -->
+        <b-tab-item value="table" active :label="$t('label.table')">
+          <TaxonomyTable :taxonomy="taxonomy" :newTabLinks="newTabLinks" />
         </b-tab-item>
         <b-tab-item value="graph" :label="$t('label.graph')">
           <ClientOnly>
             <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" :chartHelpText="$page.faunaRbContent.chartHelpText[$i18n.locale.substr(0, 2)]" />
+          </ClientOnly>
+        </b-tab-item>
+        <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" active :label="$t('label.tree')">
+          <ClientOnly>
+            <TaxonomyTree :taxonomy4Chart="taxonomy4Chart" />
           </ClientOnly>
         </b-tab-item>
       </b-tabs>
@@ -65,6 +73,7 @@
 const taxonomy = require('/content/faunarb/taxonomy.json')
 import {transform} from '~/utils/misc'
 import Tree from '~/components/Tree.vue'
+import TaxonomyTable from '~/components/TaxonomyTable.vue'
 
 export default {
   metaInfo() {
@@ -84,10 +93,11 @@ export default {
   },
   components: {
     Tree,
-    TaxonomyChart: () => import ('~/components/TaxonomyChart.vue').then(m => m)
+    TaxonomyTable,
+    TaxonomyChart: () => import ('~/components/TaxonomyChart.vue').then(m => m),
+    TaxonomyTree: () => import ('~/components/TaxonomyTree.vue').then(m => m)
   },
   created() {
-
   },
   mounted() {
     this.restoreFromQueryParms()
