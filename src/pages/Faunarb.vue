@@ -23,11 +23,11 @@
             <TaxonomyChart :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks" :chartHelpText="$page.faunaRbContent.chartHelpText[$i18n.locale.substr(0, 2)]" />
           </ClientOnly>
         </b-tab-item>
-        <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" active :label="$t('label.tree')">
+        <!-- <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" active :label="$t('label.tree')">
           <ClientOnly>
             <TaxonomyTree :taxonomy4Chart="taxonomy4Chart" />
           </ClientOnly>
-        </b-tab-item>
+        </b-tab-item> -->
       </b-tabs>
     </section>
   </Layout>
@@ -84,7 +84,7 @@ export default {
   },
   data() {
     return {
-      activeTab: 'list',
+      activeTab: 'table',
       taxonomy: taxonomy,
       taxonomy4Chart: transform(taxonomy),
       chart: null,
@@ -108,7 +108,7 @@ export default {
     },
     updateQueryParms() {
       let query = {}
-      if (this.activeTab !== 'list') query.tab = this.activeTab
+      if (this.activeTab !== 'table') query.tab = this.activeTab
       if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: query})
     },
     restoreFromQueryParms() {
