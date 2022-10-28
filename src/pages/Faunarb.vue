@@ -28,7 +28,7 @@
         <b-tab-item class="is-size-5 is-size-7-mobile" value="tree" :label="$t('label.tree')">
           <ClientOnly>
             <keep-alive>
-              <component v-if="activeTab === 'tree'" is="TaxonomyTree" :taxonomy4Chart="taxonomy4Chart"></component>
+              <component v-if="activeTab === 'tree'" is="TaxonomyTree" :taxonomy4Chart="taxonomy4Chart" :newTabLinks="newTabLinks"></component>
             </keep-alive>
           </ClientOnly>
         </b-tab-item>
