@@ -137,3 +137,11 @@ export const licenseTypes = {
   'http://creativecommons.org/publicdomain/zero/1.0/legalcode': 'CC0 1.0',
   'http://creativecommons.org/licenses/by/4.0/legalcode': 'CC BY 4.0',
 }
+
+export const riskColors = {
+  'Extinto': '#060000',
+  'Extinto a Nivel Regional': '#970f11',
+  'En Peligro Crítico': '#E91C1F',
+  'En Peligro': '#FFA500',
+  'Vulnerable': '#FFFF00'
+}

@@ -72,6 +72,7 @@ import * as d3 from 'd3'
 import html2canvas from 'html2canvas'
 
 import {riskText} from '~/utils/misc'
+import {riskColors} from '~/utils/config'
 import confirmDownload from "~//mixins/confirmDownload.js"
 
 const colorClass = d3.scaleOrdinal(d3.schemeSet3)
@@ -88,13 +89,7 @@ export default {
   data() {
     return {
       chart: null,
-      riskColors: {
-        'Extinto': '#060000',
-        'Extinto a Nivel Regional': '#970f11',
-        'En Peligro Crítico': '#E91C1F',
-        'En Peligro': '#FFA500',
-        'Vulnerable': '#FFFF00'
-      },
+      riskColors: riskColors,
       highRankTaxonColors: {
         Animalia: '#178867',
         Chordata: '#CECDCB',
