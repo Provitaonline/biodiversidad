@@ -17,6 +17,7 @@
           <span style="cursor: pointer;" @click="cellClick(props.row.phylum, 'phylum')">{{ props.row.phylum }}</span>
         </template>
         <template #searchable="props">
+          <input type="text" name="prevent_autofill" id="prevent_autofill" value="" style="display:none;" />
           <b-input class="search-field" v-model="props.filters[props.column.field]" size="is-small"
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
