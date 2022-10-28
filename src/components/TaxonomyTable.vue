@@ -146,6 +146,7 @@ export default {
     },
     numItems() {
       if (this.$refs.table) return this.$refs.table.newDataTotal
+      return 0
     },
     clearFilters() {
       if (Object.keys(this.$refs.table.filters).length) {
