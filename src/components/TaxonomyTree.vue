@@ -1,17 +1,15 @@
 <template>
-  <div id="mitchTree">
+  <div id="chart-content">
+    <div v-show="!isCapturing" class="chart-controls" style="display: flex; flex-wrap: wrap;">
+      <div style="flex-grow: 1;"></div>
+      <a @click="confirmScreenShot()" :title="$t('label.screenshot')"><font-awesome :icon="['fas', 'camera']"/></a>
+    </div>
+    <div id="mitchTree"></div>
+    <audio id="cameraClick" src="/sound/camera-shutter-click.mp3"></audio>
   </div>
 </template>
 
 <style lang="scss" scoped>
-
-  ::v-deep .d3plus-textBox text {
-    //font-size: 18px !important;
-  }
-
-  ::v-deep .species-node {
-    fill: red !important;
-  }
 
 </style>
 
@@ -23,12 +21,15 @@ import * as d3 from 'd3'
 import {riskText} from '~/utils/misc'
 import {riskColors} from '~/utils/config'
 
+import confirmScreenshot from '~//mixins/confirmScreenshot.js'
+
 export default {
   name: 'TaxonomyTree',
   props: {
     taxonomy4Chart: { type: Array, required: true },
     newTabLinks: { type: Boolean }
   },
+  mixins: [confirmScreenshot],
   data() {
     return {
       riskColors: riskColors,
@@ -43,7 +44,6 @@ export default {
   },
   mounted() {
     if (process.isClient) {
-      console.log(this.taxonomy4Chart)
       let tree = new mitchTree.boxedTree({
         theme: 'custom',
         data: this.taxonomy4Chart[0],

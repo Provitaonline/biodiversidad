@@ -74,6 +74,7 @@ import html2canvas from 'html2canvas'
 import {riskText} from '~/utils/misc'
 import {riskColors} from '~/utils/config'
 import confirmDownload from "~//mixins/confirmDownload.js"
+import confirmScreenshot from "~//mixins/confirmScreenshot.js"
 
 const colorClass = d3.scaleOrdinal(d3.schemeSet3)
 
@@ -85,7 +86,7 @@ export default {
     taxonomy4Chart: { type: Array, required: true },
     newTabLinks: { type: Boolean }
   },
-  mixins: [confirmDownload],
+  mixins: [confirmDownload, confirmScreenshot],
   data() {
     return {
       chart: null,
@@ -100,7 +101,6 @@ export default {
       innerWidth: 0,
       currentNode: this.taxonomy4Chart[0],
       downloadLink: null,
-      isCapturing: false
     }
   },
   mounted() {
@@ -172,29 +172,6 @@ export default {
       this.traverse(this.currentNode, list)
       list.sort().unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
       this.doDownload(list)
-    },
-    confirmScreenShot() {
-      this.$buefy.dialog.confirm({
-        message: this.$t('label.confirmscreenshot'),
-        cancelText: this.$t('label.cancel'),
-        confirmText: 'Ok',
-        onConfirm: () => {
-          this.screenShot()
-        }
-      })
-    },
-    async screenShot() {
-      this.isCapturing = true
-      document.getElementById('cameraClick').play()
-      await this.$nextTick()
-      let canvas = await html2canvas(document.getElementById('chart-content'))
-      let link = document.createElement('a')
-      link.setAttribute('download', 'chart.png')
-      link.href = canvas.toDataURL()
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      this.isCapturing = false
     }
   }
 }
