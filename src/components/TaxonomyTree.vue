@@ -51,7 +51,6 @@ export default {
         nodeDepthMultiplier: 200,
         allowFocus: true,
         widthWithoutMargins: 1400,
-        heightWithoutMargins: 1000,
         allowNodeCentering: false,
         margins: {top:0, bottom: 0, left: -350, right: 0},
         nodeSettings: {
