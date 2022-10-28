@@ -34,11 +34,11 @@ export default {
         element: document.getElementById('mitchTree'),
         nodeDepthMultiplier: 200,
         allowFocus: true,
-        //heightWithoutMargins: 700,
-        allowNodeCentering: true,
-        margins: {top:0, bottom: 0, left: 0, right: 0},
+        widthWithoutMargins: 1400,
+        allowNodeCentering: false,
+        margins: {top:0, bottom: 0, left: -350, right: 0},
         nodeSettings: {
-          verticalSpacing: 25, horizontalSpacing: 100, bodyBoxWidth: 180, bodyBoxHeight: 50, sizingMode: 'nodeSize'
+          verticalSpacing: 25, bodyBoxWidth: 150, bodyBoxHeight: 50, sizingMode: 'nodeSize'
         }
       })
         .setIdAccessor((data) => {return data.name})
