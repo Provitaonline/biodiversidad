@@ -12,7 +12,7 @@
       <span class="is-size-7" style="margin-top: auto; margin-bottom: auto;">{{ $t('label.clearfilters') }}</span>
     </div>
     <b-table ref="table" paginated :data="taxonomyTable">
-      <b-table-column searchable sortable width="20" field="phylum" :label="$t('label.phylum')">
+      <b-table-column searchable width="20" field="phylum" :label="$t('label.phylum')">
         <template v-slot="props">
           <span style="cursor: pointer;" @click="cellClick(props.row.phylum, 'phylum')">{{ props.row.phylum }}</span>
         </template>
@@ -22,7 +22,7 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <b-table-column searchable sortable width="20" field="class" :label="$t('label.class')">
+      <b-table-column searchable width="20" field="class" :label="$t('label.class')">
         <template v-slot="props">
           <span style="cursor: pointer;" @click="cellClick(props.row.class, 'class')">{{ props.row.class }}</span>
         </template>
@@ -32,7 +32,7 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <b-table-column searchable sortable width="20" field="order" :label="$t('label.order')">
+      <b-table-column searchable width="20" field="order" :label="$t('label.order')">
         <template v-slot="props">
           <span style="cursor: pointer;" @click="cellClick(props.row.order, 'order')">{{ props.row.order }}</span>
         </template>
@@ -42,7 +42,7 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <b-table-column searchable sortable width="20" field="family" :label="$t('label.family')">
+      <b-table-column searchable width="20" field="family" :label="$t('label.family')">
         <template v-slot="props">
           <span style="cursor: pointer;" @click="cellClick(props.row.family, 'family')">{{ props.row.family }}</span>
         </template>
@@ -52,7 +52,7 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <b-table-column searchable sortable width="20" field="genus" :label="$t('label.genus')">
+      <b-table-column searchable width="20" field="genus" :label="$t('label.genus')">
         <template v-slot="props">
           <span style="cursor: pointer;" @click="cellClick(props.row.genus, 'genus')">{{ props.row.genus }}</span>
         </template>
@@ -62,7 +62,7 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <b-table-column searchable sortable width="170" field="species" :label="$t('label.species')">
+      <b-table-column searchable width="170" field="species" :label="$t('label.species')">
         <template v-slot="props">
           <a :href="props.row.link" :target="newTabLinks ? '_blank' :'_self'">{{ props.row.species }}</a>
         </template>
@@ -72,7 +72,7 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <b-table-column searchable sortable width="210" field="risk" :label="$t('label.category')">
+      <b-table-column searchable width="210" field="risk" :label="$t('label.category')">
         <template v-slot="props">
           <div style="display: flex; align-items: center;">
             <img style="width: 30px;" :src="getRiskImage(props.row.risk)">
@@ -133,7 +133,7 @@ export default {
         risk: t[item].risk,
         link: 'https://especiesamenazadas.org/taxon/' + (s.slice(1, 6).join('/') + '/' + t[item].jsonFile.split('.')[0]).toLowerCase()
       }
-    })
+    }).sort((a,b) => a.link.localeCompare(b.link))
   },
   unmounted() {
   },
