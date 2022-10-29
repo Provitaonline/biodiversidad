@@ -69,12 +69,11 @@
 <script>
 import SunBurst from 'sunburst-chart'
 import * as d3 from 'd3'
-import html2canvas from 'html2canvas'
 
 import {riskText} from '~/utils/misc'
 import {riskColors} from '~/utils/config'
-import confirmDownload from "~//mixins/confirmDownload.js"
-import confirmScreenshot from "~//mixins/confirmScreenshot.js"
+import confirmDownload from '~//mixins/confirmDownload.js'
+import confirmScreenshot from '~//mixins/confirmScreenshot.js'
 
 const colorClass = d3.scaleOrdinal(d3.schemeSet3)
 
