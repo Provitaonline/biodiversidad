@@ -104,7 +104,7 @@
 <script>
 
 import flatten from 'flat'
-import {riskText} from '~/utils/misc'
+import {riskText, tText} from '~/utils/misc'
 import confirmDownload from "~//mixins/confirmDownload.js"
 
 export default {
@@ -134,7 +134,7 @@ export default {
         risk: t[item].risk,
         link: 'https://especiesamenazadas.org/taxon/' + (s.slice(1, 6).join('/') + '/' + t[item].jsonFile.split('.')[0]).toLowerCase()
       }
-    }).sort((a,b) => a.link.localeCompare(b.link))
+    }).sort((a,b) => tText(a).localeCompare(tText(b)))
   },
   unmounted() {
   },

@@ -92,3 +92,7 @@ export function loadGbifTranslations(collection) {
   })
   return translations
 }
+
+export function tText (item) {
+  return item.phylum + item.class + item.order + item.family + item.genus + item.species
+}
