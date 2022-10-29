@@ -73,11 +73,11 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <b-table-column searchable width="210" field="risk" :label="$t('label.category')">
+      <b-table-column searchable :custom-search="filterByRisk" field="risk" width="210" :label="$t('label.category')">
         <template v-slot="props">
           <div style="display: flex; align-items: center;">
-            <img style="width: 30px;" :src="getRiskImage(props.row.risk)">
-            <span style="cursor: pointer;" @click="cellClick(props.row.risk, 'risk')">&nbsp;&nbsp;{{ riskText(props.row.risk) }}</span>
+            <img style="width: 30px;" :src="getRiskImage(props.row.riskO.es)">
+            <span style="cursor: pointer;" @click="cellClick(props.row.riskO[$i18n.locale.substr(0, 2)], 'risk')">&nbsp;&nbsp;{{ props.row.riskO[$i18n.locale.substr(0, 2)] }}</span>
           </div>
         </template>
         <template #searchable="props">
@@ -131,7 +131,7 @@ export default {
         family: s[4],
         genus: s[5],
         species: s[6],
-        risk: t[item].risk,
+        riskO: {es: t[item].risk, en: riskText(t[item].risk, 'en')},
         link: 'https://especiesamenazadas.org/taxon/' + (s.slice(1, 6).join('/') + '/' + t[item].jsonFile.split('.')[0]).toLowerCase()
       }
     }).sort((a,b) => tText(a).localeCompare(tText(b)))
@@ -165,6 +165,9 @@ export default {
       })
       list.unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
       this.doDownload(list)
+    },
+    filterByRisk(row, input) {
+      return row.riskO[this.$i18n.locale.substr(0, 2)].toLowerCase().includes(input.toLowerCase())
     }
   }
 }
