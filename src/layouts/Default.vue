@@ -13,21 +13,24 @@
           <template slot="label">
             {{ $t('label.provita') }}
           </template>
-          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/ecosystems')">
+          <b-navbar-item tag="g-link" :to="$tp('/ecosystems')">
             {{ $t('label.ecosystems') }}
           </b-navbar-item>
-          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/faunarb')">
+          <b-navbar-item tag="g-link" :to="$tp('/faunarb')">
             {{ $t('label.faunarb') }}
+          </b-navbar-item>
+          <b-navbar-item tag="g-link" :to="$tp('/datasets?publishingOrganizationTitle=Provita')">
+            {{ $t('label.provitaingbif') }}
           </b-navbar-item>
         </b-navbar-dropdown>
         <b-navbar-dropdown>
           <template slot="label">
             {{ $t('label.gbif') }}
           </template>
-          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/occurrences')">
+          <b-navbar-item tag="g-link" :to="$tp('/occurrences')">
             {{ $t('label.occurrences') }}
           </b-navbar-item>
-          <b-navbar-item style="color: #363636;" tag="g-link" :to="$tp('/datasets')">
+          <b-navbar-item tag="g-link" :to="$tp('/datasets')">
             {{ $t('label.datasets') }}
           </b-navbar-item>
         </b-navbar-dropdown>
@@ -110,6 +113,10 @@
 
   ::v-deep .navbar-link:not(.is-arrowless)::after {
     border-color: white;
+  }
+
+  ::v-deep .navbar-dropdown>.navbar-item {
+    color: #363636;
   }
 
 </style>
