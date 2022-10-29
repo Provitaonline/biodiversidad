@@ -1,6 +1,7 @@
 <template>
   <div id="chart-content">
     <div v-show="!isCapturing" class="chart-controls" style="display: flex; flex-wrap: wrap;">
+      <span class="is-size-7">{{$t('label.clicknode')}}</span>
       <div style="flex-grow: 1;"></div>
       <a @click="confirmScreenShot()" :title="$t('label.screenshot')"><font-awesome :icon="['fas', 'camera']"/></a>
     </div>
