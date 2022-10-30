@@ -61,10 +61,40 @@ module.exports = function (api) {
     console.log('Add schema resolvers')
     addSchemaResolvers({
       AboutContent: {
-        summaryText(obj) {
-          obj.summaryText.en = marked(obj.summaryText.en)
-          obj.summaryText.es = marked(obj.summaryText.es)
-          return obj.summaryText
+        provita(obj) {
+          obj.provita.en = marked(obj.provita.en)
+          obj.provita.es = marked(obj.provita.es)
+          return obj.provita
+        },
+        mission(obj) {
+          obj.mission.en = marked(obj.mission.en)
+          obj.mission.es = marked(obj.mission.es)
+          return obj.mission
+        },
+        values(obj) {
+          obj.values.en = marked(obj.values.en)
+          obj.values.es = marked(obj.values.es)
+          return obj.values
+        },
+        terms(obj) {
+          obj.terms.en = marked(obj.terms.en)
+          obj.terms.es = marked(obj.terms.es)
+          return obj.terms
+        },
+        contact(obj) {
+          obj.contact.en = marked(obj.contact.en)
+          obj.contact.es = marked(obj.contact.es)
+          return obj.contact
+        },
+        address1(obj) {
+          obj.address1.en = marked(obj.address1.en)
+          obj.address1.es = marked(obj.address1.es)
+          return obj.address1
+        },
+        address2(obj) {
+          obj.address2.en = marked(obj.address2.en)
+          obj.address2.es = marked(obj.address2.es)
+          return obj.address2
         }
       },
       HomeContent: {
