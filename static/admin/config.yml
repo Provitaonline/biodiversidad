@@ -47,9 +47,27 @@ collections:
           - {label: "Título", name: "bannerText", widget: "object", fields: [
               {label: "En español", name: "es", widget: "string"},
               {label: "En inglés", name: "en", widget: "string"}]}
-          - {label: "Descripción", name: "summaryText", widget: "object", fields: [
-              {label: "En español", name: "es", widget: "markdown", editor_components: ["image"]},
-              {label: "En inglés", name: "en", widget: "markdown", editor_components: ["image"]}]}
+          - {label: "Provita", name: "provita", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", editor_components: []}]}
+          - {label: "Misión", name: "mission", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", editor_components: []}]}
+          - {label: "Valores", name: "values", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", editor_components: []}]}
+          - {label: "Términos de uso", name: "terms", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", editor_components: []}]}
+          - {label: "Contacto", name: "contact", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", editor_components: []}]}
+          - {label: "Dirección 1", name: "address1", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", editor_components: []}]}
+          - {label: "Dirección 2", name: "address2", widget: "object", fields: [
+              {label: "En español", name: "es", widget: "markdown", editor_components: []},
+              {label: "En inglés", name: "en", widget: "markdown", editor_components: []}]}
       - file: content/occurrences/content.json
         label: "Registros de presencia"
         name: "occurrences"
