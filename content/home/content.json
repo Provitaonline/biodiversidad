@@ -11,7 +11,7 @@
         "es": "Registros de presencia"
       },
       "summary": {
-        "en": "Species data on the **[GBIF](https://www.gbif.org/es/)** platform. It has search filters and a visualization map.",
+        "en": "Species data on the **[GBIF](https://www.gbif.org/)** platform. It has search filters and a visualization map.",
         "es": "Datos de especies en la plataforma de **[GBIF](https://www.gbif.org/es/)**. Posee filtros de búsqueda y un mapa de visualización."
       },
       "link": "/occurrences",
