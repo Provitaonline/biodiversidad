@@ -220,7 +220,7 @@ export default {
   },
   methods: {
     makeLink(t) {
-      return slugify(t, {lower: true})
+      return slugify(t.replaceAll('/', ' '), {lower: true})
     },
     computePercent(value, total) {
       let p = (100 * value / total).toFixed(1)
