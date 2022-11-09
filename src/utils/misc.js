@@ -96,3 +96,12 @@ export function loadGbifTranslations(collection) {
 export function tText (item) {
   return item.phylum + item.class + item.order + item.family + item.genus + item.species
 }
+
+// Borrow from Leaflet
+function userAgentContains(str) {
+	return navigator.userAgent.toLowerCase().includes(str);
+}
+
+export function isFirefox () {
+  return userAgentContains('gecko') && !userAgentContains('webkit')
+}

@@ -22,7 +22,7 @@
       <a id="download-file" download="list.csv" ref="download" :href="downloadLink">{{downloadLink}}</a>
       &nbsp;<a @click="confirmDownload()" :title="$t('label.download')"><font-awesome :icon="['fas', 'download']"/></a>
       <div style="flex-grow: 1;"></div>
-      &nbsp;<a @click="confirmScreenShot()" :title="$t('label.screenshot')"><font-awesome :icon="['fas', 'camera']"/></a>
+      &nbsp;<a v-show="!(isFirefox && currentNode.level < 2)" @click="confirmScreenShot()" :title="$t('label.screenshot')"><font-awesome :icon="['fas', 'camera']"/></a>
     </div>
     <div style="margin-left: auto; margin-top: 0rem; overflow-x: scroll;" id="chart"></div>
     <audio id="cameraClick" src="/sound/camera-shutter-click.mp3"></audio>
@@ -70,7 +70,7 @@
 import SunBurst from 'sunburst-chart'
 import * as d3 from 'd3'
 
-import {riskText} from '~/utils/misc'
+import {riskText, isFirefox} from '~/utils/misc'
 import {riskColors} from '~/utils/config'
 import confirmDownload from '~/mixins/confirmDownload.js'
 import confirmScreenshot from '~/mixins/confirmScreenshot.js'
@@ -100,6 +100,7 @@ export default {
       innerWidth: 0,
       currentNode: this.taxonomy4Chart[0],
       downloadLink: null,
+      isFirefox: false
     }
   },
   mounted() {
@@ -119,6 +120,7 @@ export default {
 
       this.chart.onClick(this.itemClicked)
       this.chart.color(this.getColor)
+      this.isFirefox = isFirefox()
     }
   },
   unmounted() {
