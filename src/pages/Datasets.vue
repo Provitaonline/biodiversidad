@@ -340,18 +340,19 @@ export default {
       if (this.applyFilters) query.filter = this.applyFilters
       if (!(Object.keys(query).length === 0 && Object.keys(this.$route.query).length === 0)) this.$router.replace({query: query})
     },
-    restoreFromQueryParms() {
-      if (Object.keys(this.$route.query).length) {
-        if (this.$route.query.title || this.$route.query.publishingOrganizationTitle || this.$route.query.typeExpanded || this.$route.query.licenseShort) {
-          if (this.$route.query.title) this.$set(this.$refs.table.filters, 'title', this.$route.query.title)
-          if (this.$route.query.publishingOrganizationTitle) this.$set(this.$refs.table.filters, 'publishingOrganizationTitle', this.$route.query.publishingOrganizationTitle)
-          if (this.$route.query.typeExpanded) this.$set(this.$refs.table.filters, 'typeExpanded', this.$route.query.typeExpanded)
-          if (this.$route.query.licenseShort) this.$set(this.$refs.table.filters, 'licenseShort', this.$route.query.licenseShort)
+    restoreFromQueryParms(route) {
+      let r = route ? route : this.$route
+      if (Object.keys(r.query).length) {
+        if (r.query.title || r.query.publishingOrganizationTitle || r.query.typeExpanded || r.query.licenseShort) {
+          if (r.query.title) this.$set(this.$refs.table.filters, 'title', r.query.title)
+          if (r.query.publishingOrganizationTitle) this.$set(this.$refs.table.filters, 'publishingOrganizationTitle', r.query.publishingOrganizationTitle)
+          if (r.query.typeExpanded) this.$set(this.$refs.table.filters, 'typeExpanded', r.query.typeExpanded)
+          if (r.query.licenseShort) this.$set(this.$refs.table.filters, 'licenseShort', r.query.licenseShort)
         }
-        if (this.$route.query.page) this.gbifDatasetsPage = parseInt(this.$route.query.page)
-        if (this.$route.query.rank) this.selectedTaxonomicGroup = this.$route.query.rank
-        if (this.$route.query.taxon) this.taxonomicGroupFilter = this.$route.query.taxon
-        if (this.$route.query.filter) this.applyFilters = this.$route.query.filter
+        if (r.query.page) this.gbifDatasetsPage = parseInt(r.query.page)
+        if (r.query.rank) this.selectedTaxonomicGroup = r.query.rank
+        if (r.query.taxon) this.taxonomicGroupFilter = r.query.taxon
+        if (r.query.filter) this.applyFilters = r.query.filter
       }
     },
     columnFiltersChange(e) {
@@ -385,7 +386,7 @@ export default {
           }
         })
       })
-    },
+    }
   },
   computed: {
     filteredGbifDatasetsData() {
@@ -409,6 +410,14 @@ export default {
     propertyChanges() {
       if (this.isPropertyChangesEnabled) this.updateQueryParms()
     }
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.isPropertyChangesEnabled = false
+    this.$refs.table.filters = {}
+    this.gbifDatasetsPage = 1
+    this.restoreFromQueryParms(to)
+    this.$nextTick(() => this.isPropertyChangesEnabled = true)
+    next()
   }
 }
 </script>
