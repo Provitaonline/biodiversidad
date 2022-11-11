@@ -107,7 +107,8 @@
       "confirmscreenshot": "Download diagram image?",
       "screenshot": "Download graph image",
       "clicknode": "Click a node to navigate",
-      "provitaingbif": "Provita in GBIF"
+      "provitaingbif": "Provita in GBIF",
+      "commonname": "Common name"
     }
   },
   "es": {
@@ -219,7 +220,8 @@
       "confirmscreenshot": "¿Descargar la imágen del diagrama?",
       "screenshot": "Descargar la imágen del gráfico",
       "clicknode": "Cliquea un nodo para navegar",
-      "provitaingbif": "Provita en GBIF"
+      "provitaingbif": "Provita en GBIF",
+      "commonname": "Nombre común"
     }
   }
 }

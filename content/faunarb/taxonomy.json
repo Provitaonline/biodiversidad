@@ -8,21 +8,24 @@
               "Harpia harpyja": {
                 "jsonFile": "aguila-arpia.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Águila arpía"
               }
             },
             "Morphnus": {
               "Morphnus guianensis": {
                 "jsonFile": "aguila-monera.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Águila monera"
               }
             },
             "Buteogallus": {
               "Buteogallus solitarius": {
                 "jsonFile": "aguila-solitaria.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Águila solitaria"
               }
             }
           }
@@ -33,28 +36,32 @@
               "Heliangelus spencei": {
                 "jsonFile": "angel-del-sol-de-merida.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ángel del Sol de Mérida"
               }
             },
             "Aglaiocercus": {
               "Aglaiocercus berlepschi": {
                 "jsonFile": "colibri-coludo-de-caripe.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Colibrí coludo de Caripe"
               }
             },
             "Metallura": {
               "Metallura iracunda": {
                 "jsonFile": "colibri-de-perija.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Colibrí de Perijá"
               }
             },
             "Hylonympha": {
               "Hylonympha macrocerca": {
                 "jsonFile": "colibri-tijereta.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Colibrí tijereta"
               }
             }
           }
@@ -65,7 +72,8 @@
               "Phyllomyias urichi": {
                 "jsonFile": "atrapamoscas-de-caripe.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Atrapamoscas de Caripe"
               }
             }
           },
@@ -74,14 +82,16 @@
               "Poospiza goeringi": {
                 "jsonFile": "buscador-lomipizarra.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Buscador lomipizarra"
               }
             },
             "Diglossa": {
               "Diglossa venezuelensis": {
                 "jsonFile": "diglosa-negra.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Diglosa negra"
               }
             }
           },
@@ -90,14 +100,16 @@
               "Myioborus pariae": {
                 "jsonFile": "candelita-de-paria.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Candelita de Paria"
               }
             },
             "Basileuterus": {
               "Basileuterus griseiceps": {
                 "jsonFile": "chivi-cabecigris.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Chiví cabecigris"
               }
             }
           },
@@ -106,12 +118,14 @@
               "Spinus cucullatus": {
                 "jsonFile": "cardenalito.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Cardenalito"
               },
               "Spinus yarrellii": {
                 "jsonFile": "jilguero-cara-amarilla.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Jilguero cara amarilla"
               }
             }
           },
@@ -120,17 +134,20 @@
               "Arremon phaeopleurus": {
                 "jsonFile": "corbatico-avileno.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Corbatico avileño"
               },
               "Arremon phygas": {
                 "jsonFile": "corbatico-de-paria.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Corbatico de Paria"
               },
               "Arremon perijanus": {
                 "jsonFile": "corbatico-perijano.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Corbatico perijano"
               }
             }
           },
@@ -139,26 +156,30 @@
               "Premnoplex tatei": {
                 "jsonFile": "fafao-gargantiblanco.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Fafao gargantiblanco"
               }
             },
             "Asthenes": {
               "Asthenes perijana": {
                 "jsonFile": "piscuiz-de-perija.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Piscuiz de Perijá"
               }
             },
             "Thripophaga": {
               "Thripophaga amacurensis": {
                 "jsonFile": "rabiblando-del-delta-amacuro.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Rabiblando del Delta Amacuro"
               },
               "Thripophaga cherriei": {
                 "jsonFile": "rabiblando-del-orinoco.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Rabiblando del Orinoco"
               }
             }
           },
@@ -167,7 +188,8 @@
               "Clytoctantes alixii": {
                 "jsonFile": "hormiguero-pico-de-hoz.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Hormiguero pico de hoz"
               }
             }
           },
@@ -176,24 +198,28 @@
               "Grallaria excelsa": {
                 "jsonFile": "hormiguero-tororoi-excelso.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Hormiguero tororoi excelso"
               },
               "Grallaria chthonia": {
                 "jsonFile": "hormiguero-tororoi-tachirense.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Hormiguero tororoi tachirense"
               }
             },
             "Grallaricula": {
               "Grallaricula cucullata": {
                 "jsonFile": "ponchito-cabecicastano.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ponchito cabecicastaño"
               },
               "Grallaricula cumanensis": {
                 "jsonFile": "ponchito-enano-oriental.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ponchito enano oriental"
               }
             }
           },
@@ -202,7 +228,8 @@
               "Amaurospiza carrizalensis": {
                 "jsonFile": "semillero-de-carrizales.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Semillero de Carrizales"
               }
             }
           },
@@ -211,7 +238,8 @@
               "Margarops fuscatus": {
                 "jsonFile": "zorzal.json",
                 "hasDescription": true,
-                "risk": "Extinto a Nivel Regional"
+                "risk": "Extinto a Nivel Regional",
+                "commonName": "Zorzal"
               }
             }
           }
@@ -222,7 +250,8 @@
               "Campephilus pollens": {
                 "jsonFile": "carpintero-gigante.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Carpintero gigante"
               }
             }
           }
@@ -233,7 +262,8 @@
               "Chauna chavaria": {
                 "jsonFile": "chicaguire.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Chicagüire"
               }
             }
           },
@@ -242,21 +272,24 @@
               "Sarkidiornis sylvicola": {
                 "jsonFile": "pato-de-monte.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Pato de monte"
               }
             },
             "Merganetta": {
               "Merganetta armata": {
                 "jsonFile": "pato-de-torrentes.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Pato de torrentes"
               }
             },
             "Netta": {
               "Netta erythrophthalma": {
                 "jsonFile": "pato-negro.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Pato negro"
               }
             }
           }
@@ -267,7 +300,8 @@
               "Vultur gryphus": {
                 "jsonFile": "condor.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Cóndor"
               }
             }
           }
@@ -278,14 +312,16 @@
               "Laterallus levraudi": {
                 "jsonFile": "cotarita-de-costados-castanos.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Cotarita de costados castaños"
               }
             },
             "Rallus": {
               "Rallus wetmorei": {
                 "jsonFile": "polla-de-wetmore.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Polla de Wetmore"
               }
             }
           }
@@ -296,35 +332,40 @@
               "Amazona barbadensis": {
                 "jsonFile": "cotorra-cabeciamarilla.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Cotorra cabeciamarilla"
               }
             },
             "Ara": {
               "Ara militaris": {
                 "jsonFile": "guacamaya-verde.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Guacamaya verde"
               }
             },
             "Pyrilia": {
               "Pyrilia pyrilia": {
                 "jsonFile": "perico-cabecidorado.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Perico cabecidorado"
               }
             },
             "Pyrrhura": {
               "Pyrrhura caeruleiceps": {
                 "jsonFile": "perico-de-todd.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Perico de Todd"
               }
             },
             "Hapalopsittaca": {
               "Hapalopsittaca amazonina": {
                 "jsonFile": "perico-multicolor.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Perico multicolor"
               }
             }
           }
@@ -335,7 +376,8 @@
               "Patagioenas squamosa": {
                 "jsonFile": "paloma-islena.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Paloma isleña"
               }
             }
           }
@@ -346,14 +388,16 @@
               "Pauxi pauxi": {
                 "jsonFile": "pauji-copete-de-piedra.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Paují copete de piedra"
               }
             },
             "Aburria": {
               "Aburria aburri": {
                 "jsonFile": "pava-negra.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Pava negra"
               }
             }
           },
@@ -362,7 +406,8 @@
               "Odontophorus atrifrons": {
                 "jsonFile": "perdiz-frentinegra.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Perdiz frentinegra"
               }
             }
           }
@@ -375,7 +420,8 @@
               "Kajikia albida": {
                 "jsonFile": "aguja-blanca.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Aguja blanca"
               }
             }
           },
@@ -384,12 +430,14 @@
               "Thunnus alalunga": {
                 "jsonFile": "atun-albacora.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Atún albacora"
               },
               "Thunnus obesus": {
                 "jsonFile": "atun-ojo-gordo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Atún ojo gordo"
               }
             }
           },
@@ -398,12 +446,14 @@
               "Epinephelus striatus": {
                 "jsonFile": "mero-batata.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mero batata"
               },
               "Epinephelus itajara": {
                 "jsonFile": "mero-guasa.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Mero guasa"
               }
             }
           },
@@ -412,7 +462,8 @@
               "Cichla ocellaris": {
                 "jsonFile": "pavon-del-cuyuni.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Pavón del Cuyuní"
               }
             }
           }
@@ -423,69 +474,80 @@
               "Farlowella curtirostra": {
                 "jsonFile": "aguja-de-los-andes.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Aguja de los Andes"
               },
               "Farlowella taphorni": {
                 "jsonFile": "aguja-de-maracaibo.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Aguja de Maracaibo"
               },
               "Farlowella martini": {
                 "jsonFile": "aguja-del-aroa.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Aguja del Aroa"
               }
             },
             "Ancistrus": {
               "Ancistrus falconensis": {
                 "jsonFile": "ancistrus-de-falcon.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ancistrus de Falcón"
               },
               "Ancistrus galani": {
                 "jsonFile": "corroncho-cavernicola-de-perija.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Corroncho cavernícola de Perijá"
               }
             },
             "Chaetostoma": {
               "Chaetostoma guairense": {
                 "jsonFile": "corroncho-del-guaire.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Corroncho del Guaire"
               },
               "Chaetostoma pearsei": {
                 "jsonFile": "corroncho-del-lago-de-valencia.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Corroncho del lago de Valencia"
               }
             },
             "Cordylancistrus": {
               "Cordylancistrus nephelion": {
                 "jsonFile": "corroncho-del-tuy.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Corroncho del Tuy"
               }
             },
             "Lithogenes": {
               "Lithogenes valencia": {
                 "jsonFile": "corroncho-desnudo-del-lago-de-valencia.json",
                 "hasDescription": true,
-                "risk": "Extinto"
+                "risk": "Extinto",
+                "commonName": "Corroncho desnudo del lago de Valencia"
               }
             },
             "Fonchiiichthys": {
               "Fonchiiichthys rupestris": {
                 "jsonFile": "paleta-andina.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Paleta andina"
               }
             },
             "Rineloricaria": {
               "Rineloricaria caracasensis": {
                 "jsonFile": "paleta-de-la-cuenca-del-tuy.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Paleta de la cuenca del Tuy"
               }
             }
           },
@@ -494,12 +556,14 @@
               "Astroblepus phelpsi": {
                 "jsonFile": "babosito-de-los-andes.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Babosito de los Andes"
               },
               "Astroblepus orientalis": {
                 "jsonFile": "babosito-del-albarregas.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Babosito del Albarregas"
               }
             }
           },
@@ -508,7 +572,8 @@
               "Cetopsis motatanensis": {
                 "jsonFile": "bagre-ciego-del-motatan.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Bagre ciego del Motatán"
               }
             }
           },
@@ -517,7 +582,8 @@
               "Cetopsorhamdia picklei": {
                 "jsonFile": "bagre-cinchado-de-los-andes.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Bagre cinchado de los Andes"
               }
             }
           },
@@ -526,28 +592,32 @@
               "Brachyplatystoma juruense": {
                 "jsonFile": "bagre-cunaguaro.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Bagre cunaguaro"
               }
             },
             "Sorubimichthys": {
               "Sorubimichthys planiceps": {
                 "jsonFile": "bagre-doncella.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Bagre doncella"
               }
             },
             "Sorubim": {
               "Sorubim cuspicaudus": {
                 "jsonFile": "bagre-paleton-del-lago-de-maracaibo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Bagre paletón del lago de Maracaibo"
               }
             },
             "Platysilurus": {
               "Platysilurus malarmo": {
                 "jsonFile": "malarmo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Malarmo"
               }
             }
           },
@@ -556,32 +626,38 @@
               "Trichomycterus mondolfi": {
                 "jsonFile": "bagre-de-chacaito.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Bagre de Chacaíto"
               },
               "Trichomycterus spelaeus": {
                 "jsonFile": "bagrecito-ciego-cavernicola-de-perija.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Bagrecito ciego cavernícola de Perijá"
               },
               "Trichomycterus arleoi": {
                 "jsonFile": "bagrecito-sanguijuela-de-yaracuy.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Bagrecito sanguijuela de Yaracuy"
               },
               "Trichomycterus meridae": {
                 "jsonFile": "laucha-de-merida.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Laucha de Mérida"
               },
               "Trichomycterus emanueli": {
                 "jsonFile": "laucha-del-chama-y-mocoties.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Laucha del Chama y Mocotíes"
               },
               "Trichomycterus motatanensis": {
                 "jsonFile": "laucha-del-motatan.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Laucha del Motatán"
               }
             }
           },
@@ -590,7 +666,8 @@
               "Dupouyichthys sapito": {
                 "jsonFile": "bagre-guitarrita-andino.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Bagre guitarrita andino"
               }
             }
           },
@@ -599,7 +676,8 @@
               "Batrochoglanis mathisoni": {
                 "jsonFile": "bagre-pintado.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Bagre pintado"
               }
             }
           }
@@ -610,7 +688,8 @@
               "Prochilodus reticulatus": {
                 "jsonFile": "bocachico-de-maracaibo.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Bocachico de Maracaibo"
               }
             }
           },
@@ -619,35 +698,40 @@
               "Serrasalmus neveriensis": {
                 "jsonFile": "caribe-del-tuy-y-neveri.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Caribe del Tuy y Neverí"
               }
             },
             "Creagrutus": {
               "Creagrutus crenatus": {
                 "jsonFile": "dientefrio-del-tocuyo.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Dientefrío del Tocuyo"
               }
             },
             "Mylossoma": {
               "Mylossoma acanthogaster": {
                 "jsonFile": "pampano-del-lago-de-maracaibo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Pámpano del lago de Maracaibo"
               }
             },
             "Bryconamericus": {
               "Bryconamericus charalae": {
                 "jsonFile": "sardinita-del-aroa-y-yaracuy.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Sardinita del Aroa y Yaracuy"
               }
             },
             "Moenkhausia": {
               "Moenkhausia pittieri": {
                 "jsonFile": "tetradiamante.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tetradiamante"
               }
             }
           },
@@ -656,7 +740,8 @@
               "Potamorhina laticeps": {
                 "jsonFile": "manamana.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Manamana"
               }
             }
           }
@@ -667,12 +752,14 @@
               "Hippocampus erectus": {
                 "jsonFile": "caballito-de-mar-h-erectus.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Caballito de mar"
               },
               "Hippocampus reidi": {
                 "jsonFile": "caballito-de-mar-h-reidi.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Caballito de mar"
               }
             }
           }
@@ -683,24 +770,28 @@
               "Rachovia hummelincki": {
                 "jsonFile": "pez-anual-de-la-costa.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Pez anual de la Costa"
               },
               "Rachovia brevis": {
                 "jsonFile": "rachovia-de-la-guajira.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Rachovia de La Guajira"
               }
             },
             "Austrofundulus": {
               "Austrofundulus guajira": {
                 "jsonFile": "pez-anual-de-la-guajira.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Pez anual de La Guajira"
               },
               "Austrofundulus leohoignei": {
                 "jsonFile": "pez-anual-de-tucacas.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Pez anual de Tucacas"
               }
             }
           }
@@ -711,7 +802,8 @@
               "Atherinella venezuelae": {
                 "jsonFile": "tinicalo-del-lago-de-valencia.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Tinicalo del lago de Valencia"
               }
             }
           }
@@ -724,19 +816,22 @@
               "Anadia blakei": {
                 "jsonFile": "anadia-de-blake.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Anadia de Blake"
               },
               "Anadia pariaensis": {
                 "jsonFile": "anadia-de-paria.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Anadia de Paria"
               }
             },
             "Euspondylus": {
               "Euspondylus monsfumus": {
                 "jsonFile": "lagartija-de-cerro-humo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Lagartija de Cerro Humo"
               }
             }
           },
@@ -745,12 +840,14 @@
               "Anolis euskalerriari": {
                 "jsonFile": "anolis-de-mesa-turik.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Anolis de Mesa Turik"
               },
               "Anolis tetarii": {
                 "jsonFile": "anolis-del-tetari.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Anolis del Tetari"
               }
             }
           },
@@ -759,7 +856,8 @@
               "Mabuya croizati": {
                 "jsonFile": "lagartija-lucia-del-turimiquire.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Lagartija lucia del Turimiquire"
               }
             }
           },
@@ -768,7 +866,8 @@
               "Ameiva provitaae": {
                 "jsonFile": "lagartijo-trompa-roja.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Lagartijo trompa roja"
               }
             }
           },
@@ -777,12 +876,14 @@
               "Atractus turikensis": {
                 "jsonFile": "tierrera-de-mesa-turik.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tierrera de Mesa Turik"
               },
               "Atractus matthewi": {
                 "jsonFile": "tierrera-del-turimiquire.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tierrera del Turimiquire"
               }
             }
           },
@@ -791,7 +892,8 @@
               "Lepidoblepharis montecanoensis": {
                 "jsonFile": "tuqueque-de-monte-cano.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Tuqueque de Monte Cano"
               }
             }
           },
@@ -800,7 +902,8 @@
               "Bothrops medusa": {
                 "jsonFile": "viejita.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Viejita"
               }
             }
           }
@@ -811,7 +914,8 @@
               "Mesoclemmys zuliae": {
                 "jsonFile": "cabezon-del-zulia.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cabezón del Zulia"
               }
             }
           },
@@ -820,24 +924,28 @@
               "Peltocephalus dumerilianus": {
                 "jsonFile": "cabezon.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cabezón"
               }
             },
             "Podocnemis": {
               "Podocnemis erythrocephala": {
                 "jsonFile": "chipiro.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Chipiro"
               },
               "Podocnemis unifilis": {
                 "jsonFile": "terecay.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Terecay"
               },
               "Podocnemis expansa": {
                 "jsonFile": "tortuga-arrau.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Tortuga arrau"
               }
             }
           },
@@ -846,7 +954,8 @@
               "Dermochelys coriacea": {
                 "jsonFile": "cardon.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Cardón"
               }
             }
           },
@@ -855,28 +964,32 @@
               "Eretmochelys imbricata": {
                 "jsonFile": "carey.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Carey"
               }
             },
             "Lepidochelys": {
               "Lepidochelys olivacea": {
                 "jsonFile": "guaragua.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Guaraguá"
               }
             },
             "Caretta": {
               "Caretta caretta": {
                 "jsonFile": "tortuga-cabezona.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Tortuga cabezona"
               }
             },
             "Chelonia": {
               "Chelonia mydas": {
                 "jsonFile": "tortuga-verde.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Tortuga verde"
               }
             }
           },
@@ -885,12 +998,14 @@
               "Rhinoclemmys diademata": {
                 "jsonFile": "galapago-de-maracaibo.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Galápago de Maracaibo"
               },
               "Rhinoclemmys flammigera": {
                 "jsonFile": "morrocoy-negro.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Morrocoy negro"
               }
             }
           }
@@ -901,12 +1016,14 @@
               "Crocodylus acutus": {
                 "jsonFile": "caiman-de-la-costa.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Caimán de la Costa"
               },
               "Crocodylus intermedius": {
                 "jsonFile": "caiman-del-orinoco.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Caimán del Orinoco"
               }
             }
           }
@@ -919,14 +1036,16 @@
               "Megaptera novaeangliae": {
                 "jsonFile": "ballena-jorobada.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ballena jorobada"
               }
             },
             "Balaenoptera": {
               "Balaenoptera physalus": {
                 "jsonFile": "ballena-rorcual-comun.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ballena rorcual común"
               }
             }
           },
@@ -935,7 +1054,8 @@
               "Physeter macrocephalus": {
                 "jsonFile": "cachalote.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cachalote"
               }
             }
           },
@@ -944,7 +1064,8 @@
               "Sotalia guianensis": {
                 "jsonFile": "tonina-costera.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tonina costera"
               }
             }
           },
@@ -953,7 +1074,8 @@
               "Inia geoffrensis": {
                 "jsonFile": "tonina-del-orinoco.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tonina del Orinoco"
               }
             }
           }
@@ -964,14 +1086,16 @@
               "Pattonomys flavidus": {
                 "jsonFile": "canarete.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Canarete"
               }
             },
             "Olallamys": {
               "Olallamys edax": {
                 "jsonFile": "rata-de-bambusales.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Rata de bambusales"
               }
             }
           },
@@ -980,7 +1104,8 @@
               "Cuniculus taczanowskii": {
                 "jsonFile": "lapa-de-montana.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Lapa de montaña"
               }
             }
           },
@@ -989,7 +1114,8 @@
               "Dinomys branickii": {
                 "jsonFile": "pacarana.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Pacarana"
               }
             }
           },
@@ -998,49 +1124,56 @@
               "Thomasomys hylophilus": {
                 "jsonFile": "rata-andina-olivacea.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Rata andina olivácea"
               }
             },
             "Ichthyomys": {
               "Ichthyomys pittieri": {
                 "jsonFile": "rata-de-agua-de-pittier.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Rata de agua de Pittier"
               }
             },
             "Neusticomys": {
               "Neusticomys mussoi": {
                 "jsonFile": "raton-de-agua-del-tachira.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ratón de agua del Táchira"
               }
             },
             "Oryzomys": {
               "Oryzomys gorgasi": {
                 "jsonFile": "raton-de-los-olivitos.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ratón de Los Olivitos"
               }
             },
             "Aepeomys": {
               "Aepeomys reigi": {
                 "jsonFile": "raton-de-yacambu.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ratón de Yacambú"
               }
             },
             "Podoxymys": {
               "Podoxymys roraimae": {
                 "jsonFile": "raton-del-roraima.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ratón del Roraima"
               }
             },
             "Chibchanomys": {
               "Chibchanomys trichotis": {
                 "jsonFile": "raton-pescador-andino.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ratón pescador andino"
               }
             }
           },
@@ -1049,7 +1182,8 @@
               "Heteromys oasicus": {
                 "jsonFile": "raton-mochilero-de-paraguana.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ratón mochilero de Paraguaná"
               }
             }
           }
@@ -1060,12 +1194,14 @@
               "Marmosops cracens": {
                 "jsonFile": "comadrejita-de-cabeza-estrecha.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Comadrejita de cabeza estrecha"
               },
               "Marmosops ojastii": {
                 "jsonFile": "comadrejita-ratona-de-ojasti.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Comadrejita ratona de Ojasti"
               }
             }
           }
@@ -1076,7 +1212,8 @@
               "Caenolestes fuliginosus": {
                 "jsonFile": "comadrejita-musarana-andina.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Comadrejita musaraña andina"
               }
             }
           }
@@ -1087,24 +1224,28 @@
               "Leopardus pardalis": {
                 "jsonFile": "cunaguaro.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cunaguaro"
               },
               "Leopardus tigrinus": {
                 "jsonFile": "gato-de-monte.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Gato de monte"
               },
               "Leopardus wiedii": {
                 "jsonFile": "tigrito.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tigrito"
               }
             },
             "Panthera": {
               "Panthera onca": {
                 "jsonFile": "jaguar.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Jaguar"
               }
             }
           },
@@ -1113,7 +1254,8 @@
               "Nasuella meridensis": {
                 "jsonFile": "guache-o-coati-de-paramo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Guache o coatí de páramo"
               }
             }
           },
@@ -1122,7 +1264,8 @@
               "Tremarctos ornatus": {
                 "jsonFile": "oso-frontino.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Oso frontino"
               }
             }
           },
@@ -1131,14 +1274,16 @@
               "Lontra longicaudis": {
                 "jsonFile": "perro-de-agua-pequeno.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Perro de agua pequeño"
               }
             },
             "Pteronura": {
               "Pteronura brasiliensis": {
                 "jsonFile": "perro-de-agua.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Perro de agua"
               }
             }
           },
@@ -1147,7 +1292,8 @@
               "Speothos venaticus": {
                 "jsonFile": "perro-de-monte.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Perro de monte"
               }
             }
           }
@@ -1158,7 +1304,8 @@
               "Priodontes maximus": {
                 "jsonFile": "cuspon.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Cuspón"
               }
             }
           }
@@ -1169,7 +1316,8 @@
               "Tapirus terrestris": {
                 "jsonFile": "danta.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Danta"
               }
             }
           }
@@ -1180,7 +1328,8 @@
               "Trichechus manatus": {
                 "jsonFile": "manati.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Manatí"
               }
             }
           }
@@ -1191,7 +1340,8 @@
               "Ateles hybridus": {
                 "jsonFile": "mono-arana-norteno.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mono araña norteño"
               }
             }
           },
@@ -1200,7 +1350,8 @@
               "Aotus lemurinus": {
                 "jsonFile": "mono-de-noche-occidental.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Mono de noche occidental"
               }
             }
           }
@@ -1211,7 +1362,8 @@
               "Pteronotus paraguanensis": {
                 "jsonFile": "murcielago-bigotudo-de-paraguana.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Murciélago bigotudo de Paraguaná"
               }
             }
           },
@@ -1220,28 +1372,32 @@
               "Leptonycteris curasoae": {
                 "jsonFile": "murcielago-cardonero.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Murciélago cardonero"
               }
             },
             "Sturnira": {
               "Sturnira aratathomasi": {
                 "jsonFile": "murcielago-frugivoro-gigante-andino.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Murciélago frugívoro gigante andino"
               }
             },
             "Lonchorhina": {
               "Lonchorhina fernandezi": {
                 "jsonFile": "murcielago-narigudo-menor.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Murciélago narigudo menor"
               }
             },
             "Anoura": {
               "Anoura luismanueli": {
                 "jsonFile": "murcielago-nectarivoro-de-luis-manuel.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Murciélago nectarívoro de Luis Manuel"
               }
             }
           },
@@ -1250,7 +1406,8 @@
               "Nyctinomops aurispinosus": {
                 "jsonFile": "murcielago-cola-libre-de-peale.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Murciélago cola libre de Peale"
               }
             }
           }
@@ -1261,22 +1418,26 @@
               "Cryptotis venezuelensis": {
                 "jsonFile": "musarana-de-la-serrania-del-litoral.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Musaraña de la serranía del Litoral"
               },
               "Cryptotis aroensis": {
                 "jsonFile": "musarana-de-la-sierra-de-aroa.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Musaraña de la sierra de Aroa"
               },
               "Cryptotis meridensis": {
                 "jsonFile": "musarana-de-merida.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Musaraña de Mérida"
               },
               "Cryptotis tamensis": {
                 "jsonFile": "musarana-del-paramo-del-tama.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Musaraña del páramo del Tamá"
               }
             }
           }
@@ -1287,7 +1448,8 @@
               "Myrmecophaga tridactyla": {
                 "jsonFile": "oso-palmero.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Oso palmero"
               }
             }
           }
@@ -1298,19 +1460,22 @@
               "Odocoileus margaritae": {
                 "jsonFile": "venado-margariteno.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Venado margariteño"
               },
               "Odocoileus lasiotis": {
                 "jsonFile": "venado-paramero.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Venado paramero"
               }
             },
             "Mazama": {
               "Mazama bricenii": {
                 "jsonFile": "venado-matacan-candelillo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Venado matacán candelillo"
               }
             }
           }
@@ -1323,7 +1488,8 @@
               "Aetobatus narinari": {
                 "jsonFile": "chucho-pintado.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Chucho pintado"
               }
             }
           }
@@ -1334,12 +1500,14 @@
               "Sphyrna mokarran": {
                 "jsonFile": "cornuda-aletona.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cornuda aletona"
               },
               "Sphyrna lewini": {
                 "jsonFile": "cornuda-comun.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Cornuda común"
               }
             }
           },
@@ -1348,29 +1516,34 @@
               "Prionace glauca": {
                 "jsonFile": "tiburon-azul.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tiburón azul"
               }
             },
             "Carcharhinus": {
               "Carcharhinus falciformis": {
                 "jsonFile": "tiburon-bobo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tiburón bobo"
               },
               "Carcharhinus signatus": {
                 "jsonFile": "tiburon-de-noche.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tiburón de noche"
               },
               "Carcharhinus limbatus": {
                 "jsonFile": "tiburon-macuira.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tiburón macuira"
               },
               "Carcharhinus longimanus": {
                 "jsonFile": "tiburon-puntas-blancas-oceanico.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Tiburón puntas blancas oceánico"
               }
             }
           },
@@ -1379,7 +1552,8 @@
               "Mustelus higmani": {
                 "jsonFile": "viuda-amarilla.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Viuda amarilla"
               }
             }
           }
@@ -1390,7 +1564,8 @@
               "Pristis pectinata / Pristis pristis": {
                 "jsonFile": "pez-sierra.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Pez sierra"
               }
             }
           }
@@ -1401,7 +1576,8 @@
               "Isurus oxyrinchus": {
                 "jsonFile": "tiburon-carite.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tiburón carite"
               }
             }
           },
@@ -1410,7 +1586,8 @@
               "Alopias superciliosus": {
                 "jsonFile": "tiburon-zorro-ojon.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Tiburón zorro ojón"
               }
             }
           }
@@ -1423,28 +1600,32 @@
               "Dendropsophus amicorum": {
                 "jsonFile": "rana-arboricola-del-socopo.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Rana arborícola del Socopo"
               }
             },
             "Phytotriades": {
               "Phytotriades auratus": {
                 "jsonFile": "rana-dorada-arboricola.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Rana dorada arborícola"
               }
             },
             "Agalychnis": {
               "Agalychnis medinae": {
                 "jsonFile": "rana-lemur-de-henri-pittier.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Rana lémur de Henri Pittier"
               }
             },
             "Myersiohyla": {
               "Myersiohyla aromatica": {
                 "jsonFile": "ranita-olorosa-del-huachamacari.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ranita olorosa del Huachamacari"
               }
             }
           },
@@ -1453,19 +1634,22 @@
               "Stefania satelles": {
                 "jsonFile": "rana-estefania-del-aprada-tepui.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Rana estefanía del Aprada-tepui"
               },
               "Stefania riveroi": {
                 "jsonFile": "rana-estefania-del-yuruani.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Rana estefanía del Yuruaní"
               }
             },
             "Cryptobatrachus": {
               "Cryptobatrachus remotus": {
                 "jsonFile": "rana-marsupial-de-perija.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Rana marsupial de Perijá"
               }
             }
           },
@@ -1474,51 +1658,60 @@
               "Aromobates nocturnus": {
                 "jsonFile": "rana-mapurite.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Rana mapurite"
               },
               "Aromobates tokuko": {
                 "jsonFile": "sapito-ninera-de-perija.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Sapito niñera de Perijá"
               }
             },
             "Mannophryne": {
               "Mannophryne collaris": {
                 "jsonFile": "ranita-con-collar-de-merida.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ranita con collar de Mérida"
               },
               "Mannophryne caquetio": {
                 "jsonFile": "sapito-acollarado-de-churuguara.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito acollarado de Churuguara"
               },
               "Mannophryne leonardoi": {
                 "jsonFile": "sapito-acollarado-de-leonardo.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Sapito acollarado de Leonardo"
               },
               "Mannophryne neblina": {
                 "jsonFile": "sapito-acollarado-de-rancho-grande.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito acollarado de Rancho Grande"
               },
               "Mannophryne riveroi": {
                 "jsonFile": "sapito-acollarado-de-rivero.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Sapito acollarado de Rivero"
               },
               "Mannophryne lamarcai": {
                 "jsonFile": "sapito-acollarado-del-socopo.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito acollarado del Socopo"
               }
             },
             "Minyobates": {
               "Minyobates steyermarki": {
                 "jsonFile": "sapito-rojo-del-yapacana.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito rojo del Yapacana"
               }
             }
           },
@@ -1527,7 +1720,8 @@
               "Hyalinobatrachium guairarepanense": {
                 "jsonFile": "ranita-de-cristal-del-avila.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ranita de cristal del Ávila"
               }
             }
           },
@@ -1536,32 +1730,38 @@
               "Pristimantis bicumulus": {
                 "jsonFile": "ranita-de-lluvia-de-caracas.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ranita de lluvia de Caracas"
               },
               "Pristimantis lassoalcalai": {
                 "jsonFile": "ranita-de-lluvia-de-lasso-alcala.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ranita de lluvia de Lasso-Alcalá"
               },
               "Pristimantis turumiquirensis": {
                 "jsonFile": "ranita-de-lluvia-del-turimiquire.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ranita de lluvia del Turimiquire"
               },
               "Pristimantis pruinatus": {
                 "jsonFile": "ranita-de-lluvia-del-yavi.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ranita de lluvia del Yaví"
               },
               "Pristimantis yuruaniensis": {
                 "jsonFile": "ranita-de-lluvia-del-yuruani.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Ranita de lluvia del Yuruaní"
               },
               "Pristimantis fasciatus": {
                 "jsonFile": "ranita-de-lluvia-listada-de-perija.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Ranita de lluvia listada de Perijá"
               }
             }
           },
@@ -1570,74 +1770,88 @@
               "Atelopus carbonerensis": {
                 "jsonFile": "sapito-amarillo-de-la-carbonera.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito amarillo de La Carbonera"
               },
               "Atelopus oxyrhynchus": {
                 "jsonFile": "sapito-amarillo-de-merida.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito amarillo de Mérida"
               },
               "Atelopus mucubajiensis": {
                 "jsonFile": "sapito-amarillo-de-mucubaji.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito amarillo de Mucubají"
               },
               "Atelopus chrysocorallus": {
                 "jsonFile": "sapito-amarillo-y-rojo-de-niquitao.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito amarillo y rojo de Niquitao"
               },
               "Atelopus sorianoi": {
                 "jsonFile": "sapito-anaranjado-de-san-francisco.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito anaranjado de San Francisco"
               },
               "Atelopus vogli": {
                 "jsonFile": "sapito-arlequin-amarillo-de-maracay.json",
                 "hasDescription": true,
-                "risk": "Extinto"
+                "risk": "Extinto",
+                "commonName": "Sapito arlequín amarillo de Maracay"
               },
               "Atelopus sp.": {
                 "jsonFile": "sapito-arlequin-de-guaramacal.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Sapito arlequín de Guaramacal"
               },
               "Atelopus tamaense": {
                 "jsonFile": "sapito-arlequin-de-tama.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito arlequín de Tamá"
               },
               "Atelopus cruciger": {
                 "jsonFile": "sapito-rayado.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito rayado"
               },
               "Atelopus pinangoi": {
                 "jsonFile": "sapito-verdirrojo-de-pinango.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito verdirrojo de Piñango"
               }
             },
             "Oreophrynella": {
               "Oreophrynella huberi": {
                 "jsonFile": "sapito-rugoso-de-cerro-el-sol.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Sapito rugoso de Cerro El Sol"
               },
               "Oreophrynella vasquezi": {
                 "jsonFile": "sapito-rugoso-del-ilu.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Sapito rugoso del Ilú"
               },
               "Oreophrynella nigra": {
                 "jsonFile": "sapito-rugoso-del-kukenan.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Sapito rugoso del Kukenán"
               },
               "Oreophrynella quelchii": {
                 "jsonFile": "sapito-rugoso-del-roraima.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Sapito rugoso del Roraima"
               }
             }
           },
@@ -1646,21 +1860,24 @@
               "Prostherapis dunni": {
                 "jsonFile": "sapito-ninera-de-dunn.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito niñera de Dunn"
               }
             },
             "Anomaloglossus": {
               "Anomaloglossus murisipanensis": {
                 "jsonFile": "sapito-ninera-del-murisipan.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Sapito niñera del Murisipán"
               }
             },
             "Allobates": {
               "Allobates mandelorum": {
                 "jsonFile": "sapito-ninera-oriental.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Sapito niñera Oriental"
               }
             }
           },
@@ -1669,12 +1886,14 @@
               "Leptodactylus sp.": {
                 "jsonFile": "sapito-silbador-de-merida.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Sapito silbador de Mérida"
               },
               "Leptodactylus magistris": {
                 "jsonFile": "sapito-silbador-del-cerro-socopo.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Sapito silbador del Cerro Socopo"
               }
             }
           }
@@ -1685,7 +1904,8 @@
               "Bolitoglossa orestes": {
                 "jsonFile": "salamandra-meridena.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Salamandra merideña"
               }
             }
           }
@@ -1700,165 +1920,194 @@
               "Manerebia franciscae": {
                 "jsonFile": "andina-de-francisco-fernandez-yepez.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Andina de Francisco Fernández Yépez"
               },
               "Manerebia pluviosa": {
                 "jsonFile": "andina-pluviosa-del-tama.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Andina pluviosa del Tamá"
               }
             },
             "Diaphanos": {
               "Diaphanos huberi": {
                 "jsonFile": "diafano-de-huber.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Diáfano de Huber"
               },
               "Diaphanos curvignathos": {
                 "jsonFile": "diafano-de-niquitao.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Diáfano de Niquitao"
               },
               "Diaphanos fuscus": {
                 "jsonFile": "diafano-del-cende.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Diáfano del Cendé"
               }
             },
             "Steromapedaliodes": {
               "Steromapedaliodes schuberti": {
                 "jsonFile": "duende-de-guaramacal.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Duende de Guaramacal"
               },
               "Steromapedaliodes albonotata": {
                 "jsonFile": "duende-de-la-cordillera.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Duende de la cordillera"
               },
               "Steromapedaliodes sanchezi": {
                 "jsonFile": "duende-de-los-paramos.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Duende de los páramos"
               },
               "Steromapedaliodes albarregas": {
                 "jsonFile": "mariposa-marron-de-albarregas.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa marrón de Albarregas"
               }
             },
             "Philaethria": {
               "Philaethria browni": {
                 "jsonFile": "heliconio-verde-de-brown.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Heliconio verde de Brown"
               },
               "Philaethria romeroi": {
                 "jsonFile": "heliconio-verde-de-romero.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Heliconio verde de Romero"
               }
             },
             "Redonda": {
               "Redonda bordoni": {
                 "jsonFile": "mariposa-braquiptera-de-bordon.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa braquíptera de Bordón"
               },
               "Redonda empetrus": {
                 "jsonFile": "mariposa-braquiptera-de-la-culata.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Mariposa braquíptera de la Culata"
               },
               "Redonda centenaria": {
                 "jsonFile": "mariposa-paramera-centenaria.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa paramera centenaria"
               },
               "Redonda frailejona": {
                 "jsonFile": "mariposa-paramera-de-los-frailes.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa paramera de Los Frailes"
               },
               "Redonda lossadana": {
                 "jsonFile": "mariposa-paramera-de-lossada.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa paramera de Lossada"
               },
               "Redonda chiquinquirana": {
                 "jsonFile": "mariposa-paramera-de-mucubaji.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa paramera de Mucubají"
               },
               "Redonda castellana": {
                 "jsonFile": "mariposa-paramera-de-rafael-ramon-castellanos.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Mariposa paramera de Rafael Ramón Castellanos"
               },
               "Redonda leukasmena": {
                 "jsonFile": "mariposa-paramera-del-cende.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Mariposa paramera del Cendé"
               }
             },
             "Lymanopoda": {
               "Lymanopoda dietzi": {
                 "jsonFile": "mariposa-de-dietz.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Mariposa de Dietz"
               },
               "Lymanopoda marianna": {
                 "jsonFile": "mariposa-mariana.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Mariposa mariana"
               },
               "Lymanopoda orientalis": {
                 "jsonFile": "mariposa-oriental.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa oriental"
               },
               "Lymanopoda paramera": {
                 "jsonFile": "mariposita-blanca-del-paramo.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposita blanca del páramo"
               }
             },
             "Pedaliodes": {
               "Pedaliodes valencia": {
                 "jsonFile": "mariposa-manchada-del-tama.json",
                 "hasDescription": true,
-                "risk": "En Peligro Crítico"
+                "risk": "En Peligro Crítico",
+                "commonName": "Mariposa manchada del Tamá"
               },
               "Pedaliodes pisonia": {
                 "jsonFile": "mariposa-marron-oscura-de-venezuela.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Mariposa marrón oscura de Venezuela"
               },
               "Pedaliodes japhleta": {
                 "jsonFile": "satiro-montano.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Sátiro montano"
               }
             },
             "Altopedaliodes": {
               "Altopedaliodes tamaensis": {
                 "jsonFile": "mariposa-marron-de-las-alturas-del-tama.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa marrón de las alturas del Tamá"
               }
             },
             "Dangond": {
               "Dangond dangondi": {
                 "jsonFile": "mariposa-marron-de-perija.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa marrón de Perijá"
               }
             },
             "Pronophila": {
               "Pronophila obscura": {
                 "jsonFile": "mariposa-oscura-mayor.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Mariposa oscura mayor"
               }
             }
           },
@@ -1867,14 +2116,16 @@
               "Ministrymon albimimicus": {
                 "jsonFile": "licenido-blanco-mimetico-de-chacaito.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Licénido blanco-mimético de Chacaíto"
               }
             },
             "Theorema": {
               "Theorema pyrczia": {
                 "jsonFile": "licenido-de-escuque.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Licénido de Escuque"
               }
             }
           },
@@ -1883,7 +2134,8 @@
               "Catasticta revancha": {
                 "jsonFile": "mariposa-aurinegra-del-tama.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa aurinegra del Tamá"
               }
             }
           },
@@ -1892,19 +2144,22 @@
               "Ardaris eximia": {
                 "jsonFile": "mariposa-hesperide-altiandina.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Mariposa hespéride altiandina"
               },
               "Ardaris hantra": {
                 "jsonFile": "mariposa-hesperide-paramera.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposa hespéride paramera"
               }
             },
             "Hylephila": {
               "Hylephila ignorans": {
                 "jsonFile": "mariposita-paramera.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Mariposita paramera"
               }
             }
           }
@@ -1915,7 +2170,8 @@
               "Neotropospeonella decui": {
                 "jsonFile": "catopido-ciego-de-la-cueva-del-guacharo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Catópido ciego de la Cueva del guácharo"
               }
             }
           },
@@ -1924,40 +2180,46 @@
               "Ateuchus ambiguus": {
                 "jsonFile": "escarabajito-paramero-de-mucuchies.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Escarabajito paramero de Mucuchíes"
               }
             },
             "Eurysternus": {
               "Eurysternus impressicollis": {
                 "jsonFile": "escarabajo-estercolero-de-maracaibo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Escarabajo estercolero de Maracaibo"
               }
             },
             "Canthonella": {
               "Canthonella gomezi": {
                 "jsonFile": "hojarasquito-de-pipe.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Hojarasquito de Pipe"
               }
             },
             "Cryptocanthon": {
               "Cryptocanthon nebulinus": {
                 "jsonFile": "hojarasquito-nublado.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Hojarasquito nublado"
               },
               "Cryptocanthon punctatus": {
                 "jsonFile": "hojarasquito-puntuado.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Hojarasquito puntuado"
               }
             },
             "Sulcophanaeus": {
               "Sulcophanaeus auricollis": {
                 "jsonFile": "torococo-de-los-andes.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Torococo de los Andes"
               }
             }
           },
@@ -1966,7 +2228,8 @@
               "Trogloguignotus concii": {
                 "jsonFile": "escarabajo-ciego-de-la-cueva-de-hueque.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Escarabajo ciego de la cueva de Hueque"
               }
             }
           }
@@ -1977,7 +2240,8 @@
               "Phyllogomphoides brunneus": {
                 "jsonFile": "cola-de-hoja-del-tama.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cola de hoja del Tamá"
               }
             }
           },
@@ -1986,7 +2250,8 @@
               "Archilestes tuberalatus": {
                 "jsonFile": "corsario-de-san-esteban.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Corsario de San Esteban"
               }
             }
           },
@@ -1995,24 +2260,28 @@
               "Philogenia polyxena": {
                 "jsonFile": "elfo-de-aroa.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Elfo de Aroa"
               },
               "Philogenia ferox": {
                 "jsonFile": "elfo-feroz.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Elfo feroz"
               }
             },
             "Sciotropis": {
               "Sciotropis lattkei": {
                 "jsonFile": "elfo-de-paria.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Elfo de Paria"
               },
               "Sciotropis cyclanthorum": {
                 "jsonFile": "elfo-menor.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Elfo menor"
               }
             }
           },
@@ -2021,7 +2290,8 @@
               "Sympetrum evanescens": {
                 "jsonFile": "riegapozo-colorado.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Riegapozo colorado"
               }
             }
           }
@@ -2032,7 +2302,8 @@
               "Paranocticola venezuelana": {
                 "jsonFile": "cucaracha-ciega-venezolana.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cucaracha ciega venezolana"
               }
             }
           }
@@ -2045,7 +2316,8 @@
               "Charinus tronchonii": {
                 "jsonFile": "arana-latigo-cavernicola-de-la-sierra-de-san-luis.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Araña látigo cavernícola de la sierra de San Luis"
               }
             }
           }
@@ -2056,7 +2328,8 @@
               "Chromatopelma cyaneopubescens": {
                 "jsonFile": "tarantula-azul-de-paraguana.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Tarántula azul de Paraguaná"
               }
             }
           }
@@ -2069,24 +2342,28 @@
               "Euryrhynchus pemoni": {
                 "jsonFile": "camaroncito-de-rio-de-la-gran-sabana.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Camaroncito de río de la Gran Sabana"
               }
             },
             "Macrobrachium": {
               "Macrobrachium reyesi": {
                 "jsonFile": "camaroncito-de-rio-del-lago-de-valencia.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Camaroncito de río del lago de Valencia"
               },
               "Macrobrachium pumilum": {
                 "jsonFile": "camaroncito-del-rio-aguaro.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Camaroncito del río Aguaro"
               },
               "Macrobrachium rodriguezi": {
                 "jsonFile": "camaroncito-del-rio-caris.json",
                 "hasDescription": true,
-                "risk": "En Peligro"
+                "risk": "En Peligro",
+                "commonName": "Camaroncito del río Caris"
               }
             }
           },
@@ -2095,7 +2372,8 @@
               "Atya dressleri": {
                 "jsonFile": "camaroncito-de-rio-de-rancho-grande.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Camaroncito de río de Rancho Grande"
               }
             }
           },
@@ -2104,12 +2382,14 @@
               "Chaceus turikensis": {
                 "jsonFile": "cangrejo-cavernicola-de-mesa-turik.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cangrejo cavernícola de Mesa Turik"
               },
               "Chaceus caecus": {
                 "jsonFile": "cangrejo-troglobio-de-perija.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cangrejo troglobio de Perijá"
               }
             }
           },
@@ -2118,7 +2398,8 @@
               "Cardisoma guanhumi": {
                 "jsonFile": "cangrejo-de-tierra.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Cangrejo de tierra"
               }
             }
           },
@@ -2127,7 +2408,8 @@
               "Panulirus argus": {
                 "jsonFile": "langosta-espinosa.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Langosta espinosa"
               }
             }
           }
@@ -2138,7 +2420,8 @@
               "Zulialana coalescens": {
                 "jsonFile": "isopodo-ciego-de-la-cueva-de-toromo.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Isópodo ciego de la cueva de Toromo"
               }
             }
           }
@@ -2153,7 +2436,8 @@
               "Aliger gigas": {
                 "jsonFile": "botuto.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Botuto"
               }
             }
           },
@@ -2162,7 +2446,8 @@
               "Muracypraea mus": {
                 "jsonFile": "caracol-porcelana.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Caracol porcelana"
               }
             }
           }
@@ -2173,7 +2458,8 @@
               "Voluta musica": {
                 "jsonFile": "caracol-pentagrama.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Caracol pentagrama"
               }
             }
           }
@@ -2184,7 +2470,8 @@
               "Cittarium pica": {
                 "jsonFile": "quigua.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Quigua"
               }
             }
           }
@@ -2199,12 +2486,14 @@
               "Acropora palmata": {
                 "jsonFile": "coral-cacho-de-alce.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Coral cacho de alce"
               },
               "Acropora cervicornis": {
                 "jsonFile": "coral-cacho-de-venado.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Coral cacho de venado"
               }
             }
           },
@@ -2213,7 +2502,8 @@
               "Orbicella annularis": {
                 "jsonFile": "coral-pilar-estrella.json",
                 "hasDescription": true,
-                "risk": "Vulnerable"
+                "risk": "Vulnerable",
+                "commonName": "Coral pilar estrella"
               }
             }
           }
