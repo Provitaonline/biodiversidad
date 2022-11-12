@@ -165,13 +165,13 @@ export default {
           this.traverse(child, list)
         })
       } else {
-        list.push(n.hierarchy + ',' + n.name + ',' + this.riskText(n.risk) + ',' + 'https://especiesamenazadas.org/taxon' + n.link)
+        list.push(n.hierarchy + ',' + n.name + ',' + n.commonName + ',' + this.riskText(n.risk) + ',' + 'https://especiesamenazadas.org/taxon' + n.link)
       }
     },
     getListCSV() {
       let list = []
       this.traverse(this.currentNode, list)
-      list.sort().unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
+      list.sort().unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.commonname') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
       this.doDownload(list)
     }
   }

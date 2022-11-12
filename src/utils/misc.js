@@ -66,7 +66,7 @@ export function transform(object, kk, level) {
       {name: key, level: level, class: clazz},
         value && typeof value === 'object' && !value.hasDescription ?
           {children: transform(value, kk.toLowerCase() + '/' + key, level + 1) } :
-            { value: 1, link: kk.toLowerCase() + '/' + value.jsonFile.split('.')[0], risk: value.risk, hierarchy: '/Animalia' + kk})
+            { value: 1, link: kk.toLowerCase() + '/' + value.jsonFile.split('.')[0], commonName: value.commonName, risk: value.risk, hierarchy: '/Animalia' + kk})
   }).sort((a, b) => a.name.localeCompare(b.name))
 }
 
