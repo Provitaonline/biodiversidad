@@ -173,9 +173,9 @@ export default {
     },
     getListCSV() {
       let list = this.$refs.table.newData.map(item => {
-        return `/Animalia/${item.phylum}/${item.class}/${item.order}/${item.family}/${item.genus},${item.species},${this.riskText(item.risk)},${item.link}`
+        return `/Animalia/${item.phylum}/${item.class}/${item.order}/${item.family}/${item.genus},${item.species},${item.commonName},${item.riskO[this.$i18n.locale.substr(0, 2)]},${item.link}`
       })
-      list.unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
+      list.unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.commonname') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
       this.doDownload(list)
     },
     filterByRisk(row, input) {
