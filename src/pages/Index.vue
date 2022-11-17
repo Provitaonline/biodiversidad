@@ -13,7 +13,7 @@
               <g-link :to="$tp(item.link)">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <g-image class="img-hover-effect" :src="item.image"/>
+                    <g-image :immediate="true" :src="item.image"/>
                   </figure>
                 </div>
               </g-link>
