@@ -12,7 +12,18 @@
       <span class="is-size-7" style="margin-top: auto; margin-bottom: auto;">{{ $t('label.clearfilters') }}</span>
     </div>
     <b-table style="font-size: 0.9rem" ref="table" paginated :data="taxonomyTable">
-      <b-table-column searchable field="phylum" :label="$t('label.phylum')">
+      <b-table-column searchable field="taxonomy" :label="$t('label.taxonomy')">
+        <template v-slot="props">
+          <span>{{ props.row.taxonomy }}</span>
+        </template>
+        <template #searchable="props">
+          <input type="text" name="prevent_autofill" id="prevent_autofill" value="" style="display:none;" />
+          <b-input class="search-field" v-model="props.filters[props.column.field]" size="is-small"
+            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
+        </template>
+      </b-table-column>
+      <!-- <b-table-column searchable field="phylum" :label="$t('label.phylum')">
         <template v-slot="props">
           <span style="cursor: pointer;" @click="cellClick(props.row.phylum, 'phylum')">{{ props.row.phylum }}</span>
         </template>
@@ -62,7 +73,7 @@
             :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
-      </b-table-column>
+      </b-table-column> -->
       <b-table-column searchable field="species" :label="$t('label.species')">
         <template v-slot="props">
           <a :href="props.row.link" :target="newTabLinks ? '_blank' :'_self'">{{ props.row.species }}</a>
@@ -136,6 +147,7 @@ export default {
     this.taxonomyTable = Object.keys(t).map(item => {
       let s = item.split('.')
       return {
+        taxonomy: s.slice(0, 6).join(' → '),
         phylum: s[1],
         class: s[2],
         order: s[3],
@@ -147,6 +159,8 @@ export default {
         commonName: t[item].commonName
       }
     }).sort((a,b) => tText(a).localeCompare(tText(b)))
+    console.log(this.taxonomyTable)
+
   },
   unmounted() {
   },
