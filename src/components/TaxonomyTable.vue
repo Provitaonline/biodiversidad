@@ -159,7 +159,6 @@ export default {
         commonName: t[item].commonName
       }
     }).sort((a,b) => tText(a).localeCompare(tText(b)))
-    console.log(this.taxonomyTable)
 
   },
   unmounted() {
