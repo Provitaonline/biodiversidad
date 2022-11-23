@@ -94,7 +94,7 @@ export function loadGbifTranslations(collection) {
 }
 
 export function tText (item) {
-  return item.phylum + item.class + item.order + item.family + item.genus + item.species
+  return item.taxonomy + item.species
 }
 
 // Borrow from Leaflet
