@@ -23,57 +23,6 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
         </template>
       </b-table-column>
-      <!-- <b-table-column searchable field="phylum" :label="$t('label.phylum')">
-        <template v-slot="props">
-          <span style="cursor: pointer;" @click="cellClick(props.row.phylum, 'phylum')">{{ props.row.phylum }}</span>
-        </template>
-        <template #searchable="props">
-          <input type="text" name="prevent_autofill" id="prevent_autofill" value="" style="display:none;" />
-          <b-input class="search-field" v-model="props.filters[props.column.field]" size="is-small"
-            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
-        </template>
-      </b-table-column>
-      <b-table-column searchable field="class" :label="$t('label.class')">
-        <template v-slot="props">
-          <span style="cursor: pointer;" @click="cellClick(props.row.class, 'class')">{{ props.row.class }}</span>
-        </template>
-        <template #searchable="props">
-          <b-input class="search-field" v-model="props.filters[props.column.field]" size="is-small"
-            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
-        </template>
-      </b-table-column>
-      <b-table-column searchable field="order" :label="$t('label.order')">
-        <template v-slot="props">
-          <span style="cursor: pointer;" @click="cellClick(props.row.order, 'order')">{{ props.row.order }}</span>
-        </template>
-        <template #searchable="props">
-          <b-input class="search-field" v-model="props.filters[props.column.field]" size="is-small"
-            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
-        </template>
-      </b-table-column>
-      <b-table-column searchable field="family" :label="$t('label.family')">
-        <template v-slot="props">
-          <span style="cursor: pointer;" @click="cellClick(props.row.family, 'family')">{{ props.row.family }}</span>
-        </template>
-        <template #searchable="props">
-          <b-input class="search-field" v-model="props.filters[props.column.field]" size="is-small"
-            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
-        </template>
-      </b-table-column>
-      <b-table-column searchable field="genus" :label="$t('label.genus')">
-        <template v-slot="props">
-          <span style="cursor: pointer;" @click="cellClick(props.row.genus, 'genus')">{{ props.row.genus }}</span>
-        </template>
-        <template #searchable="props">
-          <b-input class="search-field" v-model="props.filters[props.column.field]" size="is-small"
-            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
-            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''" />
-        </template>
-      </b-table-column> -->
       <b-table-column searchable field="species" :label="$t('label.species')">
         <template v-slot="props">
           <a :href="props.row.link" :target="newTabLinks ? '_blank' :'_self'">{{ props.row.species }}</a>
@@ -127,7 +76,9 @@
 
 import flatten from 'flat'
 import {riskText, tText} from '~/utils/misc'
-import confirmDownload from "~//mixins/confirmDownload.js"
+import confirmDownload from '~/mixins/confirmDownload.js'
+
+const separator = ' → '
 
 export default {
   name: 'TaxonomyTable',
@@ -147,12 +98,7 @@ export default {
     this.taxonomyTable = Object.keys(t).map(item => {
       let s = item.split('.')
       return {
-        taxonomy: s.slice(0, 6).join(' → '),
-        phylum: s[1],
-        class: s[2],
-        order: s[3],
-        family: s[4],
-        genus: s[5],
+        taxonomy: s.slice(0, 6).join(separator),
         species: s[6],
         riskO: {es: t[item].risk, en: riskText(t[item].risk, 'en')},
         link: 'https://especiesamenazadas.org/taxon/' + (s.slice(1, 6).join('/') + '/' + t[item].jsonFile.split('.')[0]).toLowerCase(),
@@ -186,7 +132,7 @@ export default {
     },
     getListCSV() {
       let list = this.$refs.table.newData.map(item => {
-        return `/Animalia/${item.phylum}/${item.class}/${item.order}/${item.family}/${item.genus},${item.species},${item.commonName},${item.riskO[this.$i18n.locale.substr(0, 2)]},${item.link}`
+        return '/' + item.taxonomy.replaceAll(separator, '/') + `,${item.species},${item.commonName},${item.riskO[this.$i18n.locale.substr(0, 2)]},${item.link}`
       })
       list.unshift(this.$t('label.taxonomy') + ',' + this.$t('label.species') + ',' + this.$t('label.commonname') + ',' + this.$t('label.category') + ',' + this.$t('label.link'))
       this.doDownload(list)
