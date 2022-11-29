@@ -108,7 +108,10 @@
       "screenshot": "Download graph image",
       "clicknode": "Click a node to navigate",
       "provitaingbif": "Provita in GBIF",
-      "commonname": "Common name"
+      "commonname": "Common name",
+      "copyright": "All rights reserved, copyright © 2022",
+      "license": "license",
+      "version": "Version"
     }
   },
   "es": {
@@ -221,7 +224,10 @@
       "screenshot": "Descargar la imágen del gráfico",
       "clicknode": "Cliquea un nodo para navegar",
       "provitaingbif": "Provita en GBIF",
-      "commonname": "Nombre común"
+      "commonname": "Nombre común",
+      "copyright": "Derechos reservados, copyright © 2022",
+      "license": "licencia",
+      "version": "Versión"
     }
   }
 }

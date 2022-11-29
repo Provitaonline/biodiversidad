@@ -63,7 +63,16 @@
       <footer class="footer">
         <div class="has-text-centered">
           <div class="footer-text" style="color: white;">
-          Copyright © 2022 Provita, Versión preliminar / Early version v{{version}}.
+            <div class="social">
+              &nbsp;
+              <g-link to="https://www.instagram.com/provita_ong/"><font-awesome size="lg" :icon="['fab', 'instagram']"/></g-link>&nbsp;&nbsp;
+              <g-link to="https://www.facebook.com/ProvitaONG/"><font-awesome size="lg" :icon="['fab', 'facebook-f']"/></g-link>&nbsp;&nbsp;
+              <g-link to="https://twitter.com/provita_ong"><font-awesome size="lg" :icon="['fab', 'twitter']"/></g-link>
+              &nbsp;
+            </div>
+            <span> {{$t('label.copyright')}} </span>
+            <g-link href="https://www.provita.org.ve/">Provita</g-link>
+            <span> | {{$t('label.version')}} {{version}} BETA</span>
           </div>
         </div>
       </footer>
@@ -117,6 +126,24 @@
 
   ::v-deep .navbar-dropdown>.navbar-item {
     color: #363636;
+  }
+
+  .footer-text {
+    color: $white;
+  }
+
+  .footer-text a {
+    color: $navbar-item-hover-color;
+  }
+
+  .footer-text a:hover{
+    color: $black;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .social {
+      display: inline-block;
+    }
   }
 
 </style>
