@@ -37,7 +37,7 @@
         <b-navbar-item tag="g-link" :to="$tp('/about')">
           {{ $t('label.about') }}
         </b-navbar-item>
-        <b-navbar-dropdown v-if="!is404Page" arrowless right>
+        <b-navbar-dropdown v-if="!is404Page" :title="$t('label.language')" arrowless right>
           <template slot="label">
             {{ $t('flag') }}
           </template>
@@ -65,9 +65,9 @@
           <div class="footer-text" style="color: white;">
             <div class="social">
               &nbsp;
-              <g-link to="https://www.instagram.com/provita_ong/"><font-awesome size="lg" :icon="['fab', 'instagram']"/></g-link>&nbsp;&nbsp;
-              <g-link to="https://www.facebook.com/ProvitaONG/"><font-awesome size="lg" :icon="['fab', 'facebook-f']"/></g-link>&nbsp;&nbsp;
-              <g-link to="https://twitter.com/provita_ong"><font-awesome size="lg" :icon="['fab', 'twitter']"/></g-link>
+              <g-link title="Instagram" to="https://www.instagram.com/provita_ong/"><font-awesome size="lg" :icon="['fab', 'instagram']"/></g-link>&nbsp;&nbsp;
+              <g-link title="Facebook" to="https://www.facebook.com/ProvitaONG/"><font-awesome size="lg" :icon="['fab', 'facebook-f']"/></g-link>&nbsp;&nbsp;
+              <g-link title="Twitter" to="https://twitter.com/provita_ong"><font-awesome size="lg" :icon="['fab', 'twitter']"/></g-link>
               &nbsp;
             </div>
             <span> {{$t('label.copyright')}} </span>

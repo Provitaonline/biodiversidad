@@ -111,14 +111,14 @@
       "commonname": "Common name",
       "copyright": "All rights reserved, copyright © 2022",
       "license": "license",
-      "version": "Version"
+      "version": "Version",
+      "language": "Language"
     }
   },
   "es": {
     "language": "Español",
     "flag": "🇻🇪",
     "message": {
-
     },
     "label": {
       "site": "Provita Biodiversidad",
@@ -227,7 +227,8 @@
       "commonname": "Nombre común",
       "copyright": "Derechos reservados, copyright © 2022",
       "license": "licencia",
-      "version": "Versión"
+      "version": "Versión",
+      "language": "Idioma"
     }
   }
 }
