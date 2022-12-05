@@ -108,12 +108,12 @@ module.exports = {
       }
     },
     {
-        use: 'gridsome-plugin-gtag',
-        options: {
-            config: {
-                id: 'G-E07PJGQ7ZQ'
-            }
-        }
+      use: 'gridsome-plugin-gtm',
+      options: {
+        id: 'G-E07PJGQ7Z',
+        enabled: true,
+        debug: true
+      }
     }
   ]
 }
