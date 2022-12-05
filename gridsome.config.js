@@ -106,6 +106,14 @@ module.exports = {
         rewriteDefaultLanguage: false, // rewrite default locale, default: true
         messages: {}
       }
+    },
+    {
+        use: 'gridsome-plugin-gtag',
+        options: {
+            config: {
+                id: 'G-E07PJGQ7ZQ'
+            }
+        }
     }
   ]
 }

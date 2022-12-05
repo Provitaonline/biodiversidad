@@ -1,6 +1,6 @@
 {
   "name": "biodiversidad",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
@@ -13,6 +13,7 @@
     "d3": "^7.6.1",
     "flat": "^5.0.2",
     "gridsome": "^0.7.23",
+    "gridsome-plugin-gtag": "^0.1.10",
     "gridsome-plugin-i18n": "^1.6.0",
     "html2canvas": "^1.4.1",
     "maplibre-gl": "^2.1.9",
