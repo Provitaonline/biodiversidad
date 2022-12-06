@@ -106,14 +106,6 @@ module.exports = {
         rewriteDefaultLanguage: false, // rewrite default locale, default: true
         messages: {}
       }
-    },
-    {
-      use: 'gridsome-plugin-gtm',
-      options: {
-        id: 'G-E07PJGQ7ZQ',
-        enabled: true,
-        debug: true
-      }
     }
   ]
 }
