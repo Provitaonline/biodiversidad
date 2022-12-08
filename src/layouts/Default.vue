@@ -188,6 +188,7 @@
       },
       cookieStatus(status) {
         if (status != 'accept') {
+          this.$gtag.optIn()
           this.sendPageView()
         }
       },
