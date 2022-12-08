@@ -5,6 +5,8 @@ import Vuex from 'vuex'
 
 import DefaultLayout from '~/layouts/Default.vue'
 
+import VueCookieAcceptDecline from 'vue-cookie-accept-decline'
+
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { faUser, faEdit, faPlusSquare, faMinusSquare, faNewspaper, faCopy } from '@fortawesome/free-regular-svg-icons'
@@ -40,4 +42,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
   Vue.component('Layout', DefaultLayout)
 
   Vue.component('font-awesome', FontAwesomeIcon)
+
+  Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 }

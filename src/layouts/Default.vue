@@ -54,6 +54,14 @@
         </div>
       </div>
     </section>
+    <vue-cookie-accept-decline :elementId="'cookiePanel'" :position="'bottom-right'" :type="'floating'"
+      @status="cookieStatus"
+      @clicked-accept="cookieClickedAccept"
+      @clicked-decline="cookieClickedDecline">
+      <div slot="message" class="messageText">{{$t('message.sitecookiesmsg')}}</div>
+      <div slot="acceptContent">{{$t('label.accept')}}</div>
+      <div slot="declineContent">{{$t('label.decline')}}</div>
+    </vue-cookie-accept-decline>
     <transition name="fade" appear>
       <section class="layout">
         <slot />
@@ -174,8 +182,27 @@
         if (this.$i18n.locale.toString() != locale) {
           // We will do this later to notify components like the map to switch languages
           this.$eventBus.$emit('localechanged', locale)
+          this.sendPageView()
           console.log('locale changed')
         }
+      },
+      cookieStatus(status) {
+        if (status != 'accept') {
+          this.sendPageView()
+        }
+      },
+      cookieClickedAccept() {
+        this.$gtag.optIn()
+        this.sendPageView()
+      },
+      cookieClickedDecline() {
+        this.$gtag.optOut()
+      },
+      sendPageView() {
+        this.$gtag.pageview({
+          page_path: this.$route.path,
+          page_location: window.location.href
+        })
       }
     }
   }

@@ -13,6 +13,10 @@
 
 @import "~maplibre-gl/dist/maplibre-gl.css";
 
+/** Import Vue cookie accept decline **/
+
+@import '~vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css';
+
 /** Import overrides */
 
 @import "overrides";

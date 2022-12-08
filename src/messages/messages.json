@@ -3,6 +3,7 @@
     "language": "English",
     "flag": "🇺🇸",
     "message": {
+      "sitecookiesmsg": "This web site uses \"Cookies\" to collect anonymous information about the user's navigation experience."
     },
     "label": {
       "site": "Provita Biodiversity",
@@ -112,13 +113,16 @@
       "copyright": "All rights reserved, copyright © 2022",
       "license": "license",
       "version": "Version",
-      "language": "Language"
+      "language": "Language",
+      "accept": "Accept",
+      "decline": "Decline"
     }
   },
   "es": {
     "language": "Español",
     "flag": "🇻🇪",
     "message": {
+      "sitecookiesmsg": "Este sitio web usa \"Cookies\" para recopilar información anónima sobre la experiencia de navegación del usuario."
     },
     "label": {
       "site": "Provita Biodiversidad",
@@ -228,7 +232,9 @@
       "copyright": "Derechos reservados, copyright © 2022",
       "license": "licencia",
       "version": "Versión",
-      "language": "Idioma"
+      "language": "Idioma",
+      "accept": "Aceptar",
+      "decline": "Rehusar"
     }
   }
 }
