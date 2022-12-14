@@ -76,7 +76,9 @@ export function riskText(r, locale) {
     'Extinto a Nivel Regional': 'Regionally extinct',
     'En Peligro Crítico': 'Critically endangered',
     'En Peligro': 'Endangered',
-    'Vulnerable': 'Vulnerable'
+    'Vulnerable': 'Vulnerable',
+    'Casi Amenazado': 'Near Threatened',
+    'Preocupación Menor': 'Least Concern'
   }
 
   return locale === 'es' ? r : riskTranslations[r]

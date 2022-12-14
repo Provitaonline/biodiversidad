@@ -17,7 +17,7 @@
                     </figure>
                     <div>
                       <div style="display: flex;">
-                        <b-tooltip :label="threatCategories[item.node.category].text" position="is-top" type="is-warning">
+                        <b-tooltip :label="riskText(threatCategories[item.node.category].text, $i18n.locale.substr(0, 2))" position="is-top" type="is-warning">
                           <div class="iconInTable">
                             <img :src="threatCategories[item.node.category].img.src"></img>
                           </div>
@@ -190,7 +190,7 @@
 <script>
 const byState = require('/content/ecosystems/plant-formations-by-state.json')
 import slugify from 'slugify'
-import {computeFormationTotals} from '~/utils/misc'
+import {computeFormationTotals, riskText} from '~/utils/misc'
 
 //console.log(computeFormationTotals(byState))
 
@@ -252,6 +252,9 @@ export default {
           } catch {}
         }
       }
+    },
+    riskText(r, locale) {
+      return riskText(r, locale)
     }
   }
 }
