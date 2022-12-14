@@ -46,7 +46,7 @@
       <b-table-column searchable :custom-search="filterByRisk" field="risk" :label="$t('label.category')">
         <template v-slot="props">
           <div style="display: flex; justify-content: center;">
-            <b-tooltip position="is-left" :label="props.row.riskO[$i18n.locale.substr(0, 2)]">
+            <b-tooltip position="is-left" :label="props.row.riskO[$i18n.locale.substr(0, 2)]" type="is-warning">
               <img style="width: 30px; cursor: pointer;" :src="getRiskImage(props.row.riskO.es)">
             </b-tooltip>
           </div>
