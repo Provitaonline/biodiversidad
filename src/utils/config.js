@@ -78,6 +78,7 @@ export const gbifGraphQlQuery = {
       key
       title
       created
+      pubDate
       description
       temporalCoverages
       logoUrl

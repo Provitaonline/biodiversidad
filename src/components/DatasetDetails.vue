@@ -3,7 +3,7 @@
     <div class="box content">
       <div class="has-text-centered">
         <a :href="'https://gbif.org/' + $i18n.locale.substr(0, 2) + '/dataset/' + dataset.key" target="_blank">
-          {{$t('label.dataset')}}<span v-if="dataset.created">({{$d(new Date(dataset.created), 'longdateonly')}})</span>&nbsp;<font-awesome size="sm" :icon="['fas', 'external-link-alt']"/>
+          {{$t('label.dataset')}}<span v-if="dataset.pubDate">({{$d(new Date(dataset.pubDate), 'longdateonly')}})</span>&nbsp;<font-awesome size="sm" :icon="['fas', 'external-link-alt']"/>
         </a>
         <h4 class="title-5">{{dataset.title}}</h4>
         <h6 class="title-6">{{dataset.typeExpanded}}</h6>

@@ -114,7 +114,8 @@
       "version": "Version",
       "language": "Language",
       "accept": "Accept",
-      "decline": "Decline"
+      "decline": "Decline",
+      "notavailable": "N/A"
     }
   },
   "es": {
@@ -232,7 +233,8 @@
       "version": "Versión",
       "language": "Idioma",
       "accept": "Aceptar",
-      "decline": "Rehusar"
+      "decline": "Rehusar",
+      "notavailable": "N/D"
     }
   }
 }

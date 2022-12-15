@@ -81,6 +81,16 @@
             icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''; columnFiltersChange();" />
         </template>
       </b-table-column>
+      <b-table-column searchable sortable field="pubDate" :label="$t('label.year')">
+        <template v-slot="props">
+          {{ props.row.pubDate ? props.row.pubDate.substr(0, 4) : $t('label.notavailable') }}
+        </template>
+        <template #searchable="props">
+          <b-input @input="columnFiltersChange()" v-model="props.filters[props.column.field]" size="is-small"
+            :icon-right="props.filters[props.column.field] === '' || props.filters[props.column.field] === undefined ? '' : 'close-circle'"
+            icon-right-clickable @icon-right-click="props.filters[props.column.field] = ''; columnFiltersChange();" />
+        </template>
+      </b-table-column>
       <b-table-column searchable sortable field="publishingOrganizationTitle" :label="$t('label.organization')">
         <template v-slot="props">
           {{ props.row.publishingOrganizationTitle }}
@@ -343,11 +353,12 @@ export default {
     restoreFromQueryParms(route) {
       let r = route ? route : this.$route
       if (Object.keys(r.query).length) {
-        if (r.query.title || r.query.publishingOrganizationTitle || r.query.typeExpanded || r.query.licenseShort) {
+        if (r.query.title || r.query.publishingOrganizationTitle || r.query.typeExpanded || r.query.licenseShort || r.query.pubDate) {
           if (r.query.title) this.$set(this.$refs.table.filters, 'title', r.query.title)
           if (r.query.publishingOrganizationTitle) this.$set(this.$refs.table.filters, 'publishingOrganizationTitle', r.query.publishingOrganizationTitle)
           if (r.query.typeExpanded) this.$set(this.$refs.table.filters, 'typeExpanded', r.query.typeExpanded)
           if (r.query.licenseShort) this.$set(this.$refs.table.filters, 'licenseShort', r.query.licenseShort)
+          if (r.query.pubDate) this.$set(this.$refs.table.filters, 'pubDate', r.query.pubDate)
         }
         if (r.query.page) this.gbifDatasetsPage = parseInt(r.query.page)
         if (r.query.rank) this.selectedTaxonomicGroup = r.query.rank
