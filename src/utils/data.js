@@ -65,19 +65,32 @@ export async function getAllGbifDatasets(locale) {
 
   const cache = await caches.open('gbif-cache')
 
-  let request = new Request ('https://api.gbif.org/v1/dataset/search?q=venezuela&limit=1000&locale=' + locale,
-    {headers: {'Accept-Language': locale}})
+  const limit = 1000
+  let offset = 0
+  let finalResult = {count: 0, results: []}
+  let endOfRecords = false
 
-  let response = await cache.match(request)
+  do {
+    let request = new Request (`https://api.gbif.org/v1/dataset/search?q=venezuela&limit=${limit}&offset=${offset}&locale=${locale}`,
+      {headers: {'Accept-Language': locale}})
 
-  if (!response) {
-    await cache.add(request)
-    response = await cache.match(request)
-  }
+    let response = await cache.match(request)
 
-  response = await response.json()
-  if (!response.endOfRecords) console.log('Fix this: there are more than 1000 datasets')
-  return response
+    if (!response) {
+      await cache.add(request)
+      response = await cache.match(request)
+    }
+
+    response = await response.json()
+
+    finalResult.count = response.count
+    finalResult.results.push(...response.results)
+
+    offset += response.results.length
+    endOfRecords = response.endOfRecords
+  } while (!endOfRecords)
+
+  return finalResult
 }
 
 export async function getGbifDatasetDetail(key) {
