@@ -80,7 +80,7 @@
             </div>
             <span> {{$t('label.copyright')}} </span>
             <g-link href="https://www.provita.org.ve/">Provita</g-link>
-            <span> | {{$t('label.version')}} {{version}} BETA</span>
+            <span> | {{$t('label.version')}} {{version}}</span>
           </div>
         </div>
       </footer>
