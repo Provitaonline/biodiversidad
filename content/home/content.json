@@ -11,8 +11,8 @@
         "es": "Registros de presencia"
       },
       "summary": {
-        "en": "Species data on the **[GBIF](https://www.gbif.org/)** platform. It has search filters and a visualization map.",
-        "es": "Datos de especies en la plataforma de **[GBIF](https://www.gbif.org/es/)**. Posee filtros de búsqueda y un mapa de visualización."
+        "en": "Species occurrence data on the **[GBIF](https://www.gbif.org/)** platform. It includes search filters and a visualization map.",
+        "es": "Datos de registros de especies en la plataforma de [GBIF](https://www.gbif.org/). Posee filtros de búsqueda y un mapa de visualización."
       },
       "link": "/occurrences",
       "image": "./images/occurrences-outline.svg"
@@ -47,7 +47,7 @@
         "es": "Especies de fauna amenazadas"
       },
       "summary": {
-        "en": "Endangered fauna of Venezuela, based on the **[red book of the year 2015](https://especiesamenazadas.org/)**.",
+        "en": "Threatened fauna of Venezuela, based on the **[red book of the year 2015](https://especiesamenazadas.org/)**.",
         "es": "Fauna amenazada de Venezuela, basado en el **[libro rojo del año 2015](https://especiesamenazadas.org/)**."
       },
       "link": "/faunarb",
