@@ -6,7 +6,7 @@
           {{$t('label.occurrence')}} <span v-if="occurrence.eventDate">({{$d(new Date(occurrence.eventDate), 'longdateonly')}})</span> <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/>
         </a>
         <br>
-        <h4 class="title-5" v-html="occurrenceMore.gbifClassification.usage.formattedName"></h4>
+        <h4 class="title-5" v-html="occurrenceMore.gbifClassification && occurrenceMore.gbifClassification.usage ? occurrenceMore.gbifClassification.usage.formattedName : (occurrence.scientificName || '<i>Unknown name</i>')"></h4>
         <div v-if="occurrence.iucnRedListCategory" class="has-text-weight-semibold">{{$t('label.iucnredlistcategory')}}: {{occurrence.iucnRedListCategory}} - {{ $t('label.' + occurrence.iucnRedListCategory) }}</div>
       </div>
       <hr>
@@ -18,7 +18,7 @@
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.summary')}}</div>
       <dl style="display: grid; grid-template-columns: minmax(75px, 150px) 1fr;">
         <dt>{{$t('label.scientificname')}}</dt>
-        <dd v-html="occurrenceMore.gbifClassification.usage.formattedName"></dd>
+        <dd v-html="occurrenceMore.gbifClassification && occurrenceMore.gbifClassification.usage ? occurrenceMore.gbifClassification.usage.formattedName : (occurrence.scientificName || 'Unknown')"></dd>
         <dt>{{$t('label.taxonomy')}}</dt>
         <dd>{{occurrence.kingdom}} &gt; {{occurrence.phylum}} &gt; {{occurrence.class}} &gt; {{occurrence.order}} &gt; {{occurrence.family}} &gt; {{occurrence.genus}}</dd>
         <dt>{{$t('label.dataset')}}</dt>
@@ -34,7 +34,7 @@
       <dl style="display: grid; grid-template-columns: minmax(75px, 150px) 1fr;">
         <dt>{{$t('label.recordid')}}</dt>
         <dd>
-          <a v-if="occurrence.occurrenceID && occurrence.occurrenceID.toLowerCase().startsWith('http')" :href="occurrence.occurrenceID" target="_blank">{{occurrence.occurrenceID}} </span> <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/></a>
+          <a v-if="occurrence.occurrenceID && occurrence.occurrenceID.toLowerCase().startsWith('http')" :href="occurrence.occurrenceID" target="_blank">{{occurrence.occurrenceID}} <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/></a>
           <span v-else>{{occurrence.occurrenceID}}</span>
         </dd>
         <dt>{{$t('label.occurrencestatus')}}</dt>
@@ -46,7 +46,7 @@
         <dt v-if="occurrenceMore.institution">{{$t('label.institution')}}</dt>
         <dd v-if="occurrenceMore.institution">{{occurrenceMore.institution.name}}</dd>
         <dt>{{$t('label.license')}}</dt>
-        <dd><a :href="occurrence.license" target="_blank">{{licenseTypes[occurrence.license]}} </span> <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/></a></dd>
+        <dd><a :href="occurrence.license" target="_blank">{{licenseTypes[occurrence.license]}} <font-awesome size="sm" :icon="['fas', 'external-link-alt']"/></a></dd>
         <dt>{{$t('label.rightsholder')}}</dt>
         <dd>{{occurrence.rightsHolder}}</dd>
       </dl>
@@ -54,8 +54,8 @@
       <dl style="display: grid; grid-template-columns: minmax(75px, 150px) 1fr; word-break: break-word;">
         <dt>{{$t('label.country')}}</dt>
         <dd>{{gbifTranslations.country[$i18n.locale.substr(0, 2)][occurrence.countryCode]}}</dd>
-        <dt v-if="occurrence.gadm.level0">GADM</dt>
-        <dd v-if="occurrence.gadm.level0">{{occurrence.gadm.level0.name}} &gt; {{occurrence.gadm.level1.name}} &gt; {{occurrence.gadm.level2.name}}</dd>
+        <dt v-if="occurrence.gadm && occurrence.gadm.level0">GADM</dt>
+        <dd v-if="occurrence.gadm && occurrence.gadm.level0">{{occurrence.gadm.level0.name}} &gt; {{occurrence.gadm.level1.name}} &gt; {{occurrence.gadm.level2.name}}</dd>
         <dt v-if="occurrence.verbatimLocality">{{$t('label.locality')}}</dt>
         <dd v-if="occurrence.verbatimLocality">{{occurrence.verbatimLocality}}</dd>
         <dt>{{$t('label.coordinates')}}</dt>
@@ -64,9 +64,9 @@
         <dd v-if="occurrence.coordinateUncertaintyInMeters">{{$n(occurrence.coordinateUncertaintyInMeters)}} m</dd>
       </dl>
       <div class="d-heading has-text-weight-semibold has-text-centered">{{$t('label.citation')}}
-        <CopyTextToClipboard :text="occurrenceMore.dataset.citation.text"/>
+        <CopyTextToClipboard :text="occurrenceMore.dataset && occurrenceMore.dataset.citation ? occurrenceMore.dataset.citation.text : ''"/>
       </div>
-      <div>{{occurrenceMore.dataset.citation.text}}</div>
+      <div>{{occurrenceMore.dataset && occurrenceMore.dataset.citation ? occurrenceMore.dataset.citation.text : ''}}</div>
     </div>
   </div>
 </template>

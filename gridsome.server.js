@@ -1,5 +1,8 @@
 const axios = require('axios')
 
+const translationsEn = require('./src/data/translations-en.json')
+const translationsEs = require('./src/data/translations-es.json')
+
 let { marked } = require('marked')
 
 var renderer = new marked.Renderer()
@@ -29,30 +32,29 @@ module.exports = function (api) {
     }
   })
 
-  api.loadSource(async actions => {
-    const translationsEs = await axios.get('https://www.gbif.org/api/translation.json?lang=es')
-    const translationsEn = await axios.get('https://www.gbif.org/api/translation.json?lang=en')
-
+  api.loadSource(actions => {
     const collection = actions.addCollection({
       typeName: 'GbifTranslations'
     })
 
+    // The original code used .data because of axios;
+    // Point directly to the objects now.
     collection.addNode({
       id: 'basisOfRecord',
-      en: JSON.stringify(translationsEn.data.basisOfRecord),
-      es: JSON.stringify(translationsEs.data.basisOfRecord)
+      en: JSON.stringify(translationsEn.basisOfRecord),
+      es: JSON.stringify(translationsEs.basisOfRecord)
     })
 
     collection.addNode({
       id: 'country',
-      en: JSON.stringify(translationsEn.data.country),
-      es: JSON.stringify(translationsEs.data.country)
+      en: JSON.stringify(translationsEn.country),
+      es: JSON.stringify(translationsEs.country)
     })
 
     collection.addNode({
       id: 'role',
-      en: JSON.stringify(translationsEn.data.role),
-      es: JSON.stringify(translationsEs.data.role)
+      en: JSON.stringify(translationsEn.role),
+      es: JSON.stringify(translationsEs.role)
     })
   })
 
